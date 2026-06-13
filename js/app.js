@@ -285,7 +285,12 @@ function toast(msg){
 
 /* ---------- Scroll reveals ---------- */
 function observeReveals(){
-  const io = new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} }),{threshold:.12});
+  if (!('IntersectionObserver' in window)) {
+    document.querySelectorAll('.reveal').forEach(el=>el.classList.add('in'));
+    return;
+  }
+  document.body.classList.add('js-reveal-ready');
+  const io = new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} }),{threshold:.08, rootMargin:'0px 0px -40px 0px'});
   document.querySelectorAll('.reveal:not(.in)').forEach(el=>io.observe(el));
 }
 

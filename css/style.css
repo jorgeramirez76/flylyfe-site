@@ -177,8 +177,9 @@ button{font-family:inherit;cursor:pointer}
 .toast[hidden]{display:none}
 
 /* ============ Reveal on scroll ============ */
-.reveal{opacity:0;transform:translateY(30px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
-.reveal.in{opacity:1;transform:none}
+.reveal{opacity:1;transform:none;transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.js-reveal-ready .reveal{opacity:0;transform:translateY(30px)}
+.js-reveal-ready .reveal.in{opacity:1;transform:none}
 
 /* ============ Responsive ============ */
 @media(max-width:900px){
