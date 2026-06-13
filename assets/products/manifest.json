@@ -1,0 +1,86 @@
+{
+ "the-anthem-tee": {
+  "Black": {
+   "front": "assets/products/the-anthem-tee-Black-front.jpg",
+   "back": "assets/products/the-anthem-tee-Black-back.jpg"
+  },
+  "White": {
+   "back": "assets/products/the-anthem-tee-White-back.jpg",
+   "front": "assets/products/the-anthem-tee-White-front.jpg"
+  },
+  "Ivory": {
+   "front": "assets/products/the-anthem-tee-Ivory-front.jpg",
+   "back": "assets/products/the-anthem-tee-Ivory-back.jpg"
+  }
+ },
+ "the-conga-tee": {
+  "Black": {
+   "front": "assets/products/the-conga-tee-Black-front.jpg",
+   "back": "assets/products/the-conga-tee-Black-back.jpg"
+  },
+  "White": {
+   "back": "assets/products/the-conga-tee-White-back.jpg",
+   "front": "assets/products/the-conga-tee-White-front.jpg"
+  },
+  "Ivory": {
+   "front": "assets/products/the-conga-tee-Ivory-front.jpg",
+   "back": "assets/products/the-conga-tee-Ivory-back.jpg"
+  }
+ },
+ "the-signature-tee": {
+  "Black": {
+   "front": "assets/products/the-signature-tee-Black-front.jpg",
+   "back": "assets/products/the-signature-tee-Black-back.jpg"
+  },
+  "White": {
+   "front": "assets/products/the-signature-tee-White-front.jpg",
+   "back": "assets/products/the-signature-tee-White-back.jpg"
+  },
+  "Ivory": {
+   "front": "assets/products/the-signature-tee-Ivory-front.jpg",
+   "back": "assets/products/the-signature-tee-Ivory-back.jpg"
+  }
+ },
+ "the-anthem-tee-womens": {
+  "Black": {
+   "front": "assets/products/the-anthem-tee-womens-Black-front.jpg",
+   "back": "assets/products/the-anthem-tee-womens-Black-back.jpg"
+  },
+  "White": {
+   "back": "assets/products/the-anthem-tee-womens-White-back.jpg",
+   "front": "assets/products/the-anthem-tee-womens-White-front.jpg"
+  },
+  "Natural": {
+   "front": "assets/products/the-anthem-tee-womens-Natural-front.jpg",
+   "back": "assets/products/the-anthem-tee-womens-Natural-back.jpg"
+  }
+ },
+ "the-conga-tee-womens": {
+  "Black": {
+   "front": "assets/products/the-conga-tee-womens-Black-front.jpg",
+   "back": "assets/products/the-conga-tee-womens-Black-back.jpg"
+  },
+  "White": {
+   "back": "assets/products/the-conga-tee-womens-White-back.jpg",
+   "front": "assets/products/the-conga-tee-womens-White-front.jpg"
+  },
+  "Natural": {
+   "front": "assets/products/the-conga-tee-womens-Natural-front.jpg",
+   "back": "assets/products/the-conga-tee-womens-Natural-back.jpg"
+  }
+ },
+ "the-signature-tee-womens": {
+  "Black": {
+   "front": "assets/products/the-signature-tee-womens-Black-front.jpg",
+   "back": "assets/products/the-signature-tee-womens-Black-back.jpg"
+  },
+  "White": {
+   "front": "assets/products/the-signature-tee-womens-White-front.jpg",
+   "back": "assets/products/the-signature-tee-womens-White-back.jpg"
+  },
+  "Natural": {
+   "front": "assets/products/the-signature-tee-womens-Natural-front.jpg",
+   "back": "assets/products/the-signature-tee-womens-Natural-back.jpg"
+  }
+ }
+}
