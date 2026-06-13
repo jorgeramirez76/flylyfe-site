@@ -14,6 +14,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Anton&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/product.css">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"ClothingStore","name":"FLYLYFE","url":"https://flylyfe.com","description":"NYC-born streetwear inspired by house music culture.","foundingDate":"2007","address":{"@type":"PostalAddress","addressRegion":"NJ","addressCountry":"US"}}
 </script>
@@ -183,23 +184,34 @@
   <p class="footer__fine mono">© <span id="year"></span> FLYLYFE. All rights reserved. Printed in the USA.</p>
 </footer>
 
-<!-- ======= PRODUCT MODAL ======= -->
-<div class="modal" id="modal" role="dialog" aria-modal="true" aria-label="Product details" hidden>
-  <div class="modal__backdrop" data-close></div>
-  <div class="modal__panel">
-    <button class="modal__close" data-close aria-label="Close">✕</button>
-    <div class="modal__gallery">
-      <img id="mImg" src="" alt="">
-      <div class="modal__thumbs" id="mThumbs"></div>
+<!-- ======= FULL-SCREEN PRODUCT DETAIL PAGE ======= -->
+<div class="pdp" id="pdp" hidden>
+  <button class="pdp__back mono" id="pdpBack">← BACK</button>
+
+  <div class="pdp__gallery">
+    <img class="pdp__main-img" id="pdpMain" src="" alt="">
+    <div class="pdp__thumbs" id="pdpThumbs"></div>
+  </div>
+
+  <div class="pdp__info">
+    <p class="pdp__kicker mono gold-text">FLYLYFE — EST. 2007</p>
+    <h2 class="pdp__title" id="pdpTitle"></h2>
+    <p class="pdp__price mono" id="pdpPrice"></p>
+    <hr class="pdp__divider">
+
+    <div>
+      <p class="pdp__opt-label mono">COLOR — <span class="pdp__color-selected" id="pdpColorName"></span></p>
+      <div class="pdp__swatches" id="pdpSwatches"></div>
     </div>
-    <div class="modal__info">
-      <h3 id="mTitle"></h3>
-      <p class="modal__price gold-text mono" id="mPrice"></p>
-      <div class="opt"><p class="mono opt__label">COLOR — <span id="mColorName"></span></p><div class="swatches" id="mColors"></div></div>
-      <div class="opt"><p class="mono opt__label">SIZE</p><div class="sizes" id="mSizes"></div></div>
-      <button class="btn btn--solid" id="mAdd">ADD TO CART</button>
-      <div class="modal__desc" id="mDesc"></div>
+
+    <div>
+      <p class="pdp__opt-label mono">SIZE</p>
+      <div class="pdp__sizes" id="pdpSizes"></div>
     </div>
+
+    <button class="pdp__atc mono" id="pdpATC">ADD TO CART →</button>
+
+    <div class="pdp__desc" id="pdpDesc"></div>
   </div>
 </div>
 
