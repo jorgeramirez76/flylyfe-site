@@ -1,4 +1,4 @@
-/* ============ FLYLYFE — back-first product display + accurate mockups + lifestyle ============ */
+/* ============ FLYLYFE — male model hero cards + popup modal PDP ============ */
 
 const SHOP_DOMAIN = '31zn52-zd.myshopify.com';
 const STOREFRONT_TOKEN = '5a0bb1dcf0c57b7764bbebf0cc40c898';
@@ -9,16 +9,16 @@ const COLOR_HEX = {
   'Ivory':'#f1e8d2', 'Natural':'#fff7e9'
 };
 
-/* Accurate Printful mockups — handle → color → {front, back} (the TRUE designs customers receive) */
-let MOCKUPS = {};
-
-/* Lifestyle "worn" shots — real models, used as supporting imagery in the PDP */
-const LIFESTYLE = {
-  'the-anthem-tee':       ['assets/models/black-back.jpg','assets/models/black-front.jpg'],
-  'the-anthem-tee-womens':['assets/models/black-back.jpg'],
-  'the-conga-tee':        ['assets/models/cream-back.jpg'],
-  'the-signature-tee':    ['assets/models/cream-alt-back.jpg'],
+/* ---- Male model images per color: back (hero) + front (hover) ---- */
+const MODEL_SHOTS = {
+  Black:   { back:'assets/models/black-back.jpg',     front:'assets/models/black-front.jpg'    },
+  White:   { back:'assets/models/white-back.jpg',     front:'assets/models/white-front.jpg'    },
+  Ivory:   { back:'assets/models/cream-back.jpg',     front:'assets/models/cream-front.jpg'    },
+  Natural: { back:'assets/models/cream-alt-back.jpg', front:'assets/models/cream-alt-front.jpg'}
 };
+
+/* Accurate Printful mockups — used as thumbnails in the modal */
+let MOCKUPS = {};
 
 const MEN_HANDLES = ['the-anthem-tee','the-conga-tee','the-signature-tee'];
 const WOMEN_HANDLES = ['the-anthem-tee-womens','the-conga-tee-womens','the-signature-tee-womens'];
@@ -26,7 +26,6 @@ const TAGLINES = {
   'the-anthem-tee':'FEEL THE MUSIC','the-conga-tee':'MOVE THE BODY','the-signature-tee':'THE CLASSIC',
   'the-anthem-tee-womens':'FEEL THE MUSIC','the-conga-tee-womens':'MOVE THE BODY','the-signature-tee-womens':'THE CLASSIC'
 };
-/* short selling descriptor under each product name */
 const SUBTITLE = {
   'the-anthem-tee':'The mantra, worn big on the back',
   'the-conga-tee':'Dancer & conga — the rhythm on your back',
@@ -60,9 +59,8 @@ let PRODUCTS = {};
 let cartId = localStorage.getItem('flylyfe_cart');
 
 function money(a){ return '$' + parseFloat(a).toFixed(2); }
-function gender(h){ return h.includes('womens') ? 'women' : 'men'; }
 
-/* Image lookup — always prefer accurate mockup */
+/* helper: mockup from manifest */
 function mockup(handle, color, view) {
   const m = MOCKUPS[handle];
   if (!m) return '';
@@ -70,8 +68,13 @@ function mockup(handle, color, view) {
   return (c && (c[view] || c.back || c.front)) || '';
 }
 
+/* model shot for a given color/view */
+function modelShot(color, view) {
+  const shots = MODEL_SHOTS[color] || MODEL_SHOTS['Black'];
+  return shots[view] || shots.back;
+}
+
 async function init() {
-  // load mockup manifest + products in parallel
   const [manifest, data] = await Promise.all([
     fetch('assets/products/manifest.json').then(r=>r.json()).catch(()=>({})),
     gql(PRODUCT_Q)
@@ -82,12 +85,14 @@ async function init() {
   renderGrid('gridMen', MEN_HANDLES, 'men');
   renderGrid('gridWomen', WOMEN_HANDLES, 'women');
   renderFeatured();
+  injectProductSchema();
   observeReveals();
   if (cartId) renderCart(await ensureCart());
 }
 
-/* ---- Product cards: BACK design is the hero ---- */
-function renderGrid(elId, handles, g) {
+/* ===== PRODUCT CARDS: male model images, back as hero, hover flips to front =====
+   Color dot click → swaps to the model photo in that color */
+function renderGrid(elId, handles) {
   const grid = document.getElementById(elId);
   grid.innerHTML = '';
   handles.forEach((h, idx) => {
@@ -101,12 +106,14 @@ function renderGrid(elId, handles, g) {
     card.className = 'card';
 
     function build() {
-      const back  = mockup(h, activeColor, 'back');
-      const front = mockup(h, activeColor, 'front');
+      /* accurate per-design Printful mockup is the card art (each design shows its TRUE graphic);
+         model lifestyle shots remain as worn views inside the PDP gallery */
+      const heroBack  = mockup(h, activeColor, 'back')  || modelShot(activeColor, 'back');
+      const heroFront = mockup(h, activeColor, 'front') || modelShot(activeColor, 'front');
       card.innerHTML = `
-        <div class="card__media card--mockup" data-color="${activeColor}">
-          <img class="front back-hero" src="${back}" alt="${p.title} ${activeColor} back design" loading="${idx<3?'eager':'lazy'}">
-          <img class="back" src="${front}" alt="${p.title} ${activeColor} front" loading="lazy">
+        <div class="card__media card__media--mockup" data-color="${activeColor}" role="button" tabindex="0" aria-label="View ${p.title.replace(" — Women's","")}">
+          <img class="front back-hero" src="${heroBack}" alt="${p.title} — ${activeColor}, back design" loading="lazy" decoding="async">
+          <img class="back" src="${heroFront}" alt="${p.title} — ${activeColor}, front" loading="lazy" decoding="async">
           <span class="card__tag">${TAGLINES[h]||'FLYLYFE'}</span>
           <span class="card__view mono">BACK · HOVER FOR FRONT</span>
           <span class="card__quick mono">VIEW &amp; BUY →</span>
@@ -116,26 +123,31 @@ function renderGrid(elId, handles, g) {
             <div class="card__name">${p.title.replace(" — Women's","")}</div>
             <div class="card__sub">${SUBTITLE[h]||''}</div>
             <div class="card__colors">
-              ${colors.map(c=>`<span class="dot${c===activeColor?' on':''}" data-color="${c}" title="${c}" style="background:${COLOR_HEX[c]||'#888'}"></span>`).join('')}
+              ${colors.map(c=>`<button type="button" class="dot${c===activeColor?' on':''}" data-color="${c}" title="${c}" aria-label="${c}" aria-pressed="${c===activeColor}" style="background:${COLOR_HEX[c]||'#888'};padding:0"></button>`).join('')}
             </div>
           </div>
           <div class="card__price">${money(price)}</div>
         </div>`;
 
+      const media = card.querySelector('.card__media');
+      media.addEventListener('click', ()=>openPDP(h, activeColor));
+      media.addEventListener('keydown', e=>{ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); openPDP(h, activeColor); } });
       card.querySelectorAll('.card__colors .dot').forEach(dot=>{
-        dot.addEventListener('click', e=>{ e.stopPropagation(); activeColor=dot.dataset.color; build(); });
+        dot.addEventListener('click', e=>{ e.stopPropagation(); activeColor = dot.dataset.color; build(); });
       });
-      card.querySelector('.card__media').addEventListener('click', ()=>openPDP(h, activeColor));
-      card.querySelector('.card__body').addEventListener('click', ()=>openPDP(h, activeColor));
+      card.querySelector('.card__body').addEventListener('click', e=>{ if(!e.target.closest('.dot')) openPDP(h, activeColor); });
     }
     build();
     grid.appendChild(card);
   });
 }
 
-/* ---- PDP: back hero + gallery (back, front, lifestyle), color-accurate ---- */
+/* ===== POPUP MODAL PDP =====
+   Gallery left: male model back (hero) + front thumbnails + printful mockup thumbnails
+   Color swatch click → updates model photo + mockup thumbnails instantly */
 const pdp = document.getElementById('pdp');
 let pdpState = { handle:null, color:null, size:null };
+let pdpReturnFocus = null;
 
 function openPDP(handle, startColor) {
   const p = PRODUCTS[handle];
@@ -145,9 +157,10 @@ function openPDP(handle, startColor) {
   pdpState = { handle, color: startColor || (colors.includes('Black')?'Black':colors[0]), size:null };
 
   function render() {
-    const back  = mockup(handle, pdpState.color, 'back');
-    const front = mockup(handle, pdpState.color, 'front');
-    const lifestyle = LIFESTYLE[handle] || [];
+    const back    = modelShot(pdpState.color, 'back');
+    const front   = modelShot(pdpState.color, 'front');
+    const mBack   = mockup(handle, pdpState.color, 'back');
+    const mFront  = mockup(handle, pdpState.color, 'front');
     const price = p.variants.edges[0].node.price.amount;
 
     document.getElementById('pdpTitle').textContent = p.title;
@@ -155,76 +168,115 @@ function openPDP(handle, startColor) {
     document.getElementById('pdpDesc').innerHTML = p.descriptionHtml;
     document.getElementById('pdpColorName').textContent = pdpState.color.toUpperCase();
 
-    /* Gallery: BACK first (hero), then front, then lifestyle shots */
+    /* Gallery order: model back → model front → printful back → printful front */
     const gallery = [
-      {url:back,  label:'BACK'},
-      {url:front, label:'FRONT'},
-      ...lifestyle.map(u=>({url:u, label:'WORN'}))
+      { url:back,   label:'BACK — WORN' },
+      { url:front,  label:'FRONT — WORN' },
+      ...(mBack  ? [{url:mBack,  label:'BACK'}]  : []),
+      ...(mFront ? [{url:mFront, label:'FRONT'}] : [])
     ].filter(x=>x.url);
 
     const mainImg = document.getElementById('pdpMain');
-    function setMain(url){ mainImg.classList.add('switching'); setTimeout(()=>{ mainImg.src=url; mainImg.classList.remove('switching'); },180); }
-    setMain(gallery[0].url);
+    function setMain(url, isModel, alt){
+      mainImg.classList.add('switching');
+      setTimeout(()=>{
+        mainImg.src = url;
+        if(alt) mainImg.alt = alt;
+        mainImg.style.objectFit   = isModel ? 'cover'    : 'contain';
+        mainImg.style.objectPosition = isModel ? 'top center' : 'center';
+        mainImg.classList.remove('switching');
+      }, 180);
+    }
+    const isModelShot = idx => idx < 2;  // first 2 are model photos
+    setMain(gallery[0].url, true, `${p.title} — ${gallery[0].label}`);
 
     const thumbs = document.getElementById('pdpThumbs');
     thumbs.innerHTML = '';
-    gallery.forEach((im,i)=>{
-      const t=document.createElement('img');
-      t.src=im.url; t.alt=im.label; t.className='pdp__thumb'+(i===0?' on':'');
-      t.onclick=()=>{ setMain(im.url); thumbs.querySelectorAll('.pdp__thumb').forEach(x=>x.classList.remove('on')); t.classList.add('on'); };
+    gallery.forEach((im, i)=>{
+      const t = document.createElement('img');
+      t.src = im.url; t.alt = im.label;
+      t.className = 'pdp__thumb' + (i===0?' on':'');
+      t.style.objectFit = isModelShot(i) ? 'cover' : 'contain';
+      t.style.objectPosition = isModelShot(i) ? 'top center' : 'center';
+      t.onclick = ()=>{
+        setMain(im.url, isModelShot(i), `${p.title} — ${im.label}`);
+        thumbs.querySelectorAll('.pdp__thumb').forEach(x=>x.classList.remove('on'));
+        t.classList.add('on');
+      };
       thumbs.appendChild(t);
     });
 
-    /* Swatches */
-    const sw=document.getElementById('pdpSwatches');
-    sw.innerHTML='';
+    /* Color swatches */
+    const sw = document.getElementById('pdpSwatches');
+    sw.innerHTML = '';
     colors.forEach(c=>{
-      const b=document.createElement('button');
-      b.className='pdp__swatch'+(c===pdpState.color?' on':'');
-      b.style.background=COLOR_HEX[c]||'#888'; b.title=c; b.setAttribute('aria-label',c);
-      b.onclick=()=>{ pdpState.color=c; pdpState.size=null; render(); };
+      const b = document.createElement('button');
+      b.className = 'pdp__swatch' + (c===pdpState.color?' on':'');
+      b.style.background = COLOR_HEX[c]||'#888';
+      b.title = c;
+      b.setAttribute('aria-label', c);
+      b.onclick = ()=>{ pdpState.color = c; pdpState.size = null; render(); };
       sw.appendChild(b);
     });
 
-    /* Sizes */
-    const sz=document.getElementById('pdpSizes');
-    sz.innerHTML='';
+    /* Size buttons */
+    const sz = document.getElementById('pdpSizes');
+    sz.innerHTML = '';
     sizes.forEach(s=>{
-      const v=findVariant(p,pdpState.color,s);
-      const b=document.createElement('button');
-      const avail=v&&v.availableForSale;
-      b.className='pdp__size'+(pdpState.size===s?' on':'')+(avail?'':' off');
-      b.textContent=s;
-      if(avail) b.onclick=()=>{ pdpState.size=s; sz.querySelectorAll('.pdp__size').forEach(x=>x.classList.remove('on')); b.classList.add('on'); updateATC(); };
+      const v = findVariant(p, pdpState.color, s);
+      const b = document.createElement('button');
+      const avail = v && v.availableForSale;
+      b.className = 'pdp__size' + (pdpState.size===s?' on':'') + (avail?'':' off');
+      b.textContent = s;
+      if (avail) b.onclick = ()=>{
+        pdpState.size = s;
+        sz.querySelectorAll('.pdp__size').forEach(x=>x.classList.remove('on'));
+        b.classList.add('on');
+        updateATC();
+      };
       sz.appendChild(b);
     });
     updateATC();
   }
 
   function updateATC(){
-    const atc=document.getElementById('pdpATC');
-    if(pdpState.size){ atc.textContent='ADD TO CART · '+document.getElementById('pdpPrice').textContent; atc.classList.remove('pdp__atc--wait'); }
-    else { atc.textContent='SELECT A SIZE'; atc.classList.add('pdp__atc--wait'); }
+    const atc = document.getElementById('pdpATC');
+    if (pdpState.size){
+      atc.textContent = 'ADD TO CART · ' + document.getElementById('pdpPrice').textContent;
+      atc.classList.remove('pdp__atc--wait');
+    } else {
+      atc.textContent = 'SELECT A SIZE';
+      atc.classList.add('pdp__atc--wait');
+    }
   }
 
   render();
-  pdp.hidden=false;
-  pdp.scrollTop=0;
-  document.body.style.overflow='hidden';
+  pdpReturnFocus = document.activeElement;
+  pdp.hidden = false;
+  document.body.style.overflow = 'hidden';
+  setTimeout(()=>{ const b=document.getElementById('pdpBack'); if(b) b.focus(); }, 50);
 }
-function closePDP(){ pdp.hidden=true; document.body.style.overflow=''; }
-document.getElementById('pdpBack').onclick=closePDP;
-document.addEventListener('keydown',e=>{ if(e.key==='Escape'){ closePDP(); closeCart(); } });
 
-document.getElementById('pdpATC').onclick=async()=>{
-  if(!pdpState.size){ document.getElementById('pdpSizes').classList.add('shake'); setTimeout(()=>document.getElementById('pdpSizes').classList.remove('shake'),500); showToast('PICK A SIZE FIRST'); return; }
-  const p=PRODUCTS[pdpState.handle];
-  const v=findVariant(p,pdpState.color,pdpState.size);
-  if(!v){ showToast('UNAVAILABLE'); return; }
-  const atc=document.getElementById('pdpATC');
-  atc.disabled=true; atc.textContent='ADDING…';
+function closePDP(){ pdp.hidden = true; document.body.style.overflow = ''; if(pdpReturnFocus){ try{pdpReturnFocus.focus();}catch(_){} pdpReturnFocus=null; } }
+
+document.getElementById('pdpBack').onclick = closePDP;
+/* click the dark backdrop behind the modal box closes it */
+document.getElementById('pdpBackdrop').onclick = closePDP;
+/* Escape + focus-trap handled globally in the a11y block below */
+
+document.getElementById('pdpATC').onclick = async()=>{
+  if (!pdpState.size){
+    document.getElementById('pdpSizes').classList.add('shake');
+    setTimeout(()=>document.getElementById('pdpSizes').classList.remove('shake'), 500);
+    showToast('PICK A SIZE FIRST'); return;
+  }
+  const p = PRODUCTS[pdpState.handle];
+  const v = findVariant(p, pdpState.color, pdpState.size);
+  if (!v){ showToast('UNAVAILABLE'); return; }
+  const atc = document.getElementById('pdpATC');
+  atc.disabled = true; atc.textContent = 'ADDING…';
   await addToCart(v.id);
-  atc.disabled=false;
+  atc.disabled = false;
   closePDP();
   openCart();
 };
@@ -237,39 +289,40 @@ const CART_FIELDS = `id checkoutUrl totalQuantity
       product{ title handle } selectedOptions{ name value } } } } } }`;
 
 async function ensureCart(){
-  if(cartId){ const d=await gql(`query($id:ID!){ cart(id:$id){ ${CART_FIELDS} } }`,{id:cartId}); if(d?.cart) return d.cart; }
-  const d=await gql(`mutation{ cartCreate{ cart{ ${CART_FIELDS} } } }`);
-  const cart=d.cartCreate.cart; cartId=cart.id; localStorage.setItem('flylyfe_cart',cartId); return cart;
+  if (cartId){ const d = await gql(`query($id:ID!){ cart(id:$id){ ${CART_FIELDS} } }`,{id:cartId}); if(d?.cart) return d.cart; }
+  const d = await gql(`mutation{ cartCreate{ cart{ ${CART_FIELDS} } } }`);
+  const cart = d.cartCreate.cart; cartId = cart.id; localStorage.setItem('flylyfe_cart', cartId); return cart;
 }
 async function addToCart(vid){
   await ensureCart();
-  const d=await gql(`mutation($cid:ID!,$lines:[CartLineInput!]!){ cartLinesAdd(cartId:$cid,lines:$lines){ cart{ ${CART_FIELDS} } } }`,{cid:cartId,lines:[{merchandiseId:vid,quantity:1}]});
+  const d = await gql(`mutation($cid:ID!,$lines:[CartLineInput!]!){ cartLinesAdd(cartId:$cid,lines:$lines){ cart{ ${CART_FIELDS} } } }`,{cid:cartId,lines:[{merchandiseId:vid,quantity:1}]});
   renderCart(d.cartLinesAdd.cart);
 }
-async function updateLine(id,qty){
-  const d=await gql(`mutation($cid:ID!,$lines:[CartLineUpdateInput!]!){ cartLinesUpdate(cartId:$cid,lines:$lines){ cart{ ${CART_FIELDS} } } }`,{cid:cartId,lines:[{id,quantity:qty}]});
+async function updateLine(id, qty){
+  const d = await gql(`mutation($cid:ID!,$lines:[CartLineUpdateInput!]!){ cartLinesUpdate(cartId:$cid,lines:$lines){ cart{ ${CART_FIELDS} } } }`,{cid:cartId,lines:[{id,quantity:qty}]});
   renderCart(d.cartLinesUpdate.cart);
 }
 
-let CURRENT_CART=null;
+let CURRENT_CART = null;
 function renderCart(cart){
-  CURRENT_CART=cart;
-  document.getElementById('cartCount').textContent=cart.totalQuantity;
-  document.getElementById('cartTotal').textContent=money(cart.cost.subtotalAmount.amount);
+  CURRENT_CART = cart;
+  document.getElementById('cartCount').textContent = cart.totalQuantity;
+  document.getElementById('cartTotal').textContent = money(cart.cost.subtotalAmount.amount);
   document.getElementById('checkoutBtn').textContent = cart.totalQuantity>0 ? `CHECKOUT · ${money(cart.cost.subtotalAmount.amount)} →` : 'CHECKOUT →';
-  const wrap=document.getElementById('cartItems');
-  const lines=cart.lines.edges;
-  if(!lines.length){ wrap.innerHTML='<p class="drawer__empty mono">YOUR CART IS EMPTY.<br>GO FEEL SOMETHING.</p>'; return; }
-  wrap.innerHTML='';
+  const wrap = document.getElementById('cartItems');
+  const lines = cart.lines.edges;
+  if (!lines.length){ wrap.innerHTML='<p class="drawer__empty mono">YOUR CART IS EMPTY.<br>GO FEEL SOMETHING.</p>'; return; }
+  wrap.innerHTML = '';
   lines.forEach(e=>{
-    const l=e.node,m=l.merchandise;
-    const opts=m.selectedOptions.map(o=>o.value).join(' / ');
-    const colorOpt=m.selectedOptions.find(o=>o.name==='Color');
-    const img=mockup(m.product.handle, colorOpt?colorOpt.value:'Black','back');
-    const div=document.createElement('div');
-    div.className='citem';
-    div.innerHTML=`
-      <img src="${img}" alt="${m.product.title}">
+    const l = e.node, m = l.merchandise;
+    const opts = m.selectedOptions.map(o=>o.value).join(' / ');
+    const colorOpt = m.selectedOptions.find(o=>o.name==='Color');
+    const cc = colorOpt ? colorOpt.value : 'Black';
+    const img = mockup(m.product.handle, cc, 'back') || modelShot(cc, 'back');
+    const div = document.createElement('div');
+    div.className = 'citem';
+    div.innerHTML = `
+      <img src="${img}" alt="${m.product.title}" loading="lazy" style="object-fit:contain;background:#0d0d0d;">
       <div>
         <div class="citem__name">${m.product.title}</div>
         <div class="citem__meta mono">${opts}</div>
@@ -281,108 +334,234 @@ function renderCart(cart){
         <button class="citem__rm mono">remove</button>
       </div>
       <div class="citem__price mono">${money(parseFloat(m.price.amount)*l.quantity)}</div>`;
-    div.querySelectorAll('[data-d]').forEach(b=>b.onclick=()=>updateLine(l.id,l.quantity+parseInt(b.dataset.d)));
-    div.querySelector('.citem__rm').onclick=()=>updateLine(l.id,0);
+    div.querySelectorAll('[data-d]').forEach(b=>b.onclick=()=>updateLine(l.id, l.quantity+parseInt(b.dataset.d)));
+    div.querySelector('.citem__rm').onclick = ()=>updateLine(l.id, 0);
     wrap.appendChild(div);
   });
 }
 
-const drawer=document.getElementById('drawer');
-async function openCart(){ drawer.hidden=false; document.body.style.overflow='hidden'; renderCart(await ensureCart()); }
-function closeCart(){ drawer.hidden=true; document.body.style.overflow=''; }
-document.getElementById('cartBtn').onclick=openCart;
+const drawer = document.getElementById('drawer');
+let cartReturnFocus = null;
+async function openCart(){ cartReturnFocus=document.activeElement; drawer.hidden=false; document.body.style.overflow='hidden'; renderCart(await ensureCart()); setTimeout(()=>{ const c=drawer.querySelector('[data-closecart]'); if(c) c.focus(); }, 50); }
+function closeCart(){ drawer.hidden=true; document.body.style.overflow=''; if(cartReturnFocus){ try{cartReturnFocus.focus();}catch(_){} cartReturnFocus=null; } }
+document.getElementById('cartBtn').onclick = openCart;
 document.querySelectorAll('[data-closecart]').forEach(el=>el.onclick=closeCart);
-document.getElementById('checkoutBtn').onclick=()=>{ if(CURRENT_CART?.totalQuantity>0) window.location.href=CURRENT_CART.checkoutUrl; else showToast('CART IS EMPTY'); };
+document.getElementById('checkoutBtn').onclick = ()=>{
+  if (CURRENT_CART?.totalQuantity>0) window.location.href = CURRENT_CART.checkoutUrl;
+  else showToast('CART IS EMPTY');
+};
 
-/* ---- Featured AFTER HOURS: back designs ---- */
+/* ---- Featured AFTER HOURS ---- */
 function renderFeatured(){
-  const strip=document.getElementById('featuredStrip');
-  if(!strip) return;
-  const picks=[
+  const strip = document.getElementById('featuredStrip');
+  if (!strip) return;
+  const picks = [
     {handle:'the-anthem-tee-womens',color:'Black'},
     {handle:'the-conga-tee',color:'Ivory'},
     {handle:'the-signature-tee',color:'Black'},
     {handle:'the-conga-tee-womens',color:'Natural'},
   ];
-  strip.innerHTML='';
+  strip.innerHTML = '';
   picks.forEach(pk=>{
-    const p=PRODUCTS[pk.handle]; if(!p) return;
-    const img=mockup(pk.handle,pk.color,'back');
-    const price=p.variants.edges[0].node.price.amount;
-    const cell=document.createElement('div');
-    cell.className='fcell fcell--mockup';
-    cell.innerHTML=`<img src="${img}" alt="${p.title}" loading="lazy">
+    const p = PRODUCTS[pk.handle]; if (!p) return;
+    const img = mockup(pk.handle, pk.color, 'back');
+    const price = p.variants.edges[0].node.price.amount;
+    const cell = document.createElement('div');
+    cell.className = 'fcell fcell--mockup';
+    cell.innerHTML = `<img src="${img}" alt="${p.title}" loading="lazy">
       <div class="fcell__label"><div class="nm">${p.title.replace(" — Women's","")}</div><div class="pr mono">${money(price)}</div></div>`;
-    cell.onclick=()=>openPDP(pk.handle,pk.color);
+    cell.onclick = ()=>openPDP(pk.handle, pk.color);
     strip.appendChild(cell);
   });
 }
 
+/* ---- Product structured data (SEO rich results) ---- */
+function injectProductSchema(){
+  const handles = MEN_HANDLES.concat(WOMEN_HANDLES);
+  const items = handles.map(h=>PRODUCTS[h]).filter(Boolean).map(p=>{
+    const v0 = p.variants.edges[0].node;
+    const inStock = p.variants.edges.some(e=>e.node.availableForSale);
+    const colors = (p.options.find(o=>o.name==='Color')?.values)||[];
+    const img = mockup(p.handle, colors.includes('Black')?'Black':colors[0], 'back');
+    const o = { "@context":"https://schema.org","@type":"Product","name":p.title,
+      "description":(p.descriptionHtml||'').replace(/<[^>]+>/g,'').replace(/\s+/g,' ').trim().slice(0,300),
+      "brand":{"@type":"Brand","name":"FLYLYFE"},
+      "offers":{"@type":"Offer","price":parseFloat(v0.price.amount).toFixed(2),"priceCurrency":v0.price.currencyCode||"USD","availability":inStock?"https://schema.org/InStock":"https://schema.org/OutOfStock","url":"https://flylyfe.com/"} };
+    if(img) o.image = ['https://flylyfe.com/'+img];
+    return o;
+  });
+  if(!items.length) return;
+  const s = document.createElement('script'); s.type='application/ld+json';
+  s.textContent = JSON.stringify(items);
+  document.head.appendChild(s);
+}
+
 /* ---- Utils ---- */
-function findVariant(p,color,size){
+function findVariant(p, color, size){
   return p.variants.edges.map(e=>e.node).find(v=>{
-    const so=Object.fromEntries(v.selectedOptions.map(o=>[o.name,o.value]));
+    const so = Object.fromEntries(v.selectedOptions.map(o=>[o.name,o.value]));
     return so.Color===color && so.Size===size;
   });
 }
 let toastTimer;
 function showToast(msg){ const t=document.getElementById('toast'); t.textContent=msg; t.hidden=false; clearTimeout(toastTimer); toastTimer=setTimeout(()=>t.hidden=true,2200); }
 
-/* ---- Hero carousel: real model BACK shots (the attraction) ---- */
+/* ---- Hero carousel: model back shots ---- */
 const HERO_SLIDES=[
-  {img:'assets/models/black-back.jpg',    alt:'FLYLYFE Anthem Tee back'},
-  {img:'assets/models/cream-back.jpg',     alt:'FLYLYFE House Music Is Freedom tee'},
-  {img:'assets/models/cream-alt-back.jpg', alt:'FLYLYFE spiritual thing tee'},
+  {img:'assets/hero/carousel-2-freedom.jpg', alt:'FLYLYFE — House Music Is Freedom tee on a New York City street'},
+  {img:'assets/hero/carousel-1-black.jpg',   alt:'FLYLYFE — Feel the Music. Feel the Vibe. Live Your Lyfe. tee in NYC'},
+  {img:'assets/hero/carousel-3-house.jpg',   alt:'FLYLYFE house music culture tee in New York City'},
 ];
 function initHeroCarousel(){
-  const wrap=document.getElementById('heroCarousel');
-  const numsWrap=document.getElementById('heroNums');
-  if(!wrap) return;
+  const wrap = document.getElementById('heroCarousel');
+  const numsWrap = document.getElementById('heroNums');
+  if (!wrap) return;
   HERO_SLIDES.forEach((s,i)=>{
-    const slide=document.createElement('div');
-    slide.className='hero__slide'+(i===0?' on':'');
-    slide.innerHTML=`<img src="${s.img}" alt="${s.alt}" ${i===0?'fetchpriority="high"':'loading="lazy"'}>`;
+    const slide = document.createElement('div');
+    slide.className = 'hero__slide'+(i===0?' on':'');
+    slide.innerHTML = `<img src="${s.img}" alt="${s.alt}" ${i===0?'fetchpriority="high"':'loading="lazy"'}>`;
     wrap.appendChild(slide);
-    const num=document.createElement('button');
-    num.className='hero__num'+(i===0?' on':''); num.textContent='0'+(i+1);
-    num.setAttribute('aria-label','Slide '+(i+1)); num.onclick=()=>goToSlide(i);
+    const num = document.createElement('button');
+    num.className = 'hero__num'+(i===0?' on':'');
+    num.textContent = '0'+(i+1);
+    num.setAttribute('aria-label','Slide '+(i+1));
+    num.onclick = ()=>goToSlide(i);
     numsWrap.appendChild(num);
   });
   let idx=0;
-  const slides=wrap.querySelectorAll('.hero__slide');
-  const nums=numsWrap.querySelectorAll('.hero__num');
-  window.goToSlide=n=>{ slides[idx].classList.remove('on'); nums[idx].classList.remove('on'); idx=(n+slides.length)%slides.length; slides[idx].classList.add('on'); nums[idx].classList.add('on'); };
-  let timer=setInterval(()=>goToSlide(idx+1),4500);
-  wrap.addEventListener('mouseenter',()=>clearInterval(timer));
-  wrap.addEventListener('mouseleave',()=>{ timer=setInterval(()=>goToSlide(idx+1),4500); });
+  const slides = wrap.querySelectorAll('.hero__slide');
+  const nums   = numsWrap.querySelectorAll('.hero__num');
+  window.goToSlide = n=>{
+    slides[idx].classList.remove('on'); nums[idx].classList.remove('on');
+    idx = (n+slides.length)%slides.length;
+    slides[idx].classList.add('on'); nums[idx].classList.add('on');
+  };
+  const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let timer = reduceMotion ? null : setInterval(()=>goToSlide(idx+1),4500);
+  const stop  = ()=>clearInterval(timer);
+  const start = ()=>{ if(!reduceMotion){ clearInterval(timer); timer=setInterval(()=>goToSlide(idx+1),4500); } };
+  wrap.addEventListener('mouseenter',stop);
+  wrap.addEventListener('mouseleave',start);
+  wrap.addEventListener('focusin',stop);   /* pause when a control is focused */
+  wrap.addEventListener('focusout',start);
 }
 
 function initScrollUX(){
-  const nav=document.getElementById('nav');
-  const heroBg=document.getElementById('heroBg');
-  const links=document.querySelectorAll('.nav__links a');
-  const sections=['top','shop','after-hours','story','journal'];
-  const onScroll=()=>{
-    const y=window.scrollY;
-    nav.classList.toggle('shrink',y>60);
-    if(heroBg&&y<window.innerHeight) heroBg.style.transform=`translateY(${y*.18}px)`;
+  const nav = document.getElementById('nav');
+  const heroBg = document.getElementById('heroBg');
+  const links = document.querySelectorAll('.nav__links a');
+  const sections = ['top','shop','after-hours','story','journal'];
+  const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let ticking = false;
+  const onScroll = ()=>{
+    const y = window.scrollY;
+    nav.classList.toggle('shrink', y>60);
+    if (!reduceMotion && heroBg && y<window.innerHeight && !ticking){
+      ticking = true;
+      requestAnimationFrame(()=>{ heroBg.style.transform=`translateY(${y*.18}px)`; ticking=false; });
+    }
     let active='top';
     sections.forEach(id=>{ const el=document.getElementById(id); if(el&&el.getBoundingClientRect().top<=120) active=id; });
-    links.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+active));
+    links.forEach(a=>a.classList.toggle('active', a.getAttribute('href')==='#'+active));
   };
-  window.addEventListener('scroll',onScroll,{passive:true}); onScroll();
+  window.addEventListener('scroll', onScroll, {passive:true}); onScroll();
 }
 
 function observeReveals(){
-  if(!('IntersectionObserver' in window)){ document.querySelectorAll('.reveal').forEach(el=>el.classList.add('in')); return; }
-  const io=new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} }),{threshold:.08,rootMargin:'0px 0px -40px 0px'});
+  if (!('IntersectionObserver' in window)){ document.querySelectorAll('.reveal').forEach(el=>el.classList.add('in')); return; }
+  const io = new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} }),{threshold:.08,rootMargin:'0px 0px -40px 0px'});
   document.querySelectorAll('.reveal:not(.in)').forEach(el=>io.observe(el));
   setTimeout(()=>document.querySelectorAll('.reveal:not(.in)').forEach(el=>{ if(el.getBoundingClientRect().top<window.innerHeight) el.classList.add('in'); }),1200);
 }
 
+/* ================= a11y, mobile menu, info overlay, email capture ================= */
+
+/* focus-trap helpers shared by every overlay */
+function getFocusable(c){ return c ? [...c.querySelectorAll('a[href],button:not([disabled]),input:not([disabled]),select,textarea,[tabindex]:not([tabindex="-1"])')].filter(el=>el.offsetParent!==null) : []; }
+function trapTab(c,e){ const f=getFocusable(c); if(!f.length) return; const first=f[0], last=f[f.length-1];
+  if(e.shiftKey && document.activeElement===first){ e.preventDefault(); last.focus(); }
+  else if(!e.shiftKey && document.activeElement===last){ e.preventDefault(); first.focus(); } }
+
+/* ---- Mobile menu ---- */
+const mobileMenu = document.getElementById('mobileMenu');
+const navBurger  = document.getElementById('navBurger');
+let menuReturnFocus = null;
+function openMobileMenu(){ menuReturnFocus=document.activeElement; mobileMenu.hidden=false; navBurger.setAttribute('aria-expanded','true'); document.body.style.overflow='hidden'; setTimeout(()=>{ const a=mobileMenu.querySelector('a'); if(a) a.focus(); }, 50); }
+function closeMobileMenu(){ mobileMenu.hidden=true; navBurger.setAttribute('aria-expanded','false'); document.body.style.overflow=''; if(menuReturnFocus){ try{menuReturnFocus.focus();}catch(_){} } }
+if (navBurger) navBurger.onclick = ()=>{ mobileMenu.hidden ? openMobileMenu() : closeMobileMenu(); };
+if (mobileMenu) mobileMenu.querySelectorAll('a').forEach(a=>a.addEventListener('click', closeMobileMenu));
+
+/* ---- Info overlay: shipping / returns / size guide / policies ---- */
+const info = document.getElementById('info');
+const INFO = {
+  shipping:{ title:'Shipping', html:`<p>Every FLYLYFE piece is printed-to-order in the USA.</p>
+    <h4>Processing</h4><p>Orders are made and shipped within 3–5 business days.</p>
+    <h4>Delivery</h4><p>US: 3–7 business days after processing. International: 10–20 business days. <strong>Free US shipping on orders over $75.</strong></p>
+    <p>Tracking is emailed the moment your order ships.</p>` },
+  returns:{ title:'Returns', html:`<p>We want you in the right fit.</p>
+    <h4>30-Day Window</h4><p>Unworn, unwashed items with tags can be returned within 30 days of delivery.</p>
+    <h4>How</h4><p>Email <a href="mailto:hello@flylyfe.com" style="color:var(--gold)">hello@flylyfe.com</a> with your order number and we'll send a label. Made-to-order pieces are eligible for exchange or store credit.</p>` },
+  sizeguide:{ title:'Size Guide', html:`<p>Our heavyweight tees run true to size with a relaxed, slightly oversized drop. Between sizes? Size down for a classic fit.</p>
+    <table><thead><tr><th>Size</th><th>Chest (in)</th><th>Length (in)</th></tr></thead><tbody>
+    <tr><td>S</td><td>40</td><td>28</td></tr><tr><td>M</td><td>44</td><td>29</td></tr><tr><td>L</td><td>48</td><td>30</td></tr>
+    <tr><td>XL</td><td>52</td><td>31</td></tr><tr><td>2XL</td><td>56</td><td>32</td></tr><tr><td>3XL</td><td>60</td><td>33</td></tr></tbody></table>
+    <p>Measurements are approximate garment dimensions.</p>` },
+  privacy:{ title:'Privacy', html:`<p>We collect only what's needed to process your order and send the updates you opt into. We never sell your data.</p>
+    <p>Payments are handled securely by Shopify. Questions? <a href="mailto:hello@flylyfe.com" style="color:var(--gold)">hello@flylyfe.com</a>.</p>` },
+  terms:{ title:'Terms', html:`<p>By using flylyfe.com you agree to our standard terms of sale. All artwork and the FLYLYFE name are property of FLYLYFE. Prices and availability may change without notice.</p>` }
+};
+let infoReturnFocus = null;
+function openInfo(key){ const d=INFO[key]; if(!d) return; infoReturnFocus=document.activeElement;
+  document.getElementById('infoTitle').textContent=d.title;
+  document.getElementById('infoBody').innerHTML=d.html;
+  info.hidden=false; document.body.style.overflow='hidden';
+  setTimeout(()=>{ const b=info.querySelector('.info__close'); if(b) b.focus(); }, 50); }
+function closeInfo(){ info.hidden=true;
+  document.body.style.overflow = ((pdp&&!pdp.hidden)||(drawer&&!drawer.hidden)) ? 'hidden' : '';
+  if(infoReturnFocus){ try{infoReturnFocus.focus();}catch(_){} } }
+document.querySelectorAll('[data-info]').forEach(el=>el.addEventListener('click', e=>{ e.preventDefault(); openInfo(el.dataset.info); }));
+if (info) info.querySelectorAll('[data-closeinfo]').forEach(el=>el.onclick=closeInfo);
+
+/* drawer is a modal dialog */
+const _drawerPanel = document.querySelector('.drawer__panel'); if(_drawerPanel) _drawerPanel.setAttribute('aria-modal','true');
+
+/* ---- Global keyboard: Escape closes the top-most overlay; Tab is trapped inside it ---- */
+document.addEventListener('keydown', e=>{
+  if (e.key==='Escape'){
+    if (info && !info.hidden) closeInfo();
+    else if (pdp && !pdp.hidden) closePDP();
+    else if (drawer && !drawer.hidden) closeCart();
+    else if (mobileMenu && !mobileMenu.hidden) closeMobileMenu();
+  } else if (e.key==='Tab'){
+    if (info && !info.hidden) trapTab(info.querySelector('.info__panel'), e);
+    else if (pdp && !pdp.hidden) trapTab(pdp.querySelector('.pdp__box'), e);
+    else if (drawer && !drawer.hidden) trapTab(drawer.querySelector('.drawer__panel'), e);
+    else if (mobileMenu && !mobileMenu.hidden) trapTab(mobileMenu, e);
+  }
+});
+
+/* ---- Email / SMS capture (UI only) ----
+   TODO: POST { email, phone } to your provider (Klaviyo / Shopify / Mailchimp) here. */
+function initJoinForm(){
+  const form = document.getElementById('joinForm'); if(!form) return;
+  const msg = document.getElementById('joinMsg');
+  form.addEventListener('submit', e=>{
+    e.preventDefault();
+    const email = (document.getElementById('joinEmail').value||'').trim();
+    const phone = (document.getElementById('joinPhone').value||'').trim();
+    if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){ msg.textContent='ENTER A VALID EMAIL.'; msg.classList.add('err'); return; }
+    msg.classList.remove('err');
+    msg.textContent = "YOU'RE ON THE LIST — WELCOME TO FLYLYFE.";
+    const signup = { email, phone };   /* captured payload */
+    form.reset();
+    /* TODO: forward `signup` ({ email, phone }) to your email/SMS backend (Klaviyo / Shopify / Mailchimp) */
+  });
+}
+initJoinForm();
+
 /* ---- Boot ---- */
 document.body.classList.add('has-js');
-document.getElementById('year').textContent=new Date().getFullYear();
+document.getElementById('year').textContent = new Date().getFullYear();
 initHeroCarousel();
 initScrollUX();
 observeReveals();

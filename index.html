@@ -3,20 +3,29 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FLYLYFE — Feel the Music. Feel the Vibe. Live Your Lyfe.</title>
-<meta name="description" content="FLYLYFE — NYC-born streetwear inspired by house music, dance floors, and nights that never end. Premium heavyweight tees. Est. 2007.">
-<meta property="og:title" content="FLYLYFE — NYC Streetwear, Born on the Dance Floor">
-<meta property="og:description" content="Feel the Music. Feel the Vibe. Live Your Lyfe. Premium heavyweight tees, printed in the USA.">
-<meta property="og:image" content="https://flylyfe.com/assets/lifestyle/lifestyle-2-black-slogan.png">
-<meta property="og:url" content="https://flylyfe.com">
+<title>FLYLYFE | House Music Culture Apparel</title>
+<meta name="description" content="Premium apparel inspired by house music, NYC culture, movement, and the FLYLYFE lifestyle. Heavyweight tees, born on the dance floor. Est. 2007.">
+<link rel="canonical" href="https://flylyfe.com/">
+<meta name="theme-color" content="#050505">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="FLYLYFE">
+<meta property="og:title" content="FLYLYFE | House Music Culture Apparel">
+<meta property="og:description" content="Premium apparel inspired by house music, NYC culture, movement, and the FLYLYFE lifestyle. Feel the Music. Feel the Vibe. Live Your Lyfe.">
+<meta property="og:image" content="https://flylyfe.com/assets/lifestyle/lifestyle-2-black-slogan.jpg">
+<meta property="og:url" content="https://flylyfe.com/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="FLYLYFE | House Music Culture Apparel">
+<meta name="twitter:description" content="Premium apparel inspired by house music, NYC culture, and the FLYLYFE lifestyle. Est. 2007.">
+<meta name="twitter:image" content="https://flylyfe.com/assets/lifestyle/lifestyle-2-black-slogan.jpg">
 <link rel="icon" type="image/png" href="assets/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Anton&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Anton&family=JetBrains+Mono:wght@400;500&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Anton&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/product.css">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"ClothingStore","name":"FLYLYFE","url":"https://flylyfe.com","description":"NYC-born streetwear inspired by house music culture.","foundingDate":"2007","address":{"@type":"PostalAddress","addressRegion":"NJ","addressCountry":"US"}}
+{"@context":"https://schema.org","@type":"ClothingStore","name":"FLYLYFE","url":"https://flylyfe.com/","slogan":"Feel the Music. Feel the Vibe. Live Your Lyfe.","description":"NYC-born streetwear inspired by house music culture.","foundingDate":"2007","address":{"@type":"PostalAddress","addressLocality":"New York","addressRegion":"NY","addressCountry":"US"}}
 </script>
 </head>
 <body>
@@ -40,11 +49,30 @@
     <a href="#journal">Journal</a>
     <a href="mailto:hello@flylyfe.com">Contact</a>
   </nav>
-  <button class="nav__cart" id="cartBtn" aria-label="Open cart">
-    <span class="nav__cart-label mono">CART</span>
-    <span class="nav__cart-paren mono">(<span id="cartCount">0</span>)</span>
-  </button>
+  <div class="nav__right">
+    <button class="nav__cart" id="cartBtn" aria-label="Open cart">
+      <span class="nav__cart-label mono">CART</span>
+      <span class="nav__cart-paren mono">(<span id="cartCount">0</span>)</span>
+    </button>
+    <button class="nav__burger" id="navBurger" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
 </header>
+
+<!-- ======= MOBILE MENU ======= -->
+<div class="mobilemenu" id="mobileMenu" hidden>
+  <nav class="mobilemenu__links" aria-label="Mobile navigation">
+    <a href="#top">Home</a>
+    <a href="#shop">Shop</a>
+    <a href="#after-hours">Collections</a>
+    <a href="#story">About</a>
+    <a href="#journal">Journal</a>
+    <a href="mailto:hello@flylyfe.com">Contact</a>
+  </nav>
+  <p class="mobilemenu__tag mono">FEEL THE MUSIC · FEEL THE VIBE · LIVE YOUR LYFE</p>
+  <p class="mobilemenu__est mono">NEW YORK CITY · WORLDWIDE · EST. 2007</p>
+</div>
 
 <!-- ======= HERO (split + carousel) ======= -->
 <section class="hero" id="top">
@@ -72,15 +100,20 @@
     </div>
   </div>
 
-  <div class="hero__side mono" aria-hidden="true"><span class="hero__side-line"></span>NEW YORK CITY · WORLDWIDE</div>
+  <div class="hero__side" aria-hidden="true">
+    <span class="hero__side-txt mono">NEW YORK CITY</span>
+    <svg class="hero__side-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.2" fill="none" stroke="currentColor" stroke-width="1.1"/><path d="M3 12h18M12 2.8a14 14 0 0 1 0 18.4M12 2.8a14 14 0 0 0 0 18.4M3.6 8h16.8M3.6 16h16.8" fill="none" stroke="currentColor" stroke-width="1.1"/></svg>
+    <span class="hero__side-txt mono">WORLDWIDE</span>
+    <span class="hero__side-line"></span>
+  </div>
 </section>
 
 <!-- ======= VALUE BAR ======= -->
 <section class="values">
-  <div class="value reveal"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.2" fill="none" stroke="currentColor" stroke-width="1.1"/><path d="M3 12h18M12 2.8a14 14 0 0 1 0 18.4M12 2.8a14 14 0 0 0 0 18.4M3.6 8h16.8M3.6 16h16.8" fill="none" stroke="currentColor" stroke-width="1.1"/></svg><h3>Worldwide Shipping</h3><p>Delivering to you</p></div>
-  <div class="value reveal"><svg viewBox="0 0 24 24"><circle cx="9" cy="18" r="2.4" fill="none" stroke="currentColor" stroke-width="1.1"/><circle cx="19" cy="16" r="2.4" fill="none" stroke="currentColor" stroke-width="1.1"/><path d="M11.4 18V5.5l10-2v10.5" fill="none" stroke="currentColor" stroke-width="1.1"/></svg><h3>Music Inspired</h3><p>Built on culture</p></div>
-  <div class="value reveal"><svg viewBox="0 0 24 24"><path d="M12 3l2.6 5.3 5.9.9-4.2 4.1 1 5.8L12 16.4 6.7 19.1l1-5.8L3.5 9.2l5.9-.9z" fill="none" stroke="currentColor" stroke-width="1.1"/></svg><h3>Premium Quality</h3><p>Made to last</p></div>
-  <div class="value reveal"><svg viewBox="0 0 24 24"><rect x="4.5" y="10" width="15" height="9.5" rx="1.4" fill="none" stroke="currentColor" stroke-width="1.1"/><path d="M8 10V7a4 4 0 0 1 8 0v3" fill="none" stroke="currentColor" stroke-width="1.1"/></svg><h3>Secure Payments</h3><p>Shop with confidence</p></div>
+  <div class="value reveal"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9.2" fill="none" stroke="currentColor" stroke-width="1.1"/><path d="M3 12h18M12 2.8a14 14 0 0 1 0 18.4M12 2.8a14 14 0 0 0 0 18.4M3.6 8h16.8M3.6 16h16.8" fill="none" stroke="currentColor" stroke-width="1.1"/></svg><h3>Worldwide Shipping</h3><p>Delivering to you</p></div>
+  <div class="value reveal"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="9" cy="18" r="2.4" fill="none" stroke="currentColor" stroke-width="1.1"/><circle cx="19" cy="16" r="2.4" fill="none" stroke="currentColor" stroke-width="1.1"/><path d="M11.4 18V5.5l10-2v10.5" fill="none" stroke="currentColor" stroke-width="1.1"/></svg><h3>Music Inspired</h3><p>Built on culture</p></div>
+  <div class="value reveal"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3l2.6 5.3 5.9.9-4.2 4.1 1 5.8L12 16.4 6.7 19.1l1-5.8L3.5 9.2l5.9-.9z" fill="none" stroke="currentColor" stroke-width="1.1"/></svg><h3>Premium Quality</h3><p>Made to last</p></div>
+  <div class="value reveal"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="4.5" y="10" width="15" height="9.5" rx="1.4" fill="none" stroke="currentColor" stroke-width="1.1"/><path d="M8 10V7a4 4 0 0 1 8 0v3" fill="none" stroke="currentColor" stroke-width="1.1"/></svg><h3>Secure Payments</h3><p>Shop with confidence</p></div>
 </section>
 
 <!-- ======= MEN'S SHOP ======= -->
@@ -110,7 +143,7 @@
 
 <!-- ======= INTERLUDE QUOTE ======= -->
 <section class="interlude">
-  <img src="assets/lifestyle/lifestyle-3-house-music.png" alt="Not everyone understands house music — FLYLYFE tee" loading="lazy">
+  <img src="assets/lifestyle/lifestyle-3-house-music.jpg" alt="Not everyone understands house music — FLYLYFE tee" loading="lazy">
   <div class="interlude__quote reveal">
     <blockquote>“not everyone understands house music<span class="gold-text">.....</span> it’s a spiritual thing, a body thing, a soul thing<span class="gold-text">.</span>”</blockquote>
     <cite class="mono">— THE MANTRA WE’VE LIVED SINCE 2007</cite>
@@ -130,7 +163,7 @@
 <!-- ======= STORY ======= -->
 <section class="story" id="story">
   <div class="story__media reveal">
-    <img src="assets/lifestyle/lifestyle-4-freedom.png" alt="FLYLYFE — House Music Is Freedom tee in SoHo NYC" loading="lazy">
+    <img src="assets/lifestyle/lifestyle-4-freedom.jpg" alt="FLYLYFE — House Music Is Freedom tee in SoHo NYC" loading="lazy">
   </div>
   <div class="story__text reveal">
     <p class="mono gold-text">04 — THE STORY</p>
@@ -174,50 +207,112 @@
   </div>
 </section>
 
+<!-- ======= EMAIL / SMS CAPTURE ======= -->
+<section class="capture" id="join">
+  <div class="capture__inner reveal">
+    <p class="mono gold-text">06 — THE LIST</p>
+    <h2>GET FIRST<br>ACCESS<span class="gold-text">.</span></h2>
+    <p class="capture__copy">Join the FLYLYFE list for early access to drops, limited releases, and private updates. No noise — just the vibe.</p>
+    <!-- TODO: wire to email/SMS provider (Klaviyo, Shopify, Mailchimp). Currently UI-only — see initJoinForm() in app.js -->
+    <form class="capture__form" id="joinForm" novalidate>
+      <div class="capture__fields">
+        <input type="email" id="joinEmail" name="email" placeholder="EMAIL ADDRESS" autocomplete="email" required aria-label="Email address">
+        <input type="tel" id="joinPhone" name="phone" placeholder="PHONE — OPTIONAL" autocomplete="tel" inputmode="tel" aria-label="Phone number (optional)">
+        <button type="submit" class="capture__submit mono">JOIN THE LIST</button>
+      </div>
+      <p class="capture__msg mono" id="joinMsg" role="status" aria-live="polite"></p>
+      <p class="capture__fine mono">By joining you agree to receive FLYLYFE updates. Unsubscribe anytime.</p>
+    </form>
+  </div>
+</section>
+
 <!-- ======= FOOTER ======= -->
 <footer class="footer">
-  <div class="footer__brand">FLYLYFE</div>
-  <p class="mono">NEW YORK CITY — WORLDWIDE · EST. 2007</p>
-  <div class="footer__links mono">
-    <a href="#shop">Shop</a><a href="#after-hours">Collection</a><a href="#story">Story</a><a href="#journal">Journal</a><a href="mailto:hello@flylyfe.com">hello@flylyfe.com</a>
+  <div class="footer__top">
+    <div class="footer__brandcol">
+      <div class="footer__brand">FLYLYFE</div>
+      <p class="footer__tagline mono">FEEL THE MUSIC. FEEL THE VIBE. LIVE YOUR LYFE.</p>
+      <p class="footer__est mono">NEW YORK CITY · WORLDWIDE · EST. 2007</p>
+    </div>
+    <div class="footer__cols">
+      <div class="footer__col">
+        <h4 class="mono">SHOP</h4>
+        <a href="#shop">Men's</a>
+        <a href="#shop-women">Women's</a>
+        <a href="#after-hours">After Hours</a>
+      </div>
+      <div class="footer__col">
+        <h4 class="mono">HELP</h4>
+        <a href="#" data-info="shipping">Shipping</a>
+        <a href="#" data-info="returns">Returns</a>
+        <a href="#" data-info="sizeguide">Size Guide</a>
+        <a href="mailto:hello@flylyfe.com">Contact</a>
+      </div>
+      <div class="footer__col">
+        <h4 class="mono">BRAND</h4>
+        <a href="#story">About</a>
+        <a href="#journal">Journal</a>
+        <a href="#" data-info="privacy">Privacy</a>
+        <a href="#" data-info="terms">Terms</a>
+      </div>
+      <div class="footer__col">
+        <h4 class="mono">FOLLOW</h4>
+        <!-- TODO: replace with FLYLYFE's real social URLs -->
+        <a href="https://instagram.com/flylyfe" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://tiktok.com/@flylyfe" target="_blank" rel="noopener">TikTok</a>
+        <a href="https://youtube.com/@flylyfe" target="_blank" rel="noopener">YouTube</a>
+      </div>
+    </div>
   </div>
-  <p class="footer__fine mono">© <span id="year"></span> FLYLYFE. All rights reserved. Printed in the USA.</p>
+  <div class="footer__bottom">
+    <p class="footer__fine mono">© <span id="year"></span> FLYLYFE. All rights reserved. Printed in the USA.</p>
+    <p class="footer__fine mono">Born on the dance floor — NYC.</p>
+  </div>
 </footer>
 
-<!-- ======= FULL-SCREEN PRODUCT DETAIL PAGE ======= -->
-<div class="pdp" id="pdp" hidden>
-  <button class="pdp__back mono" id="pdpBack">← BACK</button>
+<!-- ======= PRODUCT MODAL ======= -->
+<div class="pdp" id="pdp" hidden aria-modal="true" role="dialog">
+  <div class="pdp__backdrop" id="pdpBackdrop"></div>
+  <div class="pdp__box">
+    <button class="pdp__back mono" id="pdpBack" aria-label="Close">✕ CLOSE</button>
 
-  <div class="pdp__gallery">
-    <img class="pdp__main-img" id="pdpMain" src="" alt="">
-    <div class="pdp__thumbs" id="pdpThumbs"></div>
-  </div>
-
-  <div class="pdp__info">
-    <p class="pdp__kicker mono gold-text">FLYLYFE — EST. 2007</p>
-    <h2 class="pdp__title" id="pdpTitle"></h2>
-    <p class="pdp__price mono" id="pdpPrice"></p>
-    <hr class="pdp__divider">
-
-    <div>
-      <p class="pdp__opt-label mono">COLOR — <span class="pdp__color-selected" id="pdpColorName"></span></p>
-      <div class="pdp__swatches" id="pdpSwatches"></div>
+    <div class="pdp__gallery">
+      <img class="pdp__main-img" id="pdpMain" src="" alt="">
+      <div class="pdp__thumbs" id="pdpThumbs"></div>
     </div>
 
-    <div>
-      <p class="pdp__opt-label mono">SIZE</p>
-      <div class="pdp__sizes" id="pdpSizes"></div>
+    <div class="pdp__info">
+      <p class="pdp__kicker mono gold-text">FLYLYFE — EST. 2007</p>
+      <h2 class="pdp__title" id="pdpTitle"></h2>
+      <p class="pdp__price mono" id="pdpPrice"></p>
+      <hr class="pdp__divider">
+
+      <div>
+        <p class="pdp__opt-label mono">COLOR — <span class="pdp__color-selected" id="pdpColorName"></span></p>
+        <div class="pdp__swatches" id="pdpSwatches"></div>
+      </div>
+
+      <div>
+        <p class="pdp__opt-label mono">SIZE</p>
+        <div class="pdp__sizes" id="pdpSizes"></div>
+      </div>
+
+      <button class="pdp__atc mono" id="pdpATC">SELECT A SIZE</button>
+
+      <div class="pdp__trust">
+        <span>✓ FREE SHIPPING OVER $75</span>
+        <span>✓ PRINTED IN THE USA</span>
+        <span>✓ SECURE CHECKOUT</span>
+      </div>
+
+      <div class="pdp__links mono">
+        <a href="#" data-info="sizeguide">SIZE GUIDE</a>
+        <span aria-hidden="true">·</span>
+        <a href="#" data-info="shipping">SHIPPING &amp; RETURNS</a>
+      </div>
+
+      <div class="pdp__desc" id="pdpDesc"></div>
     </div>
-
-    <button class="pdp__atc mono" id="pdpATC">SELECT A SIZE</button>
-
-    <div class="pdp__trust">
-      <span>✓ FREE SHIPPING OVER $75</span>
-      <span>✓ PRINTED IN THE USA</span>
-      <span>✓ SECURE CHECKOUT</span>
-    </div>
-
-    <div class="pdp__desc" id="pdpDesc"></div>
   </div>
 </div>
 
@@ -235,6 +330,17 @@
       <p class="drawer__note mono">Shipping + taxes calculated at checkout</p>
       <button class="btn btn--solid" id="checkoutBtn">CHECKOUT →</button>
     </div>
+  </aside>
+</div>
+
+<!-- ======= INFO OVERLAY — shipping / returns / size guide / policies ======= -->
+<div class="info" id="info" hidden aria-modal="true" role="dialog" aria-labelledby="infoTitle">
+  <div class="info__backdrop" data-closeinfo></div>
+  <aside class="info__panel">
+    <button class="info__close" data-closeinfo aria-label="Close">✕</button>
+    <p class="mono gold-text">FLYLYFE</p>
+    <h3 class="info__title" id="infoTitle"></h3>
+    <div class="info__body" id="infoBody"></div>
   </aside>
 </div>
 
