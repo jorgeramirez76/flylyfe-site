@@ -86,6 +86,7 @@ function renderGrid(elId, handles){
         <img src="${front}" alt="${p.title} front" loading="lazy">
         ${back && back!==front ? `<img class="back" src="${back}" alt="${p.title} back" loading="lazy">` : ''}
         <span class="card__tag">${TAGLINES[h]||'FLYLYFE'}</span>
+        <span class="card__quick">QUICK ADD +</span>
       </div>
       <div class="card__body">
         <div>
@@ -289,11 +290,104 @@ function observeReveals(){
     document.querySelectorAll('.reveal').forEach(el=>el.classList.add('in'));
     return;
   }
-  document.body.classList.add('js-reveal-ready');
   const io = new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} }),{threshold:.08, rootMargin:'0px 0px -40px 0px'});
   document.querySelectorAll('.reveal:not(.in)').forEach(el=>io.observe(el));
+  // safety: force-reveal anything still hidden after 1.2s (covers headless/odd viewports)
+  setTimeout(()=>document.querySelectorAll('.reveal:not(.in)').forEach(el=>{
+    if (el.getBoundingClientRect().top < window.innerHeight) el.classList.add('in');
+  }), 1200);
+}
+
+/* ---------- Hero carousel ---------- */
+const HERO_SLIDES = [
+  {img:'assets/hero/carousel-1-black.jpg', alt:'FLYLYFE Anthem Tee — black'},
+  {img:'assets/hero/carousel-2-freedom.jpg', alt:'FLYLYFE House Music Is Freedom tee'},
+  {img:'assets/hero/carousel-3-house.jpg', alt:'FLYLYFE house music tee'},
+];
+function initHeroCarousel(){
+  const wrap = document.getElementById('heroCarousel');
+  const dotsWrap = document.getElementById('heroDots');
+  if (!wrap) return;
+  HERO_SLIDES.forEach((s,i)=>{
+    const slide = document.createElement('div');
+    slide.className = 'hero__slide' + (i===0?' on':'');
+    slide.innerHTML = `<img src="${s.img}" alt="${s.alt}" ${i===0?'fetchpriority="high"':'loading="lazy"'}>`;
+    wrap.appendChild(slide);
+    const dot = document.createElement('button');
+    dot.className = i===0?'on':''; dot.setAttribute('aria-label','Slide '+(i+1));
+    dot.onclick = ()=>goToSlide(i);
+    dotsWrap.appendChild(dot);
+  });
+  let idx = 0;
+  const slides = wrap.querySelectorAll('.hero__slide');
+  const dots = dotsWrap.querySelectorAll('button');
+  window.goToSlide = (n)=>{
+    slides[idx].classList.remove('on'); dots[idx].classList.remove('on');
+    idx = (n+slides.length)%slides.length;
+    slides[idx].classList.add('on'); dots[idx].classList.add('on');
+  };
+  let timer = setInterval(()=>window.goToSlide(idx+1), 4500);
+  wrap.addEventListener('mouseenter', ()=>clearInterval(timer));
+  wrap.addEventListener('mouseleave', ()=>{ timer = setInterval(()=>window.goToSlide(idx+1), 4500); });
+}
+
+/* ---------- Featured AFTER HOURS strip ---------- */
+function renderFeatured(){
+  const strip = document.getElementById('featuredStrip');
+  if (!strip) return;
+  // Pull 4 cells: women's 3 + 1 men's, back-graphic shots
+  const picks = [
+    {handle:'the-anthem-tee-womens', color:'Black'},
+    {handle:'the-conga-tee-womens', color:'Natural'},
+    {handle:'the-signature-tee-womens', color:'Black'},
+    {handle:'the-anthem-tee', color:'Ivory'},
+  ];
+  strip.innerHTML = '';
+  picks.forEach(p=>{
+    const prod = PRODUCTS[p.handle];
+    if (!prod) return;
+    const img = imagesFor(prod, p.color, 'back') || imagesFor(prod, p.color, 'front');
+    const price = prod.variants.edges[0].node.price.amount;
+    const cell = document.createElement('div');
+    cell.className = 'fcell';
+    cell.innerHTML = `<img src="${img}" alt="${prod.title}" loading="lazy">
+      <div class="fcell__label"><div class="nm">${prod.title.replace(" — Women's","")}</div><div class="pr">${money(price)}</div></div>`;
+    cell.onclick = ()=>openModal(p.handle);
+    strip.appendChild(cell);
+  });
+}
+
+/* ---------- Nav shrink + scroll spy ---------- */
+function initScrollUX(){
+  const nav = document.getElementById('nav');
+  const hero = document.getElementById('heroBg');
+  const links = document.querySelectorAll('.nav__links a');
+  const sections = ['top','shop','after-hours','story','journal'];
+  function onScroll(){
+    const y = window.scrollY;
+    nav.classList.toggle('shrink', y > 60);
+    // hero parallax
+    if (hero && y < window.innerHeight) hero.style.transform = `translateY(${y*0.18}px)`;
+    // scroll spy
+    let active = 'top';
+    sections.forEach(id=>{
+      const el = document.getElementById(id);
+      if (el && el.getBoundingClientRect().top <= 120) active = id;
+    });
+    links.forEach(a=>a.classList.toggle('active', a.getAttribute('href')==='#'+active));
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
 }
 
 /* ---------- Init ---------- */
+document.body.classList.add('has-js');
 document.getElementById('year').textContent = new Date().getFullYear();
-loadProducts().then(async ()=>{ if (cartId) renderCart(await ensureCart()); });
+initHeroCarousel();
+initScrollUX();
+observeReveals();
+loadProducts().then(async ()=>{
+  renderFeatured();
+  observeReveals();
+  if (cartId) renderCart(await ensureCart());
+});
