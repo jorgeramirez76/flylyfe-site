@@ -306,25 +306,27 @@ const HERO_SLIDES = [
 ];
 function initHeroCarousel(){
   const wrap = document.getElementById('heroCarousel');
-  const dotsWrap = document.getElementById('heroDots');
+  const numsWrap = document.getElementById('heroNums');
   if (!wrap) return;
   HERO_SLIDES.forEach((s,i)=>{
     const slide = document.createElement('div');
     slide.className = 'hero__slide' + (i===0?' on':'');
     slide.innerHTML = `<img src="${s.img}" alt="${s.alt}" ${i===0?'fetchpriority="high"':'loading="lazy"'}>`;
     wrap.appendChild(slide);
-    const dot = document.createElement('button');
-    dot.className = i===0?'on':''; dot.setAttribute('aria-label','Slide '+(i+1));
-    dot.onclick = ()=>goToSlide(i);
-    dotsWrap.appendChild(dot);
+    const num = document.createElement('button');
+    num.className = 'hero__num' + (i===0?' on':'');
+    num.textContent = '0'+(i+1);
+    num.setAttribute('aria-label','Slide '+(i+1));
+    num.onclick = ()=>goToSlide(i);
+    numsWrap.appendChild(num);
   });
   let idx = 0;
   const slides = wrap.querySelectorAll('.hero__slide');
-  const dots = dotsWrap.querySelectorAll('button');
+  const nums = numsWrap.querySelectorAll('.hero__num');
   window.goToSlide = (n)=>{
-    slides[idx].classList.remove('on'); dots[idx].classList.remove('on');
+    slides[idx].classList.remove('on'); nums[idx].classList.remove('on');
     idx = (n+slides.length)%slides.length;
-    slides[idx].classList.add('on'); dots[idx].classList.add('on');
+    slides[idx].classList.add('on'); nums[idx].classList.add('on');
   };
   let timer = setInterval(()=>window.goToSlide(idx+1), 4500);
   wrap.addEventListener('mouseenter', ()=>clearInterval(timer));
