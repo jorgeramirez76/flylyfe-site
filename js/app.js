@@ -26,6 +26,13 @@ const MODEL_MAP = {
   'the-anthem-tee-womens':    {color:'Black', back:'assets/lookbook/wren-feelmusic-back.jpg',          front:'assets/lookbook/wren-black-front.jpg'},
   'the-conga-tee-womens':     {color:'Black', back:'assets/lookbook/wren-conga-back.jpg',              front:'assets/lookbook/wren-black-front.jpg'},
   'the-signature-tee-womens': {color:'Black', back:'assets/lookbook/wren-black-front.jpg',             front:'assets/lookbook/wren-cream-front.jpg'},
+  /* DROP 02 — design lives on the back; on-model shot is hero, flat design plate on hover */
+  'the-after-hours-tee':      {color:'Black', back:'assets/products/drop02-after-hours-model.jpg',      front:'assets/products/drop02-after-hours.jpg'},
+  'the-tempo-tee':            {color:'Black', back:'assets/products/drop02-tempo-model.jpg',            front:'assets/products/drop02-tempo.jpg'},
+  'the-coordinates-tee':      {color:'Ivory', back:'assets/products/drop02-coordinates-model.jpg',      front:'assets/products/drop02-coordinates.jpg'},
+  'the-spiritual-thing-tee':  {color:'Ivory', back:'assets/products/drop02-spiritual-thing-model.jpg',  front:'assets/products/drop02-spiritual-thing.jpg'},
+  /* LIMITED — design on the FRONT; front-model shot is hero, lifestyle alt on hover */
+  'the-sanitary-code-tee':    {color:'White', back:'assets/products/limited-sanitary-front-model.jpg',  front:'assets/products/limited-sanitary-front-brick.jpg'},
 };
 
 /* Accurate Printful mockups — used as thumbnails in the modal */
@@ -33,9 +40,12 @@ let MOCKUPS = {};
 
 const MEN_HANDLES = ['the-anthem-tee','the-conga-tee','the-signature-tee'];
 const WOMEN_HANDLES = ['the-anthem-tee-womens','the-conga-tee-womens','the-signature-tee-womens'];
+const DROP_HANDLES = ['the-after-hours-tee','the-tempo-tee','the-coordinates-tee','the-spiritual-thing-tee'];
+const LIMITED_HANDLE = 'the-sanitary-code-tee';
 const TAGLINES = {
   'the-anthem-tee':'FEEL THE MUSIC','the-conga-tee':'MOVE THE BODY','the-signature-tee':'THE CLASSIC',
-  'the-anthem-tee-womens':'FEEL THE MUSIC','the-conga-tee-womens':'MOVE THE BODY','the-signature-tee-womens':'THE CLASSIC'
+  'the-anthem-tee-womens':'FEEL THE MUSIC','the-conga-tee-womens':'MOVE THE BODY','the-signature-tee-womens':'THE CLASSIC',
+  'the-after-hours-tee':'AFTER HOURS','the-tempo-tee':'124 BPM','the-coordinates-tee':'NEW YORK CITY','the-spiritual-thing-tee':'SPIRITUAL THING','the-sanitary-code-tee':'LIMITED'
 };
 const SUBTITLE = {
   'the-anthem-tee':'The mantra, worn big on the back',
@@ -44,6 +54,11 @@ const SUBTITLE = {
   'the-anthem-tee-womens':'The mantra, relaxed cut',
   'the-conga-tee-womens':'Dancer & conga, relaxed cut',
   'the-signature-tee-womens':'Clean wordmark, relaxed cut',
+  'the-after-hours-tee':'The set that never stops',
+  'the-tempo-tee':'124 BPM · the tempo of the city',
+  'the-coordinates-tee':'40.7128° N · New York City',
+  'the-spiritual-thing-tee':'A body thing · a soul thing',
+  'the-sanitary-code-tee':'Vintage NYC · Sanitary Code Sect. 216',
 };
 
 async function gql(query, vars={}) {
@@ -95,6 +110,8 @@ async function init() {
   data.products.edges.forEach(e => PRODUCTS[e.node.handle] = e.node);
   renderGrid('gridMen', MEN_HANDLES, 'men');
   renderGrid('gridWomen', WOMEN_HANDLES, 'women');
+  renderGrid('gridDrop', DROP_HANDLES, 'drop');
+  wireLimited();
   renderFeatured();
   injectProductSchema();
   observeReveals();
@@ -171,8 +188,10 @@ function openPDP(handle, startColor) {
   pdpState = { handle, color: startColor || (colors.includes('Black')?'Black':colors[0]), size:null };
 
   function render() {
-    const back    = modelShot(pdpState.color, 'back');
-    const front   = modelShot(pdpState.color, 'front');
+    const mm = MODEL_MAP[handle];
+    const useMM = mm && pdpState.color === mm.color;
+    const back    = useMM ? mm.back : modelShot(pdpState.color, 'back');
+    const front   = useMM ? (mm.front || mm.back) : modelShot(pdpState.color, 'front');
     const mBack   = mockup(handle, pdpState.color, 'back');
     const mFront  = mockup(handle, pdpState.color, 'front');
     const price = p.variants.edges[0].node.price.amount;
@@ -332,7 +351,7 @@ function renderCart(cart){
     const opts = m.selectedOptions.map(o=>o.value).join(' / ');
     const colorOpt = m.selectedOptions.find(o=>o.name==='Color');
     const cc = colorOpt ? colorOpt.value : 'Black';
-    const img = mockup(m.product.handle, cc, 'back') || modelShot(cc, 'back');
+    const img = mockup(m.product.handle, cc, 'back') || (MODEL_MAP[m.product.handle] && MODEL_MAP[m.product.handle].back) || modelShot(cc, 'back');
     const div = document.createElement('div');
     div.className = 'citem';
     div.innerHTML = `
@@ -389,14 +408,28 @@ function renderFeatured(){
   });
 }
 
+/* ---- Limited section → opens the Sanitary Code PDP (shoppable) ---- */
+function wireLimited(){
+  if (!PRODUCTS[LIMITED_HANDLE]) return;
+  const open = ()=>openPDP(LIMITED_HANDLE, 'White');
+  document.querySelectorAll('[data-shop-limited]').forEach(b=>b.addEventListener('click', open));
+  const media = document.querySelector('#limited .limited__media');
+  if (media){
+    media.style.cursor='pointer'; media.setAttribute('role','button'); media.setAttribute('tabindex','0');
+    media.setAttribute('aria-label','Shop the Sanitary Code Tee');
+    media.addEventListener('click', open);
+    media.addEventListener('keydown', e=>{ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); open(); } });
+  }
+}
+
 /* ---- Product structured data (SEO rich results) ---- */
 function injectProductSchema(){
-  const handles = MEN_HANDLES.concat(WOMEN_HANDLES);
+  const handles = MEN_HANDLES.concat(WOMEN_HANDLES, DROP_HANDLES, [LIMITED_HANDLE]);
   const items = handles.map(h=>PRODUCTS[h]).filter(Boolean).map(p=>{
     const v0 = p.variants.edges[0].node;
     const inStock = p.variants.edges.some(e=>e.node.availableForSale);
     const colors = (p.options.find(o=>o.name==='Color')?.values)||[];
-    const img = mockup(p.handle, colors.includes('Black')?'Black':colors[0], 'back');
+    const img = mockup(p.handle, colors.includes('Black')?'Black':colors[0], 'back') || (MODEL_MAP[p.handle] && MODEL_MAP[p.handle].back) || '';
     const o = { "@context":"https://schema.org","@type":"Product","name":p.title,
       "description":(p.descriptionHtml||'').replace(/<[^>]+>/g,'').replace(/\s+/g,' ').trim().slice(0,300),
       "brand":{"@type":"Brand","name":"FLYLYFE"},
