@@ -343,9 +343,9 @@ body.has-js .reveal.in{opacity:1;transform:none}
 .lookbook{padding:7rem 6vw 5rem;border-top:1px solid var(--line)}
 .lookbook__head{margin-bottom:3rem;max-width:680px}
 .lookbook__head h2{font-family:var(--font-display);font-size:clamp(2.6rem,6vw,4.4rem);line-height:1;text-transform:uppercase;margin:.6rem 0}
-.lookbook__grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.2rem}
-.lb{position:relative;overflow:hidden;aspect-ratio:3/4;border:1px solid var(--line);margin:0}
-.lb img{width:100%;height:100%;object-fit:cover;object-position:top center;transition:transform .8s var(--ease),filter .4s;filter:saturate(.9)}
+.lookbook__grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.4rem}
+.lb{position:relative;overflow:hidden;aspect-ratio:3/2;border:1px solid var(--line);margin:0}
+.lb img{width:100%;height:100%;object-fit:cover;object-position:center;transition:transform .8s var(--ease),filter .4s;filter:saturate(.95)}
 .lb:hover img{transform:scale(1.05);filter:saturate(1)}
 .lb figcaption{position:absolute;left:0;right:0;bottom:0;padding:1.1rem;background:linear-gradient(transparent,rgba(8,8,8,.92));color:var(--ink);font-size:.6rem;letter-spacing:.18em;opacity:0;transform:translateY(8px);transition:all .35s var(--ease)}
 .lb:hover figcaption{opacity:1;transform:none}
@@ -393,4 +393,4 @@ body.has-js .reveal.in{opacity:1;transform:none}
   .info__panel{padding:2.2rem 1.5rem}
 }
 @media(max-width:900px){.drop2__grid,.lookbook__grid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:560px){.lookbook,.drop2{padding-left:1.4rem;padding-right:1.4rem}}
+@media(max-width:560px){.lookbook,.drop2{padding-left:1.4rem;padding-right:1.4rem}.lookbook__grid{grid-template-columns:1fr}}
