@@ -349,6 +349,14 @@ body.has-js .reveal.in{opacity:1;transform:none}
 .lb:hover img{transform:scale(1.05);filter:saturate(1)}
 .lb figcaption{position:absolute;left:0;right:0;bottom:0;padding:1.1rem;background:linear-gradient(transparent,rgba(8,8,8,.92));color:var(--ink);font-size:.6rem;letter-spacing:.18em;opacity:0;transform:translateY(8px);transition:all .35s var(--ease)}
 .lb:hover figcaption{opacity:1;transform:none}
+/* women's lookbook — Wren, portrait tiles */
+.wlook__grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.2rem}
+.wlb{position:relative;overflow:hidden;aspect-ratio:2/3;border:1px solid var(--line);margin:0}
+.wlb img{width:100%;height:100%;object-fit:cover;object-position:center top;transition:transform .8s var(--ease),filter .4s;filter:saturate(.95)}
+.wlb:hover img{transform:scale(1.05);filter:saturate(1)}
+.wlb figcaption{position:absolute;left:0;right:0;bottom:0;padding:1rem;background:linear-gradient(transparent,rgba(8,8,8,.92));color:var(--ink);font-size:.6rem;letter-spacing:.18em;opacity:0;transform:translateY(8px);transition:all .35s var(--ease)}
+.wlb:hover figcaption{opacity:1;transform:none}
+@media(max-width:760px){.wlook__grid{grid-template-columns:repeat(2,1fr)}}
 
 /* ============ Drop 02 — new designs ============ */
 .drop2{padding:7rem 6vw 5.5rem;border-top:1px solid var(--line);background:radial-gradient(circle at 50% -10%,#161616,var(--bg) 70%)}
