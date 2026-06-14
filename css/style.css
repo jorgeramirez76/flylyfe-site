@@ -390,6 +390,19 @@ body.has-js .reveal.in{opacity:1;transform:none}
 .limited__thumbs img{width:84px;height:104px;object-fit:cover;border:1px solid var(--line);background:#0d0d0d}
 @media(max-width:1000px){.limited{grid-template-columns:1fr}.limited__media{min-height:62vw}.limited__info{padding:3rem 1.4rem}}
 
+/* ============ FAQ ============ */
+.faq{padding:7rem 6vw 5rem;border-top:1px solid var(--line);background:var(--bg-2)}
+.faq__head{margin-bottom:2.4rem;max-width:680px}
+.faq__head h2{font-family:var(--font-display);font-size:clamp(2.4rem,5vw,4rem);line-height:1;text-transform:uppercase;margin:.5rem 0}
+.faq__list{max-width:840px}
+.faq__item{border-bottom:1px solid var(--line)}
+.faq__item summary{list-style:none;cursor:pointer;padding:1.3rem 0;font-weight:600;font-size:1.02rem;text-transform:uppercase;letter-spacing:.02em;display:flex;justify-content:space-between;align-items:center;gap:1rem;transition:color .2s}
+.faq__item summary::-webkit-details-marker{display:none}
+.faq__item summary::after{content:"+";color:var(--gold);font-size:1.5rem;font-weight:400;line-height:1;transition:transform .25s var(--ease)}
+.faq__item[open] summary::after{transform:rotate(45deg)}
+.faq__item summary:hover{color:var(--gold)}
+.faq__item p{color:var(--ink-dim);line-height:1.75;padding:0 0 1.5rem;max-width:700px}
+
 /* ============ PDP info links ============ */
 .pdp__links{display:flex;align-items:center;gap:.7rem;margin-top:.2rem}
 .pdp__links a{color:var(--ink-dim);font-size:.62rem;letter-spacing:.12em;text-decoration:underline;text-underline-offset:3px;transition:color .2s}
