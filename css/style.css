@@ -32,7 +32,9 @@ button{font-family:inherit;cursor:pointer}
 /* ============ Nav ============ */
 .nav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1.05rem 2.4rem;background:rgba(8,8,8,.78);backdrop-filter:blur(16px);border-bottom:1px solid var(--line);transition:padding .3s var(--ease)}
 .nav.shrink{padding:.7rem 2.4rem}
-.nav__logo{font-family:var(--font-display);font-size:1.55rem;letter-spacing:.06em;color:var(--gold)}
+.nav__logo{display:flex;align-items:center}
+.nav__logo-img{height:21px;width:auto;display:block;transition:height .3s var(--ease)}
+.nav.shrink .nav__logo-img{height:18px}
 .nav__links{display:flex;gap:2rem}
 .nav__links a{font-family:var(--font-mono);font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-dim);transition:color .2s;position:relative;padding-bottom:3px}
 .nav__links a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:1px;background:var(--gold);transition:width .28s var(--ease)}
@@ -181,7 +183,8 @@ button{font-family:inherit;cursor:pointer}
 /* ============ Footer ============ */
 .footer{border-top:1px solid var(--line);padding:4.6rem 6vw 2.4rem;background:var(--bg-2)}
 .footer__top{display:grid;grid-template-columns:1.3fr 2fr;gap:3rem;padding-bottom:3rem;border-bottom:1px solid var(--line)}
-.footer__brand{font-family:var(--font-display);font-size:clamp(2.8rem,6vw,4.4rem);color:var(--gold);line-height:.95;letter-spacing:.04em}
+.footer__brand{line-height:.95}
+.footer__brand-img{height:clamp(30px,5.5vw,50px);width:auto;display:block}
 .footer__tagline{color:var(--ink);margin-top:1.1rem;font-size:.62rem;letter-spacing:.2em;opacity:.85}
 .footer__est{color:var(--ink-dim);margin-top:.5rem;font-size:.6rem;letter-spacing:.22em}
 .footer__cols{display:grid;grid-template-columns:repeat(4,1fr);gap:1.6rem}
@@ -336,6 +339,30 @@ body.has-js .reveal.in{opacity:1;transform:none}
 .info__body th,.info__body td{border:1px solid var(--line);padding:.55rem .6rem;text-align:center;color:var(--ink-dim)}
 .info__body th{color:var(--gold);font-weight:500;letter-spacing:.08em}
 
+/* ============ Lookbook (tees on models) ============ */
+.lookbook{padding:7rem 6vw 5rem;border-top:1px solid var(--line)}
+.lookbook__head{margin-bottom:3rem;max-width:680px}
+.lookbook__head h2{font-family:var(--font-display);font-size:clamp(2.6rem,6vw,4.4rem);line-height:1;text-transform:uppercase;margin:.6rem 0}
+.lookbook__grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.2rem}
+.lb{position:relative;overflow:hidden;aspect-ratio:3/4;border:1px solid var(--line);margin:0}
+.lb img{width:100%;height:100%;object-fit:cover;object-position:top center;transition:transform .8s var(--ease),filter .4s;filter:saturate(.9)}
+.lb:hover img{transform:scale(1.05);filter:saturate(1)}
+.lb figcaption{position:absolute;left:0;right:0;bottom:0;padding:1.1rem;background:linear-gradient(transparent,rgba(8,8,8,.92));color:var(--ink);font-size:.6rem;letter-spacing:.18em;opacity:0;transform:translateY(8px);transition:all .35s var(--ease)}
+.lb:hover figcaption{opacity:1;transform:none}
+
+/* ============ Drop 02 — new designs ============ */
+.drop2{padding:7rem 6vw 5.5rem;border-top:1px solid var(--line);background:radial-gradient(circle at 50% -10%,#161616,var(--bg) 70%)}
+.drop2__head{margin:0 auto 3.4rem;text-align:center;max-width:620px}
+.drop2__head .shop__desc{margin:0 auto}
+.drop2__grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.4rem}
+.d2card{background:var(--bg-2);border:1px solid var(--line);overflow:hidden;transition:border-color .3s,transform .4s var(--ease),box-shadow .4s}
+.d2card:hover{border-color:var(--gold-deep);transform:translateY(-6px);box-shadow:0 24px 50px rgba(0,0,0,.5)}
+.d2card__media{position:relative;aspect-ratio:4/5;overflow:hidden;background:#0d0d0d}
+.d2card__media img{width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease)}
+.d2card:hover .d2card__media img{transform:scale(1.04)}
+.d2card__tag{position:absolute;top:1rem;left:1rem;background:rgba(8,8,8,.78);color:var(--gold);font-family:var(--font-mono);font-size:.58rem;letter-spacing:.16em;padding:.34rem .7rem;backdrop-filter:blur(6px)}
+.drop2__cta{display:flex;width:max-content;margin:2.8rem auto 0}
+
 /* ============ PDP info links ============ */
 .pdp__links{display:flex;align-items:center;gap:.7rem;margin-top:.2rem}
 .pdp__links a{color:var(--ink-dim);font-size:.62rem;letter-spacing:.12em;text-decoration:underline;text-underline-offset:3px;transition:color .2s}
@@ -365,3 +392,5 @@ body.has-js .reveal.in{opacity:1;transform:none}
   .capture__submit{width:100%}
   .info__panel{padding:2.2rem 1.5rem}
 }
+@media(max-width:900px){.drop2__grid,.lookbook__grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.lookbook,.drop2{padding-left:1.4rem;padding-right:1.4rem}}
