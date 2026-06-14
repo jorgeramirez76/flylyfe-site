@@ -17,6 +17,17 @@ const MODEL_SHOTS = {
   Natural: { back:'assets/models/cream-alt-back.jpg', front:'assets/models/cream-alt-front.jpg'}
 };
 
+/* ---- Per-product on-model shots: hero on the default Black colorway; other colors fall back
+   to the accurate flat Printful mockup so color-swap stays truthful. Men = male model, women = Wren Blake. ---- */
+const MODEL_MAP = {
+  'the-anthem-tee':           {color:'Black', back:'assets/models/black-back.jpg',                    front:'assets/models/black-front.jpg'},
+  'the-conga-tee':            {color:'Black', back:'assets/products/the-conga-tee-model-back.jpg',     front:null},
+  'the-signature-tee':        {color:'Black', back:'assets/products/the-signature-tee-model-back.jpg', front:null},
+  'the-anthem-tee-womens':    {color:'Black', back:'assets/lookbook/wren-feelmusic-back.jpg',          front:'assets/lookbook/wren-black-front.jpg'},
+  'the-conga-tee-womens':     {color:'Black', back:'assets/lookbook/wren-conga-back.jpg',              front:'assets/lookbook/wren-black-front.jpg'},
+  'the-signature-tee-womens': {color:'Black', back:'assets/lookbook/wren-black-front.jpg',             front:'assets/lookbook/wren-cream-front.jpg'},
+};
+
 /* Accurate Printful mockups — used as thumbnails in the modal */
 let MOCKUPS = {};
 
@@ -106,14 +117,17 @@ function renderGrid(elId, handles) {
     card.className = 'card';
 
     function build() {
-      /* accurate per-design Printful mockup is the card art (each design shows its TRUE graphic);
-         model lifestyle shots remain as worn views inside the PDP gallery */
-      const heroBack  = mockup(h, activeColor, 'back')  || modelShot(activeColor, 'back');
-      const heroFront = mockup(h, activeColor, 'front') || modelShot(activeColor, 'front');
+      /* Default Black colorway shows the on-model shot as the hero; other colorways fall back
+         to the accurate flat Printful mockup (so the color swatch stays truthful). */
+      const mm = MODEL_MAP[h];
+      const useModel = mm && activeColor === mm.color;
+      const heroBack  = useModel ? mm.back : (mockup(h, activeColor, 'back')  || modelShot(activeColor, 'back'));
+      const heroFront = useModel ? (mm.front || mm.back) : (mockup(h, activeColor, 'front') || modelShot(activeColor, 'front'));
+      const mediaCls  = useModel ? 'card__media card__media--model' : 'card__media card__media--mockup';
       card.innerHTML = `
-        <div class="card__media card__media--mockup" data-color="${activeColor}" role="button" tabindex="0" aria-label="View ${p.title.replace(" — Women's","")}">
-          <img class="front back-hero" src="${heroBack}" alt="${p.title} — ${activeColor}, back design" loading="lazy" decoding="async">
-          <img class="back" src="${heroFront}" alt="${p.title} — ${activeColor}, front" loading="lazy" decoding="async">
+        <div class="${mediaCls}" data-color="${activeColor}" role="button" tabindex="0" aria-label="View ${p.title.replace(" — Women's","")}">
+          <img class="front back-hero" src="${heroBack}" alt="${p.title} — ${activeColor}, worn back" loading="lazy" decoding="async">
+          <img class="back" src="${heroFront}" alt="${p.title} — ${activeColor}, worn front" loading="lazy" decoding="async">
           <span class="card__tag">${TAGLINES[h]||'FLYLYFE'}</span>
           <span class="card__view mono">BACK · HOVER FOR FRONT</span>
           <span class="card__quick mono">VIEW &amp; BUY →</span>
