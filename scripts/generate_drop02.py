@@ -51,12 +51,12 @@ def grain(img, amt=7):
     n.putalpha(14); img.alpha_composite(n); return img
 
 W,Hh=1080,1350
-def plate(bg):
-    im=Image.new("RGBA",(W,Hh),bg+(255,)); return im
+def plate(bg, transparent=False):
+    return Image.new("RGBA",(W,Hh),(0,0,0,0)) if transparent else Image.new("RGBA",(W,Hh),bg+(255,))
 
 # ---------- DESIGN 1: AFTER HOURS (black tee) ----------
-def d1():
-    im=plate(INK); d=ImageDraw.Draw(im); cx=W/2
+def d1(transparent=False):
+    im=plate(INK,transparent); d=ImageDraw.Draw(im); cx=W/2
     tracked(d,cx,150,"AFTER",font("black",200),WHITE,4)
     tracked(d,cx,350,"HOURS",font("black",200),WHITE,4)
     d.line([(cx-300,610),(cx+300,610)],fill=GOLD,width=3)
@@ -70,8 +70,8 @@ def d1():
     return im,"after-hours","Ink"
 
 # ---------- DESIGN 2: TEMPO 124 BPM (black tee) ----------
-def d2():
-    im=plate(INK); d=ImageDraw.Draw(im); cx=W/2
+def d2(transparent=False):
+    im=plate(INK,transparent); d=ImageDraw.Draw(im); cx=W/2
     tracked(d,cx,150,"FEEL THE RHYTHM",font("reg",40),WHITE,14)
     d.text((cx-330,230),"124",font=font("black",360),fill=WHITE)
     tracked(d,cx+250,560,"BPM",font("bold",70),GOLD,6,anchor_center=False)
@@ -85,8 +85,8 @@ def d2():
     return im,"tempo","Ink"
 
 # ---------- DESIGN 3: COORDINATES (cream tee) ----------
-def d3():
-    im=plate(CREAM); d=ImageDraw.Draw(im); cx=W/2
+def d3(transparent=False):
+    im=plate(CREAM,transparent); d=ImageDraw.Draw(im); cx=W/2
     # globe
     gy=250; gr=70
     d.ellipse([cx-gr,gy-gr,cx+gr,gy+gr],outline=INK,width=4)
@@ -105,8 +105,8 @@ def d3():
     return im,"coordinates","Cream"
 
 # ---------- DESIGN 4: SPIRITUAL THING manifesto (cream tee) ----------
-def d4():
-    im=plate(CREAM); d=ImageDraw.Draw(im); cx=W/2
+def d4(transparent=False):
+    im=plate(CREAM,transparent); d=ImageDraw.Draw(im); cx=W/2
     tracked(d,cx,210,"IT'S A",font("reg",48),INK,16)
     tracked(d,cx,290,"SPIRITUAL THING",font("serif",112),INK,0)
     def goldword(y,pre,gold,size):
@@ -119,9 +119,13 @@ def d4():
     return im,"spiritual-thing","Cream"
 
 for fn in (d1,d2,d3,d4):
-    im,slug,color=fn()
+    # site plate (design on tee-color background)
+    im,slug,color=fn(transparent=False)
     im=vignette(im,0.5); im=grain(im)
-    out=f"{OUT_PLATE}/drop02-{slug}.jpg"
-    im.convert("RGB").save(out,quality=88)
-    print("wrote",out,im.size,f"({color})")
-print("DROP 02 plates done")
+    im.convert("RGB").save(f"{OUT_PLATE}/drop02-{slug}.jpg",quality=88)
+    # transparent print file for Printful (upscaled to ~1800w = ~150dpi on a 12in back placement)
+    pim,_,_=fn(transparent=True)
+    pim=pim.resize((1800,int(Hh*1800/W)),Image.LANCZOS)
+    pim.save(f"{OUT_PRINT}/drop02-{slug}-back.png")
+    print("wrote plate + print:",slug,f"({color} ink)")
+print("DROP 02 plates + transparent prints done")
