@@ -23,6 +23,7 @@ const MODEL_MAP = {
   'the-anthem-tee':           {color:'Black', back:'assets/models/black-back.jpg',                    front:'assets/models/black-front.jpg'},
   'the-conga-tee':            {color:'Black', back:'assets/products/the-conga-tee-model-back.jpg',     front:null},
   'the-signature-tee':        {color:'Black', back:'assets/products/the-signature-tee-model-back.jpg', front:null},
+  'the-house-music-tee':      {color:'Black', back:'assets/products/the-house-music-back.jpg',          front:'assets/products/the-house-music-front.jpg'},
   'the-anthem-tee-womens':    {color:'Black', back:'assets/lookbook/wren-feelmusic-back.jpg',          front:'assets/lookbook/wren-black-front.jpg'},
   'the-conga-tee-womens':     {color:'Black', back:'assets/lookbook/wren-conga-back.jpg',              front:'assets/lookbook/wren-black-front.jpg'},
   'the-signature-tee-womens': {color:'Black', back:'assets/lookbook/wren-black-front.jpg',             front:'assets/lookbook/wren-cream-front.jpg'},
@@ -38,12 +39,12 @@ const MODEL_MAP = {
 /* Accurate Printful mockups — used as thumbnails in the modal */
 let MOCKUPS = {};
 
-const MEN_HANDLES = ['the-anthem-tee','the-conga-tee','the-signature-tee'];
+const MEN_HANDLES = ['the-anthem-tee','the-conga-tee','the-signature-tee','the-house-music-tee'];
 const WOMEN_HANDLES = ['the-anthem-tee-womens','the-conga-tee-womens','the-signature-tee-womens'];
 const DROP_HANDLES = ['the-after-hours-tee','the-tempo-tee','the-coordinates-tee','the-spiritual-thing-tee'];
 const LIMITED_HANDLE = 'the-sanitary-code-tee';
 const TAGLINES = {
-  'the-anthem-tee':'FEEL THE MUSIC','the-conga-tee':'MOVE THE BODY','the-signature-tee':'THE CLASSIC',
+  'the-anthem-tee':'FEEL THE MUSIC','the-conga-tee':'MOVE THE BODY','the-signature-tee':'THE CLASSIC','the-house-music-tee':'HOUSE MUSIC',
   'the-anthem-tee-womens':'FEEL THE MUSIC','the-conga-tee-womens':'MOVE THE BODY','the-signature-tee-womens':'THE CLASSIC',
   'the-after-hours-tee':'AFTER HOURS','the-tempo-tee':'124 BPM','the-coordinates-tee':'NEW YORK CITY','the-spiritual-thing-tee':'SPIRITUAL THING','the-sanitary-code-tee':'LIMITED'
 };
@@ -51,6 +52,7 @@ const SUBTITLE = {
   'the-anthem-tee':'The mantra, worn big on the back',
   'the-conga-tee':'Dancer & conga — the rhythm on your back',
   'the-signature-tee':'Clean FLYLYFE wordmark',
+  'the-house-music-tee':'Not everyone understands · front & back',
   'the-anthem-tee-womens':'The mantra, relaxed cut',
   'the-conga-tee-womens':'Dancer & conga, relaxed cut',
   'the-signature-tee-womens':'Clean wordmark, relaxed cut',
