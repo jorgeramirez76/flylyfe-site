@@ -72,7 +72,7 @@ async function gql(query, vars={}) {
   return j.data;
 }
 
-const PRODUCT_Q = `{ products(first:20){ edges{ node{
+const PRODUCT_Q = `{ products(first:50){ edges{ node{
   id handle title descriptionHtml
   options{ name values }
   variants(first:50){ edges{ node{
@@ -261,6 +261,7 @@ function openPDP(handle, startColor) {
       const avail = v && v.availableForSale;
       b.className = 'pdp__size' + (pdpState.size===s?' on':'') + (avail?'':' off');
       b.textContent = s;
+      if (!avail){ b.disabled = true; b.setAttribute('aria-disabled','true'); b.setAttribute('aria-label', s+', sold out'); }
       if (avail) b.onclick = ()=>{
         pdpState.size = s;
         sz.querySelectorAll('.pdp__size').forEach(x=>x.classList.remove('on'));
@@ -403,7 +404,11 @@ function renderFeatured(){
     cell.className = 'fcell fcell--mockup';
     cell.innerHTML = `<img src="${img}" alt="${p.title}" loading="lazy">
       <div class="fcell__label"><div class="nm">${p.title.replace(" — Women's","")}</div><div class="pr mono">${money(price)}</div></div>`;
-    cell.onclick = ()=>openPDP(pk.handle, pk.color);
+    const openCell = ()=>openPDP(pk.handle, pk.color);
+    cell.onclick = openCell;
+    cell.setAttribute('role','button'); cell.tabIndex = 0;
+    cell.setAttribute('aria-label','View '+p.title.replace(" — Women's",""));
+    cell.addEventListener('keydown', e=>{ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); openCell(); } });
     strip.appendChild(cell);
   });
 }
@@ -451,7 +456,7 @@ function findVariant(p, color, size){
   });
 }
 let toastTimer;
-function showToast(msg){ const t=document.getElementById('toast'); t.textContent=msg; t.hidden=false; clearTimeout(toastTimer); toastTimer=setTimeout(()=>t.hidden=true,2200); }
+function showToast(msg){ const t=document.getElementById('toast'); t.hidden=false; t.textContent=msg; clearTimeout(toastTimer); toastTimer=setTimeout(()=>{ t.hidden=true; t.textContent=''; },2200); }
 
 /* ---- Hero carousel: model back shots ---- */
 const HERO_SLIDES=[
