@@ -74,9 +74,11 @@ async function gql(query, vars={}) {
 
 const PRODUCT_Q = `{ products(first:50){ edges{ node{
   id handle title descriptionHtml
+  featuredImage{ url }
   options{ name values }
   variants(first:50){ edges{ node{
     id title availableForSale price{ amount currencyCode }
+    image{ url }
     selectedOptions{ name value }
   } } }
 } } } }`;
@@ -98,6 +100,18 @@ function mockup(handle, color, view) {
 function modelShot(color, view) {
   const shots = MODEL_SHOTS[color] || MODEL_SHOTS['Black'];
   return shots[view] || shots.back;
+}
+
+/* live Shopify (Printful-synced) mockup for a given color — the ACTUAL printed garment.
+   Used as a truthful fallback before generic model shots, so what's shown matches what prints
+   (critical for women's White/Natural, which have no local model photo). */
+function shopVarImg(p, color) {
+  if (!p || !p.variants) return '';
+  const v = p.variants.edges.map(e=>e.node).find(n=>{
+    const c = n.selectedOptions.find(o=>o.name==='Color');
+    return c && c.value===color && n.image && n.image.url;
+  });
+  return (v && v.image && v.image.url) || (p.featuredImage && p.featuredImage.url) || '';
 }
 
 async function init() {
@@ -138,8 +152,8 @@ function renderGrid(elId, handles) {
          to the accurate flat Printful mockup (so the color swatch stays truthful). */
       const mm = MODEL_MAP[h];
       const useModel = mm && activeColor === mm.color;
-      const heroBack  = useModel ? mm.back : (mockup(h, activeColor, 'back')  || modelShot(activeColor, 'back'));
-      const heroFront = useModel ? (mm.front || mm.back) : (mockup(h, activeColor, 'front') || modelShot(activeColor, 'front'));
+      const heroBack  = useModel ? mm.back : (mockup(h, activeColor, 'back')  || shopVarImg(p, activeColor) || modelShot(activeColor, 'back'));
+      const heroFront = useModel ? (mm.front || mm.back) : (mockup(h, activeColor, 'front') || shopVarImg(p, activeColor) || modelShot(activeColor, 'front'));
       const mediaCls  = useModel ? 'card__media card__media--model' : 'card__media card__media--mockup';
       card.innerHTML = `
         <div class="${mediaCls}" data-color="${activeColor}" role="button" tabindex="0" aria-label="View ${p.title.replace(" — Women's","")}">
@@ -190,8 +204,9 @@ function openPDP(handle, startColor) {
   function render() {
     const mm = MODEL_MAP[handle];
     const useMM = mm && pdpState.color === mm.color;
-    const back    = useMM ? mm.back : modelShot(pdpState.color, 'back');
-    const front   = useMM ? (mm.front || mm.back) : modelShot(pdpState.color, 'front');
+    const sImg    = shopVarImg(p, pdpState.color);
+    const back    = useMM ? mm.back : (mockup(handle, pdpState.color, 'back')  || sImg || modelShot(pdpState.color, 'back'));
+    const front   = useMM ? (mm.front || mm.back) : (mockup(handle, pdpState.color, 'front') || sImg || modelShot(pdpState.color, 'front'));
     const mBack   = mockup(handle, pdpState.color, 'back');
     const mFront  = mockup(handle, pdpState.color, 'front');
     const price = p.variants.edges[0].node.price.amount;
@@ -202,12 +217,13 @@ function openPDP(handle, startColor) {
     document.getElementById('pdpColorName').textContent = pdpState.color.toUpperCase();
 
     /* Gallery order: model back → model front → printful back → printful front */
+    const _seen = new Set();
     const gallery = [
-      { url:back,   label:'BACK — WORN' },
-      { url:front,  label:'FRONT — WORN' },
-      ...(mBack  ? [{url:mBack,  label:'BACK'}]  : []),
-      ...(mFront ? [{url:mFront, label:'FRONT'}] : [])
-    ].filter(x=>x.url);
+      { url:back,   label:'BACK — WORN',  isModel: useMM },
+      { url:front,  label:'FRONT — WORN', isModel: useMM },
+      ...(mBack  ? [{url:mBack,  label:'BACK',  isModel:false}]  : []),
+      ...(mFront ? [{url:mFront, label:'FRONT', isModel:false}] : [])
+    ].filter(x=>x.url && !_seen.has(x.url) && _seen.add(x.url));
 
     const mainImg = document.getElementById('pdpMain');
     function setMain(url, isModel, alt){
@@ -220,8 +236,7 @@ function openPDP(handle, startColor) {
         mainImg.classList.remove('switching');
       }, 180);
     }
-    const isModelShot = idx => idx < 2;  // first 2 are model photos
-    setMain(gallery[0].url, true, `${p.title} — ${gallery[0].label}`);
+    setMain(gallery[0].url, gallery[0].isModel, `${p.title} — ${gallery[0].label}`);
 
     const thumbs = document.getElementById('pdpThumbs');
     thumbs.innerHTML = '';
@@ -229,10 +244,10 @@ function openPDP(handle, startColor) {
       const t = document.createElement('img');
       t.src = im.url; t.alt = im.label;
       t.className = 'pdp__thumb' + (i===0?' on':'');
-      t.style.objectFit = isModelShot(i) ? 'cover' : 'contain';
-      t.style.objectPosition = isModelShot(i) ? 'top center' : 'center';
+      t.style.objectFit = im.isModel ? 'cover' : 'contain';
+      t.style.objectPosition = im.isModel ? 'top center' : 'center';
       t.onclick = ()=>{
-        setMain(im.url, isModelShot(i), `${p.title} — ${im.label}`);
+        setMain(im.url, im.isModel, `${p.title} — ${im.label}`);
         thumbs.querySelectorAll('.pdp__thumb').forEach(x=>x.classList.remove('on'));
         t.classList.add('on');
       };
@@ -309,10 +324,17 @@ document.getElementById('pdpATC').onclick = async()=>{
   if (!v){ showToast('UNAVAILABLE'); return; }
   const atc = document.getElementById('pdpATC');
   atc.disabled = true; atc.textContent = 'ADDING…';
-  await addToCart(v.id);
-  atc.disabled = false;
-  closePDP();
-  openCart();
+  try {
+    await addToCart(v.id);
+    closePDP();
+    openCart();
+  } catch (err) {
+    console.error('ATC:', err);
+    showToast('CART ERROR — TRY AGAIN');
+  } finally {
+    atc.disabled = false;
+    if (!pdp.hidden) atc.textContent = 'ADD TO CART · ' + document.getElementById('pdpPrice').textContent;
+  }
 };
 
 /* ---- Cart ---- */
@@ -352,7 +374,7 @@ function renderCart(cart){
     const opts = m.selectedOptions.map(o=>o.value).join(' / ');
     const colorOpt = m.selectedOptions.find(o=>o.name==='Color');
     const cc = colorOpt ? colorOpt.value : 'Black';
-    const img = mockup(m.product.handle, cc, 'back') || (MODEL_MAP[m.product.handle] && MODEL_MAP[m.product.handle].back) || modelShot(cc, 'back');
+    const img = mockup(m.product.handle, cc, 'back') || shopVarImg(PRODUCTS[m.product.handle], cc) || (MODEL_MAP[m.product.handle] && MODEL_MAP[m.product.handle].back) || modelShot(cc, 'back');
     const div = document.createElement('div');
     div.className = 'citem';
     div.innerHTML = `
@@ -398,7 +420,7 @@ function renderFeatured(){
   strip.innerHTML = '';
   picks.forEach(pk=>{
     const p = PRODUCTS[pk.handle]; if (!p) return;
-    const img = mockup(pk.handle, pk.color, 'back');
+    const img = mockup(pk.handle, pk.color, 'back') || shopVarImg(p, pk.color) || (MODEL_MAP[pk.handle] && MODEL_MAP[pk.handle].back) || modelShot(pk.color, 'back');
     const price = p.variants.edges[0].node.price.amount;
     const cell = document.createElement('div');
     cell.className = 'fcell fcell--mockup';
