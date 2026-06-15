@@ -23,7 +23,7 @@ const MODEL_MAP = {
   'the-anthem-tee':           {color:'Black', back:'assets/models/black-back.jpg',                    front:'assets/models/black-front.jpg'},
   'the-conga-tee':            {color:'Black', back:'assets/products/the-conga-tee-model-back.jpg',     front:null},
   'the-signature-tee':        {color:'Black', back:'assets/products/the-signature-tee-model-back.jpg', front:null},
-  'the-house-music-tee':      {color:'Black', back:'assets/products/the-house-music-back.jpg',          front:'assets/products/the-house-music-front.jpg'},
+  'the-house-music-tee':      {color:'Ivory', back:'assets/products/the-house-music-ivory-back.jpg',    front:'assets/products/the-house-music-ivory-front.jpg'},
   'the-anthem-tee-womens':    {color:'Black', back:'assets/lookbook/wren-feelmusic-back.jpg',          front:'assets/lookbook/wren-black-front.jpg'},
   'the-conga-tee-womens':     {color:'Black', back:'assets/lookbook/wren-conga-back.jpg',              front:'assets/lookbook/wren-black-front.jpg'},
   'the-signature-tee-womens': {color:'Black', back:'assets/lookbook/wren-black-front.jpg',             front:'assets/lookbook/wren-cream-front.jpg'},
@@ -39,6 +39,8 @@ const MODEL_MAP = {
 /* Accurate Printful mockups — used as thumbnails in the modal */
 let MOCKUPS = {};
 
+/* Per-product default colorway shown on the card hero (overrides the Black default) */
+const DEFAULT_COLOR = { 'the-house-music-tee':'Ivory', 'the-signature-tee':'White' };
 const MEN_HANDLES = ['the-anthem-tee','the-conga-tee','the-signature-tee','the-house-music-tee'];
 const WOMEN_HANDLES = ['the-anthem-tee-womens','the-conga-tee-womens','the-signature-tee-womens'];
 const DROP_HANDLES = ['the-after-hours-tee','the-tempo-tee','the-coordinates-tee','the-spiritual-thing-tee'];
@@ -144,7 +146,7 @@ function renderGrid(elId, handles) {
     if (!p) return;
     const colors = p.options.find(o=>o.name==='Color')?.values || [];
     const price = p.variants.edges[0].node.price.amount;
-    let activeColor = colors.includes('Black') ? 'Black' : colors[0];
+    let activeColor = DEFAULT_COLOR[h] || (colors.includes('Black') ? 'Black' : colors[0]);
 
     const card = document.createElement('article');
     card.className = 'card';
