@@ -3,12 +3,24 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://flylyfe.com/</loc>
-    <lastmod>2026-06-13</lastmod>
+    <lastmod>2026-06-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
       <image:loc>https://flylyfe.com/assets/lifestyle/lifestyle-2-black-slogan.jpg</image:loc>
       <image:title>FLYLYFE — NYC house music streetwear, est. 2007</image:title>
     </image:image>
+      <image:image>
+        <image:loc>https://flylyfe.com/assets/products/the-house-music-ivory-back.jpg</image:loc>
+        <image:title>The House Music Tee — FLYLYFE NYC house music streetwear</image:title>
+      </image:image>
+      <image:image>
+        <image:loc>https://flylyfe.com/assets/lookbook/freedom.jpg</image:loc>
+        <image:title>House Music Is Freedom tee — FLYLYFE NYC</image:title>
+      </image:image>
+      <image:image>
+        <image:loc>https://flylyfe.com/assets/products/limited-sanitary-front-model.jpg</image:loc>
+        <image:title>Limited Edition Sanitary Code Tee — FLYLYFE NYC</image:title>
+      </image:image>
   </url>
 </urlset>
