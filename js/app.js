@@ -34,21 +34,24 @@ const MODEL_MAP = {
   'the-spiritual-thing-tee':  {color:'Ivory', back:'assets/products/drop02-spiritual-thing-model.jpg',  front:'assets/products/drop02-spiritual-thing.jpg'},
   /* LIMITED — design on the FRONT; front-model shot is hero, lifestyle alt on hover */
   'the-sanitary-code-tee':    {color:'White', back:'assets/products/limited-sanitary-front-model.jpg',  front:'assets/products/limited-sanitary-front-brick.jpg'},
+  /* TOKEN — bronze NYC subway token on the back; on-model back hero, front wordmark on hover */
+  'the-token-tee':            {color:'Ivory', back:'assets/products/the-token-tee-model-back.jpg',      front:'assets/products/the-token-tee-model-front.jpg'},
 };
 
 /* Accurate Printful mockups — used as thumbnails in the modal */
 let MOCKUPS = {};
 
 /* Per-product default colorway shown on the card hero (overrides the Black default) */
-const DEFAULT_COLOR = { 'the-house-music-tee':'Ivory', 'the-signature-tee':'White' };
-const MEN_HANDLES = ['the-anthem-tee','the-conga-tee','the-signature-tee','the-house-music-tee'];
+const DEFAULT_COLOR = { 'the-house-music-tee':'Ivory', 'the-signature-tee':'White', 'the-token-tee':'Ivory' };
+const MEN_HANDLES = ['the-anthem-tee','the-conga-tee','the-signature-tee','the-house-music-tee','the-token-tee'];
 const WOMEN_HANDLES = ['the-anthem-tee-womens','the-conga-tee-womens','the-signature-tee-womens'];
 const DROP_HANDLES = ['the-after-hours-tee','the-tempo-tee','the-coordinates-tee','the-spiritual-thing-tee'];
 const LIMITED_HANDLE = 'the-sanitary-code-tee';
 const TAGLINES = {
   'the-anthem-tee':'FEEL THE MUSIC','the-conga-tee':'MOVE THE BODY','the-signature-tee':'THE CLASSIC','the-house-music-tee':'HOUSE MUSIC',
   'the-anthem-tee-womens':'FEEL THE MUSIC','the-conga-tee-womens':'MOVE THE BODY','the-signature-tee-womens':'THE CLASSIC',
-  'the-after-hours-tee':'AFTER HOURS','the-tempo-tee':'124 BPM','the-coordinates-tee':'NEW YORK CITY','the-spiritual-thing-tee':'SPIRITUAL THING','the-sanitary-code-tee':'LIMITED'
+  'the-after-hours-tee':'AFTER HOURS','the-tempo-tee':'124 BPM','the-coordinates-tee':'NEW YORK CITY','the-spiritual-thing-tee':'SPIRITUAL THING','the-sanitary-code-tee':'LIMITED',
+  'the-token-tee':'NYC TOKEN'
 };
 const SUBTITLE = {
   'the-anthem-tee':'The mantra, worn big on the back',
@@ -63,6 +66,7 @@ const SUBTITLE = {
   'the-coordinates-tee':'40.7128° N · New York City',
   'the-spiritual-thing-tee':'A body thing · a soul thing',
   'the-sanitary-code-tee':'Vintage NYC · Sanitary Code Sect. 216',
+  'the-token-tee':'NYC subway token · bronze back print',
 };
 
 async function gql(query, vars={}) {
