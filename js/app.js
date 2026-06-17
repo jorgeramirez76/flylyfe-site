@@ -207,7 +207,7 @@ function openPDP(handle, startColor) {
   if (!p) return;
   const colors = p.options.find(o=>o.name==='Color')?.values || [];
   const sizes  = p.options.find(o=>o.name==='Size')?.values  || [];
-  pdpState = { handle, color: startColor || (colors.includes('Black')?'Black':colors[0]), size:null };
+  pdpState = { handle, color: startColor || DEFAULT_COLOR[handle] || (colors.includes('Black')?'Black':colors[0]), size:null };
 
   function render() {
     const mm = MODEL_MAP[handle];
