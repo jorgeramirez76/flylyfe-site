@@ -20,7 +20,7 @@ const MODEL_SHOTS = {
 /* ---- Per-product on-model shots: hero on the default Black colorway; other colors fall back
    to the accurate flat Printful mockup so color-swap stays truthful. Men = male model, women = Wren Blake. ---- */
 const MODEL_MAP = {
-  'the-anthem-tee':           {color:'Black', back:'assets/models/black-back.jpg',                    front:'assets/models/black-front.jpg'},
+  'the-anthem-tee':           {color:'Black', back:'assets/products/the-anthem-tee-Black-back.jpg',    front:'assets/products/the-anthem-tee-Black-front.jpg'},
   'the-conga-tee':            {color:'Black', back:'assets/products/the-conga-tee-model-back.jpg',     front:null},
   'the-signature-tee':        {color:'Black', back:'assets/products/the-signature-tee-model-back.jpg', front:null},
   'the-house-music-tee':      {color:'Ivory', back:'assets/products/the-house-music-ivory-back.jpg',    front:'assets/products/the-house-music-ivory-front.jpg'},
