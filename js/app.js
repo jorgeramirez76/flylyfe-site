@@ -17,24 +17,25 @@ const MODEL_SHOTS = {
   Natural: { back:'assets/models/cream-alt-back.jpg', front:'assets/models/cream-alt-front.jpg'}
 };
 
-/* Accurate Printful-synced previews exported from Printful's sync variant preview files.
-   These are the truth source when a local front/back mockup is unavailable. Do NOT use
-   AI/editorial model shots in the shopping UI: several made the print look larger/wider
-   than the actual Printful placement. */
-const PRINTFUL_PREVIEWS = {
-  'the-anthem-tee':           {'White':'assets/products/printful-preview/the-anthem-tee-White.jpg','Black':'assets/products/printful-preview/the-anthem-tee-Black.jpg','Ivory':'assets/products/printful-preview/the-anthem-tee-Ivory.jpg'},
-  'the-conga-tee':            {'White':'assets/products/printful-preview/the-conga-tee-White.jpg','Black':'assets/products/printful-preview/the-conga-tee-Black.jpg','Ivory':'assets/products/printful-preview/the-conga-tee-Ivory.jpg'},
-  'the-signature-tee':        {'White':'assets/products/printful-preview/the-signature-tee-White.jpg','Black':'assets/products/printful-preview/the-signature-tee-Black.jpg','Ivory':'assets/products/printful-preview/the-signature-tee-Ivory.jpg'},
-  'the-house-music-tee':      {'White':'assets/products/printful-preview/the-house-music-tee-White.jpg','Black':'assets/products/printful-preview/the-house-music-tee-Black.jpg','Ivory':'assets/products/printful-preview/the-house-music-tee-Ivory.jpg'},
-  'the-token-tee':            {'White':'assets/products/printful-preview/the-token-tee-White.jpg','Black':'assets/products/printful-preview/the-token-tee-Black.jpg','Ivory':'assets/products/printful-preview/the-token-tee-Ivory.jpg'},
-  'the-anthem-tee-womens':    {'White':'assets/products/printful-preview/the-anthem-tee-womens-White.jpg','Black':'assets/products/printful-preview/the-anthem-tee-womens-Black.jpg','Natural':'assets/products/printful-preview/the-anthem-tee-womens-Natural.jpg'},
-  'the-conga-tee-womens':     {'White':'assets/products/printful-preview/the-conga-tee-womens-White.jpg','Black':'assets/products/printful-preview/the-conga-tee-womens-Black.jpg','Natural':'assets/products/printful-preview/the-conga-tee-womens-Natural.jpg'},
-  'the-signature-tee-womens': {'White':'assets/products/printful-preview/the-signature-tee-womens-White.jpg','Black':'assets/products/printful-preview/the-signature-tee-womens-Black.jpg','Natural':'assets/products/printful-preview/the-signature-tee-womens-Natural.jpg'},
-  'the-after-hours-tee':      {'Black':'assets/products/printful-preview/the-after-hours-tee-Black.jpg'},
-  'the-tempo-tee':            {'Black':'assets/products/printful-preview/the-tempo-tee-Black.jpg'},
-  'the-coordinates-tee':      {'Ivory':'assets/products/printful-preview/the-coordinates-tee-Ivory.jpg'},
-  'the-spiritual-thing-tee':  {'Ivory':'assets/products/printful-preview/the-spiritual-thing-tee-Ivory.jpg'},
-  'the-sanitary-code-tee':    {'White':'assets/products/printful-preview/the-sanitary-code-tee-White.jpg'},
+/* ---- Per-product on-model shots: hero on the default Black colorway; other colors fall back
+   to the accurate flat Printful mockup so color-swap stays truthful. Men = male model, women = Wren Blake. ---- */
+const MODEL_MAP = {
+  'the-anthem-tee':           {color:'Black', back:'assets/models/black-back.jpg',                    front:'assets/models/black-front.jpg'},
+  'the-conga-tee':            {color:'Black', back:'assets/products/the-conga-tee-model-back.jpg',     front:null},
+  'the-signature-tee':        {color:'Black', back:'assets/products/the-signature-tee-model-back.jpg', front:null},
+  'the-house-music-tee':      {color:'Ivory', back:'assets/products/the-house-music-ivory-back.jpg',    front:'assets/products/the-house-music-ivory-front.jpg'},
+  'the-anthem-tee-womens':    {color:'Black', back:'assets/lookbook/wren-feelmusic-back.jpg',          front:'assets/lookbook/wren-black-front.jpg'},
+  'the-conga-tee-womens':     {color:'Black', back:'assets/lookbook/wren-conga-back.jpg',              front:'assets/lookbook/wren-black-front.jpg'},
+  'the-signature-tee-womens': {color:'Black', back:'assets/lookbook/wren-black-front.jpg',             front:'assets/lookbook/wren-cream-front.jpg'},
+  /* DROP 02 — design lives on the back; on-model shot is hero, flat design plate on hover */
+  'the-after-hours-tee':      {color:'Black', back:'assets/products/drop02-after-hours-model.jpg',      front:'assets/products/drop02-after-hours.jpg'},
+  'the-tempo-tee':            {color:'Black', back:'assets/products/drop02-tempo-model.jpg',            front:'assets/products/drop02-tempo.jpg'},
+  'the-coordinates-tee':      {color:'Ivory', back:'assets/products/drop02-coordinates-model.jpg',      front:'assets/products/drop02-coordinates.jpg'},
+  'the-spiritual-thing-tee':  {color:'Ivory', back:'assets/products/drop02-spiritual-thing-model.jpg',  front:'assets/products/drop02-spiritual-thing.jpg'},
+  /* LIMITED — design on the FRONT; front-model shot is hero, lifestyle alt on hover */
+  'the-sanitary-code-tee':    {color:'White', back:'assets/products/limited-sanitary-front-model.jpg',  front:'assets/products/limited-sanitary-front-brick.jpg'},
+  /* TOKEN — bronze NYC subway token on the back; on-model back hero, front wordmark on hover */
+  'the-token-tee':            {color:'Ivory', back:'assets/products/the-token-tee-model-back.jpg',      front:'assets/products/the-token-tee-model-front.jpg'},
 };
 
 /* Accurate Printful mockups — used as thumbnails in the modal */
@@ -103,16 +104,7 @@ function mockup(handle, color, view) {
   return (c && (c[view] || c.back || c.front)) || '';
 }
 
-function printfulPreview(handle, color) {
-  const byColor = PRINTFUL_PREVIEWS[handle];
-  return (byColor && (byColor[color] || Object.values(byColor)[0])) || '';
-}
-
-function displayTitle(title) {
-  return (title || '').replace(" — Women's", '').replace(/\.$/, '');
-}
-
-/* model shot for a given color/view — editorial fallback only, never preferred for shopping accuracy */
+/* model shot for a given color/view */
 function modelShot(color, view) {
   const shots = MODEL_SHOTS[color] || MODEL_SHOTS['Black'];
   return shots[view] || shots.back;
@@ -164,24 +156,24 @@ function renderGrid(elId, handles) {
     card.className = 'card';
 
     function build() {
-      /* Product cards now prefer verified Printful-front/back mockups or Printful sync
-         previews. Model/editorial images are only last-resort fallbacks because several
-         model composites exaggerated print size versus the actual Printful placement. */
-      const preview = printfulPreview(h, activeColor);
-      const heroBack  = preview || mockup(h, activeColor, 'back')  || shopVarImg(p, activeColor) || modelShot(activeColor, 'back');
-      const heroFront = preview || mockup(h, activeColor, 'front') || shopVarImg(p, activeColor) || modelShot(activeColor, 'front');
-      const mediaCls  = 'card__media card__media--mockup';
+      /* Default Black colorway shows the on-model shot as the hero; other colorways fall back
+         to the accurate flat Printful mockup (so the color swatch stays truthful). */
+      const mm = MODEL_MAP[h];
+      const useModel = mm && activeColor === mm.color;
+      const heroBack  = useModel ? mm.back : (mockup(h, activeColor, 'back')  || shopVarImg(p, activeColor) || modelShot(activeColor, 'back'));
+      const heroFront = useModel ? (mm.front || mm.back) : (mockup(h, activeColor, 'front') || shopVarImg(p, activeColor) || modelShot(activeColor, 'front'));
+      const mediaCls  = useModel ? 'card__media card__media--model' : 'card__media card__media--mockup';
       card.innerHTML = `
-        <div class="${mediaCls}" data-color="${activeColor}" role="button" tabindex="0" aria-label="View ${displayTitle(p.title)}">
-          <img class="front back-hero" src="${heroBack}" alt="${displayTitle(p.title)} — ${activeColor}, verified product view" loading="lazy" decoding="async">
-          <img class="back" src="${heroFront}" alt="${displayTitle(p.title)} — ${activeColor}, verified product view" loading="lazy" decoding="async">
+        <div class="${mediaCls}" data-color="${activeColor}" role="button" tabindex="0" aria-label="View ${p.title.replace(" — Women's","")}">
+          <img class="front back-hero" src="${heroBack}" alt="${p.title} — ${activeColor}, worn back" loading="lazy" decoding="async">
+          <img class="back" src="${heroFront}" alt="${p.title} — ${activeColor}, worn front" loading="lazy" decoding="async">
           <span class="card__tag">${TAGLINES[h]||'FLYLYFE'}</span>
-          <span class="card__view mono">VERIFIED PRODUCT PREVIEW</span>
+          <span class="card__view mono">BACK · HOVER FOR FRONT</span>
           <span class="card__quick mono">VIEW &amp; BUY →</span>
         </div>
         <div class="card__body">
           <div class="card__info">
-            <div class="card__name">${displayTitle(p.title)}</div>
+            <div class="card__name">${p.title.replace(" — Women's","")}</div>
             <div class="card__sub">${SUBTITLE[h]||''}</div>
             <div class="card__colors">
               ${colors.map(c=>`<button type="button" class="dot${c===activeColor?' on':''}" data-color="${c}" title="${c}" aria-label="${c}" aria-pressed="${c===activeColor}" style="background:${COLOR_HEX[c]||'#888'};padding:0"></button>`).join('')}
@@ -218,12 +210,13 @@ function openPDP(handle, startColor) {
   pdpState = { handle, color: startColor || DEFAULT_COLOR[handle] || (colors.includes('Black')?'Black':colors[0]), size:null };
 
   function render() {
+    const mm = MODEL_MAP[handle];
+    const useMM = mm && pdpState.color === mm.color;
     const sImg    = shopVarImg(p, pdpState.color);
-    const preview = printfulPreview(handle, pdpState.color);
-    const back    = preview || mockup(handle, pdpState.color, 'back')  || sImg || modelShot(pdpState.color, 'back');
-    const front   = preview || mockup(handle, pdpState.color, 'front') || sImg || modelShot(pdpState.color, 'front');
-    const mBack   = preview || mockup(handle, pdpState.color, 'back');
-    const mFront  = preview || mockup(handle, pdpState.color, 'front');
+    const back    = useMM ? mm.back : (mockup(handle, pdpState.color, 'back')  || sImg || modelShot(pdpState.color, 'back'));
+    const front   = useMM ? (mm.front || mm.back) : (mockup(handle, pdpState.color, 'front') || sImg || modelShot(pdpState.color, 'front'));
+    const mBack   = mockup(handle, pdpState.color, 'back');
+    const mFront  = mockup(handle, pdpState.color, 'front');
     const price = p.variants.edges[0].node.price.amount;
 
     document.getElementById('pdpTitle').textContent = p.title;
@@ -231,14 +224,13 @@ function openPDP(handle, startColor) {
     document.getElementById('pdpDesc').innerHTML = p.descriptionHtml;
     document.getElementById('pdpColorName').textContent = pdpState.color.toUpperCase();
 
-    /* Gallery order: verified Printful product view(s). No model-worn images here unless
-       no Printful/mockup image exists, to keep customer expectations aligned with what ships. */
+    /* Gallery order: model back → model front → printful back → printful front */
     const _seen = new Set();
     const gallery = [
-      { url:back,   label:'BACK / PRODUCT VIEW',  isModel:false },
-      { url:front,  label:'FRONT / PRODUCT VIEW', isModel:false },
-      ...(mBack  ? [{url:mBack,  label:'PRINTFUL PREVIEW',  isModel:false}]  : []),
-      ...(mFront ? [{url:mFront, label:'PRINTFUL PREVIEW', isModel:false}] : [])
+      { url:back,   label:'BACK — WORN',  isModel: useMM },
+      { url:front,  label:'FRONT — WORN', isModel: useMM },
+      ...(mBack  ? [{url:mBack,  label:'BACK',  isModel:false}]  : []),
+      ...(mFront ? [{url:mFront, label:'FRONT', isModel:false}] : [])
     ].filter(x=>x.url && !_seen.has(x.url) && _seen.add(x.url));
 
     const mainImg = document.getElementById('pdpMain');
@@ -390,7 +382,7 @@ function renderCart(cart){
     const opts = m.selectedOptions.map(o=>o.value).join(' / ');
     const colorOpt = m.selectedOptions.find(o=>o.name==='Color');
     const cc = colorOpt ? colorOpt.value : 'Black';
-    const img = printfulPreview(m.product.handle, cc) || mockup(m.product.handle, cc, 'back') || shopVarImg(PRODUCTS[m.product.handle], cc) || modelShot(cc, 'back');
+    const img = mockup(m.product.handle, cc, 'back') || shopVarImg(PRODUCTS[m.product.handle], cc) || (MODEL_MAP[m.product.handle] && MODEL_MAP[m.product.handle].back) || modelShot(cc, 'back');
     const div = document.createElement('div');
     div.className = 'citem';
     div.innerHTML = `
@@ -436,7 +428,7 @@ function renderFeatured(){
   strip.innerHTML = '';
   picks.forEach(pk=>{
     const p = PRODUCTS[pk.handle]; if (!p) return;
-    const img = printfulPreview(pk.handle, pk.color) || mockup(pk.handle, pk.color, 'back') || shopVarImg(p, pk.color) || modelShot(pk.color, 'back');
+    const img = mockup(pk.handle, pk.color, 'back') || shopVarImg(p, pk.color) || (MODEL_MAP[pk.handle] && MODEL_MAP[pk.handle].back) || modelShot(pk.color, 'back');
     const price = p.variants.edges[0].node.price.amount;
     const cell = document.createElement('div');
     cell.className = 'fcell fcell--mockup';
@@ -472,8 +464,7 @@ function injectProductSchema(){
     const v0 = p.variants.edges[0].node;
     const inStock = p.variants.edges.some(e=>e.node.availableForSale);
     const colors = (p.options.find(o=>o.name==='Color')?.values)||[];
-    const color = colors.includes('Black')?'Black':colors[0];
-    const img = printfulPreview(p.handle, color) || mockup(p.handle, color, 'back') || shopVarImg(p, color) || '';
+    const img = mockup(p.handle, colors.includes('Black')?'Black':colors[0], 'back') || (MODEL_MAP[p.handle] && MODEL_MAP[p.handle].back) || '';
     const o = { "@context":"https://schema.org","@type":"Product","name":p.title,
       "description":(p.descriptionHtml||'').replace(/<[^>]+>/g,'').replace(/\s+/g,' ').trim().slice(0,300),
       "brand":{"@type":"Brand","name":"FLYLYFE"},
@@ -497,11 +488,11 @@ function findVariant(p, color, size){
 let toastTimer;
 function showToast(msg){ const t=document.getElementById('toast'); t.hidden=false; t.textContent=msg; clearTimeout(toastTimer); toastTimer=setTimeout(()=>{ t.hidden=true; t.textContent=''; },2200); }
 
-/* ---- Hero carousel: verified Printful product previews ---- */
+/* ---- Hero carousel: model back shots ---- */
 const HERO_SLIDES=[
-  {img:'assets/products/printful-preview/the-house-music-tee-Ivory.jpg', alt:'FLYLYFE House Music tee — verified Printful product preview'},
-  {img:'assets/products/printful-preview/the-anthem-tee-Black.jpg',      alt:'FLYLYFE Feel the Music tee — verified Printful product preview'},
-  {img:'assets/products/printful-preview/the-token-tee-Ivory.jpg',       alt:'FLYLYFE Token tee — verified Printful product preview'},
+  {img:'assets/hero/carousel-2-freedom.jpg', alt:'FLYLYFE — House Music Is Freedom tee on a New York City street'},
+  {img:'assets/hero/carousel-1-black.jpg',   alt:'FLYLYFE — Feel the Music. Feel the Vibe. Live Your Lyfe. tee in NYC'},
+  {img:'assets/hero/carousel-3-house.jpg',   alt:'FLYLYFE house music culture tee in New York City'},
 ];
 function initHeroCarousel(){
   const wrap = document.getElementById('heroCarousel');
