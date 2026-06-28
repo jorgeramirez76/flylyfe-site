@@ -142,8 +142,8 @@ function money(a){ return '$' + parseFloat(a).toFixed(2); }
 /* helper: mockup from manifest */
 function mockup(handle, color, view) {
   const m = MOCKUPS[handle];
-  if (!m) return '';
-  const c = m[color] || Object.values(m)[0];
+  if (!m || !m[color]) return '';
+  const c = m[color];
   return (c && (c[view] || c.back || c.front)) || '';
 }
 

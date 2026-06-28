@@ -105,6 +105,10 @@
   "Ivory": {
    "front": "assets/models/cream-alt-front.jpg",
    "back": "assets/models/cream-alt-back.jpg"
+  },
+  "White": {
+   "front": "assets/products/generated/the-house-music-tee-White-front-matched-mockup.jpg",
+   "back": "assets/products/generated/the-house-music-tee-White-back-matched-mockup.jpg"
   }
  }
 }
