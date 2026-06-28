@@ -46,8 +46,8 @@ const PRODUCT_MODEL_SHOTS = {
     Ivory: { back:'assets/models/cream-back.jpg', front:'assets/models/cream-front.jpg', exact:false }
   },
   'the-house-music-tee': {
-    Black: { back:'assets/products/the-house-music-back.jpg', front:'assets/products/the-house-music-front.jpg', exact:true },
-    Ivory: { back:'assets/products/the-house-music-ivory-back.jpg', front:'assets/products/the-house-music-ivory-front.jpg', exact:true }
+    Black: { back:'assets/products/generated/the-house-music-tee-Black-back-matched-mockup.jpg', front:'assets/products/generated/the-house-music-tee-Black-front-matched-mockup.jpg', exact:false },
+    Ivory: { back:'assets/models/cream-alt-back.jpg', front:'assets/models/cream-alt-front.jpg', exact:true }
   },
   'the-after-hours-tee': {
     Black: { back:'assets/products/drop02-after-hours-model.jpg', front:null, exact:true }
@@ -85,7 +85,7 @@ let MOCKUPS = {};
 const DEFAULT_COLOR = { 'the-house-music-tee':'Ivory', 'the-token-tee':'Ivory' };
 /* Signature tees are front-logo products. Do not use generic/model lifestyle photos for them. */
 const MOCKUP_PRIMARY_HANDLES = new Set(['the-signature-tee','the-signature-tee-womens']);
-const FRONT_PRIMARY_HANDLES = new Set(['the-signature-tee','the-signature-tee-womens','the-sanitary-code-tee']);
+const FRONT_PRIMARY_HANDLES = new Set(['the-signature-tee','the-signature-tee-womens','the-sanitary-code-tee','the-house-music-tee']);
 const MEN_HANDLES = ['the-anthem-tee','the-conga-tee','the-signature-tee','the-house-music-tee','the-token-tee'];
 const WOMEN_HANDLES = ['the-anthem-tee-womens','the-conga-tee-womens','the-signature-tee-womens'];
 const DROP_HANDLES = ['the-after-hours-tee','the-tempo-tee','the-coordinates-tee','the-spiritual-thing-tee'];

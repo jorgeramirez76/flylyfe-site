@@ -96,5 +96,15 @@
    "front": "assets/products/the-token-tee-model-front.jpg",
    "back": "assets/products/the-token-tee-model-back.jpg"
   }
+ },
+ "the-house-music-tee": {
+  "Black": {
+   "front": "assets/products/generated/the-house-music-tee-Black-front-matched-mockup.jpg",
+   "back": "assets/products/generated/the-house-music-tee-Black-back-matched-mockup.jpg"
+  },
+  "Ivory": {
+   "front": "assets/models/cream-alt-front.jpg",
+   "back": "assets/models/cream-alt-back.jpg"
+  }
  }
 }
