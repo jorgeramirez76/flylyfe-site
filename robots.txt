@@ -1,4 +1,4 @@
-# FLYLYFE — flylyfe.com
+# FLYLYFE — www.flylyfe.com
 # Open to all search + AI answer-engine crawlers (we want to be cited).
 User-agent: *
 Allow: /
@@ -53,4 +53,4 @@ Allow: /
 User-agent: CCBot
 Allow: /
 
-Sitemap: https://flylyfe.com/sitemap.xml
+Sitemap: https://www.flylyfe.com/sitemap.xml
