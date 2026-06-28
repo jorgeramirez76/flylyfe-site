@@ -171,7 +171,21 @@
     animation:pdp-up .38s var(--ease);
   }
   @keyframes pdp-up{ from{transform:translateY(100%);} to{transform:none;} }
-  .pdp__gallery{ height:72vw; min-height:260px; }
+  .pdp__gallery{
+    height:84vw;
+    min-height:310px;
+    margin-bottom:86px; /* keep thumbnails off the shirt artwork on phones */
+    overflow:visible;
+  }
   .pdp__main-img{ object-fit:cover; }
-  .pdp__info{ padding:2rem 1.4rem 2.5rem; }
+  .pdp__thumbs{
+    bottom:-78px;
+    max-width:calc(100vw - 2rem);
+    overflow-x:auto;
+    padding:.15rem .25rem .35rem;
+    scrollbar-width:none;
+  }
+  .pdp__thumbs::-webkit-scrollbar{ display:none; }
+  .pdp__thumb{ width:64px; height:64px; flex:0 0 auto; background:#0d0d0d; }
+  .pdp__info{ padding:1.35rem 1.4rem 2.5rem; }
 }

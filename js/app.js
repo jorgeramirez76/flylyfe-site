@@ -289,10 +289,12 @@ function openPDP(handle, startColor) {
 
     const mainImg = document.getElementById('pdpMain');
     function pdpImagePosition(url, isModel){
-      /* The Conga model-back photo is portrait-cropped inside a short mobile gallery.
-         Center the crop lower so the back print is visible above the thumbnails. */
-      if (url && url.includes('the-conga-tee-model-back.jpg')) return 'center 42%';
-      return isModel ? 'top center' : 'center';
+      /* On phones the PDP gallery is short; center model BACK photos around the shirt print
+         instead of the model's head so the artwork is immediately visible. */
+      if (!isModel) return 'center';
+      const u = url || '';
+      if (u.includes('-back.jpg') || u.includes('/black-back.jpg') || u.includes('/white-back.jpg') || u.includes('/cream-back.jpg') || u.includes('/cream-alt-back.jpg')) return 'center 42%';
+      return 'top center';
     }
     function setMain(url, isModel, alt){
       mainImg.classList.add('switching');
