@@ -33,7 +33,7 @@
    "back": "assets/products/the-signature-tee-Black-back.jpg"
   },
   "White": {
-   "front": "assets/products/the-signature-tee-White-front.jpg",
+   "front": "assets/products/generated/the-signature-tee-White-front-visible-logo.jpg",
    "back": "assets/products/the-signature-tee-White-back.jpg"
   },
   "Ivory": {
@@ -81,6 +81,20 @@
   "Natural": {
    "front": "assets/products/the-signature-tee-womens-Natural-front.jpg",
    "back": "assets/products/the-signature-tee-womens-Natural-back.jpg"
+  }
+ },
+ "the-token-tee": {
+  "Black": {
+   "front": "assets/products/generated/the-token-tee-Black-front-matched.jpg",
+   "back": "assets/products/generated/the-token-tee-Black-back-matched.jpg"
+  },
+  "White": {
+   "front": "assets/products/generated/the-token-tee-White-front-matched.jpg",
+   "back": "assets/products/generated/the-token-tee-White-back-model-matched.jpg"
+  },
+  "Ivory": {
+   "front": "assets/products/the-token-tee-model-front.jpg",
+   "back": "assets/products/the-token-tee-model-back.jpg"
   }
  }
 }

@@ -46,29 +46,26 @@ const PRODUCT_MODEL_SHOTS = {
     Ivory: { back:'assets/models/cream-back.jpg', front:'assets/models/cream-front.jpg', exact:false }
   },
   'the-house-music-tee': {
-    Black: { back:'assets/models/black-back.jpg', front:'assets/models/black-front.jpg', exact:false },
-    White: { back:'assets/models/white-back.jpg', front:'assets/models/white-front.jpg', exact:false },
-    Ivory: { back:'assets/models/cream-back.jpg', front:'assets/models/cream-front.jpg', exact:true }
+    Black: { back:'assets/products/the-house-music-back.jpg', front:'assets/products/the-house-music-front.jpg', exact:true },
+    Ivory: { back:'assets/products/the-house-music-ivory-back.jpg', front:'assets/products/the-house-music-ivory-front.jpg', exact:true }
   },
   'the-after-hours-tee': {
-    Black: { back:'assets/products/drop02-after-hours-model.jpg', front:'assets/models/black-front.jpg', exact:true }
+    Black: { back:'assets/products/drop02-after-hours-model.jpg', front:null, exact:true }
   },
   'the-tempo-tee': {
-    Black: { back:'assets/products/drop02-tempo-model.jpg', front:'assets/models/black-front.jpg', exact:true }
+    Black: { back:'assets/products/drop02-tempo-model.jpg', front:null, exact:true }
   },
   'the-coordinates-tee': {
-    Ivory: { back:'assets/products/drop02-coordinates-model.jpg', front:'assets/models/cream-front.jpg', exact:true }
+    Ivory: { back:'assets/products/drop02-coordinates-model.jpg', front:null, exact:true }
   },
   'the-spiritual-thing-tee': {
-    Ivory: { back:'assets/products/drop02-spiritual-thing-model.jpg', front:'assets/models/cream-alt-front.jpg', exact:true }
+    Ivory: { back:'assets/products/drop02-spiritual-thing-model.jpg', front:null, exact:true }
   },
   'the-sanitary-code-tee': {
-    White: { back:'assets/models/white-back.jpg', front:'assets/models/white-front.jpg', exact:false }
+    White: { back:'assets/products/limited-sanitary-back.jpg', front:'assets/products/limited-sanitary-front-model.jpg', exact:true }
   },
   'the-token-tee': {
-    Black: { back:'assets/models/black-back.jpg', front:'assets/models/black-front.jpg', exact:false },
-    White: { back:'assets/models/white-back.jpg', front:'assets/models/white-front.jpg', exact:false },
-    Ivory: { back:'assets/models/cream-back.jpg', front:'assets/models/cream-front.jpg', exact:false }
+    Ivory: { back:'assets/products/the-token-tee-model-back.jpg', front:'assets/products/the-token-tee-model-front.jpg', exact:true }
   },
   'the-anthem-tee-womens':    { Black: { back:'assets/lookbook/wren-feelmusic-back.jpg', front:'assets/lookbook/wren-black-front.jpg', exact:true } },
   'the-conga-tee-womens':     { Black: { back:'assets/lookbook/wren-conga-back.jpg', front:'assets/lookbook/wren-black-front.jpg', exact:true } },
@@ -88,6 +85,7 @@ let MOCKUPS = {};
 const DEFAULT_COLOR = { 'the-house-music-tee':'Ivory', 'the-token-tee':'Ivory' };
 /* Signature tees are front-logo products. Do not use generic/model lifestyle photos for them. */
 const MOCKUP_PRIMARY_HANDLES = new Set(['the-signature-tee','the-signature-tee-womens']);
+const FRONT_PRIMARY_HANDLES = new Set(['the-signature-tee','the-signature-tee-womens','the-sanitary-code-tee']);
 const MEN_HANDLES = ['the-anthem-tee','the-conga-tee','the-signature-tee','the-house-music-tee','the-token-tee'];
 const WOMEN_HANDLES = ['the-anthem-tee-womens','the-conga-tee-womens','the-signature-tee-womens'];
 const DROP_HANDLES = ['the-after-hours-tee','the-tempo-tee','the-coordinates-tee','the-spiritual-thing-tee'];
@@ -164,8 +162,9 @@ function productModelShot(handle, color, view) {
 }
 
 function modelUrl(handle, color, view) {
-  const shot = productModelShot(handle, color, view);
-  return shot ? (shot[view] || shot.back || shot.front || '') : '';
+  const shot = (PRODUCT_MODEL_SHOTS[handle] || {})[color];
+  if (!shot || !shot.exact) return '';
+  return shot[view] || '';
 }
 
 /* live Shopify (Printful-synced) mockup for a given color — the ACTUAL printed garment.
@@ -217,14 +216,17 @@ function renderGrid(elId, handles) {
       /* Keep the approved curly-haired NYC model as the primary product visual for every color.
          Printful/mockup images remain secondary proof in PDP, not the main customer-facing card. */
       const mockupPrimary = MOCKUP_PRIMARY_HANDLES.has(h);
+      const frontPrimary = FRONT_PRIMARY_HANDLES.has(h);
+      const primaryView = frontPrimary ? 'front' : 'back';
+      const secondaryView = frontPrimary ? 'back' : 'front';
       const heroBack  = mockupPrimary
-        ? (mockup(h, activeColor, 'front') || shopVarImg(p, activeColor) || mockup(h, activeColor, 'back'))
-        : (modelUrl(h, activeColor, 'back') || mockup(h, activeColor, 'back') || shopVarImg(p, activeColor));
+        ? (mockup(h, activeColor, primaryView) || shopVarImg(p, activeColor) || mockup(h, activeColor, secondaryView))
+        : (modelUrl(h, activeColor, primaryView) || mockup(h, activeColor, primaryView) || shopVarImg(p, activeColor) || mockup(h, activeColor, secondaryView));
       const heroFront = mockupPrimary
-        ? (mockup(h, activeColor, 'back') || heroBack)
-        : (modelUrl(h, activeColor, 'front') || heroBack);
+        ? (mockup(h, activeColor, secondaryView) || heroBack)
+        : (modelUrl(h, activeColor, secondaryView) || mockup(h, activeColor, secondaryView) || heroBack);
       const mediaCls  = mockupPrimary ? 'card__media card__media--mockup' : 'card__media card__media--model';
-      const viewLabel = mockupPrimary ? 'FRONT · HOVER FOR BACK' : 'BACK · HOVER FOR FRONT';
+      const viewLabel = frontPrimary ? 'FRONT · HOVER FOR BACK' : 'BACK · HOVER FOR FRONT';
       card.innerHTML = `
         <div class="${mediaCls}" data-color="${activeColor}" role="button" tabindex="0" aria-label="View ${p.title.replace(" — Women's","")}">
           <img class="front back-hero" src="${heroBack}" alt="${p.title} — ${activeColor}, ${mockupPrimary ? 'front logo' : 'worn back'}" loading="lazy" decoding="async">
@@ -273,12 +275,13 @@ function openPDP(handle, startColor) {
 
   function render() {
     const mockupPrimary = MOCKUP_PRIMARY_HANDLES.has(handle);
+    const frontPrimary = FRONT_PRIMARY_HANDLES.has(handle);
     const modelShotForColor = mockupPrimary ? null : productModelShot(handle, pdpState.color, 'back');
     const sImg    = shopVarImg(p, pdpState.color);
     const mBack   = mockup(handle, pdpState.color, 'back');
     const mFront  = mockup(handle, pdpState.color, 'front');
     const back    = mockupPrimary ? (mBack || sImg) : (modelUrl(handle, pdpState.color, 'back') || mBack || sImg);
-    const front   = mockupPrimary ? (mFront || sImg || back) : (modelUrl(handle, pdpState.color, 'front') || back);
+    const front   = mockupPrimary ? (mFront || sImg || back) : (modelUrl(handle, pdpState.color, 'front') || mFront || sImg || back);
     const price = p.variants.edges[0].node.price.amount;
 
     document.getElementById('pdpTitle').textContent = p.title;
@@ -288,12 +291,12 @@ function openPDP(handle, startColor) {
 
     /* Gallery order: front-logo products show the accurate product front first; other tees keep model back first. */
     const _seen = new Set();
-    const gallery = (mockupPrimary ? [
-      { url:front, label:'FRONT', isModel:false },
-      { url:back,  label:'BACK',  isModel:false }
+    const gallery = (frontPrimary ? [
+      { url:front, label:'FRONT', isModel:!mockupPrimary && !!modelUrl(handle, pdpState.color, 'front') },
+      { url:back,  label:'BACK',  isModel:!mockupPrimary && !!modelUrl(handle, pdpState.color, 'back') }
     ] : [
-      { url:back,   label:modelShotForColor?.exact ? 'BACK — WORN' : 'BACK — SAME MODEL / COLOR',  isModel: !!modelShotForColor },
-      { url:front,  label:modelShotForColor?.exact ? 'FRONT — WORN' : 'FRONT — SAME MODEL / COLOR', isModel: !!modelShotForColor },
+      { url:back,   label:modelShotForColor?.exact ? 'BACK — WORN' : 'BACK',  isModel: !!modelUrl(handle, pdpState.color, 'back') },
+      { url:front,  label:modelShotForColor?.exact ? 'FRONT — WORN' : 'FRONT', isModel: !!modelUrl(handle, pdpState.color, 'front') },
       ...(mBack  ? [{url:mBack,  label:'BACK',  isModel:false}]  : []),
       ...(mFront ? [{url:mFront, label:'FRONT', isModel:false}] : [])
     ]).filter(x=>x.url && !_seen.has(x.url) && _seen.add(x.url));
