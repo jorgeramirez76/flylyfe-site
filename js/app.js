@@ -35,7 +35,8 @@ const PRODUCT_MODEL_SHOTS = {
     Ivory: { back:'assets/models/cream-back.jpg', front:'assets/models/cream-front.jpg', exact:false }
   },
   'the-conga-tee': {
-    Black: { back:'assets/products/the-conga-tee-model-back.jpg', front:'assets/models/black-front.jpg', exact:true },
+    /* Only use exact Conga imagery for Black. Do not show the generic plain front model here — it makes the Conga Tee look blank. */
+    Black: { back:'assets/products/the-conga-tee-model-back.jpg', front:null, exact:true },
     White: { back:'assets/models/white-back.jpg', front:'assets/models/white-front.jpg', exact:false },
     Ivory: { back:'assets/models/cream-back.jpg', front:'assets/models/cream-front.jpg', exact:false }
   },
