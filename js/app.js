@@ -17,26 +17,68 @@ const MODEL_SHOTS = {
   Natural: { back:'assets/models/cream-alt-back.jpg', front:'assets/models/cream-alt-front.jpg'}
 };
 
-/* ---- Per-product on-model shots: hero on the default Black colorway; other colors fall back
-   to the accurate flat Printful mockup so color-swap stays truthful. Men = male model, women = Wren Blake. ---- */
-const MODEL_MAP = {
-  'the-anthem-tee':           {color:'Black', back:'assets/products/the-anthem-tee-Black-back.jpg',    front:'assets/products/the-anthem-tee-Black-front.jpg'},
-  'the-conga-tee':            {color:'Black', back:'assets/products/the-conga-tee-model-back.jpg',     front:null},
-  'the-signature-tee':        {color:'Black', back:'assets/products/the-signature-tee-model-back.jpg', front:null},
-  'the-house-music-tee':      {color:'Ivory', back:'assets/products/the-house-music-ivory-back.jpg',    front:'assets/products/the-house-music-ivory-front.jpg'},
-  'the-anthem-tee-womens':    {color:'Black', back:'assets/lookbook/wren-feelmusic-back.jpg',          front:'assets/lookbook/wren-black-front.jpg'},
-  'the-conga-tee-womens':     {color:'Black', back:'assets/lookbook/wren-conga-back.jpg',              front:'assets/lookbook/wren-black-front.jpg'},
-  'the-signature-tee-womens': {color:'Black', back:'assets/lookbook/wren-black-front.jpg',             front:'assets/lookbook/wren-cream-front.jpg'},
-  /* DROP 02 — design lives on the back; on-model shot is hero, flat design plate on hover */
-  'the-after-hours-tee':      {color:'Black', back:'assets/products/drop02-after-hours-model.jpg',      front:'assets/products/drop02-after-hours.jpg'},
-  'the-tempo-tee':            {color:'Black', back:'assets/products/drop02-tempo-model.jpg',            front:'assets/products/drop02-tempo.jpg'},
-  'the-coordinates-tee':      {color:'Ivory', back:'assets/products/drop02-coordinates-model.jpg',      front:'assets/products/drop02-coordinates.jpg'},
-  'the-spiritual-thing-tee':  {color:'Ivory', back:'assets/products/drop02-spiritual-thing-model.jpg',  front:'assets/products/drop02-spiritual-thing.jpg'},
-  /* LIMITED — design on the FRONT; front-model shot is hero, lifestyle alt on hover */
-  'the-sanitary-code-tee':    {color:'White', back:'assets/products/limited-sanitary-front-model.jpg',  front:'assets/products/limited-sanitary-front-brick.jpg'},
-  /* TOKEN — bronze NYC subway token on the back; on-model back hero, front wordmark on hover */
-  'the-token-tee':            {color:'Ivory', back:'assets/products/the-token-tee-model-back.jpg',      front:'assets/products/the-token-tee-model-front.jpg'},
+/* ---- Approved male model direction: the curly-haired NYC model used on Conga, Signature, and Drop 02.
+   Product cards and PDP color changes should keep this model visible. If an exact product/color
+   model shot does not exist yet, fall back to the same model wearing the selected color, then show
+   accurate Printful mockups as proof thumbnails in the PDP. */
+const APPROVED_MODEL_SHOTS = {
+  Black:   { back:'assets/models/black-back.jpg',     front:'assets/models/black-front.jpg'    },
+  White:   { back:'assets/models/white-back.jpg',     front:'assets/models/white-front.jpg'    },
+  Ivory:   { back:'assets/models/cream-back.jpg',     front:'assets/models/cream-front.jpg'    },
+  Natural: { back:'assets/models/cream-alt-back.jpg', front:'assets/models/cream-alt-front.jpg'}
 };
+
+const PRODUCT_MODEL_SHOTS = {
+  'the-anthem-tee': {
+    Black: { back:'assets/models/black-back.jpg', front:'assets/models/black-front.jpg', exact:true },
+    White: { back:'assets/models/white-back.jpg', front:'assets/models/white-front.jpg', exact:true },
+    Ivory: { back:'assets/models/cream-back.jpg', front:'assets/models/cream-front.jpg', exact:false }
+  },
+  'the-conga-tee': {
+    Black: { back:'assets/products/the-conga-tee-model-back.jpg', front:'assets/models/black-front.jpg', exact:true },
+    White: { back:'assets/models/white-back.jpg', front:'assets/models/white-front.jpg', exact:false },
+    Ivory: { back:'assets/models/cream-back.jpg', front:'assets/models/cream-front.jpg', exact:false }
+  },
+  'the-signature-tee': {
+    Black: { back:'assets/products/the-signature-tee-model-back.jpg', front:'assets/models/black-front.jpg', exact:true },
+    White: { back:'assets/models/white-back.jpg', front:'assets/models/white-front.jpg', exact:false },
+    Ivory: { back:'assets/models/cream-back.jpg', front:'assets/models/cream-front.jpg', exact:false }
+  },
+  'the-house-music-tee': {
+    Black: { back:'assets/models/black-back.jpg', front:'assets/models/black-front.jpg', exact:false },
+    White: { back:'assets/models/white-back.jpg', front:'assets/models/white-front.jpg', exact:false },
+    Ivory: { back:'assets/models/cream-back.jpg', front:'assets/models/cream-front.jpg', exact:true }
+  },
+  'the-after-hours-tee': {
+    Black: { back:'assets/products/drop02-after-hours-model.jpg', front:'assets/models/black-front.jpg', exact:true }
+  },
+  'the-tempo-tee': {
+    Black: { back:'assets/products/drop02-tempo-model.jpg', front:'assets/models/black-front.jpg', exact:true }
+  },
+  'the-coordinates-tee': {
+    Ivory: { back:'assets/products/drop02-coordinates-model.jpg', front:'assets/models/cream-front.jpg', exact:true }
+  },
+  'the-spiritual-thing-tee': {
+    Ivory: { back:'assets/products/drop02-spiritual-thing-model.jpg', front:'assets/models/cream-alt-front.jpg', exact:true }
+  },
+  'the-sanitary-code-tee': {
+    White: { back:'assets/models/white-back.jpg', front:'assets/models/white-front.jpg', exact:false }
+  },
+  'the-token-tee': {
+    Black: { back:'assets/models/black-back.jpg', front:'assets/models/black-front.jpg', exact:false },
+    White: { back:'assets/models/white-back.jpg', front:'assets/models/white-front.jpg', exact:false },
+    Ivory: { back:'assets/models/cream-back.jpg', front:'assets/models/cream-front.jpg', exact:false }
+  },
+  'the-anthem-tee-womens':    { Black: { back:'assets/lookbook/wren-feelmusic-back.jpg', front:'assets/lookbook/wren-black-front.jpg', exact:true } },
+  'the-conga-tee-womens':     { Black: { back:'assets/lookbook/wren-conga-back.jpg', front:'assets/lookbook/wren-black-front.jpg', exact:true } },
+  'the-signature-tee-womens': { Black: { back:'assets/lookbook/wren-black-front.jpg', front:'assets/lookbook/wren-cream-front.jpg', exact:true } }
+};
+
+/* Legacy aliases kept for fallback/helper compatibility. */
+const MODEL_MAP = Object.fromEntries(Object.entries(PRODUCT_MODEL_SHOTS).map(([handle, colors]) => {
+  const first = Object.entries(colors)[0];
+  return [handle, { color:first[0], back:first[1].back, front:first[1].front }];
+}));
 
 /* Accurate Printful mockups — used as thumbnails in the modal */
 let MOCKUPS = {};
@@ -104,10 +146,23 @@ function mockup(handle, color, view) {
   return (c && (c[view] || c.back || c.front)) || '';
 }
 
-/* model shot for a given color/view */
+/* approved model shot for a given color/view */
 function modelShot(color, view) {
-  const shots = MODEL_SHOTS[color] || MODEL_SHOTS['Black'];
+  const shots = APPROVED_MODEL_SHOTS[color] || APPROVED_MODEL_SHOTS['Black'];
   return shots[view] || shots.back;
+}
+
+function productModelShot(handle, color, view) {
+  const byHandle = PRODUCT_MODEL_SHOTS[handle] || {};
+  const shot = byHandle[color];
+  if (shot && (shot[view] || shot.back || shot.front)) return shot;
+  const fallback = modelShot(color, view);
+  return fallback ? { back:modelShot(color, 'back'), front:modelShot(color, 'front'), exact:false } : null;
+}
+
+function modelUrl(handle, color, view) {
+  const shot = productModelShot(handle, color, view);
+  return shot ? (shot[view] || shot.back || shot.front || '') : '';
 }
 
 /* live Shopify (Printful-synced) mockup for a given color — the ACTUAL printed garment.
@@ -156,13 +211,12 @@ function renderGrid(elId, handles) {
     card.className = 'card';
 
     function build() {
-      /* Default Black colorway shows the on-model shot as the hero; other colorways fall back
-         to the accurate flat Printful mockup (so the color swatch stays truthful). */
-      const mm = MODEL_MAP[h];
-      const useModel = mm && activeColor === mm.color;
-      const heroBack  = useModel ? mm.back : (mockup(h, activeColor, 'back')  || shopVarImg(p, activeColor) || modelShot(activeColor, 'back'));
-      const heroFront = useModel ? (mm.front || mm.back) : (mockup(h, activeColor, 'front') || shopVarImg(p, activeColor) || modelShot(activeColor, 'front'));
-      const mediaCls  = useModel ? 'card__media card__media--model' : 'card__media card__media--mockup';
+      /* Keep the approved curly-haired NYC model as the primary product visual for every color.
+         Printful/mockup images remain secondary proof in PDP, not the main customer-facing card. */
+      const model = productModelShot(h, activeColor, 'back');
+      const heroBack  = modelUrl(h, activeColor, 'back') || mockup(h, activeColor, 'back') || shopVarImg(p, activeColor);
+      const heroFront = modelUrl(h, activeColor, 'front') || heroBack;
+      const mediaCls  = 'card__media card__media--model';
       card.innerHTML = `
         <div class="${mediaCls}" data-color="${activeColor}" role="button" tabindex="0" aria-label="View ${p.title.replace(" — Women's","")}">
           <img class="front back-hero" src="${heroBack}" alt="${p.title} — ${activeColor}, worn back" loading="lazy" decoding="async">
@@ -210,11 +264,10 @@ function openPDP(handle, startColor) {
   pdpState = { handle, color: startColor || DEFAULT_COLOR[handle] || (colors.includes('Black')?'Black':colors[0]), size:null };
 
   function render() {
-    const mm = MODEL_MAP[handle];
-    const useMM = mm && pdpState.color === mm.color;
+    const modelShotForColor = productModelShot(handle, pdpState.color, 'back');
     const sImg    = shopVarImg(p, pdpState.color);
-    const back    = useMM ? mm.back : (mockup(handle, pdpState.color, 'back')  || sImg || modelShot(pdpState.color, 'back'));
-    const front   = useMM ? (mm.front || mm.back) : (mockup(handle, pdpState.color, 'front') || sImg || modelShot(pdpState.color, 'front'));
+    const back    = modelUrl(handle, pdpState.color, 'back') || mockup(handle, pdpState.color, 'back') || sImg;
+    const front   = modelUrl(handle, pdpState.color, 'front') || back;
     const mBack   = mockup(handle, pdpState.color, 'back');
     const mFront  = mockup(handle, pdpState.color, 'front');
     const price = p.variants.edges[0].node.price.amount;
@@ -227,8 +280,8 @@ function openPDP(handle, startColor) {
     /* Gallery order: model back → model front → printful back → printful front */
     const _seen = new Set();
     const gallery = [
-      { url:back,   label:'BACK — WORN',  isModel: useMM },
-      { url:front,  label:'FRONT — WORN', isModel: useMM },
+      { url:back,   label:modelShotForColor?.exact ? 'BACK — WORN' : 'BACK — SAME MODEL / COLOR',  isModel: !!modelShotForColor },
+      { url:front,  label:modelShotForColor?.exact ? 'FRONT — WORN' : 'FRONT — SAME MODEL / COLOR', isModel: !!modelShotForColor },
       ...(mBack  ? [{url:mBack,  label:'BACK',  isModel:false}]  : []),
       ...(mFront ? [{url:mFront, label:'FRONT', isModel:false}] : [])
     ].filter(x=>x.url && !_seen.has(x.url) && _seen.add(x.url));
@@ -382,7 +435,7 @@ function renderCart(cart){
     const opts = m.selectedOptions.map(o=>o.value).join(' / ');
     const colorOpt = m.selectedOptions.find(o=>o.name==='Color');
     const cc = colorOpt ? colorOpt.value : 'Black';
-    const img = mockup(m.product.handle, cc, 'back') || shopVarImg(PRODUCTS[m.product.handle], cc) || (MODEL_MAP[m.product.handle] && MODEL_MAP[m.product.handle].back) || modelShot(cc, 'back');
+    const img = modelUrl(m.product.handle, cc, 'back') || mockup(m.product.handle, cc, 'back') || shopVarImg(PRODUCTS[m.product.handle], cc);
     const div = document.createElement('div');
     div.className = 'citem';
     div.innerHTML = `
@@ -428,7 +481,7 @@ function renderFeatured(){
   strip.innerHTML = '';
   picks.forEach(pk=>{
     const p = PRODUCTS[pk.handle]; if (!p) return;
-    const img = mockup(pk.handle, pk.color, 'back') || shopVarImg(p, pk.color) || (MODEL_MAP[pk.handle] && MODEL_MAP[pk.handle].back) || modelShot(pk.color, 'back');
+    const img = modelUrl(pk.handle, pk.color, 'back') || mockup(pk.handle, pk.color, 'back') || shopVarImg(p, pk.color);
     const price = p.variants.edges[0].node.price.amount;
     const cell = document.createElement('div');
     cell.className = 'fcell fcell--mockup';
@@ -464,7 +517,7 @@ function injectProductSchema(){
     const v0 = p.variants.edges[0].node;
     const inStock = p.variants.edges.some(e=>e.node.availableForSale);
     const colors = (p.options.find(o=>o.name==='Color')?.values)||[];
-    const img = mockup(p.handle, colors.includes('Black')?'Black':colors[0], 'back') || (MODEL_MAP[p.handle] && MODEL_MAP[p.handle].back) || '';
+    const img = modelUrl(p.handle, colors.includes('Black')?'Black':colors[0], 'back') || mockup(p.handle, colors.includes('Black')?'Black':colors[0], 'back') || '';
     const o = { "@context":"https://schema.org","@type":"Product","name":p.title,
       "description":(p.descriptionHtml||'').replace(/<[^>]+>/g,'').replace(/\s+/g,' ').trim().slice(0,300),
       "brand":{"@type":"Brand","name":"FLYLYFE"},
