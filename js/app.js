@@ -85,7 +85,9 @@ const MODEL_MAP = Object.fromEntries(Object.entries(PRODUCT_MODEL_SHOTS).map(([h
 let MOCKUPS = {};
 
 /* Per-product default colorway shown on the card hero (overrides the Black default) */
-const DEFAULT_COLOR = { 'the-house-music-tee':'Ivory', 'the-signature-tee':'White', 'the-token-tee':'Ivory' };
+const DEFAULT_COLOR = { 'the-house-music-tee':'Ivory', 'the-token-tee':'Ivory' };
+/* Signature tees are front-logo products. Do not use generic/model lifestyle photos for them. */
+const MOCKUP_PRIMARY_HANDLES = new Set(['the-signature-tee','the-signature-tee-womens']);
 const MEN_HANDLES = ['the-anthem-tee','the-conga-tee','the-signature-tee','the-house-music-tee','the-token-tee'];
 const WOMEN_HANDLES = ['the-anthem-tee-womens','the-conga-tee-womens','the-signature-tee-womens'];
 const DROP_HANDLES = ['the-after-hours-tee','the-tempo-tee','the-coordinates-tee','the-spiritual-thing-tee'];
@@ -214,16 +216,21 @@ function renderGrid(elId, handles) {
     function build() {
       /* Keep the approved curly-haired NYC model as the primary product visual for every color.
          Printful/mockup images remain secondary proof in PDP, not the main customer-facing card. */
-      const model = productModelShot(h, activeColor, 'back');
-      const heroBack  = modelUrl(h, activeColor, 'back') || mockup(h, activeColor, 'back') || shopVarImg(p, activeColor);
-      const heroFront = modelUrl(h, activeColor, 'front') || heroBack;
-      const mediaCls  = 'card__media card__media--model';
+      const mockupPrimary = MOCKUP_PRIMARY_HANDLES.has(h);
+      const heroBack  = mockupPrimary
+        ? (mockup(h, activeColor, 'front') || shopVarImg(p, activeColor) || mockup(h, activeColor, 'back'))
+        : (modelUrl(h, activeColor, 'back') || mockup(h, activeColor, 'back') || shopVarImg(p, activeColor));
+      const heroFront = mockupPrimary
+        ? (mockup(h, activeColor, 'back') || heroBack)
+        : (modelUrl(h, activeColor, 'front') || heroBack);
+      const mediaCls  = mockupPrimary ? 'card__media card__media--mockup' : 'card__media card__media--model';
+      const viewLabel = mockupPrimary ? 'FRONT · HOVER FOR BACK' : 'BACK · HOVER FOR FRONT';
       card.innerHTML = `
         <div class="${mediaCls}" data-color="${activeColor}" role="button" tabindex="0" aria-label="View ${p.title.replace(" — Women's","")}">
-          <img class="front back-hero" src="${heroBack}" alt="${p.title} — ${activeColor}, worn back" loading="lazy" decoding="async">
-          <img class="back" src="${heroFront}" alt="${p.title} — ${activeColor}, worn front" loading="lazy" decoding="async">
+          <img class="front back-hero" src="${heroBack}" alt="${p.title} — ${activeColor}, ${mockupPrimary ? 'front logo' : 'worn back'}" loading="lazy" decoding="async">
+          <img class="back" src="${heroFront}" alt="${p.title} — ${activeColor}, ${mockupPrimary ? 'back view' : 'worn front'}" loading="lazy" decoding="async">
           <span class="card__tag">${TAGLINES[h]||'FLYLYFE'}</span>
-          <span class="card__view mono">BACK · HOVER FOR FRONT</span>
+          <span class="card__view mono">${viewLabel}</span>
           <span class="card__quick mono">VIEW &amp; BUY →</span>
         </div>
         <div class="card__body">
@@ -265,12 +272,13 @@ function openPDP(handle, startColor) {
   pdpState = { handle, color: startColor || DEFAULT_COLOR[handle] || (colors.includes('Black')?'Black':colors[0]), size:null };
 
   function render() {
-    const modelShotForColor = productModelShot(handle, pdpState.color, 'back');
+    const mockupPrimary = MOCKUP_PRIMARY_HANDLES.has(handle);
+    const modelShotForColor = mockupPrimary ? null : productModelShot(handle, pdpState.color, 'back');
     const sImg    = shopVarImg(p, pdpState.color);
-    const back    = modelUrl(handle, pdpState.color, 'back') || mockup(handle, pdpState.color, 'back') || sImg;
-    const front   = modelUrl(handle, pdpState.color, 'front') || back;
     const mBack   = mockup(handle, pdpState.color, 'back');
     const mFront  = mockup(handle, pdpState.color, 'front');
+    const back    = mockupPrimary ? (mBack || sImg) : (modelUrl(handle, pdpState.color, 'back') || mBack || sImg);
+    const front   = mockupPrimary ? (mFront || sImg || back) : (modelUrl(handle, pdpState.color, 'front') || back);
     const price = p.variants.edges[0].node.price.amount;
 
     document.getElementById('pdpTitle').textContent = p.title;
@@ -278,14 +286,17 @@ function openPDP(handle, startColor) {
     document.getElementById('pdpDesc').innerHTML = p.descriptionHtml;
     document.getElementById('pdpColorName').textContent = pdpState.color.toUpperCase();
 
-    /* Gallery order: model back → model front → printful back → printful front */
+    /* Gallery order: front-logo products show the accurate product front first; other tees keep model back first. */
     const _seen = new Set();
-    const gallery = [
+    const gallery = (mockupPrimary ? [
+      { url:front, label:'FRONT', isModel:false },
+      { url:back,  label:'BACK',  isModel:false }
+    ] : [
       { url:back,   label:modelShotForColor?.exact ? 'BACK — WORN' : 'BACK — SAME MODEL / COLOR',  isModel: !!modelShotForColor },
       { url:front,  label:modelShotForColor?.exact ? 'FRONT — WORN' : 'FRONT — SAME MODEL / COLOR', isModel: !!modelShotForColor },
       ...(mBack  ? [{url:mBack,  label:'BACK',  isModel:false}]  : []),
       ...(mFront ? [{url:mFront, label:'FRONT', isModel:false}] : [])
-    ].filter(x=>x.url && !_seen.has(x.url) && _seen.add(x.url));
+    ]).filter(x=>x.url && !_seen.has(x.url) && _seen.add(x.url));
 
     const mainImg = document.getElementById('pdpMain');
     function pdpImagePosition(url, isModel){
