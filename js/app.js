@@ -288,13 +288,19 @@ function openPDP(handle, startColor) {
     ].filter(x=>x.url && !_seen.has(x.url) && _seen.add(x.url));
 
     const mainImg = document.getElementById('pdpMain');
+    function pdpImagePosition(url, isModel){
+      /* The Conga model-back photo is portrait-cropped inside a short mobile gallery.
+         Center the crop lower so the back print is visible above the thumbnails. */
+      if (url && url.includes('the-conga-tee-model-back.jpg')) return 'center 42%';
+      return isModel ? 'top center' : 'center';
+    }
     function setMain(url, isModel, alt){
       mainImg.classList.add('switching');
       setTimeout(()=>{
         mainImg.src = url;
         if(alt) mainImg.alt = alt;
         mainImg.style.objectFit   = isModel ? 'cover'    : 'contain';
-        mainImg.style.objectPosition = isModel ? 'top center' : 'center';
+        mainImg.style.objectPosition = pdpImagePosition(url, isModel);
         mainImg.classList.remove('switching');
       }, 180);
     }
