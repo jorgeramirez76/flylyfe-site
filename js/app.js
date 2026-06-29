@@ -187,6 +187,13 @@ async function init() {
     fetch('assets/products-model/manifest.json').then(r=>r.json()).catch(()=>({})),
     gql(PRODUCT_Q)
   ]);
+  /* cache-bust product images so updated placements replace cached copies */
+  const ASSET_V = '20260629b';
+  const _bust = u => u ? u + (u.includes('?') ? '&' : '?') + 'v=' + ASSET_V : u;
+  Object.values(modelMan).forEach(colors => Object.values(colors).forEach(v => {
+    if (v.front) v.front = _bust(v.front);
+    if (v.back)  v.back  = _bust(v.back);
+  }));
   MOCKUPS = modelMan;
   /* Wire the consistent on-model set as the EXACT, primary image for every product/color.
      Each color is the same model/pose/background with only the shirt color (and print) changing,
