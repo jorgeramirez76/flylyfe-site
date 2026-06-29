@@ -1,0 +1,144 @@
+{
+ "the-anthem-tee": {
+  "White": {
+   "front": "assets/products-model/the-anthem-tee-White-front.jpg",
+   "back": "assets/products-model/the-anthem-tee-White-back.jpg"
+  },
+  "Black": {
+   "front": "assets/products-model/the-anthem-tee-Black-front.jpg",
+   "back": "assets/products-model/the-anthem-tee-Black-back.jpg"
+  },
+  "Ivory": {
+   "front": "assets/products-model/the-anthem-tee-Ivory-front.jpg",
+   "back": "assets/products-model/the-anthem-tee-Ivory-back.jpg"
+  }
+ },
+ "the-conga-tee": {
+  "White": {
+   "front": "assets/products-model/the-conga-tee-White-front.jpg",
+   "back": "assets/products-model/the-conga-tee-White-back.jpg"
+  },
+  "Black": {
+   "front": "assets/products-model/the-conga-tee-Black-front.jpg",
+   "back": "assets/products-model/the-conga-tee-Black-back.jpg"
+  },
+  "Ivory": {
+   "front": "assets/products-model/the-conga-tee-Ivory-front.jpg",
+   "back": "assets/products-model/the-conga-tee-Ivory-back.jpg"
+  }
+ },
+ "the-signature-tee": {
+  "White": {
+   "front": "assets/products-model/the-signature-tee-White-front.jpg",
+   "back": "assets/products-model/the-signature-tee-White-back.jpg"
+  },
+  "Black": {
+   "front": "assets/products-model/the-signature-tee-Black-front.jpg",
+   "back": "assets/products-model/the-signature-tee-Black-back.jpg"
+  },
+  "Ivory": {
+   "front": "assets/products-model/the-signature-tee-Ivory-front.jpg",
+   "back": "assets/products-model/the-signature-tee-Ivory-back.jpg"
+  }
+ },
+ "the-house-music-tee": {
+  "White": {
+   "front": "assets/products-model/the-house-music-tee-White-front.jpg",
+   "back": "assets/products-model/the-house-music-tee-White-back.jpg"
+  },
+  "Black": {
+   "front": "assets/products-model/the-house-music-tee-Black-front.jpg",
+   "back": "assets/products-model/the-house-music-tee-Black-back.jpg"
+  },
+  "Ivory": {
+   "front": "assets/products-model/the-house-music-tee-Ivory-front.jpg",
+   "back": "assets/products-model/the-house-music-tee-Ivory-back.jpg"
+  }
+ },
+ "the-token-tee": {
+  "White": {
+   "front": "assets/products-model/the-token-tee-White-front.jpg",
+   "back": "assets/products-model/the-token-tee-White-back.jpg"
+  },
+  "Black": {
+   "front": "assets/products-model/the-token-tee-Black-front.jpg",
+   "back": "assets/products-model/the-token-tee-Black-back.jpg"
+  },
+  "Ivory": {
+   "front": "assets/products-model/the-token-tee-Ivory-front.jpg",
+   "back": "assets/products-model/the-token-tee-Ivory-back.jpg"
+  }
+ },
+ "the-anthem-tee-womens": {
+  "White": {
+   "front": "assets/products-model/the-anthem-tee-womens-White-front.jpg",
+   "back": "assets/products-model/the-anthem-tee-womens-White-back.jpg"
+  },
+  "Black": {
+   "front": "assets/products-model/the-anthem-tee-womens-Black-front.jpg",
+   "back": "assets/products-model/the-anthem-tee-womens-Black-back.jpg"
+  },
+  "Natural": {
+   "front": "assets/products-model/the-anthem-tee-womens-Natural-front.jpg",
+   "back": "assets/products-model/the-anthem-tee-womens-Natural-back.jpg"
+  }
+ },
+ "the-conga-tee-womens": {
+  "White": {
+   "front": "assets/products-model/the-conga-tee-womens-White-front.jpg",
+   "back": "assets/products-model/the-conga-tee-womens-White-back.jpg"
+  },
+  "Black": {
+   "front": "assets/products-model/the-conga-tee-womens-Black-front.jpg",
+   "back": "assets/products-model/the-conga-tee-womens-Black-back.jpg"
+  },
+  "Natural": {
+   "front": "assets/products-model/the-conga-tee-womens-Natural-front.jpg",
+   "back": "assets/products-model/the-conga-tee-womens-Natural-back.jpg"
+  }
+ },
+ "the-signature-tee-womens": {
+  "White": {
+   "front": "assets/products-model/the-signature-tee-womens-White-front.jpg",
+   "back": "assets/products-model/the-signature-tee-womens-White-back.jpg"
+  },
+  "Black": {
+   "front": "assets/products-model/the-signature-tee-womens-Black-front.jpg",
+   "back": "assets/products-model/the-signature-tee-womens-Black-back.jpg"
+  },
+  "Natural": {
+   "front": "assets/products-model/the-signature-tee-womens-Natural-front.jpg",
+   "back": "assets/products-model/the-signature-tee-womens-Natural-back.jpg"
+  }
+ },
+ "the-after-hours-tee": {
+  "Black": {
+   "front": "assets/products-model/the-after-hours-tee-Black-front.jpg",
+   "back": "assets/products-model/the-after-hours-tee-Black-back.jpg"
+  }
+ },
+ "the-tempo-tee": {
+  "Black": {
+   "front": "assets/products-model/the-tempo-tee-Black-front.jpg",
+   "back": "assets/products-model/the-tempo-tee-Black-back.jpg"
+  }
+ },
+ "the-coordinates-tee": {
+  "Ivory": {
+   "front": "assets/products-model/the-coordinates-tee-Ivory-front.jpg",
+   "back": "assets/products-model/the-coordinates-tee-Ivory-back.jpg"
+  }
+ },
+ "the-spiritual-thing-tee": {
+  "Ivory": {
+   "front": "assets/products-model/the-spiritual-thing-tee-Ivory-front.jpg",
+   "back": "assets/products-model/the-spiritual-thing-tee-Ivory-back.jpg"
+  }
+ },
+ "the-sanitary-code-tee": {
+  "White": {
+   "front": "assets/products-model/the-sanitary-code-tee-White-front.jpg",
+   "back": "assets/products-model/the-sanitary-code-tee-White-back.jpg"
+  }
+ }
+}

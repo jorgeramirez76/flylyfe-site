@@ -83,9 +83,12 @@ let MOCKUPS = {};
 
 /* Per-product default colorway shown on the card hero (overrides the Black default) */
 const DEFAULT_COLOR = { 'the-house-music-tee':'Ivory', 'the-token-tee':'Ivory' };
-/* Signature tees are front-logo products. Do not use generic/model lifestyle photos for them. */
-const MOCKUP_PRIMARY_HANDLES = new Set(['the-signature-tee','the-signature-tee-womens']);
-const FRONT_PRIMARY_HANDLES = new Set(['the-signature-tee','the-signature-tee-womens','the-sanitary-code-tee','the-house-music-tee']);
+/* Consistent on-model shots (assets/products-model/) are now the primary visual for EVERY product
+   and color — same curly-haired man on all men's colors, same long-haired woman on all women's
+   colors, front + back. Flat Printful mockups are no longer used as the primary card image. */
+const MOCKUP_PRIMARY_HANDLES = new Set([]);
+/* Front-logo products lead with the FRONT view; back-graphic tees lead with the BACK (the hero print). */
+const FRONT_PRIMARY_HANDLES = new Set(['the-signature-tee','the-signature-tee-womens','the-sanitary-code-tee']);
 const MEN_HANDLES = ['the-anthem-tee','the-conga-tee','the-signature-tee','the-house-music-tee','the-token-tee'];
 const WOMEN_HANDLES = ['the-anthem-tee-womens','the-conga-tee-womens','the-signature-tee-womens'];
 const DROP_HANDLES = ['the-after-hours-tee','the-tempo-tee','the-coordinates-tee','the-spiritual-thing-tee'];
@@ -180,11 +183,24 @@ function shopVarImg(p, color) {
 }
 
 async function init() {
-  const [manifest, data] = await Promise.all([
-    fetch('assets/products/manifest.json').then(r=>r.json()).catch(()=>({})),
+  const [modelMan, data] = await Promise.all([
+    fetch('assets/products-model/manifest.json').then(r=>r.json()).catch(()=>({})),
     gql(PRODUCT_Q)
   ]);
-  MOCKUPS = manifest;
+  MOCKUPS = modelMan;
+  /* Wire the consistent on-model set as the EXACT, primary image for every product/color.
+     Each color is the same model/pose/background with only the shirt color (and print) changing,
+     so switching the color swatch swaps just the shirt — front + back both available. */
+  Object.entries(modelMan).forEach(([handle, colors])=>{
+    PRODUCT_MODEL_SHOTS[handle] = PRODUCT_MODEL_SHOTS[handle] || {};
+    Object.entries(colors).forEach(([color, views])=>{
+      PRODUCT_MODEL_SHOTS[handle][color] = {
+        back:  views.back  || views.front || '',
+        front: views.front || views.back  || '',
+        exact: true
+      };
+    });
+  });
   if (!data) { document.querySelectorAll('.grid__loading').forEach(e=>e.textContent='DROP TEMPORARILY OFFLINE'); return; }
   data.products.edges.forEach(e => PRODUCTS[e.node.handle] = e.node);
   renderGrid('gridMen', MEN_HANDLES, 'men');
