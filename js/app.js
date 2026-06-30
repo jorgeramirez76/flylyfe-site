@@ -188,7 +188,7 @@ async function init() {
     gql(PRODUCT_Q)
   ]);
   /* cache-bust product images so updated placements replace cached copies */
-  const ASSET_V = '20260630c-anthemgold';
+  const ASSET_V = '20260630d-fixes';
   const _bust = u => u ? u + (u.includes('?') ? '&' : '?') + 'v=' + ASSET_V : u;
   Object.values(modelMan).forEach(colors => Object.values(colors).forEach(v => {
     if (v.front) v.front = _bust(v.front);
@@ -293,7 +293,9 @@ function openPDP(handle, startColor) {
   const p = PRODUCTS[handle];
   if (!p) return;
   const colors = p.options.find(o=>o.name==='Color')?.values || [];
-  const sizes  = p.options.find(o=>o.name==='Size')?.values  || [];
+  const SIZE_ORD = ['S','M','L','XL','2XL','3XL'];
+  const sizes  = (p.options.find(o=>o.name==='Size')?.values || []).slice()
+                   .sort((a,b)=>(SIZE_ORD.indexOf(a)<0?99:SIZE_ORD.indexOf(a))-(SIZE_ORD.indexOf(b)<0?99:SIZE_ORD.indexOf(b)));
   pdpState = { handle, color: startColor || DEFAULT_COLOR[handle] || (colors.includes('Black')?'Black':colors[0]), size:null };
 
   function render() {
