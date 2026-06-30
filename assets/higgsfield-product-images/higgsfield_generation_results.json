@@ -1,0 +1,67 @@
+[
+  {
+    "status": "skipped",
+    "out": "assets/higgsfield-product-images/the-anthem-tee/the-anthem-tee-Black-front-higgsfield.png",
+    "handle": "the-anthem-tee",
+    "color": "Black",
+    "view": "front"
+  },
+  {
+    "status": "skipped",
+    "out": "assets/higgsfield-product-images/the-anthem-tee/the-anthem-tee-Black-back-higgsfield.png",
+    "handle": "the-anthem-tee",
+    "color": "Black",
+    "view": "back"
+  },
+  {
+    "status": "skipped",
+    "out": "assets/higgsfield-product-images/the-anthem-tee/the-anthem-tee-White-front-higgsfield.png",
+    "handle": "the-anthem-tee",
+    "color": "White",
+    "view": "front"
+  },
+  {
+    "status": "skipped",
+    "out": "assets/higgsfield-product-images/the-anthem-tee/the-anthem-tee-White-back-higgsfield.png",
+    "handle": "the-anthem-tee",
+    "color": "White",
+    "view": "back"
+  },
+  {
+    "status": "skipped",
+    "out": "assets/higgsfield-product-images/the-anthem-tee/the-anthem-tee-Ivory-front-higgsfield.png",
+    "handle": "the-anthem-tee",
+    "color": "Ivory",
+    "view": "front"
+  },
+  {
+    "status": "skipped",
+    "out": "assets/higgsfield-product-images/the-anthem-tee/the-anthem-tee-Ivory-back-higgsfield.png",
+    "handle": "the-anthem-tee",
+    "color": "Ivory",
+    "view": "back"
+  },
+  {
+    "status": "skipped",
+    "out": "assets/higgsfield-product-images/the-conga-tee/the-conga-tee-Black-front-higgsfield.png",
+    "handle": "the-conga-tee",
+    "color": "Black",
+    "view": "front"
+  },
+  {
+    "status": "skipped",
+    "out": "assets/higgsfield-product-images/the-conga-tee/the-conga-tee-Black-back-higgsfield.png",
+    "handle": "the-conga-tee",
+    "color": "Black",
+    "view": "back"
+  },
+  {
+    "status": "completed",
+    "id": "109ee4e3-4c64-411b-a4ba-c3e89ca07337",
+    "url": "https://d8j0ntlcm91z4.cloudfront.net/user_34RU01R5uOjEliakfmukXZWoeZa/hf_20260629_043712_109ee4e3-4c64-411b-a4ba-c3e89ca07337.png",
+    "out": "assets/higgsfield-product-images/the-conga-tee/the-conga-tee-White-front-higgsfield.png",
+    "handle": "the-conga-tee",
+    "color": "White",
+    "view": "front"
+  }
+]

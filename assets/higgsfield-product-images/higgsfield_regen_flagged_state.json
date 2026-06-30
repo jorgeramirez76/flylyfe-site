@@ -1,0 +1,187 @@
+{
+  "active": [],
+  "done": [
+    {
+      "task": [
+        "the-anthem-tee",
+        "Black",
+        "front"
+      ],
+      "id": "70ef1adc-4e44-45c5-aec0-cbcdf91efa59",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_34RU01R5uOjEliakfmukXZWoeZa/hf_20260629_060306_70ef1adc-4e44-45c5-aec0-cbcdf91efa59.png",
+      "out": "assets/higgsfield-product-images/the-anthem-tee/the-anthem-tee-Black-front-higgsfield.png"
+    },
+    {
+      "task": [
+        "the-anthem-tee",
+        "Ivory",
+        "back"
+      ],
+      "id": "fe5ed112-d415-45b3-8421-0602553cd8b8",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_34RU01R5uOjEliakfmukXZWoeZa/hf_20260629_060318_fe5ed112-d415-45b3-8421-0602553cd8b8.png",
+      "out": "assets/higgsfield-product-images/the-anthem-tee/the-anthem-tee-Ivory-back-higgsfield.png"
+    },
+    {
+      "task": [
+        "the-anthem-tee",
+        "Black",
+        "back"
+      ],
+      "id": "dc245aff-5e0c-4611-95de-f7c073aeaf47",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_34RU01R5uOjEliakfmukXZWoeZa/hf_20260629_060312_dc245aff-5e0c-4611-95de-f7c073aeaf47.png",
+      "out": "assets/higgsfield-product-images/the-anthem-tee/the-anthem-tee-Black-back-higgsfield.png"
+    },
+    {
+      "task": [
+        "the-anthem-tee-womens",
+        "Black",
+        "back"
+      ],
+      "id": "2888ceec-c263-4ef4-9ae0-f43827c12cdf",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_34RU01R5uOjEliakfmukXZWoeZa/hf_20260629_060331_2888ceec-c263-4ef4-9ae0-f43827c12cdf.png",
+      "out": "assets/higgsfield-product-images/the-anthem-tee-womens/the-anthem-tee-womens-Black-back-higgsfield.png"
+    },
+    {
+      "task": [
+        "the-anthem-tee-womens",
+        "Natural",
+        "back"
+      ],
+      "id": "89bfae97-3e6a-492b-a3f9-6bcd65bb8366",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_34RU01R5uOjEliakfmukXZWoeZa/hf_20260629_060336_89bfae97-3e6a-492b-a3f9-6bcd65bb8366.png",
+      "out": "assets/higgsfield-product-images/the-anthem-tee-womens/the-anthem-tee-womens-Natural-back-higgsfield.png"
+    },
+    {
+      "task": [
+        "the-anthem-tee-womens",
+        "White",
+        "back"
+      ],
+      "id": "0a3a4717-fdf3-48d2-9213-8bc118033390",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_34RU01R5uOjEliakfmukXZWoeZa/hf_20260629_060342_0a3a4717-fdf3-48d2-9213-8bc118033390.png",
+      "out": "assets/higgsfield-product-images/the-anthem-tee-womens/the-anthem-tee-womens-White-back-higgsfield.png"
+    },
+    {
+      "task": [
+        "the-conga-tee",
+        "Black",
+        "back"
+      ],
+      "id": "50640d6d-03f0-4ceb-a283-c1f2d7bd07ce",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_34RU01R5uOjEliakfmukXZWoeZa/hf_20260629_060349_50640d6d-03f0-4ceb-a283-c1f2d7bd07ce.png",
+      "out": "assets/higgsfield-product-images/the-conga-tee/the-conga-tee-Black-back-higgsfield.png"
+    },
+    {
+      "task": [
+        "the-anthem-tee",
+        "White",
+        "back"
+      ],
+      "id": "e3f7006c-6591-402a-814f-496b1c8d58fc",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_34RU01R5uOjEliakfmukXZWoeZa/hf_20260629_060324_e3f7006c-6591-402a-814f-496b1c8d58fc.png",
+      "out": "assets/higgsfield-product-images/the-anthem-tee/the-anthem-tee-White-back-higgsfield.png"
+    },
+    {
+      "task": [
+        "the-conga-tee",
+        "Ivory",
+        "back"
+      ],
+      "id": "6eb84f22-0872-4bb1-b19e-bd44a04e9c0e",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_34RU01R5uOjEliakfmukXZWoeZa/hf_20260629_060610_6eb84f22-0872-4bb1-b19e-bd44a04e9c0e.png",
+      "out": "assets/higgsfield-product-images/the-conga-tee/the-conga-tee-Ivory-back-higgsfield.png"
+    },
+    {
+      "task": [
+        "the-conga-tee",
+        "White",
+        "back"
+      ],
+      "id": "726482fe-6162-4a36-8797-c1a74fb6c108",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_34RU01R5uOjEliakfmukXZWoeZa/hf_20260629_060616_726482fe-6162-4a36-8797-c1a74fb6c108.png",
+      "out": "assets/higgsfield-product-images/the-conga-tee/the-conga-tee-White-back-higgsfield.png"
+    },
+    {
+      "task": [
+        "the-house-music-tee",
+        "Black",
+        "front"
+      ],
+      "id": "7f0cddf2-b00c-43c8-aed7-3c90fcad4f1d",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_34RU01R5uOjEliakfmukXZWoeZa/hf_20260629_060649_7f0cddf2-b00c-43c8-aed7-3c90fcad4f1d.png",
+      "out": "assets/higgsfield-product-images/the-house-music-tee/the-house-music-tee-Black-front-higgsfield.png"
+    },
+    {
+      "task": [
+        "the-house-music-tee",
+        "Ivory",
+        "front"
+      ],
+      "id": "74fc799a-f8a5-4300-8c70-188b499f52d0",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_34RU01R5uOjEliakfmukXZWoeZa/hf_20260629_060656_74fc799a-f8a5-4300-8c70-188b499f52d0.png",
+      "out": "assets/higgsfield-product-images/the-house-music-tee/the-house-music-tee-Ivory-front-higgsfield.png"
+    },
+    {
+      "task": [
+        "the-signature-tee",
+        "White",
+        "front"
+      ],
+      "id": "40a4a7cd-2dc5-4533-98e4-fa0fb9d73415",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_34RU01R5uOjEliakfmukXZWoeZa/hf_20260629_060708_40a4a7cd-2dc5-4533-98e4-fa0fb9d73415.png",
+      "out": "assets/higgsfield-product-images/the-signature-tee/the-signature-tee-White-front-higgsfield.png"
+    },
+    {
+      "task": [
+        "the-house-music-tee",
+        "White",
+        "front"
+      ],
+      "id": "0bc1349d-1aa0-4466-abd9-31dc359af129",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_34RU01R5uOjEliakfmukXZWoeZa/hf_20260629_060702_0bc1349d-1aa0-4466-abd9-31dc359af129.png",
+      "out": "assets/higgsfield-product-images/the-house-music-tee/the-house-music-tee-White-front-higgsfield.png"
+    },
+    {
+      "task": [
+        "the-signature-tee-womens",
+        "Natural",
+        "front"
+      ],
+      "id": "fa278eb2-d507-4a58-b52d-e7ab299abc1b",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_34RU01R5uOjEliakfmukXZWoeZa/hf_20260629_060714_fa278eb2-d507-4a58-b52d-e7ab299abc1b.png",
+      "out": "assets/higgsfield-product-images/the-signature-tee-womens/the-signature-tee-womens-Natural-front-higgsfield.png"
+    },
+    {
+      "task": [
+        "the-tempo-tee",
+        "Black",
+        "front"
+      ],
+      "id": "f74d226b-76b1-4484-b34d-883c2d357564",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_34RU01R5uOjEliakfmukXZWoeZa/hf_20260629_060805_f74d226b-76b1-4484-b34d-883c2d357564.png",
+      "out": "assets/higgsfield-product-images/the-tempo-tee/the-tempo-tee-Black-front-higgsfield.png"
+    },
+    {
+      "task": [
+        "the-token-tee",
+        "Black",
+        "front"
+      ],
+      "id": "f6a0f0b2-27e8-4c74-90e6-cc4aa040136c",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_34RU01R5uOjEliakfmukXZWoeZa/hf_20260629_060857_f6a0f0b2-27e8-4c74-90e6-cc4aa040136c.png",
+      "out": "assets/higgsfield-product-images/the-token-tee/the-token-tee-Black-front-higgsfield.png"
+    },
+    {
+      "task": [
+        "the-token-tee",
+        "White",
+        "front"
+      ],
+      "id": "00e5092c-c644-4ce5-bdfe-3061105f83ef",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_34RU01R5uOjEliakfmukXZWoeZa/hf_20260629_060928_00e5092c-c644-4ce5-bdfe-3061105f83ef.png",
+      "out": "assets/higgsfield-product-images/the-token-tee/the-token-tee-White-front-higgsfield.png"
+    }
+  ],
+  "failed": [],
+  "remaining": []
+}

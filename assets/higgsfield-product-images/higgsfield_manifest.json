@@ -1,0 +1,144 @@
+{
+  "the-anthem-tee": {
+    "Black": {
+      "front": "assets/higgsfield-product-images/the-anthem-tee/the-anthem-tee-Black-front-higgsfield.png",
+      "back": "assets/higgsfield-product-images/the-anthem-tee/the-anthem-tee-Black-back-higgsfield.png"
+    },
+    "White": {
+      "front": "assets/higgsfield-product-images/the-anthem-tee/the-anthem-tee-White-front-higgsfield.png",
+      "back": "assets/higgsfield-product-images/the-anthem-tee/the-anthem-tee-White-back-higgsfield.png"
+    },
+    "Ivory": {
+      "front": "assets/higgsfield-product-images/the-anthem-tee/the-anthem-tee-Ivory-front-higgsfield.png",
+      "back": "assets/higgsfield-product-images/the-anthem-tee/the-anthem-tee-Ivory-back-higgsfield.png"
+    }
+  },
+  "the-conga-tee": {
+    "Black": {
+      "front": "assets/higgsfield-product-images/the-conga-tee/the-conga-tee-Black-front-higgsfield.png",
+      "back": "assets/higgsfield-product-images/the-conga-tee/the-conga-tee-Black-back-higgsfield.png"
+    },
+    "White": {
+      "front": "assets/higgsfield-product-images/the-conga-tee/the-conga-tee-White-front-higgsfield.png",
+      "back": "assets/higgsfield-product-images/the-conga-tee/the-conga-tee-White-back-higgsfield.png"
+    },
+    "Ivory": {
+      "front": "assets/higgsfield-product-images/the-conga-tee/the-conga-tee-Ivory-front-higgsfield.png",
+      "back": "assets/higgsfield-product-images/the-conga-tee/the-conga-tee-Ivory-back-higgsfield.png"
+    }
+  },
+  "the-signature-tee": {
+    "Black": {
+      "front": "assets/higgsfield-product-images/the-signature-tee/the-signature-tee-Black-front-higgsfield.png",
+      "back": "assets/higgsfield-product-images/the-signature-tee/the-signature-tee-Black-back-higgsfield.png"
+    },
+    "White": {
+      "front": "assets/higgsfield-product-images/the-signature-tee/the-signature-tee-White-front-higgsfield.png",
+      "back": "assets/higgsfield-product-images/the-signature-tee/the-signature-tee-White-back-higgsfield.png"
+    },
+    "Ivory": {
+      "front": "assets/higgsfield-product-images/the-signature-tee/the-signature-tee-Ivory-front-higgsfield.png",
+      "back": "assets/higgsfield-product-images/the-signature-tee/the-signature-tee-Ivory-back-higgsfield.png"
+    }
+  },
+  "the-house-music-tee": {
+    "Black": {
+      "front": "assets/higgsfield-product-images/the-house-music-tee/the-house-music-tee-Black-front-higgsfield.png",
+      "back": "assets/higgsfield-product-images/the-house-music-tee/the-house-music-tee-Black-back-higgsfield.png"
+    },
+    "White": {
+      "front": "assets/higgsfield-product-images/the-house-music-tee/the-house-music-tee-White-front-higgsfield.png",
+      "back": "assets/higgsfield-product-images/the-house-music-tee/the-house-music-tee-White-back-higgsfield.png"
+    },
+    "Ivory": {
+      "front": "assets/higgsfield-product-images/the-house-music-tee/the-house-music-tee-Ivory-front-higgsfield.png",
+      "back": "assets/higgsfield-product-images/the-house-music-tee/the-house-music-tee-Ivory-back-higgsfield.png"
+    }
+  },
+  "the-token-tee": {
+    "Black": {
+      "front": "assets/higgsfield-product-images/the-token-tee/the-token-tee-Black-front-higgsfield.png",
+      "back": "assets/higgsfield-product-images/the-token-tee/the-token-tee-Black-back-higgsfield.png"
+    },
+    "White": {
+      "front": "assets/higgsfield-product-images/the-token-tee/the-token-tee-White-front-higgsfield.png",
+      "back": "assets/higgsfield-product-images/the-token-tee/the-token-tee-White-back-higgsfield.png"
+    },
+    "Ivory": {
+      "front": "assets/higgsfield-product-images/the-token-tee/the-token-tee-Ivory-front-higgsfield.png",
+      "back": "assets/higgsfield-product-images/the-token-tee/the-token-tee-Ivory-back-higgsfield.png"
+    }
+  },
+  "the-after-hours-tee": {
+    "Black": {
+      "front": "assets/higgsfield-product-images/the-after-hours-tee/the-after-hours-tee-Black-front-higgsfield.png",
+      "back": "assets/higgsfield-product-images/the-after-hours-tee/the-after-hours-tee-Black-back-higgsfield.png"
+    }
+  },
+  "the-tempo-tee": {
+    "Black": {
+      "front": "assets/higgsfield-product-images/the-tempo-tee/the-tempo-tee-Black-front-higgsfield.png",
+      "back": "assets/higgsfield-product-images/the-tempo-tee/the-tempo-tee-Black-back-higgsfield.png"
+    }
+  },
+  "the-coordinates-tee": {
+    "Ivory": {
+      "front": "assets/higgsfield-product-images/the-coordinates-tee/the-coordinates-tee-Ivory-front-higgsfield.png",
+      "back": "assets/higgsfield-product-images/the-coordinates-tee/the-coordinates-tee-Ivory-back-higgsfield.png"
+    }
+  },
+  "the-spiritual-thing-tee": {
+    "Ivory": {
+      "front": "assets/higgsfield-product-images/the-spiritual-thing-tee/the-spiritual-thing-tee-Ivory-front-higgsfield.png",
+      "back": "assets/higgsfield-product-images/the-spiritual-thing-tee/the-spiritual-thing-tee-Ivory-back-higgsfield.png"
+    }
+  },
+  "the-sanitary-code-tee": {
+    "White": {
+      "front": "assets/higgsfield-product-images/the-sanitary-code-tee/the-sanitary-code-tee-White-front-higgsfield.png",
+      "back": "assets/higgsfield-product-images/the-sanitary-code-tee/the-sanitary-code-tee-White-back-higgsfield.png"
+    }
+  },
+  "the-anthem-tee-womens": {
+    "Black": {
+      "front": "assets/higgsfield-product-images/the-anthem-tee-womens/the-anthem-tee-womens-Black-front-higgsfield.png",
+      "back": "assets/higgsfield-product-images/the-anthem-tee-womens/the-anthem-tee-womens-Black-back-higgsfield.png"
+    },
+    "White": {
+      "front": "assets/higgsfield-product-images/the-anthem-tee-womens/the-anthem-tee-womens-White-front-higgsfield.png",
+      "back": "assets/higgsfield-product-images/the-anthem-tee-womens/the-anthem-tee-womens-White-back-higgsfield.png"
+    },
+    "Natural": {
+      "front": "assets/higgsfield-product-images/the-anthem-tee-womens/the-anthem-tee-womens-Natural-front-higgsfield.png",
+      "back": "assets/higgsfield-product-images/the-anthem-tee-womens/the-anthem-tee-womens-Natural-back-higgsfield.png"
+    }
+  },
+  "the-conga-tee-womens": {
+    "Black": {
+      "front": "assets/higgsfield-product-images/the-conga-tee-womens/the-conga-tee-womens-Black-front-higgsfield.png",
+      "back": "assets/higgsfield-product-images/the-conga-tee-womens/the-conga-tee-womens-Black-back-higgsfield.png"
+    },
+    "White": {
+      "front": "assets/higgsfield-product-images/the-conga-tee-womens/the-conga-tee-womens-White-front-higgsfield.png",
+      "back": "assets/higgsfield-product-images/the-conga-tee-womens/the-conga-tee-womens-White-back-higgsfield.png"
+    },
+    "Natural": {
+      "front": "assets/higgsfield-product-images/the-conga-tee-womens/the-conga-tee-womens-Natural-front-higgsfield.png",
+      "back": "assets/higgsfield-product-images/the-conga-tee-womens/the-conga-tee-womens-Natural-back-higgsfield.png"
+    }
+  },
+  "the-signature-tee-womens": {
+    "Black": {
+      "front": "assets/higgsfield-product-images/the-signature-tee-womens/the-signature-tee-womens-Black-front-higgsfield.png",
+      "back": "assets/higgsfield-product-images/the-signature-tee-womens/the-signature-tee-womens-Black-back-higgsfield.png"
+    },
+    "White": {
+      "front": "assets/higgsfield-product-images/the-signature-tee-womens/the-signature-tee-womens-White-front-higgsfield.png",
+      "back": "assets/higgsfield-product-images/the-signature-tee-womens/the-signature-tee-womens-White-back-higgsfield.png"
+    },
+    "Natural": {
+      "front": "assets/higgsfield-product-images/the-signature-tee-womens/the-signature-tee-womens-Natural-front-higgsfield.png",
+      "back": "assets/higgsfield-product-images/the-signature-tee-womens/the-signature-tee-womens-Natural-back-higgsfield.png"
+    }
+  }
+}
