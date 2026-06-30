@@ -188,7 +188,7 @@ async function init() {
     gql(PRODUCT_Q)
   ]);
   /* cache-bust product images so updated placements replace cached copies */
-  const ASSET_V = '20260629d-maxprint';
+  const ASSET_V = '20260629e-maxv2';
   const _bust = u => u ? u + (u.includes('?') ? '&' : '?') + 'v=' + ASSET_V : u;
   Object.values(modelMan).forEach(colors => Object.values(colors).forEach(v => {
     if (v.front) v.front = _bust(v.front);
