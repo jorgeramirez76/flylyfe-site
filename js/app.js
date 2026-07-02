@@ -11,10 +11,10 @@ const COLOR_HEX = {
 
 /* ---- Male model images per color: back (hero) + front (hover) ---- */
 const MODEL_SHOTS = {
-  Black:   { back:'assets/models/black-back.jpg',     front:'assets/models/black-front.jpg'    },
-  White:   { back:'assets/models/white-back.jpg',     front:'assets/models/white-front.jpg'    },
-  Ivory:   { back:'assets/models/cream-back.jpg',     front:'assets/models/cream-front.jpg'    },
-  Natural: { back:'assets/models/cream-alt-back.jpg', front:'assets/models/cream-alt-front.jpg'}
+  Black:   { back:'assets/models/black-back.webp',     front:'assets/models/black-front.webp'    },
+  White:   { back:'assets/models/white-back.webp',     front:'assets/models/white-front.webp'    },
+  Ivory:   { back:'assets/models/cream-back.webp',     front:'assets/models/cream-front.webp'    },
+  Natural: { back:'assets/models/cream-alt-back.webp', front:'assets/models/cream-alt-front.webp'}
 };
 
 /* ---- Approved male model direction: the curly-haired NYC model used on Conga, Signature, and Drop 02.
@@ -22,54 +22,54 @@ const MODEL_SHOTS = {
    model shot does not exist yet, fall back to the same model wearing the selected color, then show
    accurate Printful mockups as proof thumbnails in the PDP. */
 const APPROVED_MODEL_SHOTS = {
-  Black:   { back:'assets/models/black-back.jpg',     front:'assets/models/black-front.jpg'    },
-  White:   { back:'assets/models/white-back.jpg',     front:'assets/models/white-front.jpg'    },
-  Ivory:   { back:'assets/models/cream-back.jpg',     front:'assets/models/cream-front.jpg'    },
-  Natural: { back:'assets/models/cream-alt-back.jpg', front:'assets/models/cream-alt-front.jpg'}
+  Black:   { back:'assets/models/black-back.webp',     front:'assets/models/black-front.webp'    },
+  White:   { back:'assets/models/white-back.webp',     front:'assets/models/white-front.webp'    },
+  Ivory:   { back:'assets/models/cream-back.webp',     front:'assets/models/cream-front.webp'    },
+  Natural: { back:'assets/models/cream-alt-back.webp', front:'assets/models/cream-alt-front.webp'}
 };
 
 const PRODUCT_MODEL_SHOTS = {
   'the-anthem-tee': {
-    Black: { back:'assets/models/black-back.jpg', front:'assets/models/black-front.jpg', exact:true },
-    White: { back:'assets/models/white-back.jpg', front:'assets/models/white-front.jpg', exact:true },
-    Ivory: { back:'assets/models/cream-back.jpg', front:'assets/models/cream-front.jpg', exact:false }
+    Black: { back:'assets/models/black-back.webp', front:'assets/models/black-front.webp', exact:true },
+    White: { back:'assets/models/white-back.webp', front:'assets/models/white-front.webp', exact:true },
+    Ivory: { back:'assets/models/cream-back.webp', front:'assets/models/cream-front.webp', exact:false }
   },
   'the-conga-tee': {
     /* Only use exact Conga imagery for Black. Do not show the generic plain front model here — it makes the Conga Tee look blank. */
-    Black: { back:'assets/products/the-conga-tee-model-back.jpg', front:null, exact:true },
-    White: { back:'assets/models/white-back.jpg', front:'assets/models/white-front.jpg', exact:false },
-    Ivory: { back:'assets/models/cream-back.jpg', front:'assets/models/cream-front.jpg', exact:false }
+    Black: { back:'assets/products/the-conga-tee-model-back.webp', front:null, exact:true },
+    White: { back:'assets/models/white-back.webp', front:'assets/models/white-front.webp', exact:false },
+    Ivory: { back:'assets/models/cream-back.webp', front:'assets/models/cream-front.webp', exact:false }
   },
   'the-signature-tee': {
-    Black: { back:'assets/products/the-signature-tee-model-back.jpg', front:'assets/models/black-front.jpg', exact:true },
-    White: { back:'assets/models/white-back.jpg', front:'assets/models/white-front.jpg', exact:false },
-    Ivory: { back:'assets/models/cream-back.jpg', front:'assets/models/cream-front.jpg', exact:false }
+    Black: { back:'assets/products/the-signature-tee-model-back.webp', front:'assets/models/black-front.webp', exact:true },
+    White: { back:'assets/models/white-back.webp', front:'assets/models/white-front.webp', exact:false },
+    Ivory: { back:'assets/models/cream-back.webp', front:'assets/models/cream-front.webp', exact:false }
   },
   'the-house-music-tee': {
-    Black: { back:'assets/products/generated/the-house-music-tee-Black-back-matched-mockup.jpg', front:'assets/products/generated/the-house-music-tee-Black-front-matched-mockup.jpg', exact:false },
-    Ivory: { back:'assets/models/cream-alt-back.jpg', front:'assets/models/cream-alt-front.jpg', exact:true }
+    Black: { back:'assets/products/generated/the-house-music-tee-Black-back-matched-mockup.webp', front:'assets/products/generated/the-house-music-tee-Black-front-matched-mockup.webp', exact:false },
+    Ivory: { back:'assets/models/cream-alt-back.webp', front:'assets/models/cream-alt-front.webp', exact:true }
   },
   'the-after-hours-tee': {
-    Black: { back:'assets/products/drop02-after-hours-model.jpg', front:null, exact:true }
+    Black: { back:'assets/products/drop02-after-hours-model.webp', front:null, exact:true }
   },
   'the-tempo-tee': {
-    Black: { back:'assets/products/drop02-tempo-model.jpg', front:null, exact:true }
+    Black: { back:'assets/products/drop02-tempo-model.webp', front:null, exact:true }
   },
   'the-coordinates-tee': {
-    Ivory: { back:'assets/products/drop02-coordinates-model.jpg', front:null, exact:true }
+    Ivory: { back:'assets/products/drop02-coordinates-model.webp', front:null, exact:true }
   },
   'the-spiritual-thing-tee': {
-    Ivory: { back:'assets/products/drop02-spiritual-thing-model.jpg', front:null, exact:true }
+    Ivory: { back:'assets/products/drop02-spiritual-thing-model.webp', front:null, exact:true }
   },
   'the-sanitary-code-tee': {
-    White: { back:'assets/products/limited-sanitary-back.jpg', front:'assets/products/limited-sanitary-front-model.jpg', exact:true }
+    White: { back:'assets/products/limited-sanitary-back.webp', front:'assets/products/limited-sanitary-front-model.webp', exact:true }
   },
   'the-token-tee': {
-    Ivory: { back:'assets/products/the-token-tee-model-back.jpg', front:'assets/products/the-token-tee-model-front.jpg', exact:true }
+    Ivory: { back:'assets/products/the-token-tee-model-back.webp', front:'assets/products/the-token-tee-model-front.webp', exact:true }
   },
-  'the-anthem-tee-womens':    { Black: { back:'assets/lookbook/wren-feelmusic-back.jpg', front:'assets/lookbook/wren-black-front.jpg', exact:true } },
-  'the-conga-tee-womens':     { Black: { back:'assets/lookbook/wren-conga-back.jpg', front:'assets/lookbook/wren-black-front.jpg', exact:true } },
-  'the-signature-tee-womens': { Black: { back:'assets/lookbook/wren-black-front.jpg', front:'assets/lookbook/wren-cream-front.jpg', exact:true } }
+  'the-anthem-tee-womens':    { Black: { back:'assets/lookbook/wren-feelmusic-back.webp', front:'assets/lookbook/wren-black-front.webp', exact:true } },
+  'the-conga-tee-womens':     { Black: { back:'assets/lookbook/wren-conga-back.webp', front:'assets/lookbook/wren-black-front.webp', exact:true } },
+  'the-signature-tee-womens': { Black: { back:'assets/lookbook/wren-black-front.webp', front:'assets/lookbook/wren-cream-front.webp', exact:true } }
 };
 
 /* Legacy aliases kept for fallback/helper compatibility. */
@@ -188,7 +188,7 @@ async function init() {
     gql(PRODUCT_Q)
   ]);
   /* cache-bust product images so updated placements replace cached copies */
-  const ASSET_V = '20260630i-signature';
+  const ASSET_V = '20260702-webp';
   const _bust = u => u ? u + (u.includes('?') ? '&' : '?') + 'v=' + ASSET_V : u;
   Object.values(modelMan).forEach(colors => Object.values(colors).forEach(v => {
     if (v.front) v.front = _bust(v.front);
@@ -591,9 +591,9 @@ function showToast(msg){ const t=document.getElementById('toast'); t.hidden=fals
 
 /* ---- Hero carousel: model back shots ---- */
 const HERO_SLIDES=[
-  {img:'assets/hero/carousel-2-freedom.jpg', alt:'FLYLYFE — House Music Is Freedom tee on a New York City street'},
-  {img:'assets/hero/carousel-1-black.jpg',   alt:'FLYLYFE — Feel the Music. Feel the Vibe. Live Your Lyfe. tee in NYC'},
-  {img:'assets/hero/carousel-3-house.jpg',   alt:'FLYLYFE house music culture tee in New York City'},
+  {img:'assets/hero/carousel-2-freedom.webp', alt:'FLYLYFE — House Music Is Freedom tee on a New York City street'},
+  {img:'assets/hero/carousel-1-black.webp',   alt:'FLYLYFE — Feel the Music. Feel the Vibe. Live Your Lyfe. tee in NYC'},
+  {img:'assets/hero/carousel-3-house.webp',   alt:'FLYLYFE house music culture tee in New York City'},
 ];
 function initHeroCarousel(){
   const wrap = document.getElementById('heroCarousel');
