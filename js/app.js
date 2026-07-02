@@ -569,8 +569,8 @@ function injectProductSchema(){
     const o = { "@context":"https://schema.org","@type":"Product","name":p.title,
       "description":(p.descriptionHtml||'').replace(/<[^>]+>/g,'').replace(/\s+/g,' ').trim().slice(0,300),
       "brand":{"@type":"Brand","name":"FLYLYFE"},
-      "offers":{"@type":"Offer","price":parseFloat(v0.price.amount).toFixed(2),"priceCurrency":v0.price.currencyCode||"USD","availability":inStock?"https://schema.org/InStock":"https://schema.org/OutOfStock","url":"https://flylyfe.com/"} };
-    if(img) o.image = ['https://flylyfe.com/'+img];
+      "offers":{"@type":"Offer","price":parseFloat(v0.price.amount).toFixed(2),"priceCurrency":v0.price.currencyCode||"USD","availability":inStock?"https://schema.org/InStock":"https://schema.org/OutOfStock","url":"https://www.flylyfe.com/products/"+p.handle+"/"} };
+    if(img) o.image = ['https://www.flylyfe.com/'+img];
     return o;
   });
   if(!items.length) return;
@@ -724,7 +724,7 @@ document.addEventListener('keydown', e=>{
 });
 
 /* ---- Email / SMS capture (UI only) ----
-   TODO: POST { email, phone } to your provider (Klaviyo / Shopify / Mailchimp) here. */
+   Opens a prefilled email until Klaviyo/Shopify/Mailchimp API capture is connected. */
 function initJoinForm(){
   const form = document.getElementById('joinForm'); if(!form) return;
   const msg = document.getElementById('joinMsg');
@@ -734,10 +734,11 @@ function initJoinForm(){
     const phone = (document.getElementById('joinPhone').value||'').trim();
     if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){ msg.textContent='ENTER A VALID EMAIL.'; msg.classList.add('err'); return; }
     msg.classList.remove('err');
-    msg.textContent = "YOU'RE ON THE LIST — WELCOME TO FLYLYFE.";
-    const signup = { email, phone };   /* captured payload */
+    msg.textContent = "OPENING YOUR EMAIL APP TO CONFIRM SIGNUP…";
+    const subject = encodeURIComponent('FLYLYFE list signup');
+    const body = encodeURIComponent(`Please add me to the FLYLYFE list.\n\nEmail: ${email}\nPhone: ${phone || 'Not provided'}`);
+    window.location.href = `mailto:hello@flylyfe.com?subject=${subject}&body=${body}`;
     form.reset();
-    /* TODO: forward `signup` ({ email, phone }) to your email/SMS backend (Klaviyo / Shopify / Mailchimp) */
   });
 }
 initJoinForm();

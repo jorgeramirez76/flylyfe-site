@@ -1,26 +1,99 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://www.flylyfe.com/</loc>
-    <lastmod>2026-06-28</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
-    <image:image>
-      <image:loc>https://www.flylyfe.com/assets/lifestyle/lifestyle-2-black-slogan.jpg</image:loc>
-      <image:title>FLYLYFE — NYC house music streetwear, est. 2007</image:title>
-    </image:image>
-      <image:image>
-        <image:loc>https://www.flylyfe.com/assets/products/the-house-music-ivory-back.jpg</image:loc>
-        <image:title>The House Music Tee — FLYLYFE NYC house music streetwear</image:title>
-      </image:image>
-      <image:image>
-        <image:loc>https://www.flylyfe.com/assets/lookbook/freedom.jpg</image:loc>
-        <image:title>House Music Is Freedom tee — FLYLYFE NYC</image:title>
-      </image:image>
-      <image:image>
-        <image:loc>https://www.flylyfe.com/assets/products/limited-sanitary-front-model.jpg</image:loc>
-        <image:title>Limited Edition Sanitary Code Tee — FLYLYFE NYC</image:title>
-      </image:image>
+  </url>
+  <url>
+    <loc>https://www.flylyfe.com/privacy.html</loc>
+    <lastmod>2026-07-02</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://www.flylyfe.com/terms.html</loc>
+    <lastmod>2026-07-02</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://www.flylyfe.com/products/the-anthem-tee/</loc>
+    <lastmod>2026-07-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.flylyfe.com/products/the-conga-tee/</loc>
+    <lastmod>2026-07-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.flylyfe.com/products/the-signature-tee/</loc>
+    <lastmod>2026-07-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.flylyfe.com/products/the-house-music-tee/</loc>
+    <lastmod>2026-07-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.flylyfe.com/products/the-token-tee/</loc>
+    <lastmod>2026-07-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.flylyfe.com/products/the-anthem-tee-womens/</loc>
+    <lastmod>2026-07-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.flylyfe.com/products/the-conga-tee-womens/</loc>
+    <lastmod>2026-07-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.flylyfe.com/products/the-signature-tee-womens/</loc>
+    <lastmod>2026-07-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.flylyfe.com/products/the-after-hours-tee/</loc>
+    <lastmod>2026-07-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.flylyfe.com/products/the-tempo-tee/</loc>
+    <lastmod>2026-07-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.flylyfe.com/products/the-coordinates-tee/</loc>
+    <lastmod>2026-07-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.flylyfe.com/products/the-spiritual-thing-tee/</loc>
+    <lastmod>2026-07-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.flylyfe.com/products/the-sanitary-code-tee/</loc>
+    <lastmod>2026-07-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
 </urlset>
