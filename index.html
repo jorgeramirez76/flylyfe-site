@@ -7,6 +7,7 @@
 <meta name="description" content="The world's in New York this summer. FLYLYFE — NYC house-music streetwear since 2007. Heavyweight tees born on the dance floor. Feel the Music. Live Your Lyfe.">
 <link rel="canonical" href="https://www.flylyfe.com/">
 <meta name="theme-color" content="#050505">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="FLYLYFE">
 <meta property="og:title" content="FLYLYFE | The World's in New York — NYC House Music Streetwear">
@@ -32,8 +33,8 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Anton&family=JetBrains+Mono:wght@400;500&display=swap" media="print" onload="this.media='all'">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Anton&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
 <link rel="preload" as="image" href="assets/hero/skyline.jpg" fetchpriority="high">
-<link rel="stylesheet" href="css/style.css?v=20260628-fulfillment-audit">
-<link rel="stylesheet" href="css/product.css?v=20260628-fulfillment-audit">
+<link rel="stylesheet" href="css/style.css?v=20260702-perf-a11y">
+<link rel="stylesheet" href="css/product.css?v=20260702-perf-a11y">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@graph":[
 {"@type":"Organization","@id":"https://www.flylyfe.com/#org","name":"FLYLYFE","url":"https://www.flylyfe.com/","logo":"https://www.flylyfe.com/assets/print/flylyfe-wordmark-gold.png","foundingDate":"2007","slogan":"Feel the Music. Feel the Vibe. Live Your Lyfe.","description":"FLYLYFE is a New York City house-music streetwear brand established in 2007, making premium heavyweight tees inspired by house music, NYC culture, and nightlife.","sameAs":["https://instagram.com/flylyfeofficial","https://tiktok.com/@flylyfe"],"email":"hello@flylyfe.com","contactPoint":{"@type":"ContactPoint","contactType":"customer support","email":"hello@flylyfe.com","areaServed":"Worldwide","availableLanguage":"English"},"address":{"@type":"PostalAddress","addressLocality":"New York City","addressRegion":"NY","addressCountry":"US"}},
@@ -54,7 +55,7 @@
 
 <!-- ======= NAV ======= -->
 <header class="nav" id="nav">
-  <a class="nav__logo" href="#top" aria-label="FLYLYFE home"><img src="assets/print/flylyfe-wordmark-gold.png" alt="FLYLYFE" class="nav__logo-img"></a>
+  <a class="nav__logo" href="#top" aria-label="FLYLYFE home"><img src="assets/print/flylyfe-wordmark-gold.png" alt="FLYLYFE" class="nav__logo-img" width="405" height="40"></a>
   <nav class="nav__links" aria-label="Main">
     <a href="#top" class="active">Home</a>
     <a href="#shop">Shop</a>
@@ -64,7 +65,7 @@
     <a href="mailto:hello@flylyfe.com">Contact</a>
   </nav>
   <div class="nav__right">
-    <button class="nav__cart" id="cartBtn" aria-label="Open cart">
+    <button class="nav__cart" id="cartBtn">
       <span class="nav__cart-label mono">CART</span>
       <span class="nav__cart-paren mono">(<span id="cartCount">0</span>)</span>
     </button>
@@ -127,10 +128,10 @@
 
 <!-- ======= VALUE BAR ======= -->
 <section class="values">
-  <div class="value reveal"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9.2" fill="none" stroke="currentColor" stroke-width="1.1"/><path d="M3 12h18M12 2.8a14 14 0 0 1 0 18.4M12 2.8a14 14 0 0 0 0 18.4M3.6 8h16.8M3.6 16h16.8" fill="none" stroke="currentColor" stroke-width="1.1"/></svg><h3>Worldwide Shipping</h3><p>Delivering to you</p></div>
-  <div class="value reveal"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="9" cy="18" r="2.4" fill="none" stroke="currentColor" stroke-width="1.1"/><circle cx="19" cy="16" r="2.4" fill="none" stroke="currentColor" stroke-width="1.1"/><path d="M11.4 18V5.5l10-2v10.5" fill="none" stroke="currentColor" stroke-width="1.1"/></svg><h3>Music Inspired</h3><p>Built on culture</p></div>
-  <div class="value reveal"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3l2.6 5.3 5.9.9-4.2 4.1 1 5.8L12 16.4 6.7 19.1l1-5.8L3.5 9.2l5.9-.9z" fill="none" stroke="currentColor" stroke-width="1.1"/></svg><h3>Premium Quality</h3><p>Made to last</p></div>
-  <div class="value reveal"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="4.5" y="10" width="15" height="9.5" rx="1.4" fill="none" stroke="currentColor" stroke-width="1.1"/><path d="M8 10V7a4 4 0 0 1 8 0v3" fill="none" stroke="currentColor" stroke-width="1.1"/></svg><h3>Secure Payments</h3><p>Shop with confidence</p></div>
+  <div class="value reveal"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9.2" fill="none" stroke="currentColor" stroke-width="1.1"/><path d="M3 12h18M12 2.8a14 14 0 0 1 0 18.4M12 2.8a14 14 0 0 0 0 18.4M3.6 8h16.8M3.6 16h16.8" fill="none" stroke="currentColor" stroke-width="1.1"/></svg><p class="value__heading">Worldwide Shipping</p><p>Delivering to you</p></div>
+  <div class="value reveal"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="9" cy="18" r="2.4" fill="none" stroke="currentColor" stroke-width="1.1"/><circle cx="19" cy="16" r="2.4" fill="none" stroke="currentColor" stroke-width="1.1"/><path d="M11.4 18V5.5l10-2v10.5" fill="none" stroke="currentColor" stroke-width="1.1"/></svg><p class="value__heading">Music Inspired</p><p>Built on culture</p></div>
+  <div class="value reveal"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3l2.6 5.3 5.9.9-4.2 4.1 1 5.8L12 16.4 6.7 19.1l1-5.8L3.5 9.2l5.9-.9z" fill="none" stroke="currentColor" stroke-width="1.1"/></svg><p class="value__heading">Premium Quality</p><p>Made to last</p></div>
+  <div class="value reveal"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="4.5" y="10" width="15" height="9.5" rx="1.4" fill="none" stroke="currentColor" stroke-width="1.1"/><path d="M8 10V7a4 4 0 0 1 8 0v3" fill="none" stroke="currentColor" stroke-width="1.1"/></svg><p class="value__heading">Secure Payments</p><p>Shop with confidence</p></div>
 </section>
 
 <!-- ======= MEN'S SHOP ======= -->
@@ -383,33 +384,33 @@
 <footer class="footer">
   <div class="footer__top">
     <div class="footer__brandcol">
-      <div class="footer__brand"><img src="assets/print/flylyfe-wordmark-gold.png" alt="FLYLYFE" class="footer__brand-img"></div>
+      <div class="footer__brand"><img src="assets/print/flylyfe-wordmark-gold.png" alt="FLYLYFE" class="footer__brand-img" width="405" height="40"></div>
       <p class="footer__tagline mono">FEEL THE MUSIC. FEEL THE VIBE. LIVE YOUR LYFE.</p>
       <p class="footer__est mono">NEW YORK CITY · WORLDWIDE · EST. 2007</p>
     </div>
     <div class="footer__cols">
       <div class="footer__col">
-        <h4 class="mono">SHOP</h4>
+        <p class="footer__heading mono">SHOP</p>
         <a href="#shop">Men's</a>
         <a href="#shop-women">Women's</a>
         <a href="#after-hours">After Hours</a>
       </div>
       <div class="footer__col">
-        <h4 class="mono">HELP</h4>
+        <p class="footer__heading mono">HELP</p>
         <a href="#" data-info="shipping">Shipping</a>
         <a href="#" data-info="returns">Returns</a>
         <a href="#" data-info="sizeguide">Size Guide</a>
         <a href="mailto:hello@flylyfe.com">Contact</a>
       </div>
       <div class="footer__col">
-        <h4 class="mono">BRAND</h4>
+        <p class="footer__heading mono">BRAND</p>
         <a href="#story">About</a>
         <a href="#journal">Journal</a>
         <a href="privacy.html">Privacy</a>
         <a href="terms.html">Terms</a>
       </div>
       <div class="footer__col">
-        <h4 class="mono">FOLLOW</h4>
+        <p class="footer__heading mono">FOLLOW</p>
         <a href="https://instagram.com/flylyfeofficial" target="_blank" rel="noopener">Instagram</a>
         <a href="https://tiktok.com/@flylyfe" target="_blank" rel="noopener">TikTok</a>
       </div>
@@ -497,6 +498,6 @@
 
 <div class="toast mono" id="toast" role="status" aria-live="polite" hidden></div>
 
-<script src="js/app.js?v=20260629f-realism" defer></script>
+<script src="js/app.js?v=20260702-perf-a11y" defer></script>
 </body>
 </html>

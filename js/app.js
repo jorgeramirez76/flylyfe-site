@@ -251,12 +251,12 @@ function renderGrid(elId, handles) {
       const mediaCls  = mockupPrimary ? 'card__media card__media--mockup' : 'card__media card__media--model';
       const viewLabel = frontPrimary ? 'FRONT · HOVER FOR BACK' : 'BACK · HOVER FOR FRONT';
       card.innerHTML = `
-        <div class="${mediaCls}" data-color="${activeColor}" role="button" tabindex="0" aria-label="View ${p.title.replace(" — Women's","")}">
+        <div class="${mediaCls}" data-color="${activeColor}" role="button" tabindex="0" aria-label="${TAGLINES[h]||'FLYLYFE'} ${viewLabel} View and buy ${p.title.replace(" — Women's","")}">
           <img class="front back-hero" src="${heroBack}" alt="${p.title} — ${activeColor}, ${mockupPrimary ? 'front logo' : 'worn back'}" loading="lazy" decoding="async">
           <img class="back" src="${heroFront}" alt="${p.title} — ${activeColor}, ${mockupPrimary ? 'back view' : 'worn front'}" loading="lazy" decoding="async">
-          <span class="card__tag">${TAGLINES[h]||'FLYLYFE'}</span>
-          <span class="card__view mono">${viewLabel}</span>
-          <span class="card__quick mono">VIEW &amp; BUY →</span>
+          <span class="card__tag" aria-hidden="true">${TAGLINES[h]||'FLYLYFE'}</span>
+          <span class="card__view mono" aria-hidden="true">${viewLabel}</span>
+          <span class="card__quick mono" aria-hidden="true">VIEW &amp; BUY →</span>
         </div>
         <div class="card__body">
           <div class="card__info">

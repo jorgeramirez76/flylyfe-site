@@ -96,7 +96,7 @@ button{font-family:inherit;cursor:pointer}
 .value:hover{background:var(--bg-3)}
 .value svg{width:30px;height:30px;color:var(--gold);margin:0 auto 1rem;transition:transform .4s var(--ease)}
 .value:hover svg{transform:translateY(-3px) scale(1.08)}
-.value h3{font-family:var(--font-body);font-weight:600;font-size:.92rem;text-transform:uppercase;letter-spacing:.08em}
+.value__heading{font-family:var(--font-body);font-weight:600;font-size:.92rem;text-transform:uppercase;letter-spacing:.08em;color:var(--ink)}
 .value p{font-size:.8rem;color:var(--ink-dim)}
 
 /* ============ Shop ============ */
@@ -195,7 +195,7 @@ button{font-family:inherit;cursor:pointer}
 .footer__est{color:var(--ink-dim);margin-top:.5rem;font-size:.6rem;letter-spacing:.22em}
 .footer__cols{display:grid;grid-template-columns:repeat(4,1fr);gap:1.6rem}
 .footer__col{display:flex;flex-direction:column;gap:.85rem}
-.footer__col h4{color:var(--gold);font-size:.62rem;letter-spacing:.2em;font-weight:500;margin-bottom:.3rem}
+.footer__heading{color:var(--gold);font-size:.62rem;letter-spacing:.2em;font-weight:500;margin-bottom:.3rem}
 .footer__col a{color:var(--ink-dim);font-size:.85rem;transition:color .2s,transform .2s;width:max-content}
 .footer__col a:hover{color:var(--ink);transform:translateX(3px)}
 .footer__bottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:.6rem;padding-top:1.6rem}
