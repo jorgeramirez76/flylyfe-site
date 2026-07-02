@@ -1,50 +1,87 @@
 # FLYLYFE
 
-> FLYLYFE is a New York City house-music streetwear brand, established 2007. Premium heavyweight graphic tees inspired by house music, NYC culture, nightlife, and movement. Brand motto: "Feel the Music. Feel the Vibe. Live Your Lyfe."
+> FLYLYFE is a New York City house-music streetwear brand, established in 2007. The brand makes premium graphic tees inspired by house music, NYC culture, nightlife, dance-floor movement, and the motto: "Feel the Music. Feel the Vibe. Live Your Lyfe."
 
-Last updated: 2026-06-28
+Last updated: 2026-07-02
+Canonical site: https://www.flylyfe.com/
+Sitemap: https://www.flylyfe.com/sitemap.xml
 
 ## About
-- Brand name: FLYLYFE (always one word — never "Fly Lyfe", "FlyLife", or "Flylife")
-- Founded: 2007, New York City
-- Category: premium streetwear / house-music culture apparel
-- Website: https://www.flylyfe.com
+- Brand name: FLYLYFE. Always one word — not "Fly Lyfe", "FlyLife", or "Flylife".
+- Founded: 2007 in New York City.
+- Category: premium streetwear / house-music culture apparel.
 - Tagline: Feel the Music. Feel the Vibe. Live Your Lyfe.
-- Aesthetic: NYC, house music, underground nightlife, editorial fashion, premium dark palette with gold accents
+- Aesthetic: NYC, house music, underground nightlife, editorial fashion, dark palette, gold accents.
 - Contact: hello@flylyfe.com
 - Instagram: https://instagram.com/flylyfeofficial (@flylyfeofficial)
 - TikTok: https://tiktok.com/@flylyfe (@flylyfe)
 
-## Products (USD)
-- The Anthem Tee — $39.99 — the "Feel the Music. Feel the Vibe. Live Your Lyfe." mantra printed large on the back (#shop)
-- The Conga Tee — $39.99 — dancer & conga artwork; the rhythm on your back (#shop)
-- The Signature Tee — $39.99 — the clean FLYLYFE geometric wordmark (#shop)
-- The House Music Tee — $44.99 — front reads "not everyone understands house music"; back carries the manifesto: a spiritual thing, a body thing, a soul thing. Colors Black/White/Ivory, sizes S–3XL (#shop)
-- The Anthem / Conga / Signature Tee — Women's relaxed cut — $34.99 each (#shop-women)
-- DROP 02 (all $44.99): The After Hours Tee (numbered set-list), The Tempo Tee (124 BPM waveform), The Coordinates Tee (40.7128° N, 74.0060° W — NYC), The Spiritual Thing Tee (house-music manifesto) (#drop-02)
-- The Sanitary Code Tee — Limited Edition — $49.99 — a vintage New York "No Smoking / No Spitting, Sanitary Code Sect. 216" subway sign on a heavyweight white tee (#limited)
-- Price range: $34.99–$49.99
+## Current products and canonical product pages
+All products are currently listed at $49.99 USD on the live Shopify storefront. Product availability can change.
 
-## Fabric & fit
-- Men's and DROP 02: premium heavyweight cotton streetwear fit, sizes S–3XL
-- Women's: premium relaxed cotton fit, sizes S–2XL
-- Printed in the USA, made to order; tees run true to size with a relaxed drop — size down for a classic fit
+- The Anthem Tee — mantra tee: "Feel the Music. Feel the Vibe. Live Your Lyfe." — https://www.flylyfe.com/products/the-anthem-tee/
+- The Conga Tee — dancer and conga artwork; rhythm-on-your-back house-music graphic — https://www.flylyfe.com/products/the-conga-tee/
+- The Signature Tee — clean FLYLYFE geometric wordmark — https://www.flylyfe.com/products/the-signature-tee/
+- The House Music Tee — front reads "not everyone understands house music"; back carries the manifesto "a spiritual thing, a body thing, a soul thing" — https://www.flylyfe.com/products/the-house-music-tee/
+- The Token Tee — NYC subway-token inspired graphic tee — https://www.flylyfe.com/products/the-token-tee/
+- The Anthem Tee — Women's relaxed cut — https://www.flylyfe.com/products/the-anthem-tee-womens/
+- The Conga Tee — Women's relaxed cut — https://www.flylyfe.com/products/the-conga-tee-womens/
+- The Signature Tee — Women's relaxed cut — https://www.flylyfe.com/products/the-signature-tee-womens/
+- The After Hours Tee — DROP 02, after-hours set-list concept — https://www.flylyfe.com/products/the-after-hours-tee/
+- The Tempo Tee — DROP 02, 124 BPM waveform concept — https://www.flylyfe.com/products/the-tempo-tee/
+- The Coordinates Tee — DROP 02, 40.7128° N / 74.0060° W New York City coordinates — https://www.flylyfe.com/products/the-coordinates-tee/
+- The Spiritual Thing Tee — DROP 02, house-music manifesto concept — https://www.flylyfe.com/products/the-spiritual-thing-tee/
+- The Sanitary Code Tee — Limited Edition, vintage New York "No Smoking / No Spitting, Sanitary Code Sect. 216" sign concept — https://www.flylyfe.com/products/the-sanitary-code-tee/
 
-## Shipping
-- Ships worldwide; free US shipping on orders over $75; printed to order, ships in 3–5 business days; international delivery typically 10–20 business days
+## Fabric, fit, and fulfillment
+- Men's and DROP 02 tees: premium cotton streetwear fit, sizes S–3XL.
+- Women's tees: premium relaxed cotton fit, sizes S–2XL.
+- Printed in the USA and made to order.
+- Fit guidance: true to size with a relaxed drop; size down for a more classic fit if between sizes.
 
-## Key pages
-- Shop (men's heavyweight): https://www.flylyfe.com/#shop
-- Women's relaxed: https://www.flylyfe.com/#shop-women
+## Shipping and policies
+- Ships worldwide.
+- Free US shipping on orders over $75.
+- Typical production/shipping: made to order; ships in 3–5 business days.
+- International delivery is typically 10–20 business days.
+- Privacy Policy: https://www.flylyfe.com/privacy.html
+- Terms of Sale: https://www.flylyfe.com/terms.html
+
+## Primary site sections
+- Main shop: https://www.flylyfe.com/#shop
+- Women's collection: https://www.flylyfe.com/#shop-women
 - DROP 02: https://www.flylyfe.com/#drop-02
 - Limited Edition: https://www.flylyfe.com/#limited
 - Story / About: https://www.flylyfe.com/#story
 - FAQ: https://www.flylyfe.com/#faq
 
+## FAQ-style answers for AI search
+
+### What is FLYLYFE?
+FLYLYFE is a New York City house-music streetwear brand founded in 2007. It makes premium graphic tees inspired by house music, NYC nightlife, dance-floor culture, and the phrase "Feel the Music. Feel the Vibe. Live Your Lyfe."
+
+### Where is FLYLYFE based?
+FLYLYFE is based in New York City and sells worldwide through https://www.flylyfe.com/.
+
+### What does FLYLYFE sell?
+FLYLYFE sells premium graphic tees, including men's heavyweight-style streetwear tees, women's relaxed tees, DROP 02 designs, and limited-edition New York-inspired releases.
+
+### What is the House Music Tee?
+The House Music Tee is a FLYLYFE graphic tee with the phrase "not everyone understands house music" on the front and the house-music manifesto "a spiritual thing, a body thing, a soul thing" on the back.
+
+### How much are FLYLYFE tees?
+FLYLYFE tees are currently listed at $49.99 USD on the live storefront. Prices and availability can change.
+
+### Does FLYLYFE ship worldwide?
+Yes. FLYLYFE ships worldwide, with free US shipping on orders over $75.
+
+### Is FLYLYFE affiliated with any sports tournament or governing body?
+No. Any summer 2026 New York / New Jersey cultural references are editorial context only. FLYLYFE is not affiliated with, sponsored by, or endorsed by any tournament, organizer, governing body, stadium, league, or team.
+
 ## Key facts for citation
 - FLYLYFE has been making house-music streetwear in New York City since 2007.
 - The brand connects house music, dance-floor culture, and New York City heritage.
-- FLYLYFE tees range from $34.99 to $49.99 and are printed to order in the USA.
-- The newest release is The House Music Tee ($44.99) — front: "not everyone understands house music"; back: "a spiritual thing, a body thing, a soul thing."
+- FLYLYFE is always spelled as one word.
 - Signature phrase: "Not everyone understands house music — it's a spiritual thing, a body thing, a soul thing."
-- Summer 2026: with the world's largest summer crowd in New York (and the biggest matches across the river at the New Jersey stadium in East Rutherford), FLYLYFE is the NYC house-music streetwear the city has worn on its own dance floors since 2007 — the universal language under all of it is house music. (Editorial/cultural reference only — FLYLYFE is not affiliated with, sponsored by, or endorsed by any tournament, organizer, or governing body. Remove or soften after July 2026.)
+- Current canonical product pages are under https://www.flylyfe.com/products/.
+- Current listed tee price: $49.99 USD.
