@@ -1,0 +1,25 @@
+
+// Shopify Storefront API identifiers are intentionally client-side.
+// This is not an Admin API secret; it is scoped for public storefront cart/product operations only.
+const SHOP_DOMAIN='31zn52-zd.myshopify.com';
+const STOREFRONT_TOKEN='5a0bb1dcf0c57b7764bbebf0cc40c898';
+const API_URL=`https://${SHOP_DOMAIN}/api/2025-10/graphql.json`;
+const handle=document.body.dataset.productHandle;
+let cartId=localStorage.getItem('flylyfe_cart');
+let product=null,state={color:null,size:null};
+const money=a=>'$'+parseFloat(a).toFixed(2);
+async function gql(query,variables={}){const res=await fetch(API_URL,{method:'POST',headers:{'Content-Type':'application/json','X-Shopify-Storefront-Access-Token':STOREFRONT_TOKEN},body:JSON.stringify({query,variables})});const j=await res.json();if(j.errors)throw new Error(j.errors.map(e=>e.message).join('; '));return j.data;}
+const PRODUCT_Q=`query($handle:String!){ product(handle:$handle){ id handle title descriptionHtml options{name values} featuredImage{url} variants(first:100){edges{node{id title availableForSale price{amount currencyCode} image{url} selectedOptions{name value}}}}}}`;
+const CART_FIELDS=`id checkoutUrl totalQuantity cost{subtotalAmount{amount currencyCode}} lines(first:30){edges{node{id quantity merchandise{... on ProductVariant{id title product{title handle} selectedOptions{name value} price{amount}}}}}}`;
+function optionValues(name){return (product.options.find(o=>o.name===name)?.values)||[]}
+function variant(){return product.variants.edges.map(e=>e.node).find(v=>v.selectedOptions.some(o=>o.name==='Color'&&o.value===state.color)&&v.selectedOptions.some(o=>o.name==='Size'&&o.value===state.size));}
+async function ensureCart(){if(cartId){const d=await gql(`query($id:ID!){cart(id:$id){${CART_FIELDS}}}`,{id:cartId});if(d.cart)return d.cart;}const d=await gql(`mutation{cartCreate{cart{${CART_FIELDS}}}}`);cartId=d.cartCreate.cart.id;localStorage.setItem('flylyfe_cart',cartId);return d.cartCreate.cart;}
+async function addToCart(){const v=variant();if(!v){status('SELECT AN AVAILABLE SIZE');return null;}status('ADDING…');const c=await ensureCart();const d=await gql(`mutation($cid:ID!,$lines:[CartLineInput!]!){cartLinesAdd(cartId:$cid,lines:$lines){cart{${CART_FIELDS}}}}`,{cid:c.id,lines:[{merchandiseId:v.id,quantity:1}]});status('ADDED TO CART');return d.cartLinesAdd.cart;}
+function status(t){const el=document.querySelector('[data-commerce-status]');if(el)el.textContent=t;}
+function render(){const root=document.querySelector('[data-commerce-root]');const colors=optionValues('Color');const sizes=optionValues('Size').sort((a,b)=>['S','M','L','XL','2XL','3XL'].indexOf(a)-['S','M','L','XL','2XL','3XL'].indexOf(b));state.color=state.color||colors[0];const price=product.variants.edges[0]?.node.price.amount||'49.99';root.innerHTML=`<div class="seo-commerce__group"><p class="seo-commerce__label mono">COLOR — ${state.color||''}</p><div class="seo-commerce__options" data-colors></div></div><div class="seo-commerce__group"><p class="seo-commerce__label mono">SIZE${state.size?' — '+state.size:''}</p><div class="seo-commerce__options" data-sizes></div></div><button class="seo-atc" data-atc>${state.size?'ADD TO CART · '+money(price):'SELECT SIZE'}</button><button class="seo-checkout" data-checkout>CHECKOUT</button><p class="seo-status mono" data-commerce-status>LIVE SHOPIFY OPTIONS LOADED</p>`;
+const cwrap=root.querySelector('[data-colors]');colors.forEach(c=>{const b=document.createElement('button');b.className='seo-option';b.textContent=c;b.setAttribute('aria-pressed',String(c===state.color));b.onclick=()=>{state.color=c;state.size=null;render()};cwrap.appendChild(b);});
+const swrap=root.querySelector('[data-sizes]');sizes.forEach(s=>{const available=product.variants.edges.map(e=>e.node).some(v=>v.availableForSale&&v.selectedOptions.some(o=>o.name==='Color'&&o.value===state.color)&&v.selectedOptions.some(o=>o.name==='Size'&&o.value===s));const b=document.createElement('button');b.className='seo-option';b.textContent=s;b.disabled=!available;b.setAttribute('aria-pressed',String(s===state.size));b.onclick=()=>{state.size=s;render()};swrap.appendChild(b);});
+root.querySelector('[data-atc]').onclick=async()=>{try{await addToCart();}catch(e){console.error(e);status('CART ERROR — TRY AGAIN');}};
+root.querySelector('[data-checkout]').onclick=async()=>{try{const cart=await addToCart()||await ensureCart();if(cart.checkoutUrl) location.href=cart.checkoutUrl;}catch(e){console.error(e);status('CHECKOUT ERROR — TRY AGAIN');}};
+}
+(async()=>{try{const d=await gql(PRODUCT_Q,{handle});product=d.product;if(!product)throw new Error('Product not found');render();}catch(e){console.error(e);document.querySelector('[data-commerce-root]').innerHTML='<p class="mono">LIVE OPTIONS TEMPORARILY UNAVAILABLE. <a href="../../#shop">SHOP ON MAIN SITE</a></p>';}})();

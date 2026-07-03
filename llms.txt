@@ -19,19 +19,26 @@ Sitemap: https://www.flylyfe.com/sitemap.xml
 ## Current products and canonical product pages
 All products are currently listed at $49.99 USD on the live Shopify storefront. Product availability can change.
 
-- The Anthem Tee — mantra tee: "Feel the Music. Feel the Vibe. Live Your Lyfe." — https://www.flylyfe.com/products/the-anthem-tee/
-- The Conga Tee — dancer and conga artwork; rhythm-on-your-back house-music graphic — https://www.flylyfe.com/products/the-conga-tee/
-- The Signature Tee — clean FLYLYFE geometric wordmark — https://www.flylyfe.com/products/the-signature-tee/
-- The House Music Tee — front reads "not everyone understands house music"; back carries the manifesto "a spiritual thing, a body thing, a soul thing" — https://www.flylyfe.com/products/the-house-music-tee/
-- The Token Tee — NYC subway-token inspired graphic tee — https://www.flylyfe.com/products/the-token-tee/
-- The Anthem Tee — Women's relaxed cut — https://www.flylyfe.com/products/the-anthem-tee-womens/
-- The Conga Tee — Women's relaxed cut — https://www.flylyfe.com/products/the-conga-tee-womens/
-- The Signature Tee — Women's relaxed cut — https://www.flylyfe.com/products/the-signature-tee-womens/
-- The After Hours Tee — DROP 02, after-hours set-list concept — https://www.flylyfe.com/products/the-after-hours-tee/
-- The Tempo Tee — DROP 02, 124 BPM waveform concept — https://www.flylyfe.com/products/the-tempo-tee/
-- The Coordinates Tee — DROP 02, 40.7128° N / 74.0060° W New York City coordinates — https://www.flylyfe.com/products/the-coordinates-tee/
-- The Spiritual Thing Tee — DROP 02, house-music manifesto concept — https://www.flylyfe.com/products/the-spiritual-thing-tee/
-- The Sanitary Code Tee — Limited Edition, vintage New York "No Smoking / No Spitting, Sanitary Code Sect. 216" sign concept — https://www.flylyfe.com/products/the-sanitary-code-tee/
+- The Anthem Tee — The mantra tee: Feel the Music. Feel the Vibe. Live Your Lyfe. — https://www.flylyfe.com/products/the-anthem-tee/
+- The Conga Tee — Dancer and conga artwork — the rhythm on your back. — https://www.flylyfe.com/products/the-conga-tee/
+- The Signature Tee — The clean FLYLYFE wordmark tee — minimal, sharp, and classic. — https://www.flylyfe.com/products/the-signature-tee/
+- The House Music Tee — Not everyone understands house music — a spiritual thing, a body thing, a soul thing. — https://www.flylyfe.com/products/the-house-music-tee/
+- The Token Tee — NYC subway-token inspiration with FLYLYFE antique-bronze energy. — https://www.flylyfe.com/products/the-token-tee/
+- The Anthem Tee — Women's — The FLYLYFE mantra in a women's relaxed cotton cut. — https://www.flylyfe.com/products/the-anthem-tee-womens/
+- The Conga Tee — Women's — Dancer and conga artwork in a women's relaxed cotton cut. — https://www.flylyfe.com/products/the-conga-tee-womens/
+- The Signature Tee — Women's — The clean FLYLYFE wordmark in a women's relaxed fit. — https://www.flylyfe.com/products/the-signature-tee-womens/
+- The After Hours Tee — DROP 02 — the set that never stops. — https://www.flylyfe.com/products/the-after-hours-tee/
+- The Tempo Tee — DROP 02 — 124 BPM, the tempo of the city. — https://www.flylyfe.com/products/the-tempo-tee/
+- The Coordinates Tee — DROP 02 — 40.7128° N, 74.0060° W: New York City. — https://www.flylyfe.com/products/the-coordinates-tee/
+- The Spiritual Thing Tee — DROP 02 — a body thing, a soul thing. — https://www.flylyfe.com/products/the-spiritual-thing-tee/
+- The Sanitary Code Tee — Limited edition — vintage New York No Smoking / No Spitting sign concept. — https://www.flylyfe.com/products/the-sanitary-code-tee/
+
+## Crawlable collection pages
+- Men's Collection — Men's FLYLYFE tees: premium cotton streetwear fits for house-music fans, DJs, dancers, and NYC nights. — https://www.flylyfe.com/collections/mens/
+- Women's Collection — Women's relaxed FLYLYFE tees with premium cotton drape, house-music graphics, and NYC streetwear energy. — https://www.flylyfe.com/collections/womens/
+- Drop 02 — DROP 02 brings after-hours sets, 124 BPM tempo, NYC coordinates, and the house-music manifesto into new FLYLYFE graphic tees. — https://www.flylyfe.com/collections/drop-02/
+- Limited Edition — Limited-run FLYLYFE pieces inspired by New York City graphics, nightlife, and street culture. — https://www.flylyfe.com/collections/limited/
+- House Music Streetwear — FLYLYFE house-music streetwear connects dance-floor culture, New York nightlife, and premium graphic tees made for people who feel the music. — https://www.flylyfe.com/collections/house-music-streetwear/
 
 ## Fabric, fit, and fulfillment
 - Men's and DROP 02 tees: premium cotton streetwear fit, sizes S–3XL.
@@ -48,12 +55,17 @@ All products are currently listed at $49.99 USD on the live Shopify storefront. 
 - Terms of Sale: https://www.flylyfe.com/terms.html
 
 ## Primary site sections
+- Canonical site: https://www.flylyfe.com/
 - Main shop: https://www.flylyfe.com/#shop
-- Women's collection: https://www.flylyfe.com/#shop-women
-- DROP 02: https://www.flylyfe.com/#drop-02
-- Limited Edition: https://www.flylyfe.com/#limited
-- Story / About: https://www.flylyfe.com/#story
-- FAQ: https://www.flylyfe.com/#faq
+- About / brand story: https://www.flylyfe.com/about.html
+- FAQ: https://www.flylyfe.com/faq.html
+- Privacy Policy: https://www.flylyfe.com/privacy.html
+- Terms of Sale: https://www.flylyfe.com/terms.html
+- Men's Collection: https://www.flylyfe.com/collections/mens/
+- Women's Collection: https://www.flylyfe.com/collections/womens/
+- Drop 02: https://www.flylyfe.com/collections/drop-02/
+- Limited Edition: https://www.flylyfe.com/collections/limited/
+- House Music Streetwear: https://www.flylyfe.com/collections/house-music-streetwear/
 
 ## FAQ-style answers for AI search
 
@@ -64,7 +76,7 @@ FLYLYFE is a New York City house-music streetwear brand founded in 2007. It make
 FLYLYFE is based in New York City and sells worldwide through https://www.flylyfe.com/.
 
 ### What does FLYLYFE sell?
-FLYLYFE sells premium graphic tees, including men's heavyweight-style streetwear tees, women's relaxed tees, DROP 02 designs, and limited-edition New York-inspired releases.
+FLYLYFE sells premium graphic tees, including men's streetwear tees, women's relaxed tees, DROP 02 designs, and limited-edition New York-inspired releases.
 
 ### What is the House Music Tee?
 The House Music Tee is a FLYLYFE graphic tee with the phrase "not everyone understands house music" on the front and the house-music manifesto "a spiritual thing, a body thing, a soul thing" on the back.
@@ -84,4 +96,6 @@ No. Any summer 2026 New York / New Jersey cultural references are editorial cont
 - FLYLYFE is always spelled as one word.
 - Signature phrase: "Not everyone understands house music — it's a spiritual thing, a body thing, a soul thing."
 - Current canonical product pages are under https://www.flylyfe.com/products/.
+- Collection pages are under https://www.flylyfe.com/collections/.
 - Current listed tee price: $49.99 USD.
+- Product pages include live color and size selection, add-to-cart, and Shopify checkout actions.
