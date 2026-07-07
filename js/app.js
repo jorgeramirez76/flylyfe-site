@@ -678,11 +678,11 @@ if (mobileMenu) mobileMenu.querySelectorAll('a').forEach(a=>a.addEventListener('
 const info = document.getElementById('info');
 const INFO = {
   shipping:{ title:'Shipping', html:`<p>Every FLYLYFE piece is printed-to-order in the USA.</p>
-    <h4>Processing</h4><p>Orders are made and shipped within 3–5 business days.</p>
-    <h4>Delivery</h4><p>US: 3–7 business days after processing. International: 10–20 business days. <strong>Free US shipping on orders over $75.</strong></p>
+    <h4>Processing</h4><p>Every order is printed to order — production typically takes 7–10 business days.</p>
+    <h4>Delivery</h4><p>US: 1–5 business days after production. International: varies by destination. <strong>US shipping is a flat $4.75 — free on orders of 2+ items.</strong></p>
     <p>Tracking is emailed the moment your order ships.</p>` },
   returns:{ title:'Returns', html:`<p>We want you in the right fit.</p>
-    <h4>30-Day Window</h4><p>Unworn, unwashed items with tags can be returned within 30 days of delivery.</p>
+    <h4>30-Day Window</h4><p>Unworn, unwashed items in original condition can be returned within 30 days of delivery.</p>
     <h4>How</h4><p>Email <a href="mailto:hello@flylyfe.com" style="color:var(--gold)">hello@flylyfe.com</a> with your order number and we'll send a label. Made-to-order pieces are eligible for exchange or store credit.</p>` },
   sizeguide:{ title:'Size Guide', html:`<p>Our heavyweight tees run true to size with a relaxed, slightly oversized drop. Between sizes? Size down for a classic fit.</p>
     <table><thead><tr><th>Size</th><th>Chest (in)</th><th>Length (in)</th></tr></thead><tbody>
