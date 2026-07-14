@@ -683,7 +683,7 @@ const INFO = {
     <p>Tracking is emailed the moment your order ships.</p>` },
   returns:{ title:'Returns', html:`<p>We want you in the right fit.</p>
     <h4>30-Day Window</h4><p>Unworn, unwashed items in original condition can be returned within 30 days of delivery.</p>
-    <h4>How</h4><p>Email <a href="mailto:hello@flylyfe.com" style="color:var(--gold)">hello@flylyfe.com</a> with your order number and we'll send a label. Made-to-order pieces are eligible for exchange or store credit.</p>` },
+    <h4>How</h4><p>Email <a href="mailto:hello@flylyfe.com" style="color:var(--gold)">hello@flylyfe.com</a> with your order number and we'll send a label. Unworn, unwashed tees in original condition are eligible for an exchange or refund within 30 days of delivery.</p>` },
   sizeguide:{ title:'Size Guide', html:`<p>Our heavyweight tees run true to size with a relaxed, slightly oversized drop. Between sizes? Size down for a classic fit.</p>
     <table><thead><tr><th>Size</th><th>Chest (in)</th><th>Length (in)</th></tr></thead><tbody>
     <tr><td>S</td><td>40</td><td>28</td></tr><tr><td>M</td><td>44</td><td>29</td></tr><tr><td>L</td><td>48</td><td>30</td></tr>
