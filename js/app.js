@@ -89,7 +89,7 @@ const DEFAULT_COLOR = { 'las-malvinas-tee':'White', 'the-brownstone-dj-tee':'Whi
 const MOCKUP_PRIMARY_HANDLES = new Set([]);
 /* Front-logo products lead with the FRONT view; back-graphic tees lead with the BACK (the hero print). */
 const FRONT_PRIMARY_HANDLES = new Set(['the-signature-tee','the-signature-tee-womens','the-sanitary-code-tee']);
-const MEN_HANDLES = ['las-malvinas-tee','the-brownstone-dj-tee','the-anthem-tee','the-conga-tee','the-signature-tee','the-house-music-tee','the-token-tee'];
+const MEN_HANDLES = ['las-malvinas-tee','the-brownstone-dj-tee','the-anthem-tee','the-conga-tee','the-signature-tee','the-house-music-tee','the-soul-tee','the-token-tee'];
 const WOMEN_HANDLES = ['the-anthem-tee-womens','the-conga-tee-womens','the-signature-tee-womens'];
 const DROP_HANDLES = ['the-after-hours-tee','the-tempo-tee','the-coordinates-tee','the-spiritual-thing-tee'];
 const LIMITED_HANDLE = 'the-sanitary-code-tee';
