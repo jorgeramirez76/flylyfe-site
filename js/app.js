@@ -599,6 +599,8 @@ const HERO_SLIDES=[
   {img:'assets/hero/carousel-1-black.webp',   alt:'FLYLYFE — Feel the Music. Feel the Vibe. Live Your Lyfe. tee in NYC'},
   {img:'assets/hero/carousel-3-house.webp',   alt:'FLYLYFE house music culture tee in New York City'},
   {img:'assets/hero/carousel-4-malvinas.webp',alt:'FLYLYFE Las Malvinas Son Argentinas heritage tee on a New York City street'},
+  {img:'assets/hero/carousel-5-brownstone.webp',alt:'FLYLYFE Brownstone DJ tee — stick-figure DJ line art — on a New York City street'},
+  {img:'assets/hero/carousel-6-soul.webp',alt:'FLYLYFE Soul Tee — House Is a Feeling afro silhouette — on a New York City street'},
 ];
 function initHeroCarousel(){
   const wrap = document.getElementById('heroCarousel');
