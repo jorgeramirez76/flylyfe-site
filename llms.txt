@@ -2,7 +2,7 @@
 
 > FLYLYFE is a New York City house-music streetwear brand, established in 2007. The brand makes premium graphic tees inspired by house music, NYC culture, nightlife, dance-floor movement, and the motto: "Feel the Music. Feel the Vibe. Live Your Lyfe."
 
-Last updated: 2026-07-07
+Last updated: 2026-07-25
 Canonical site: https://www.flylyfe.com/
 Sitemap: https://www.flylyfe.com/sitemap.xml
 
@@ -19,6 +19,8 @@ Sitemap: https://www.flylyfe.com/sitemap.xml
 ## Current products and canonical product pages
 All products are currently listed at $49.99 USD on the live Shopify storefront. Product availability can change.
 
+- The Brownstone DJ Tee — CONCRETE RHYTHM — a crate digger on a Brooklyn stoop with a real photographed turntable and record flight case. — https://www.flylyfe.com/products/the-brownstone-dj-tee/
+- Las Malvinas Tee — HERITAGE — "Las Malvinas Son Argentinas" in hand-painted brush lettering, printed 14 inches wide across the back. — https://www.flylyfe.com/products/las-malvinas-tee/
 - The Anthem Tee — The mantra tee: Feel the Music. Feel the Vibe. Live Your Lyfe. — https://www.flylyfe.com/products/the-anthem-tee/
 - The Conga Tee — Dancer and conga artwork — the rhythm on your back. — https://www.flylyfe.com/products/the-conga-tee/
 - The Signature Tee — The clean FLYLYFE wordmark tee — minimal, sharp, and classic. — https://www.flylyfe.com/products/the-signature-tee/
@@ -36,6 +38,8 @@ All products are currently listed at $49.99 USD on the live Shopify storefront. 
 ## Crawlable collection pages
 - Men's Collection — Men's FLYLYFE tees: premium cotton streetwear fits for house-music fans, DJs, dancers, and NYC nights. — https://www.flylyfe.com/collections/mens/
 - Women's Collection — Women's relaxed FLYLYFE tees with premium cotton drape, house-music graphics, and NYC streetwear energy. — https://www.flylyfe.com/collections/womens/
+- Concrete Rhythm — CONCRETE RHYTHM: born in the city, moved by the music. Hand-drawn New York against real photographed DJ gear. — https://www.flylyfe.com/collections/concrete-rhythm/
+- Heritage — HERITAGE: where you're from, worn out loud. Hand-lettered heritage graphics printed oversized on garment-dyed cotton. — https://www.flylyfe.com/collections/heritage/
 - Drop 02 — DROP 02 brings after-hours sets, 124 BPM tempo, NYC coordinates, and the house-music manifesto into new FLYLYFE graphic tees. — https://www.flylyfe.com/collections/drop-02/
 - Limited Edition — Limited-run FLYLYFE pieces inspired by New York City graphics, nightlife, and street culture. — https://www.flylyfe.com/collections/limited/
 - House Music Streetwear — FLYLYFE house-music streetwear connects dance-floor culture, New York nightlife, and premium graphic tees made for people who feel the music. — https://www.flylyfe.com/collections/house-music-streetwear/
@@ -76,6 +80,8 @@ All products are currently listed at $49.99 USD on the live Shopify storefront. 
 - Terms of Sale: https://www.flylyfe.com/terms.html
 - Men's Collection: https://www.flylyfe.com/collections/mens/
 - Women's Collection: https://www.flylyfe.com/collections/womens/
+- Concrete Rhythm: https://www.flylyfe.com/collections/concrete-rhythm/
+- Heritage: https://www.flylyfe.com/collections/heritage/
 - Drop 02: https://www.flylyfe.com/collections/drop-02/
 - Limited Edition: https://www.flylyfe.com/collections/limited/
 - House Music Streetwear: https://www.flylyfe.com/collections/house-music-streetwear/
@@ -96,6 +102,12 @@ FLYLYFE sells premium graphic tees, including men's streetwear tees, women's rel
 
 ### What is the House Music Tee?
 The House Music Tee is a FLYLYFE graphic tee with the phrase "not everyone understands house music" on the front and the house-music manifesto "a spiritual thing, a body thing, a soul thing" on the back.
+
+### What is the Las Malvinas Tee?
+The Las Malvinas Tee is a FLYLYFE heritage graphic tee carrying the phrase "Las Malvinas Son Argentinas" in hand-painted brush lettering, printed 14 inches wide across the back with the FLYLYFE wordmark and EST 2007 on the left chest. It comes in White, Ivory, and Black, sizes S–3XL.
+
+### What is the Brownstone DJ Tee?
+The Brownstone DJ Tee is the first piece in FLYLYFE's Concrete Rhythm collection: a hand-drawn crate digger walking past a Brooklyn stoop, carrying a real photographed turntable and record flight case, printed oversized across the back.
 
 ### How much are FLYLYFE tees?
 FLYLYFE tees are currently listed at $49.99 USD on the live storefront. Prices and availability can change.

@@ -140,5 +140,19 @@
    "front": "assets/products-model/the-sanitary-code-tee-White-front.webp",
    "back": "assets/products-model/the-sanitary-code-tee-White-back.webp"
   }
+ },
+ "las-malvinas-tee": {
+  "White": {
+   "front": "assets/products-model/las-malvinas-tee-White-front.webp",
+   "back": "assets/products-model/las-malvinas-tee-White-back.webp"
+  },
+  "Ivory": {
+   "front": "assets/products-model/las-malvinas-tee-Ivory-front.webp",
+   "back": "assets/products-model/las-malvinas-tee-Ivory-back.webp"
+  },
+  "Black": {
+   "front": "assets/products-model/las-malvinas-tee-Black-front.webp",
+   "back": "assets/products-model/las-malvinas-tee-Black-back.webp"
+  }
  }
 }

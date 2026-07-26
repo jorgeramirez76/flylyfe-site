@@ -82,14 +82,14 @@ const MODEL_MAP = Object.fromEntries(Object.entries(PRODUCT_MODEL_SHOTS).map(([h
 let MOCKUPS = {};
 
 /* Per-product default colorway shown on the card hero (overrides the Black default) */
-const DEFAULT_COLOR = { 'the-house-music-tee':'Ivory', 'the-token-tee':'Ivory' };
+const DEFAULT_COLOR = { 'las-malvinas-tee':'White', 'the-brownstone-dj-tee':'White', 'the-house-music-tee':'Ivory', 'the-token-tee':'Ivory' };
 /* Consistent on-model shots (assets/products-model/) are now the primary visual for EVERY product
    and color — same curly-haired man on all men's colors, same long-haired woman on all women's
    colors, front + back. Flat Printful mockups are no longer used as the primary card image. */
 const MOCKUP_PRIMARY_HANDLES = new Set([]);
 /* Front-logo products lead with the FRONT view; back-graphic tees lead with the BACK (the hero print). */
 const FRONT_PRIMARY_HANDLES = new Set(['the-signature-tee','the-signature-tee-womens','the-sanitary-code-tee']);
-const MEN_HANDLES = ['the-anthem-tee','the-conga-tee','the-signature-tee','the-house-music-tee','the-token-tee'];
+const MEN_HANDLES = ['las-malvinas-tee','the-brownstone-dj-tee','the-anthem-tee','the-conga-tee','the-signature-tee','the-house-music-tee','the-token-tee'];
 const WOMEN_HANDLES = ['the-anthem-tee-womens','the-conga-tee-womens','the-signature-tee-womens'];
 const DROP_HANDLES = ['the-after-hours-tee','the-tempo-tee','the-coordinates-tee','the-spiritual-thing-tee'];
 const LIMITED_HANDLE = 'the-sanitary-code-tee';
@@ -97,9 +97,13 @@ const TAGLINES = {
   'the-anthem-tee':'FEEL THE MUSIC','the-conga-tee':'MOVE THE BODY','the-signature-tee':'THE CLASSIC','the-house-music-tee':'HOUSE MUSIC',
   'the-anthem-tee-womens':'FEEL THE MUSIC','the-conga-tee-womens':'MOVE THE BODY','the-signature-tee-womens':'THE CLASSIC',
   'the-after-hours-tee':'AFTER HOURS','the-tempo-tee':'124 BPM','the-coordinates-tee':'NEW YORK CITY','the-spiritual-thing-tee':'SPIRITUAL THING','the-sanitary-code-tee':'LIMITED',
-  'the-token-tee':'NYC TOKEN'
+  'the-token-tee':'NYC TOKEN',
+  'the-brownstone-dj-tee':'CONCRETE RHYTHM',
+  'las-malvinas-tee':'HERITAGE'
 };
 const SUBTITLE = {
+  'las-malvinas-tee':'Las Malvinas Son Argentinas \u2014 painted by hand',
+  'the-brownstone-dj-tee':'Crate digger on the stoop \u2014 turntable & flight case',
   'the-anthem-tee':'The mantra, worn big on the back',
   'the-conga-tee':'Dancer & conga — the rhythm on your back',
   'the-signature-tee':'Clean FLYLYFE wordmark',
