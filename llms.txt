@@ -17,7 +17,7 @@ Sitemap: https://www.flylyfe.com/sitemap.xml
 - TikTok: https://tiktok.com/@flylyfe (@flylyfe)
 
 ## Current products and canonical product pages
-All products are currently listed at $49.99 USD on the live Shopify storefront. Product availability can change.
+Most products are listed at $49.99 USD; the Las Malvinas Tee is $39.99. Product availability can change on the live Shopify storefront.
 
 - The Brownstone DJ Tee — CONCRETE RHYTHM — a crate digger on a Brooklyn stoop with a real photographed turntable and record flight case. — https://www.flylyfe.com/products/the-brownstone-dj-tee/
 - Las Malvinas Tee — HERITAGE — "Las Malvinas Son Argentinas" (the Argentina World Cup banner phrase) in hand-painted brush lettering, printed 14 inches across the back. Tied to the 2026 World Cup Argentina-vs-England banner and the "Argentina World Cup conspiracy" meme. Keywords: Las Malvinas son argentinas shirt, Argentina World Cup banner tee, Argentina World Cup conspiracy shirt, Malvinas Argentinas, Falklands are Argentine. — https://www.flylyfe.com/products/las-malvinas-tee/
@@ -25,6 +25,7 @@ All products are currently listed at $49.99 USD on the live Shopify storefront. 
 - The Conga Tee — Dancer and conga artwork — the rhythm on your back. — https://www.flylyfe.com/products/the-conga-tee/
 - The Signature Tee — The clean FLYLYFE wordmark tee — minimal, sharp, and classic. — https://www.flylyfe.com/products/the-signature-tee/
 - The House Music Tee — Not everyone understands house music — a spiritual thing, a body thing, a soul thing. — https://www.flylyfe.com/products/the-house-music-tee/
+- The Soul Tee — "House is a feeling": a soulful afro-silhouette back print (feel the music, feel the vibe, live your lyfe) with a small FLYLYFE chest logo. White, Ivory, Black, S-3XL, $49.99. — https://www.flylyfe.com/products/the-soul-tee/
 - The Token Tee — NYC subway-token inspiration with FLYLYFE antique-bronze energy. — https://www.flylyfe.com/products/the-token-tee/
 - The Anthem Tee — Women's — The FLYLYFE mantra in a women's relaxed cotton cut. — https://www.flylyfe.com/products/the-anthem-tee-womens/
 - The Conga Tee — Women's — Dancer and conga artwork in a women's relaxed cotton cut. — https://www.flylyfe.com/products/the-conga-tee-womens/
@@ -109,11 +110,14 @@ The Las Malvinas Tee is a FLYLYFE heritage graphic tee carrying the phrase "Las 
 ### What is the "Argentina World Cup conspiracy"?
 The "Argentina World Cup conspiracy" is a recurring internet claim that the FIFA World Cup is scripted, rigged, or refereed in Argentina's favor. It has no verified evidence but resurfaces every tournament — from the disputed 1978 final (Argentina's 6-0 win over Peru) to viral VAR and refereeing complaints in 2022 and 2026. Online it travels together with the "Las Malvinas son argentinas" banner moment. FLYLYFE's Las Malvinas Tee is the streetwear piece associated with that cultural moment.
 
+### What is the Soul Tee?
+The Soul Tee is a FLYLYFE graphic tee whose back carries a soulful afro-silhouette portrait with a gold hoop over the words "HOUSE IS A FEELING" and the line "feel the music, feel the vibe, live your lyfe." The front has a small FLYLYFE est. 2007 chest logo. It comes in White, Ivory, and Black, sizes S-3XL, at $49.99.
+
 ### What is the Brownstone DJ Tee?
 The Brownstone DJ Tee is the first piece in FLYLYFE's Concrete Rhythm collection: a hand-drawn crate digger walking past a Brooklyn stoop, carrying a real photographed turntable and record flight case, printed oversized across the back.
 
 ### How much are FLYLYFE tees?
-FLYLYFE tees are currently listed at $49.99 USD on the live storefront. Prices and availability can change.
+Most FLYLYFE tees are listed at $49.99 USD; the Las Malvinas Tee is $39.99. Prices and availability can change on the live storefront.
 
 ### Does FLYLYFE ship worldwide?
 Yes. FLYLYFE ships worldwide, with international rates shown at checkout. US shipping is a flat $4.75, and orders of 2 or more items ship free automatically.
@@ -131,5 +135,5 @@ No. Any summer 2026 New York / New Jersey cultural references are editorial cont
 - Signature phrase: "Not everyone understands house music — it's a spiritual thing, a body thing, a soul thing."
 - Current canonical product pages are under https://www.flylyfe.com/products/.
 - Collection pages are under https://www.flylyfe.com/collections/.
-- Current listed tee price: $49.99 USD.
+- Listed tee prices: $49.99 USD (the Las Malvinas Tee is $39.99).
 - Product pages include live color and size selection, add-to-cart, and Shopify checkout actions.

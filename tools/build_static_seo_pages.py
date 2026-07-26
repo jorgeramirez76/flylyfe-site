@@ -102,6 +102,22 @@ def collection_page(slug,c):
     schema={"@context":"https://schema.org","@graph":[{"@type":"CollectionPage","@id":f"{BASE}/collections/{slug}/#collection","name":c['title'],"description":c['desc'],"url":f"{BASE}/collections/{slug}/","isPartOf":{"@type":"WebSite","name":"FLYLYFE","url":BASE+"/"},"mainEntity":{"@type":"ItemList","itemListElement":[{"@type":"ListItem","position":i+1,"url":f"{BASE}/products/{h}/","name":by_handle[h]['name']} for i,h in enumerate(c['handles'])]}}]}
     return f'''<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>{escape(c['title'])} | FLYLYFE</title><meta name="description" content="{escape(c['desc'])}"><link rel="canonical" href="{BASE}/collections/{slug}/"><meta property="og:type" content="website"><meta property="og:site_name" content="FLYLYFE"><meta property="og:title" content="{escape(c['title'])} | FLYLYFE"><meta property="og:description" content="{escape(c['desc'])}"><meta property="og:url" content="{BASE}/collections/{slug}/"><meta property="og:image" content="{BASE}/{by_handle[c['handles'][0]]['image']}"><meta name="twitter:card" content="summary_large_image">{rel_css(depth)}<script type="application/ld+json">{json.dumps(schema,separators=(',',':'))}</script></head><body>{nav(depth)}<main class="collection-page"><section class="collection-hero"><p class="mono gold-text">{escape(c['label'])} · FLYLYFE</p><h1>{escape(c['title'])}</h1><p>{escape(c['desc'])}</p></section><section class="collection-grid">{cards}</section><section class="seo-section"><h2>About the {escape(c['label'])}</h2>{c['copy']}</section></main>{footer(depth)}</body></html>'''
 
+# --- DRIFT GUARD (added 2026-07-26) -----------------------------------------
+# The LIVE site has pages hand-added after this generator was last authoritative:
+# products las-malvinas-tee + the-brownstone-dj-tee, and collections concrete-rhythm
+# + heritage. They are NOT in products/collections/seo_packages.json here, and footer()/
+# nav() also omit concrete-rhythm + heritage + house-music-streetwear. A blind rebuild
+# would DELETE these from sitemap.xml, llms.txt, and page footers/nav, silently de-indexing
+# live revenue pages. Reconcile first (see project_flylyfe_pipeline_snapshot memory).
+_PROT_P = {'las-malvinas-tee', 'the-brownstone-dj-tee'}
+_PROT_C = {'concrete-rhythm', 'heritage'}
+_miss = (_PROT_P - set(by_handle)) | (_PROT_C - set(collections))
+if _miss:
+    raise SystemExit("ABORT: generator drifted from live site; a rebuild would de-index " +
+        str(sorted(_miss)) + ". Reconcile products/collections/seo_packages.json + footer()/nav() "
+        "before regenerating, or delete this guard to override intentionally.")
+# ---------------------------------------------------------------------------
+
 for p in products:
     write(Path('products')/p['handle']/'index.html', product_page(p))
 for slug,c in collections.items():
