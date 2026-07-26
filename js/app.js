@@ -598,6 +598,7 @@ const HERO_SLIDES=[
   {img:'assets/hero/carousel-2-freedom.webp', alt:'FLYLYFE — House Music Is Freedom tee on a New York City street'},
   {img:'assets/hero/carousel-1-black.webp',   alt:'FLYLYFE — Feel the Music. Feel the Vibe. Live Your Lyfe. tee in NYC'},
   {img:'assets/hero/carousel-3-house.webp',   alt:'FLYLYFE house music culture tee in New York City'},
+  {img:'assets/hero/carousel-4-malvinas.webp',alt:'FLYLYFE Las Malvinas Son Argentinas heritage tee on a New York City street'},
 ];
 function initHeroCarousel(){
   const wrap = document.getElementById('heroCarousel');
