@@ -154,5 +154,19 @@
    "front": "assets/products-model/las-malvinas-tee-Black-front.webp",
    "back": "assets/products-model/las-malvinas-tee-Black-back.webp"
   }
+ },
+ "the-soul-tee": {
+  "White": {
+   "front": "assets/products-model/the-soul-tee-White-front.webp",
+   "back": "assets/products-model/the-soul-tee-White-back.webp"
+  },
+  "Black": {
+   "front": "assets/products-model/the-soul-tee-Black-front.webp",
+   "back": "assets/products-model/the-soul-tee-Black-back.webp"
+  },
+  "Ivory": {
+   "front": "assets/products-model/the-soul-tee-Ivory-front.webp",
+   "back": "assets/products-model/the-soul-tee-Ivory-back.webp"
+  }
  }
 }
