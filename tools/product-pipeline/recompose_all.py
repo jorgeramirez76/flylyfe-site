@@ -48,7 +48,7 @@ DESIGNS={
  "the-house-music-tee":  ("male",["White","Black","Ivory"], F(HMF,0.68,0.45), F(HMB,0.72,0.50,0.03)),
  "the-token-tee":        ("male",["White","Black","Ivory"], F(TOKF,0.42,0.43), F(TOKB,0.80,0.50,0.0,"emblem","emblem")),
  "the-anthem-tee-womens":   ("female",["White","Black","Natural"], W_WORD_F, F(FEEL,0.64,0.51,0.03)),
- "the-conga-tee-womens":    ("female",["White","Black","Natural"], W_WORD_F, F(CONGA,0.66,0.50)),
+ "the-conga-tee-womens":    ("female",["White","Black","Natural"], W_WORD_F, F(CONGA,0.84,0.49)),
  "the-signature-tee-womens":("female",["White","Black","Natural"], F(WORD,0.24,0.42,-0.20,lc=True), F(SIGLOCK,0.78,0.48)),
  "the-after-hours-tee":  ("male",["Black"], M_WORD_F, F(AFTERH,0.74,0.50)),
  "the-tempo-tee":        ("male",["Black"], M_WORD_F, F(TEMPO,0.74,0.50)),
