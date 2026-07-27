@@ -192,7 +192,7 @@ async function init() {
     gql(PRODUCT_Q)
   ]);
   /* cache-bust product images so updated placements replace cached copies */
-  const ASSET_V = '20260726-refresh';
+  const ASSET_V = '20260726-signup';
   const _bust = u => u ? u + (u.includes('?') ? '&' : '?') + 'v=' + ASSET_V : u;
   Object.values(modelMan).forEach(colors => Object.values(colors).forEach(v => {
     if (v.front) v.front = _bust(v.front);
@@ -730,22 +730,42 @@ document.addEventListener('keydown', e=>{
   }
 });
 
-/* ---- Email / SMS capture (UI only) ----
-   Opens a prefilled email until Klaviyo/Shopify/Mailchimp API capture is connected. */
+/* ---- Email / SMS capture ----
+   Posts to the FLYLYFE signup Worker, which files the contact into Shopify
+   Customers (email-marketing consent) and sends a Resend welcome email. */
+const SIGNUP_ENDPOINT = 'https://subscribe.flylyfe.com';
 function initJoinForm(){
   const form = document.getElementById('joinForm'); if(!form) return;
   const msg = document.getElementById('joinMsg');
-  form.addEventListener('submit', e=>{
+  const btn = form.querySelector('button');
+  form.addEventListener('submit', async e=>{
     e.preventDefault();
     const email = (document.getElementById('joinEmail').value||'').trim();
     const phone = (document.getElementById('joinPhone').value||'').trim();
     if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){ msg.textContent='ENTER A VALID EMAIL.'; msg.classList.add('err'); return; }
     msg.classList.remove('err');
-    msg.textContent = "OPENING YOUR EMAIL APP TO CONFIRM SIGNUP…";
-    const subject = encodeURIComponent('FLYLYFE list signup');
-    const body = encodeURIComponent(`Please add me to the FLYLYFE list.\n\nEmail: ${email}\nPhone: ${phone || 'Not provided'}`);
-    window.location.href = `mailto:hello@flylyfe.com?subject=${subject}&body=${body}`;
-    form.reset();
+    msg.textContent = 'SIGNING YOU UP…';
+    if (btn) btn.disabled = true;
+    try {
+      const res = await fetch(SIGNUP_ENDPOINT, {
+        method:'POST', headers:{'Content-Type':'application/json'},
+        body: JSON.stringify({ email, phone })
+      });
+      const data = await res.json().catch(()=>({}));
+      if (res.ok && data.ok){
+        msg.classList.remove('err');
+        msg.textContent = "YOU'RE ON THE LIST. WELCOME TO FLYLYFE.";
+        form.reset();
+      } else {
+        msg.classList.add('err');
+        msg.textContent = (data.error || 'Signup failed — try again.').toUpperCase();
+      }
+    } catch(err){
+      msg.classList.add('err');
+      msg.textContent = 'SIGNUP FAILED — CHECK CONNECTION & RETRY.';
+    } finally {
+      if (btn) btn.disabled = false;
+    }
   });
 }
 initJoinForm();
