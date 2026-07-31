@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://www.flylyfe.com/</loc>
     <lastmod>2026-07-30</lastmod>
@@ -83,85 +83,85 @@
     <lastmod>2026-07-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-  </url>
+  <image:image><image:loc>https://www.flylyfe.com/assets/products-seo/the-anthem-tee.jpg</image:loc><image:caption>House Music Graphic Tee – The Anthem Tee</image:caption></image:image></url>
   <url>
     <loc>https://www.flylyfe.com/products/the-conga-tee/</loc>
     <lastmod>2026-07-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-  </url>
+  <image:image><image:loc>https://www.flylyfe.com/assets/products-seo/the-conga-tee.jpg</image:loc><image:caption>Afro House T-Shirt – The Conga Tee</image:caption></image:image></url>
   <url>
     <loc>https://www.flylyfe.com/products/the-signature-tee/</loc>
     <lastmod>2026-07-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-  </url>
+  <image:image><image:loc>https://www.flylyfe.com/assets/products-seo/the-signature-tee.jpg</image:loc><image:caption>Minimalist House Music T-Shirt – Signature</image:caption></image:image></url>
   <url>
     <loc>https://www.flylyfe.com/products/the-house-music-tee/</loc>
     <lastmod>2026-07-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-  </url>
+  <image:image><image:loc>https://www.flylyfe.com/assets/products-seo/the-house-music-tee.jpg</image:loc><image:caption>House Music T-Shirt – Not Everyone Understands</image:caption></image:image></url>
   <url>
     <loc>https://www.flylyfe.com/products/the-soul-tee/</loc>
     <lastmod>2026-07-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-  </url>
+  <image:image><image:loc>https://www.flylyfe.com/assets/products-seo/the-soul-tee.jpg</image:loc><image:caption>House Is a Feeling Shirt – The Soul Tee</image:caption></image:image></url>
   <url>
     <loc>https://www.flylyfe.com/products/the-token-tee/</loc>
     <lastmod>2026-07-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-  </url>
+  <image:image><image:loc>https://www.flylyfe.com/assets/products-seo/the-token-tee.jpg</image:loc><image:caption>NYC Subway Token T-Shirt – The Token Tee</image:caption></image:image></url>
   <url>
     <loc>https://www.flylyfe.com/products/the-anthem-tee-womens/</loc>
     <lastmod>2026-07-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-  </url>
+  <image:image><image:loc>https://www.flylyfe.com/assets/products-seo/the-anthem-tee-womens.jpg</image:loc><image:caption>Women's House Music T-Shirt — The Anthem Tee</image:caption></image:image></url>
   <url>
     <loc>https://www.flylyfe.com/products/the-conga-tee-womens/</loc>
     <lastmod>2026-07-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-  </url>
+  <image:image><image:loc>https://www.flylyfe.com/assets/products-seo/the-conga-tee-womens.jpg</image:loc><image:caption>House Music Shirt for Women - The Conga Tee</image:caption></image:image></url>
   <url>
     <loc>https://www.flylyfe.com/products/the-signature-tee-womens/</loc>
     <lastmod>2026-07-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-  </url>
+  <image:image><image:loc>https://www.flylyfe.com/assets/products-seo/the-signature-tee-womens.jpg</image:loc><image:caption>Women's Minimalist House Music Tee – Signature</image:caption></image:image></url>
   <url>
     <loc>https://www.flylyfe.com/products/the-after-hours-tee/</loc>
     <lastmod>2026-07-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-  </url>
+  <image:image><image:loc>https://www.flylyfe.com/assets/products-seo/the-after-hours-tee.jpg</image:loc><image:caption>After Hours Rave Shirt - The After Hours Tee</image:caption></image:image></url>
   <url>
     <loc>https://www.flylyfe.com/products/the-tempo-tee/</loc>
     <lastmod>2026-07-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-  </url>
+  <image:image><image:loc>https://www.flylyfe.com/assets/products-seo/the-tempo-tee.jpg</image:loc><image:caption>House Music BPM Tee – The Tempo Tee</image:caption></image:image></url>
   <url>
     <loc>https://www.flylyfe.com/products/the-coordinates-tee/</loc>
     <lastmod>2026-07-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-  </url>
+  <image:image><image:loc>https://www.flylyfe.com/assets/products-seo/the-coordinates-tee.jpg</image:loc><image:caption>New York Coordinates T-Shirt · The Coordinates Tee</image:caption></image:image></url>
   <url>
     <loc>https://www.flylyfe.com/products/the-spiritual-thing-tee/</loc>
     <lastmod>2026-07-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-  </url>
+  <image:image><image:loc>https://www.flylyfe.com/assets/products-seo/the-spiritual-thing-tee.jpg</image:loc><image:caption>House Music Manifesto Tee – Spiritual Thing</image:caption></image:image></url>
   <url>
     <loc>https://www.flylyfe.com/products/the-sanitary-code-tee/</loc>
     <lastmod>2026-07-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-  </url>
+  <image:image><image:loc>https://www.flylyfe.com/assets/products-seo/the-sanitary-code-tee.jpg</image:loc><image:caption>Vintage NYC Subway T-Shirt – Sanitary Code Tee</image:caption></image:image></url>
   <url>
     <loc>https://www.flylyfe.com/blog/</loc>
     <lastmod>2026-07-30</lastmod>
@@ -210,4 +210,4 @@
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
-<url><loc>https://www.flylyfe.com/products/the-brownstone-dj-tee/</loc><lastmod>2026-07-30</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://www.flylyfe.com/collections/concrete-rhythm/</loc><lastmod>2026-07-30</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url><loc>https://www.flylyfe.com/products/las-malvinas-tee/</loc><lastmod>2026-07-30</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://www.flylyfe.com/collections/heritage/</loc><lastmod>2026-07-30</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url><loc>https://www.flylyfe.com/blog/las-malvinas-son-argentinas-meaning/</loc><lastmod>2026-07-30</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url><url><loc>https://www.flylyfe.com/blog/nyc-house-music-history/</loc><lastmod>2026-07-30</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url></urlset>
+<url><loc>https://www.flylyfe.com/products/the-brownstone-dj-tee/</loc><lastmod>2026-07-30</lastmod><changefreq>weekly</changefreq><priority>0.9</priority><image:image><image:loc>https://www.flylyfe.com/assets/products-seo/the-brownstone-dj-tee.jpg</image:loc><image:caption>DJ Turntable T-Shirt – The Brownstone DJ Tee</image:caption></image:image></url><url><loc>https://www.flylyfe.com/collections/concrete-rhythm/</loc><lastmod>2026-07-30</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url><loc>https://www.flylyfe.com/products/las-malvinas-tee/</loc><lastmod>2026-07-30</lastmod><changefreq>weekly</changefreq><priority>0.9</priority><image:image><image:loc>https://www.flylyfe.com/assets/products-seo/las-malvinas-tee.jpg</image:loc><image:caption>Las Malvinas Son Argentinas T-Shirt</image:caption></image:image></url><url><loc>https://www.flylyfe.com/collections/heritage/</loc><lastmod>2026-07-30</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url><loc>https://www.flylyfe.com/blog/las-malvinas-son-argentinas-meaning/</loc><lastmod>2026-07-30</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url><url><loc>https://www.flylyfe.com/blog/nyc-house-music-history/</loc><lastmod>2026-07-30</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url></urlset>

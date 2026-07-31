@@ -5,6 +5,7 @@
 Last updated: 2026-07-30
 Canonical site: https://www.flylyfe.com/
 Sitemap: https://www.flylyfe.com/sitemap.xml
+Full page content: https://www.flylyfe.com/llms-full.txt
 
 ## About
 - Brand name: FLYLYFE. Always one word — not "Fly Lyfe", "FlyLife", or "Flylife".
