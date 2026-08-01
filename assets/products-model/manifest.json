@@ -168,5 +168,19 @@
    "front": "assets/products-model/the-soul-tee-Ivory-front.webp",
    "back": "assets/products-model/the-soul-tee-Ivory-back.webp"
   }
+ },
+ "las-malvinas-campeones-tee": {
+  "White": {
+   "front": "assets/products-model/las-malvinas-campeones-tee-White-front.webp",
+   "back": "assets/products-model/las-malvinas-campeones-tee-White-back.webp"
+  },
+  "Ivory": {
+   "front": "assets/products-model/las-malvinas-campeones-tee-Ivory-front.webp",
+   "back": "assets/products-model/las-malvinas-campeones-tee-Ivory-back.webp"
+  },
+  "Black": {
+   "front": "assets/products-model/las-malvinas-campeones-tee-Black-front.webp",
+   "back": "assets/products-model/las-malvinas-campeones-tee-Black-back.webp"
+  }
  }
 }

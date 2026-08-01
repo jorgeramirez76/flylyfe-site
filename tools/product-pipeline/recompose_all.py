@@ -29,6 +29,10 @@ COORD =(P("drop02-coordinates-back-XL.png"), None)
 SPIRIT=(P("drop02-spiritual-thing-back.png"), None)
 SANIF =(P("limited-sanitary-print-XL.png"), None)
 SANIB =(P("limited-sanitary-back-XL.png"), None)
+# Las Malvinas "Campeones" — gold 3-star front (same art on light + dark),
+# hand-painted back lettering (dark ink on light shirts, cream on black)
+STARSF=(P("malvinas-3stars-front.png"), P("malvinas-3stars-front.png"))
+MALVB =(P("malvinas-back-dark-ink.png"), P("malvinas-back-light-ink.png"))
 
 def blanks(gender,color,view):
     cmap={"White":"white","Black":"black","Ivory":"ivory","Natural":"ivory"}
@@ -55,6 +59,7 @@ DESIGNS={
  "the-coordinates-tee":  ("male",["Ivory"], M_WORD_F, F(COORD,0.74,0.50)),
  "the-spiritual-thing-tee":("male",["Ivory"], M_WORD_F, F(SPIRIT,0.74,0.50)),
  "the-sanitary-code-tee":("male",["White"], F(SANIF,0.62,0.46,0.0,"emblem","emblem"), F(SANIB,0.78,0.50,0.0,"emblem","emblem")),
+ "las-malvinas-campeones-tee":("male",["White","Black","Ivory"], F(STARSF,0.92,0.41,0.0,"emblem","emblem"), F(MALVB,1.10,0.50)),
 }
 
 def comp(blank,art,size,cy,xo,mode,out,lc=False):
