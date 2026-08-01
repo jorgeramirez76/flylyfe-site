@@ -59,7 +59,7 @@ DESIGNS={
  "the-coordinates-tee":  ("male",["Ivory"], M_WORD_F, F(COORD,0.74,0.50)),
  "the-spiritual-thing-tee":("male",["Ivory"], M_WORD_F, F(SPIRIT,0.74,0.50)),
  "the-sanitary-code-tee":("male",["White"], F(SANIF,0.62,0.46,0.0,"emblem","emblem"), F(SANIB,0.78,0.50,0.0,"emblem","emblem")),
- "las-malvinas-campeones-tee":("male",["White","Black","Ivory"], F(STARSF,0.92,0.41,0.0,"emblem","emblem"), F(MALVB,1.10,0.50)),
+ "las-malvinas-campeones-tee":("male",["White","Black","Ivory"], F(STARSF,0.92,0.467,0.0,"emblem","emblem"), F(MALVB,1.10,0.50)),
 }
 
 def comp(blank,art,size,cy,xo,mode,out,lc=False):
