@@ -25,3 +25,6 @@ root.querySelector('[data-atc]').onclick=async()=>{try{await addToCart();}catch(
 root.querySelector('[data-checkout]').onclick=async()=>{try{const cart=await addToCart()||await ensureCart();if(cart.checkoutUrl) location.href=cart.checkoutUrl;}catch(e){console.error(e);status(T.coErr);}};
 }
 (async()=>{try{const d=await gql(PRODUCT_Q,{handle});product=d.product;if(!product)throw new Error('Product not found');render();}catch(e){console.error(e);document.querySelector('[data-commerce-root]').innerHTML='<p class="mono">'+T.unavail+'<a href="../../#shop">'+T.shopMain+'</a></p>';}})();
+
+function renderEta(){try{const bd=(n)=>{const d=new Date();let a=0;while(a<n){d.setDate(d.getDate()+1);const w=d.getDay();if(w!==0&&w!==6)a++;}return d;};const f=(d)=>ES?d.toLocaleDateString('es-AR',{day:'numeric',month:'short'}):d.toLocaleDateString('en-US',{month:'short',day:'numeric'});const lo=f(bd(ES?17:9)),hi=f(bd(ES?31:17));const t=document.querySelector('.seo-trust');if(!t)return;const s=document.createElement('span');s.className='seo-eta';s.textContent=ES?('\u2713 Pedila hoy: llega aprox. '+lo+' \u2013 '+hi):('\u2713 Order today \u2014 estimated delivery '+lo+' \u2013 '+hi);t.appendChild(s);}catch(e){}}
+renderEta();

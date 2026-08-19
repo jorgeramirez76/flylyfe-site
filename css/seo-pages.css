@@ -3,3 +3,8 @@
 
 .seo-lang-switch{margin-top:.65rem;font-size:.72rem;letter-spacing:.08em}
 .seo-lang-switch a{color:var(--gold,#C9A75A)}
+
+.seo-sizechart-wrap{overflow-x:auto}
+.seo-sizechart{border-collapse:collapse;font-family:"JetBrains Mono",monospace;font-size:.78rem;margin-top:.6rem;min-width:280px}
+.seo-sizechart th,.seo-sizechart td{border:1px solid rgba(250,250,250,.14);padding:.45rem .9rem;text-align:left}
+.seo-sizechart th{color:var(--gold,#C9A75A);letter-spacing:.08em;font-weight:500}

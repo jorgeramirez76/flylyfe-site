@@ -484,6 +484,11 @@ function renderCart(cart){
   const lines = cart.lines.edges;
   if (!lines.length){ wrap.innerHTML='<p class="drawer__empty mono">YOUR CART IS EMPTY.<br>GO FEEL SOMETHING.</p>'; return; }
   wrap.innerHTML = '';
+  const nudge = document.createElement('p');
+  nudge.className = 'mono cartNudge';
+  nudge.style.cssText = 'font-size:.68rem;letter-spacing:.08em;color:var(--gold,#C9A75A);margin:0 0 .8rem';
+  nudge.textContent = cart.totalQuantity >= 2 ? '\u2713 FREE US SHIPPING UNLOCKED' : 'FREE US SHIPPING ON 2+ ITEMS \u2014 ADD A SECOND TEE';
+  wrap.appendChild(nudge);
   lines.forEach(e=>{
     const l = e.node, m = l.merchandise;
     const opts = m.selectedOptions.map(o=>o.value).join(' / ');
