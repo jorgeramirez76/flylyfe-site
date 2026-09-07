@@ -86,7 +86,8 @@ def head_block(key, pkg, depth, ogtype, ogimage):
         '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,600;0,700&family=Anton&family=JetBrains+Mono:wght@400;500&display=swap">\n'
         f'<link rel="stylesheet" href="{rel}css/style.css?v=20260818-es">\n'
         f'<link rel="stylesheet" href="{rel}css/product.css?v=20260818-es">\n'
-        f'<link rel="stylesheet" href="{rel}css/seo-pages.css?v=20260818-es">'
+        f'<link rel="stylesheet" href="{rel}css/seo-pages.css?v=20260818-es">',
+        '<script defer src="/js/analytics.js?v=20260906"></script>'
     )
 
 def faq_jsonld(pkg):
