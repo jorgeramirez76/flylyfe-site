@@ -65,7 +65,7 @@ collections = {
 
 def rel_css(depth):
     prefix = '../'*depth
-    return f'''<link rel="icon" type="image/png" href="{prefix}assets/favicon.png">\n<link rel="preconnect" href="https://fonts.googleapis.com">\n<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,600;0,700&family=Anton&family=JetBrains+Mono:wght@400;500&display=swap">\n<link rel="stylesheet" href="{prefix}css/style.css?v={ASSET_V}">\n<link rel="stylesheet" href="{prefix}css/product.css?v={ASSET_V}">\n<link rel="stylesheet" href="{prefix}css/seo-pages.css?v={ASSET_V}">'''
+    return f'''<link rel="icon" type="image/png" href="{prefix}assets/favicon.png">\n<link rel="preconnect" href="https://fonts.googleapis.com">\n<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,600;0,700&family=Anton&family=JetBrains+Mono:wght@400;500&display=swap">\n<link rel="stylesheet" href="{prefix}css/style.css?v={ASSET_V}">\n<link rel="stylesheet" href="{prefix}css/product.css?v={ASSET_V}">\n<link rel="stylesheet" href="{prefix}css/seo-pages.css?v={ASSET_V}">\n<script defer src="/js/analytics.js?v=20260906"></script>'''
 
 def nav(depth):
     p='../'*depth
