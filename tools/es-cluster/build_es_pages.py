@@ -83,7 +83,7 @@ def head_block(key, pkg, depth, ogtype, ogimage):
         f'<link rel="icon" type="image/png" href="{rel}assets/favicon.png">\n'
         '<link rel="preconnect" href="https://fonts.googleapis.com">\n'
         '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n'
-        '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,600;0,700&family=Anton&family=JetBrains+Mono:wght@400;500&display=swap">\n'
+        '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,600;0,700&family=Anton&family=JetBrains+Mono:wght@400;500&display=swap" media="print" onload="this.media=\'all\'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,600;0,700&family=Anton&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>\n'
         f'<link rel="stylesheet" href="{rel}css/style.css?v=20260818-es">\n'
         f'<link rel="stylesheet" href="{rel}css/product.css?v=20260818-es">\n'
         f'<link rel="stylesheet" href="{rel}css/seo-pages.css?v=20260818-es">',
