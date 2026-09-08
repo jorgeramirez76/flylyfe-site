@@ -134,7 +134,7 @@ faq_items=[
 ("What is the return policy?","Every FLYLYFE tee is printed to order. Unworn, unwashed tees in original condition can be returned within 30 days of delivery for an exchange or refund. Email hello@flylyfe.com to start a return."),
 ("What are FLYLYFE tees printed on?","FLYLYFE tees are printed on the Comfort Colors 1717 — a heavyweight, garment-dyed, 100% ring-spun cotton blank known for its structured streetwear drape and soft washed feel."),
 ("How are FLYLYFE tees printed?","Every tee is made to order using DTF (direct-to-film) transfer printing in Los Angeles, USA — full-color, flexible prints that hold detail wash after wash."),
-("How long does production take?","Because every tee is printed to order, production typically takes 7–10 business days. US delivery usually adds 1–5 business days after the order ships."),
+("How long does production take?","Because every tee is printed to order, production typically takes 7–10 business days. US delivery usually adds 2–7 business days after the order ships."),
 ("Do FLYLYFE tees have tags?","No. FLYLYFE tees are tagless — each one has a printed inside-neck FLYLYFE label instead of a sewn-in tag."),
 ("What is house-music streetwear?","House-music streetwear is apparel built around dance-floor culture, DJs, club nights, late sets, and the movement of cities like New York."),
 ("Is FLYLYFE affiliated with any sports tournament?","No. FLYLYFE is independent and is not affiliated with, sponsored by, or endorsed by any tournament, organizer, governing body, stadium, league, or team."),
@@ -320,7 +320,7 @@ All products are currently listed at $49.99 USD on the live Shopify storefront. 
 ## Shipping and policies
 - Ships worldwide; international rates are shown at checkout and delivery times vary by destination.
 - US shipping: flat $4.75; orders of 2 or more items ship free automatically (US).
-- Made to order: production typically takes 7–10 business days, then US delivery is usually 1–5 business days.
+- Made to order: production typically takes 7–10 business days, then US delivery is usually 2–7 business days.
 - Returns: unworn, unwashed tees in original condition within 30 days of delivery for exchange or refund — email hello@flylyfe.com.
 - Privacy Policy: {BASE}/privacy.html
 - Terms of Sale: {BASE}/terms.html
