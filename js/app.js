@@ -128,12 +128,15 @@ async function gql(query, vars={}) {
     body: JSON.stringify({ query, variables: vars })
   });
   const j = await res.json();
-  if (j.errors) console.error('SF:', j.errors);
+  if (!res.ok) throw new Error('Shopify HTTP ' + res.status);
+  if (j.errors?.length) throw new Error(j.errors.map(e=>e.message).join('; '));
+  if (!j.data) throw new Error('Missing Shopify response');
+  for (const value of Object.values(j.data)) { if(value?.userErrors?.length) throw new Error(value.userErrors.map(e=>e.message).join('; ')); }
   return j.data;
 }
 
 const PRODUCT_Q = `{ products(first:50){ edges{ node{
-  id handle title descriptionHtml
+  id handle title vendor descriptionHtml
   featuredImage{ url }
   options{ name values }
   variants(first:50){ edges{ node{
@@ -190,11 +193,11 @@ function shopVarImg(p, color) {
 
 async function init() {
   const [modelMan, data] = await Promise.all([
-    fetch('assets/products-model/manifest.json').then(r=>r.json()).catch(()=>({})),
+    fetch('assets/products-model/manifest.json?v=20260909').then(r=>r.json()).catch(()=>({})),
     gql(PRODUCT_Q)
   ]);
   /* cache-bust product images so updated placements replace cached copies */
-  const ASSET_V = '20260726-signup';
+  const ASSET_V = '20260909';
   const _bust = u => u ? u + (u.includes('?') ? '&' : '?') + 'v=' + ASSET_V : u;
   Object.values(modelMan).forEach(colors => Object.values(colors).forEach(v => {
     if (v.front) v.front = _bust(v.front);
@@ -215,15 +218,16 @@ async function init() {
     });
   });
   if (!data) { document.querySelectorAll('.grid__loading').forEach(e=>e.textContent='DROP TEMPORARILY OFFLINE'); return; }
-  data.products.edges.forEach(e => PRODUCTS[e.node.handle] = e.node);
+  const allowed = new Set([...MEN_HANDLES, ...WOMEN_HANDLES, ...DROP_HANDLES, LIMITED_HANDLE]);
+  data.products.edges.forEach(e => { if(e.node.vendor === 'FLYLYFE' && allowed.has(e.node.handle)) PRODUCTS[e.node.handle] = e.node; });
   renderGrid('gridMen', MEN_HANDLES, 'men');
   renderGrid('gridWomen', WOMEN_HANDLES, 'women');
   renderGrid('gridDrop', DROP_HANDLES, 'drop');
   wireLimited();
   renderFeatured();
-  injectProductSchema();
   observeReveals();
-  if (cartId) renderCart(await ensureCart());
+  if (cartId) { try { renderCart(await ensureCart()); } catch(error) { console.error(error); } }
+  if (location.hash === '#cart') openCart().catch(()=>showToast('COULD NOT LOAD CART'));
 }
 
 /* ===== PRODUCT CARDS: male model images, back as hero, hover flips to front =====
@@ -258,8 +262,8 @@ function renderGrid(elId, handles) {
       const viewLabel = frontPrimary ? 'FRONT · HOVER FOR BACK' : 'BACK · HOVER FOR FRONT';
       card.innerHTML = `
         <div class="${mediaCls}" data-color="${activeColor}" role="button" tabindex="0" aria-label="${TAGLINES[h]||'FLYLYFE'} ${viewLabel} View and buy ${p.title.replace(" — Women's","")}">
-          <img class="front back-hero" src="${heroBack}" alt="${p.title} — ${activeColor}, ${mockupPrimary ? 'front logo' : 'worn back'}" loading="lazy" decoding="async">
-          <img class="back" src="${heroFront}" alt="${p.title} — ${activeColor}, ${mockupPrimary ? 'back view' : 'worn front'}" loading="lazy" decoding="async">
+          <img class="front back-hero" src="${heroBack}" alt="${p.title} — ${activeColor}, ${primaryView} view" loading="lazy" decoding="async">
+          <img class="back" src="${heroFront}" alt="${p.title} — ${activeColor}, ${secondaryView} view" loading="lazy" decoding="async">
           <span class="card__tag" aria-hidden="true">${TAGLINES[h]||'FLYLYFE'}</span>
           <span class="card__view mono" aria-hidden="true">${viewLabel}</span>
           <span class="card__quick mono" aria-hidden="true">VIEW &amp; BUY →</span>
@@ -313,11 +317,11 @@ function openPDP(handle, startColor) {
     const mFront  = mockup(handle, pdpState.color, 'front');
     const back    = mockupPrimary ? (mBack || sImg) : (modelUrl(handle, pdpState.color, 'back') || mBack || sImg);
     const front   = mockupPrimary ? (mFront || sImg || back) : (modelUrl(handle, pdpState.color, 'front') || mFront || sImg || back);
-    const price = p.variants.edges[0].node.price.amount;
+    const price = (findVariant(p, pdpState.color, pdpState.size) || p.variants.edges.map(e=>e.node).find(v=>v.selectedOptions.some(o=>o.name==='Color' && o.value===pdpState.color)) || p.variants.edges[0].node).price.amount;
 
     document.getElementById('pdpTitle').textContent = p.title;
     document.getElementById('pdpPrice').textContent = money(price);
-    document.getElementById('pdpDesc').innerHTML = p.descriptionHtml;
+    document.getElementById('pdpDesc').innerHTML = p.descriptionHtml + '<p class="seo-placement-note">Product mockups show the artwork and color; print placement may vary slightly.</p>';
     document.getElementById('pdpColorName').textContent = pdpState.color.toUpperCase();
 
     /* Gallery order: front-logo products show the accurate product front first; other tees keep model back first. */
@@ -351,7 +355,7 @@ function openPDP(handle, startColor) {
         mainImg.classList.remove('switching');
       }, 180);
     }
-    setMain(gallery[0].url, gallery[0].isModel, `${p.title} — ${gallery[0].label}`);
+    setMain(gallery[0].url, gallery[0].isModel, `${p.title} — ${pdpState.color}, ${gallery[0].label}`);
 
     const thumbs = document.getElementById('pdpThumbs');
     thumbs.innerHTML = '';
@@ -362,7 +366,7 @@ function openPDP(handle, startColor) {
       t.style.objectFit = im.isModel ? 'cover' : 'contain';
       t.style.objectPosition = im.isModel ? 'top center' : 'center';
       t.onclick = ()=>{
-        setMain(im.url, im.isModel, `${p.title} — ${im.label}`);
+        setMain(im.url, im.isModel, `${p.title} — ${pdpState.color}, ${im.label}`);
         thumbs.querySelectorAll('.pdp__thumb').forEach(x=>x.classList.remove('on'));
         t.classList.add('on');
       };
@@ -394,6 +398,7 @@ function openPDP(handle, startColor) {
       if (!avail){ b.disabled = true; b.setAttribute('aria-disabled','true'); b.setAttribute('aria-label', s+', sold out'); }
       if (avail) b.onclick = ()=>{
         pdpState.size = s;
+        document.getElementById('pdpPrice').textContent = money(v.price.amount);
         sz.querySelectorAll('.pdp__size').forEach(x=>x.classList.remove('on'));
         b.classList.add('on');
         updateATC();
@@ -436,13 +441,14 @@ document.getElementById('pdpATC').onclick = async()=>{
   }
   const p = PRODUCTS[pdpState.handle];
   const v = findVariant(p, pdpState.color, pdpState.size);
-  if (!v){ showToast('UNAVAILABLE'); return; }
+  if (!v?.availableForSale){ showToast('UNAVAILABLE'); return; }
   const atc = document.getElementById('pdpATC');
+  if(atc.disabled) return;
   atc.disabled = true; atc.textContent = 'ADDING…';
   try {
     await addToCart(v.id);
     closePDP();
-    openCart();
+    await openCart();
   } catch (err) {
     console.error('ATC:', err);
     showToast('CART ERROR — TRY AGAIN');
@@ -460,18 +466,26 @@ const CART_FIELDS = `id checkoutUrl totalQuantity
       product{ title handle } selectedOptions{ name value } } } } } }`;
 
 async function ensureCart(){
+  cartId = localStorage.getItem('flylyfe_cart');
   if (cartId){ const d = await gql(`query($id:ID!){ cart(id:$id){ ${CART_FIELDS} } }`,{id:cartId}); if(d?.cart) return d.cart; }
-  const d = await gql(`mutation{ cartCreate{ cart{ ${CART_FIELDS} } } }`);
+  const d = await gql(`mutation{ cartCreate{ cart{ ${CART_FIELDS} } userErrors{field message} } }`);
   const cart = d.cartCreate.cart; cartId = cart.id; localStorage.setItem('flylyfe_cart', cartId); return cart;
 }
 async function addToCart(vid){
   await ensureCart();
-  const d = await gql(`mutation($cid:ID!,$lines:[CartLineInput!]!){ cartLinesAdd(cartId:$cid,lines:$lines){ cart{ ${CART_FIELDS} } } }`,{cid:cartId,lines:[{merchandiseId:vid,quantity:1}]});
+  const d = await gql(`mutation($cid:ID!,$lines:[CartLineInput!]!){ cartLinesAdd(cartId:$cid,lines:$lines){ cart{ ${CART_FIELDS} } userErrors{field message} } }`,{cid:cartId,lines:[{merchandiseId:vid,quantity:1}]});
   renderCart(d.cartLinesAdd.cart);
 }
+let updatingCart = false;
 async function updateLine(id, qty){
-  const d = await gql(`mutation($cid:ID!,$lines:[CartLineUpdateInput!]!){ cartLinesUpdate(cartId:$cid,lines:$lines){ cart{ ${CART_FIELDS} } } }`,{cid:cartId,lines:[{id,quantity:qty}]});
+  if(updatingCart) return;
+  updatingCart=true;
+  document.querySelectorAll('#cartItems button, #checkoutBtn').forEach(b=>b.disabled=true);
+  try {
+  const d = await gql(`mutation($cid:ID!,$lines:[CartLineUpdateInput!]!){ cartLinesUpdate(cartId:$cid,lines:$lines){ cart{ ${CART_FIELDS} } userErrors{field message} } }`,{cid:cartId,lines:[{id,quantity:qty}]});
   renderCart(d.cartLinesUpdate.cart);
+  } catch(error) { console.error(error); showToast('COULD NOT UPDATE CART — TRY AGAIN'); }
+  finally { updatingCart=false; document.querySelectorAll('#cartItems button, #checkoutBtn').forEach(b=>b.disabled=false); }
 }
 
 let CURRENT_CART = null;
@@ -520,9 +534,11 @@ const drawer = document.getElementById('drawer');
 let cartReturnFocus = null;
 async function openCart(){ cartReturnFocus=document.activeElement; drawer.hidden=false; document.body.style.overflow='hidden'; renderCart(await ensureCart()); setTimeout(()=>{ const c=drawer.querySelector('[data-closecart]'); if(c) c.focus(); }, 50); }
 function closeCart(){ drawer.hidden=true; document.body.style.overflow=''; if(cartReturnFocus){ try{cartReturnFocus.focus();}catch(_){} cartReturnFocus=null; } }
-document.getElementById('cartBtn').onclick = openCart;
+document.getElementById('cartBtn').onclick = ()=>openCart().catch(()=>showToast('COULD NOT LOAD CART'));
+window.addEventListener('hashchange',()=>{if(location.hash === '#cart') openCart().catch(()=>showToast('COULD NOT LOAD CART'));});
 document.querySelectorAll('[data-closecart]').forEach(el=>el.onclick=closeCart);
 document.getElementById('checkoutBtn').onclick = ()=>{
+  if(updatingCart) return;
   if (CURRENT_CART?.totalQuantity>0) window.location.href = CURRENT_CART.checkoutUrl;
   else showToast('CART IS EMPTY');
 };
@@ -535,7 +551,7 @@ function renderFeatured(){
     {handle:'the-anthem-tee-womens',color:'Black'},
     {handle:'the-conga-tee',color:'Ivory'},
     {handle:'the-signature-tee',color:'Black'},
-    {handle:'the-conga-tee-womens',color:'Natural'},
+    {handle:'the-conga-tee-womens',color:'Ivory'},
   ];
   strip.innerHTML = '';
   picks.forEach(pk=>{
@@ -693,16 +709,16 @@ const info = document.getElementById('info');
 const INFO = {
   shipping:{ title:'Shipping', html:`<p>Every FLYLYFE piece is printed-to-order in the USA.</p>
     <h4>Processing</h4><p>Every order is printed to order — production typically takes 7–10 business days.</p>
-    <h4>Delivery</h4><p>US: 1–5 business days after production. International: varies by destination. <strong>US shipping is a flat $4.75 — free on orders of 2+ items.</strong></p>
+    <h4>Delivery</h4><p>US standard shipping is $4.75 for most tees; some items use weight-based rates calculated at checkout. US orders of 2 or more items qualify for free standard shipping. Production takes 7–10 business days, followed by delivery. Available destinations and international rates are shown at checkout.</p>
     <p>Tracking is emailed the moment your order ships.</p>` },
   returns:{ title:'Returns', html:`<p>We want you in the right fit.</p>
     <h4>30-Day Window</h4><p>Unworn, unwashed items in original condition can be returned within 30 days of delivery.</p>
-    <h4>How</h4><p>Email <a href="mailto:hello@flylyfe.com" style="color:var(--gold)">hello@flylyfe.com</a> with your order number and we'll send a label. Unworn, unwashed tees in original condition are eligible for an exchange or refund within 30 days of delivery.</p>` },
+    <h4>How</h4><p>Email <a href="mailto:hello@flylyfe.com" style="color:var(--gold)">hello@flylyfe.com</a> with your order number and we’ll send return instructions. Unworn, unwashed tees in original condition are eligible for an exchange or refund within 30 days of delivery.</p>` },
   sizeguide:{ title:'Size Guide', html:`<p>Our heavyweight tees run true to size with a relaxed, slightly oversized drop. Between sizes? Size down for a classic fit.</p>
-    <table><thead><tr><th>Size</th><th>Chest (in)</th><th>Length (in)</th></tr></thead><tbody>
-    <tr><td>S</td><td>40</td><td>28</td></tr><tr><td>M</td><td>44</td><td>29</td></tr><tr><td>L</td><td>48</td><td>30</td></tr>
-    <tr><td>XL</td><td>52</td><td>31</td></tr><tr><td>2XL</td><td>56</td><td>32</td></tr><tr><td>3XL</td><td>60</td><td>33</td></tr></tbody></table>
-    <p>Measurements are approximate garment dimensions.</p>` },
+    <table><thead><tr><th>Size</th><th>Chest width, laid flat (in)</th><th>Length (in)</th></tr></thead><tbody>
+    <tr><td>S</td><td>18.25</td><td>26.625</td></tr><tr><td>M</td><td>20.25</td><td>28</td></tr><tr><td>L</td><td>22</td><td>29.375</td></tr>
+    <tr><td>XL</td><td>24</td><td>30.75</td></tr><tr><td>2XL</td><td>26</td><td>31.625</td></tr><tr><td>3XL</td><td>27.75</td><td>32.5</td></tr></tbody></table>
+    <p>Measurements are approximate Comfort Colors 1717 garment dimensions, not body measurements. Width is measured flat, one inch below the armhole; length is measured from the high shoulder point to the back hem. Compare a tee you already own. Women’s listings use the same unisex fit, in S–2XL.</p>` },
   privacy:{ title:'Privacy', html:`<p>We collect only what's needed to process your order and send the updates you opt into. We never sell your data.</p>
     <p>Payments are handled securely by Shopify. Questions? <a href="mailto:hello@flylyfe.com" style="color:var(--gold)">hello@flylyfe.com</a>.</p>` },
   terms:{ title:'Terms', html:`<p>By using flylyfe.com you agree to our standard terms of sale. All artwork and the FLYLYFE name are property of FLYLYFE. Prices and availability may change without notice.</p>` }
@@ -783,4 +799,4 @@ document.getElementById('year').textContent = new Date().getFullYear();
 initHeroCarousel();
 initScrollUX();
 observeReveals();
-init();
+init().catch(error=>{console.error(error);document.querySelectorAll('.grid__loading').forEach(el=>el.textContent='COULD NOT LOAD PRODUCTS — PLEASE RELOAD');showToast('COULD NOT LOAD LIVE PRODUCT OPTIONS');});

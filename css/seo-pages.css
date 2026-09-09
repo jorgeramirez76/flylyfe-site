@@ -8,3 +8,6 @@
 .seo-sizechart{border-collapse:collapse;font-family:"JetBrains Mono",monospace;font-size:.78rem;margin-top:.6rem;min-width:280px}
 .seo-sizechart th,.seo-sizechart td{border:1px solid rgba(250,250,250,.14);padding:.45rem .9rem;text-align:left}
 .seo-sizechart th{color:var(--gold,#C9A75A);letter-spacing:.08em;font-weight:500}
+
+/* Color-matched gallery and shared-cart controls. */
+.seo-product__media{aspect-ratio:auto;overflow:visible}.seo-product__media>img{height:auto;aspect-ratio:3/4;object-fit:contain;display:block}.seo-product__media [data-gallery-controls]{padding:.75rem}.seo-placement-note{font-size:.8rem;line-height:1.6;color:var(--ink-dim);margin-top:.8rem}.seo-cart-link{display:inline-block;color:var(--gold);font-size:.8rem;margin-top:.6rem}.seo-atc:disabled,.seo-checkout:disabled{opacity:.55;cursor:wait}
