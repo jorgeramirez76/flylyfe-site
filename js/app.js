@@ -501,7 +501,7 @@ function renderCart(cart){
   const nudge = document.createElement('p');
   nudge.className = 'mono cartNudge';
   nudge.style.cssText = 'font-size:.68rem;letter-spacing:.08em;color:var(--gold,#C9A75A);margin:0 0 .8rem';
-  nudge.textContent = cart.totalQuantity >= 2 ? '\u2713 FREE US SHIPPING UNLOCKED' : 'FREE US SHIPPING ON 2+ ITEMS \u2014 ADD A SECOND TEE';
+  nudge.textContent = cart.totalQuantity >= 2 ? 'ELIGIBLE US SHIPPING IS FREE — RATE CONFIRMED AT CHECKOUT' : 'FREE ELIGIBLE US SHIPPING ON 2+ ITEMS';
   wrap.appendChild(nudge);
   lines.forEach(e=>{
     const l = e.node, m = l.merchandise;
@@ -709,7 +709,7 @@ const info = document.getElementById('info');
 const INFO = {
   shipping:{ title:'Shipping', html:`<p>Every FLYLYFE piece is printed-to-order in the USA.</p>
     <h4>Processing</h4><p>Every order is printed to order — production typically takes 7–10 business days.</p>
-    <h4>Delivery</h4><p>US standard shipping is $4.75 for most tees; some items use weight-based rates calculated at checkout. US orders of 2 or more items qualify for free standard shipping. Production takes 7–10 business days, followed by delivery. Available destinations and international rates are shown at checkout.</p>
+    <h4>Delivery</h4><p>US standard shipping is $4.75 for most tees; some items use weight-based rates calculated at checkout. On US orders of 2+ items, standard shipping rates of $4.75 or less are free. Higher weight-based and express rates remain payable at checkout. Production takes 7–10 business days, followed by delivery. Available destinations and international rates are shown at checkout.</p>
     <p>Tracking is emailed the moment your order ships.</p>` },
   returns:{ title:'Returns', html:`<p>We want you in the right fit.</p>
     <h4>30-Day Window</h4><p>Unworn, unwashed items in original condition can be returned within 30 days of delivery.</p>
