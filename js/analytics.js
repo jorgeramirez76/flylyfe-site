@@ -2,7 +2,7 @@
    Fill in the IDs below to activate. While both are empty this file does nothing
    (no cookies, no network requests, no consent bar). */
 (function () {
-  var CFG = { ga4: '', metaPixel: '' }; // e.g. ga4: 'G-XXXXXXXXXX', metaPixel: '123456789012345'
+  var CFG = { ga4: 'G-QWLTKE091E', metaPixel: '' }; // e.g. ga4: 'G-XXXXXXXXXX', metaPixel: '123456789012345'
   if (!CFG.ga4 && !CFG.metaPixel) return;
   var KEY = 'flylyfe_consent', consent = null;
   try { consent = localStorage.getItem(KEY); } catch (e) {}
