@@ -73,8 +73,8 @@ Most products are listed at $49.99 USD; the Las Malvinas Tee is $39.99. Product 
 - Fit guidance: true to size with a relaxed drop; size down for a more classic fit if between sizes.
 
 ## Shipping and policies
-- Ships worldwide; international shipping is a flat $19 for most tees (the made-to-order Las Malvinas and Brownstone DJ tees show international rates at checkout), and delivery times vary by destination.
-- US shipping: flat $4.75 for most tees (the made-to-order Las Malvinas and Brownstone DJ tees calculate at checkout, from $5.96); orders of 2 or more items ship free automatically (US, most tees).
+- Ships worldwide to 200+ countries (every country except Russia and Belarus); international shipping is calculated by weight at checkout, from $19.49 for one tee (UK, Ireland, EU, Argentina and most countries $19.49; Canada from $19.99). Import duties, VAT and customs fees charged by the destination country on delivery are paid by the customer. Delivery times vary by destination.
+- US shipping: standard shipping only, calculated by weight at checkout — from $11.49 for one tee; two regular-weight tees are about $12.49.
 - Made to order: production typically takes 7–10 business days, then US delivery is usually 2–7 business days.
 - Returns: unworn, unwashed tees in original condition within 30 days of delivery for exchange or refund — email hello@flylyfe.com.
 - Privacy Policy: https://www.flylyfe.com/privacy.html
@@ -128,7 +128,7 @@ The Brownstone DJ Tee is the first piece in FLYLYFE's Concrete Rhythm collection
 Most FLYLYFE tees are listed at $49.99 USD; the Las Malvinas Tee is $39.99. Prices and availability can change on the live storefront.
 
 ### Does FLYLYFE ship worldwide?
-Yes. FLYLYFE ships worldwide, with a flat $19 international rate for most tees. US shipping is a flat $4.75 for most tees (the made-to-order Las Malvinas and Brownstone DJ tees calculate US shipping at checkout, from $5.96), and orders of 2 or more items ship free automatically for most tees.
+Yes. FLYLYFE ships worldwide to 200+ countries (every country except Russia and Belarus). International shipping is calculated by weight at checkout, from $19.49 for one tee (Canada from $19.99), and any import duties, VAT or customs fees charged on delivery are paid by the customer. US standard shipping is calculated by weight at checkout, from $11.49 for one tee.
 
 ### What are FLYLYFE tees made of?
 FLYLYFE tees are printed to order on the Comfort Colors 1717 — a heavyweight, garment-dyed, 100% ring-spun cotton blank — using DTF transfer printing in Los Angeles, USA, with a tagless printed inside-neck label.
@@ -170,4 +170,4 @@ Garage house is the New York strain of house music, named after the Paradise Gar
 - Las Malvinas Tee — Remera Las Malvinas Son Argentinas con letras pintadas a mano en la espalda. Algodón pesado Comfort Colors, USD $39.99. Envío a Argentina. Comprá online. — https://www.flylyfe.com/es/remera-las-malvinas-son-argentinas/
 - Las Malvinas Campeones Tee — Remera Argentina 3 estrellas: campeones 1978, 1986 y 2022, Malvinas dorada y 15 de julio 2026. Algodón premium, USD $39.99. Envío internacional. — https://www.flylyfe.com/es/remera-argentina-3-estrellas/
 - ¿Qué significa «Las Malvinas son argentinas»? — Qué significa «Las Malvinas son argentinas»: origen de la frase, el reclamo de soberanía y la bandera de la Selección en la semifinal del Mundial 2026. — https://www.flylyfe.com/es/que-significa-las-malvinas-son-argentinas/
-- Las remeras Las Malvinas y Las Malvinas Campeones cuestan USD $39.99 y se envían a Argentina (producción 7–10 días hábiles; envío internacional se calcula al pagar).
+- Las remeras Las Malvinas y Las Malvinas Campeones cuestan USD $39.99 y se envían a Argentina (producción 7–10 días hábiles; envío a Argentina desde USD $19.49 por una remera, calculado por peso al pagar; los cargos de aduana al recibir corren por cuenta del comprador).

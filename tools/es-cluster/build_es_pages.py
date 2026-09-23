@@ -51,7 +51,7 @@ def render_links(text, depth):
         s = m.group(2)
         href = (('../' + s + '/') if depth == 2 else (s + '/')) if s else (rel + 'es/')
         return f'<a href="{href}">{m.group(1)}</a>'
-    t = re.sub(r'\[([^\]]+)\]\(es:([a-z0-9-]*)\)', es_link, t)
+    t = re.sub(r'\[([^\]]+)\]\(es:/?([a-z0-9-]*)/?\)', es_link, t)
     return t
 
 def hreflang_block(key):
@@ -84,7 +84,7 @@ def head_block(key, pkg, depth, ogtype, ogimage):
         '<link rel="preconnect" href="https://fonts.googleapis.com">\n'
         '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n'
         '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,600;0,700&family=Anton&family=JetBrains+Mono:wght@400;500&display=swap" media="print" onload="this.media=\'all\'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,600;0,700&family=Anton&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>\n'
-        f'<link rel="stylesheet" href="{rel}css/style.css?v=20260818-es">\n'
+        f'<link rel="stylesheet" href="{rel}css/style.css?v=20260923-shipping">\n'
         f'<link rel="stylesheet" href="{rel}css/product.css?v=20260818-es">\n'
         f'<link rel="stylesheet" href="{rel}css/seo-pages.css?v=20260818-es">',
         '<script defer src="/js/analytics.js?v=20260906"></script>'
@@ -377,7 +377,7 @@ def patch_llms():
     for k in ('pdp-malvinas', 'pdp-campeones', 'article'):
         pkg = PAGES[k][0]
         block.append(f'- {pkg["h1"]} — {pkg["metaDescription"]} — {es_url(k)}')
-    block.append('- Las remeras Las Malvinas y Las Malvinas Campeones cuestan USD $39.99 y se envían a Argentina (producción 7–10 días hábiles; envío internacional se calcula al pagar).')
+    block.append('- Las remeras Las Malvinas y Las Malvinas Campeones cuestan USD $39.99 y se envían a Argentina (producción 7–10 días hábiles; envío a Argentina desde USD $19.49 por una remera, calculado por peso al pagar; los cargos de aduana al recibir corren por cuenta del comprador).')
     s = s.rstrip('\n') + '\n' + '\n'.join(block) + '\n'
     open(p, 'w').write(s)
     print('llms.txt: ES section added')

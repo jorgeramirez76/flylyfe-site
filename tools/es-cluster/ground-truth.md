@@ -17,10 +17,10 @@
 - FIFA opened disciplinary cases over the banner ("demonstrations of a non-sporting nature") and a post-final scuffle.
 
 ## Shipping / returns (to Argentina & international — verified in Shopify + GMC)
-- Both Malvinas tees ship internationally. International flat rate: $19.00 USD to Argentina (Rest of world $19 for General-profile products; las-malvinas-tee sits in the Apliiq POD profile — its checkout-calculated international rate starts around $13.50; SAFE copy: "envío internacional desde USD $13.50 — se calcula al pagar" for las-malvinas-tee, "envío internacional USD $19" for campeones. If in doubt, say rates are shown at checkout.)
+- Both Malvinas tees ship internationally (FLYLYFE ships to 200+ countries — every country except Russia and Belarus). International shipping is calculated by weight at checkout, from $19.49 USD for one tee (UK, Ireland, EU, Argentina and most countries $19.49; Canada from $19.99). Heavier or multi-tee orders cost more (e.g. two regular-weight tees such as the Campeones to Argentina/most countries $22.49; three tees ~$28.99) — never promise a two-tee price. SAFE copy: "envío a Argentina desde USD $19.49 por una remera — se calcula por peso al pagar". Price format on /es/ pages is always "USD $NN.NN" (dot decimal), matching "USD $39.99". Import duties/VAT/customs fees charged by the destination country on delivery are the buyer's responsibility (ES: "los cargos de aduana al recibir corren por cuenta del comprador").
 - Production: made to order, 7–10 business days before shipping. Argentina delivery after dispatch ≈ 10–21 business days.
 - Returns: 30 days, unworn/unwashed; international return shipping back to the US is the customer's responsibility.
-- US: flat $4.75, free on 2+ items.
+- US: calculated by weight at checkout — from $11.49 for one tee. Two regular-weight tees are about $12.49, but two of the lighter Las Malvinas (original) tees are $11.49, so never state a universal two-tee price. No free-shipping promo. Do not mention express/expedited shipping in copy at all (none today; one may be added later) — never claim it exists or that it never will.
 
 ## Spanish register requirements
 - Rioplatense Spanish: "remera" (NOT camiseta/playera/polera) for t-shirt. "Vos" register acceptable and natural for AR streetwear commerce; neutral "tu" also fine — pick ONE and be consistent.
