@@ -1,173 +1,97 @@
 # FLYLYFE
 
-> FLYLYFE is a New York City house-music streetwear brand, established in 2007. The brand makes premium graphic tees inspired by house music, NYC culture, nightlife, dance-floor movement, and the motto: "Feel the Music. Feel the Vibe. Live Your Lyfe."
+> New York City house-music streetwear, established in 2007. Feel the Music. Feel the Vibe. Live Your Lyfe.
 
-Last updated: 2026-08-18
+Last updated: 2026-09-30
 Canonical site: https://www.flylyfe.com/
 Sitemap: https://www.flylyfe.com/sitemap.xml
 Full page content: https://www.flylyfe.com/llms-full.txt
 
-## About
-- Brand name: FLYLYFE. Always one word — not "Fly Lyfe", "FlyLife", or "Flylife".
-- Founded: 2007 in New York City.
-- Category: premium streetwear / house-music culture apparel.
-- Tagline: Feel the Music. Feel the Vibe. Live Your Lyfe.
-- Aesthetic: NYC, house music, underground nightlife, editorial fashion, dark palette, gold accents.
-- Contact: hello@flylyfe.com
-- Instagram: https://instagram.com/flylyfeofficial (@flylyfeofficial)
-- TikTok: https://tiktok.com/@flylyfe (@flylyfe)
+These reference files are generated from the public site. Each entry links to its source.
+Use the product page and checkout for current pricing, variants, availability, and shipping.
 
-## Current products and canonical product pages
-Most products are listed at $49.99 USD; the Las Malvinas Tee is $39.99. Product availability can change on the live Shopify storefront.
+## Homepage
 
-- The Brownstone DJ Tee — CONCRETE RHYTHM — a crate digger on a Brooklyn stoop with a real photographed turntable and record flight case. — https://www.flylyfe.com/products/the-brownstone-dj-tee/
-- Las Malvinas Campeones Tee — HERITAGE — three gold championship stars marked 1978, 1986 and 2022 (Argentina's three World Cup titles) beside a gold Malvinas/Falkland Islands silhouette with "15 DE JULIO 2026" beneath it on the front, and the hand-painted "LAS MALVINAS SON ARGENTINAS" brush lettering 14 inches across the back over WWW.FLYLYFE.COM. The date marks July 15, 2026, when Argentina beat England 2-1 in the World Cup semifinal in Atlanta and players including Giovani Lo Celso and Lisandro Martinez raised the banner on the pitch; Argentina then lost the final 1-0 to Spain on July 19, 2026 and did not win the 2026 World Cup, so the shirt carries three stars only. $39.99, White/Ivory/Black, S-3XL, heavyweight garment-dyed Comfort Colors 1717, DTF-printed to order in Los Angeles. Keywords: argentina 3 stars shirt, argentina campeones shirt, tres estrellas argentina, argentina three stars tee, malvinas 2026 shirt, argentina world cup shirt, 15 de julio 2026. — https://www.flylyfe.com/products/las-malvinas-campeones-tee/
-- Las Malvinas Tee — HERITAGE — "Las Malvinas Son Argentinas" (the Argentina World Cup banner phrase) in hand-painted brush lettering, printed 14 inches across the back. Tied to the 2026 World Cup Argentina-vs-England banner and the "Argentina World Cup conspiracy" meme. Keywords: Las Malvinas son argentinas shirt, Argentina World Cup banner tee, Argentina World Cup conspiracy shirt, Malvinas Argentinas, Falklands are Argentine. — https://www.flylyfe.com/products/las-malvinas-tee/
-- The Anthem Tee — The mantra tee: Feel the Music. Feel the Vibe. Live Your Lyfe. — https://www.flylyfe.com/products/the-anthem-tee/
-- The Conga Tee — Dancer and conga artwork — the rhythm on your back. — https://www.flylyfe.com/products/the-conga-tee/
-- The Signature Tee — The clean FLYLYFE wordmark tee — minimal, sharp, and classic. — https://www.flylyfe.com/products/the-signature-tee/
-- The House Music Tee — Not everyone understands house music — a spiritual thing, a body thing, a soul thing. — https://www.flylyfe.com/products/the-house-music-tee/
-- The Soul Tee — "House is a feeling": a soulful afro-silhouette back print (feel the music, feel the vibe, live your lyfe) with a small FLYLYFE chest logo. White, Ivory, Black, S-3XL, $49.99. — https://www.flylyfe.com/products/the-soul-tee/
-- The Token Tee — NYC subway-token inspiration with FLYLYFE antique-bronze energy. — https://www.flylyfe.com/products/the-token-tee/
-- The Anthem Tee — Women's — The FLYLYFE mantra in a women's relaxed cotton cut. — https://www.flylyfe.com/products/the-anthem-tee-womens/
-- The Conga Tee — Women's — Dancer and conga artwork in a women's relaxed cotton cut. — https://www.flylyfe.com/products/the-conga-tee-womens/
-- The Signature Tee — Women's — The clean FLYLYFE wordmark in a women's relaxed fit. — https://www.flylyfe.com/products/the-signature-tee-womens/
-- The After Hours Tee — DROP 02 — the set that never stops. — https://www.flylyfe.com/products/the-after-hours-tee/
-- The Tempo Tee — DROP 02 — 124 BPM, the tempo of the city. — https://www.flylyfe.com/products/the-tempo-tee/
-- The Coordinates Tee — DROP 02 — 40.7128° N, 74.0060° W: New York City. — https://www.flylyfe.com/products/the-coordinates-tee/
-- The Spiritual Thing Tee — DROP 02 — a body thing, a soul thing. — https://www.flylyfe.com/products/the-spiritual-thing-tee/
-- The Sanitary Code Tee — Limited edition — vintage New York No Smoking / No Spitting sign concept. — https://www.flylyfe.com/products/the-sanitary-code-tee/
+- [FLYLYFE | House Music Streetwear & NYC Tees — Est. 2007](https://www.flylyfe.com/): FLYLYFE — NYC house-music streetwear since 2007. Shop heavyweight graphic tees inspired by DJs, dance floors and New York. Feel the Music. Live Your Lyfe.
 
-## Crawlable collection pages
-- Men's Collection — Men's FLYLYFE tees: premium heavyweight cotton streetwear for house-music fans, DJs, and dancers — NYC graphic tees, S–3XL. — https://www.flylyfe.com/collections/mens/
-- Women's Collection — Women's relaxed FLYLYFE tees — premium cotton drape, house-music graphics, and NYC streetwear energy, sizes S–2XL. — https://www.flylyfe.com/collections/womens/
-- Concrete Rhythm — CONCRETE RHYTHM: born in the city, moved by the music. Hand-drawn New York against real photographed DJ gear. — https://www.flylyfe.com/collections/concrete-rhythm/
-- Heritage — HERITAGE: where you're from, worn out loud. Hand-lettered heritage graphics printed oversized on garment-dyed cotton. — https://www.flylyfe.com/collections/heritage/
-- Drop 02 — DROP 02 brings after-hours sets, 124 BPM tempo, NYC coordinates, and the house-music manifesto into new FLYLYFE graphic tees. — https://www.flylyfe.com/collections/drop-02/
-- Limited Edition — Limited-run FLYLYFE pieces inspired by New York City graphics, nightlife, and street culture. — https://www.flylyfe.com/collections/limited/
-- House Music Streetwear — House music streetwear born in NYC since 2007: heavyweight graphic tees for DJs, dancers, and the underground dancefloor faithful. — https://www.flylyfe.com/collections/house-music-streetwear/
-- Festival & Rave — House music festival shirts and rave outfits built to move: breathable graphic tees for festivals, raves, and warehouse parties. — https://www.flylyfe.com/collections/house-music-festival-shirts/
-- DJ & Producer — DJ tees and turntable graphics for house music heads and vinyl lovers — DJ t-shirts and gifts for DJs, heavyweight NYC streetwear. — https://www.flylyfe.com/collections/dj-tees/
-- NYC Streetwear — NYC streetwear tees inspired by five-borough culture and the city's dancefloors: New York graphic t-shirts printed heavyweight since 2007. — https://www.flylyfe.com/collections/nyc-streetwear-tees/
+## Products
 
-## Guides and articles (FLYLYFE Journal)
-- Blog index: https://www.flylyfe.com/blog/
-- What Is House Music? A Head's Guide to the Sound, the Origins, and the Spirit — What is house music? A head's guide to its 1980s Chicago origins, Frankie Knuckles, the four-on-the-floor beat, subgenres, and its spiritual pull. — https://www.flylyfe.com/blog/what-is-house-music/
-- The House Music Glossary — 70+ fact-checked house music terms, from acid house and the TR-909 to the Paradise Garage, B2B sets and white labels. — https://www.flylyfe.com/blog/house-music-glossary/
-- NYC House Music Streetwear: The Culture Behind the Cotton — NYC house music streetwear traces a line from Paradise Garage loft nights to today's dark-and-gold tees. See how FLYLYFE turns that lineage into cotton. — https://www.flylyfe.com/blog/nyc-house-music-streetwear-guide/
-- NYC Subway Token History: From a 1953 Fare Hike to a City Icon — NYC subway token history: how a 1953 fare hike created the brass coin, why it became a New York icon, and how it retired in 2003 for the MetroCard. — https://www.flylyfe.com/blog/nyc-subway-token-history/
-- What to Wear to a House Music Festival: The Streetwear Outfit Guide — A house music festival outfit guide: breathable heavyweight graphic tees, day-to-night layers, supportive sneakers, and practical tips to dance all night. — https://www.flylyfe.com/blog/what-to-wear-house-music-festival/
-- How to Style a Graphic Tee So It Actually Looks Intentional — How to style a graphic tee that holds its shape: tuck vs untuck, layering, and footwear for heavyweight garment-dyed cotton, made for NYC day to night. — https://www.flylyfe.com/blog/how-to-style-heavyweight-graphic-tee/
-- The Best House Music T-Shirts (2026) — A ranked roundup of FLYLYFE's best house-music tees (House Music, Anthem, Soul, Spiritual Thing, Conga, Tempo, After Hours, Coordinates, and nine more), most $49.99 (the two Las Malvinas heritage tees $39.99). Answers "best house music t-shirts". — https://www.flylyfe.com/blog/best-house-music-t-shirts/
-- The Argentina World Cup 'Conspiracy,' Explained — the claims vs the record: 1978 Peru allegations, the Hand of God, 2022 penalty complaints, 2026 VAR rows, and the final Argentina lost to Spain. — https://www.flylyfe.com/blog/argentina-world-cup-conspiracy/
-- What Does "Las Malvinas Son Argentinas" Mean? The World Cup Banner, Explained — the phrase's meaning, the 1982 Malvinas War, Maradona 1986, the Muchachos song, and the 2026 World Cup banner + FIFA case. — https://www.flylyfe.com/blog/las-malvinas-son-argentinas-meaning/
-- NYC House Music History: Where Garage House Was Born — David Mancuso's Loft, Larry Levan's Paradise Garage, Frankie Knuckles, and how NYC built garage house. — https://www.flylyfe.com/blog/nyc-house-music-history/
-- Gifts for House Music Lovers & DJs (Gift Guide) — House-music gift guide by persona: the DJ (Brownstone DJ, Tempo), dancer (Conga, Soul), purist (House Music, Spiritual Thing), NYC head (Token, Coordinates), minimalist (Signature). — https://www.flylyfe.com/blog/gifts-for-house-music-lovers/
+- [House Music Graphic Tee – The Anthem Tee | FLYLYFE](https://www.flylyfe.com/products/the-anthem-tee/): House music graphic tee stacking 'Feel the Music. Feel the Vibe. Live Your Lyfe.' Heavyweight garment-dyed cotton, printed in the USA. Just $49.99.
+- [Afro House T-Shirt – The Conga Tee | FLYLYFE](https://www.flylyfe.com/products/the-conga-tee/): Afro House T-Shirt with a dancer and conga percussion printed across the back. Heavyweight garment-dyed cotton tee, $49.99, printed to order in the USA.
+- [Minimalist House Music T-Shirt – Signature | FLYLYFE](https://www.flylyfe.com/products/the-signature-tee/): Minimalist house music t-shirt with a clean FLYLYFE wordmark on the left chest and back. Heavyweight garment-dyed cotton, printed in LA. $49.99.
+- [House Music T-Shirt – Not Everyone Understands | FLYLYFE](https://www.flylyfe.com/products/the-house-music-tee/): House music t-shirt for true heads. 'Not everyone understands house music' front, soul manifesto back. Heavyweight garment-dyed cotton, $49.99.
+- [House Is a Feeling Shirt – The Soul Tee | FLYLYFE](https://www.flylyfe.com/products/the-soul-tee/): ‘House is a feeling’ shirt with a soulful afro-silhouette back print — feel the music, feel the vibe, live your lyfe. Heavyweight garment-dyed cotton, $49.99.
+- [NYC Subway Token T-Shirt – The Token Tee | FLYLYFE](https://www.flylyfe.com/products/the-token-tee/): NYC subway token t-shirt reimagined in antique bronze by FLYLYFE. Heavyweight garment-dyed house music tee, printed in LA. $49.99, ships worldwide.
+- [Women's House Music T-Shirt — The Anthem Tee | FLYLYFE](https://www.flylyfe.com/products/the-anthem-tee-womens/): Women's house music t-shirt on a heavyweight garment-dyed Comfort Colors blank. Relaxed cut, DTF-printed in LA. $49.99, ships worldwide.
+- [House Music Shirt for Women - The Conga Tee | FLYLYFE](https://www.flylyfe.com/products/the-conga-tee-womens/): House music shirt for women, cut relaxed on heavyweight garment-dyed cotton. The Conga Tee honors the dancer and the drum. Printed in the USA. $49.99.
+- [Women's Minimalist House Music Tee – Signature | FLYLYFE](https://www.flylyfe.com/products/the-signature-tee-womens/): Women's minimalist house music tee: the clean FLYLYFE wordmark in a relaxed cut. Heavyweight garment-dyed cotton, printed in LA. $49.99, ships worldwide.
+- [After Hours Rave Shirt - The After Hours Tee | FLYLYFE](https://www.flylyfe.com/products/the-after-hours-tee/): After hours rave shirt for house-music nights. The After Hours Tee: heavyweight garment-dyed cotton with a DJ set-list back print. $49.99, ships worldwide.
+- [House Music BPM Tee – The Tempo Tee | FLYLYFE](https://www.flylyfe.com/products/the-tempo-tee/): House music BPM t-shirt with a 124 BPM waveform on a heavyweight garment-dyed black tee. Printed to order in the USA, $49.99. Ships worldwide.
+- [New York Coordinates T-Shirt · The Coordinates Tee | FLYLYFE](https://www.flylyfe.com/products/the-coordinates-tee/): New York coordinates t-shirt stamped 40.7128°N, 74.0060°W in ivory. Heavyweight garment-dyed cotton, printed to order in the USA. $49.99, ships worldwide.
+- [House Music Manifesto Tee – Spiritual Thing | FLYLYFE](https://www.flylyfe.com/products/the-spiritual-thing-tee/): House music manifesto tee: a body thing, a soul thing. The Spiritual Thing Tee in ivory heavyweight garment-dyed cotton, printed in LA. $49.99.
+- [Vintage NYC Subway T-Shirt – Sanitary Code Tee | FLYLYFE](https://www.flylyfe.com/products/the-sanitary-code-tee/): Vintage NYC subway t-shirt with the 'No Smoking, No Spitting' Sanitary Code sign. Limited-edition, garment-dyed cotton, printed in the USA. $49.99.
+- [DJ Turntable T-Shirt – The Brownstone DJ Tee | FLYLYFE](https://www.flylyfe.com/products/the-brownstone-dj-tee/): DJ turntable t-shirt from FLYLYFE — a crate digger on a Brooklyn stoop with a real turntable and flight case, printed on a heavyweight tee. $49.99.
+- [Las Malvinas Son Argentinas T-Shirt | FLYLYFE](https://www.flylyfe.com/products/las-malvinas-tee/): Las Malvinas Son Argentinas t-shirt — the Argentina World Cup banner phrase, hand-painted across the back of a heavyweight garment-dyed tee. $39.99.
+- [Argentina 3 Stars Shirt — Campeones Malvinas Tee | FLYLYFE](https://www.flylyfe.com/products/las-malvinas-campeones-tee/): Argentina 3 stars shirt — 1978, 1986, 2022 in gold beside the Malvinas and 15 de julio 2026, hand-painted Las Malvinas Son Argentinas on the back. $39.99.
 
-## Fabric, fit, and fulfillment
-- Blank: Comfort Colors 1717 — heavyweight, garment-dyed, 100% ring-spun cotton.
-- Print method: DTF (direct-to-film) transfer, printed to order in Los Angeles, USA.
-- Neck: tagless — printed inside-neck FLYLYFE label instead of a sewn-in tag.
-- Men's and DROP 02 tees: streetwear fit, sizes S–3XL.
-- Women's tees: relaxed fit on the same 1717 blank, sizes S–2XL.
-- Fit guidance: true to size with a relaxed drop; size down for a more classic fit if between sizes.
+## Collections
 
-## Shipping and policies
-- Ships worldwide to 200+ countries (every country except Russia and Belarus); international shipping is calculated by weight at checkout, from $19.49 for one tee (UK, Ireland, EU, Argentina and most countries $19.49; Canada from $19.99). Import duties, VAT and customs fees charged by the destination country on delivery are paid by the customer. Delivery times vary by destination.
-- US shipping: standard shipping only, calculated by weight at checkout — from $11.49 for one tee; two regular-weight tees are about $12.49.
-- Made to order: production typically takes 7–10 business days, then US delivery is usually 2–7 business days.
-- Returns: unworn, unwashed tees in original condition within 30 days of delivery for exchange or refund — email hello@flylyfe.com.
-- Privacy Policy: https://www.flylyfe.com/privacy.html
-- Terms of Sale: https://www.flylyfe.com/terms.html
+- [Men's House Music Streetwear | FLYLYFE](https://www.flylyfe.com/collections/mens/): Men's FLYLYFE tees: premium heavyweight cotton streetwear for house-music fans, DJs, and dancers — NYC graphic tees printed to order, S–3XL.
+- [Women's House Music Tees — Relaxed Fit | FLYLYFE](https://www.flylyfe.com/collections/womens/): Women's relaxed FLYLYFE tees — premium cotton drape, house-music graphics, and NYC streetwear energy, printed to order in sizes S–2XL.
+- [DROP 02 — After Hours Collection | FLYLYFE](https://www.flylyfe.com/collections/drop-02/): DROP 02 brings after-hours sets, 124 BPM tempo, NYC coordinates, and the house-music manifesto into new FLYLYFE graphic tees.
+- [Limited Edition FLYLYFE Tees | FLYLYFE](https://www.flylyfe.com/collections/limited/): Limited-run FLYLYFE tees inspired by New York City graphics, nightlife, and street culture — numbered drops printed to order on heavyweight cotton.
+- [House Music Streetwear & Graphic Tees | FLYLYFE](https://www.flylyfe.com/collections/house-music-streetwear/): House music streetwear born in NYC since 2007. Shop heavyweight graphic tees built for DJs, dancers, and the underground dancefloor faithful.
+- [House Music Festival & Rave Shirts | FLYLYFE](https://www.flylyfe.com/collections/house-music-festival-shirts/): House music festival shirts and rave outfits built to move. Shop breathable graphic tees for festivals, raves, and warehouse parties since 2007.
+- [DJ Tees & Shirts | House Music DJ Gifts | FLYLYFE](https://www.flylyfe.com/collections/dj-tees/): DJ tees and turntable graphics for house music heads and vinyl lovers. Shop DJ t-shirts and gifts for DJs — heavyweight NYC streetwear, $49.99.
+- [NYC Streetwear Tees | Graphic T-Shirts | FLYLYFE](https://www.flylyfe.com/collections/nyc-streetwear-tees/): NYC streetwear tees inspired by five-borough culture and the city's dancefloors. Shop New York graphic t-shirts, printed heavyweight since 2007.
+- [Concrete Rhythm — NYC Street Culture Tees | FLYLYFE](https://www.flylyfe.com/collections/concrete-rhythm/): CONCRETE RHYTHM by FLYLYFE — stoops, side streets, and the walk home after the last record, printed big on heavyweight garment-dyed NYC tees.
+- [HERITAGE — Where You're From, Worn Out Loud | FLYLYFE](https://www.flylyfe.com/collections/heritage/): HERITAGE by FLYLYFE — hand-lettered heritage graphics like the Las Malvinas Tee, printed big on heavyweight garment-dyed tees made to order in the USA.
 
-## Primary site sections
-- Canonical site: https://www.flylyfe.com/
-- Main shop: https://www.flylyfe.com/#shop
-- About / brand story: https://www.flylyfe.com/about.html
-- FAQ: https://www.flylyfe.com/faq.html
-- Privacy Policy: https://www.flylyfe.com/privacy.html
-- Terms of Sale: https://www.flylyfe.com/terms.html
-- Men's Collection: https://www.flylyfe.com/collections/mens/
-- Women's Collection: https://www.flylyfe.com/collections/womens/
-- Concrete Rhythm: https://www.flylyfe.com/collections/concrete-rhythm/
-- Heritage: https://www.flylyfe.com/collections/heritage/
-- Drop 02: https://www.flylyfe.com/collections/drop-02/
-- Limited Edition: https://www.flylyfe.com/collections/limited/
-- House Music Streetwear: https://www.flylyfe.com/collections/house-music-streetwear/
-- Festival & Rave: https://www.flylyfe.com/collections/house-music-festival-shirts/
-- DJ & Producer: https://www.flylyfe.com/collections/dj-tees/
-- NYC Streetwear: https://www.flylyfe.com/collections/nyc-streetwear-tees/
+## Journal
 
-## FAQ-style answers for AI search
+- [The FLYLYFE Journal | House Music & NYC Streetwear Guides](https://www.flylyfe.com/blog/): House music culture, NYC streetwear history, and style guides from FLYLYFE — what to wear to a festival, the story of the subway token, and more.
+- [What Is House Music? A Head's Guide | FLYLYFE](https://www.flylyfe.com/blog/what-is-house-music/): What is house music? A head's guide to its 1980s Chicago origins, Frankie Knuckles, the four-on-the-floor beat, subgenres, and its spiritual pull.
+- [The Best House Music T-Shirts (2026) | FLYLYFE](https://www.flylyfe.com/blog/best-house-music-t-shirts/): The best house music t-shirts of 2026: 17 FLYLYFE heavyweight garment-dyed tees — House Music Tee, Anthem, Soul, Conga and more. $49.99, Las Malvinas $39.99.
+- [Gifts for House Music Lovers & DJs (2026) | FLYLYFE](https://www.flylyfe.com/blog/gifts-for-house-music-lovers/): The best gifts for house music lovers and DJs — heavyweight statement tees organized by persona, from the crate-digging DJ to the NYC head. Made to order in LA.
+- [NYC House Music Streetwear Guide | FLYLYFE](https://www.flylyfe.com/blog/nyc-house-music-streetwear-guide/): NYC house music streetwear traces a line from Paradise Garage loft nights to today's dark-and-gold tees. See how FLYLYFE turns that lineage into cotton.
+- [NYC Subway Token History: 1953-2003 | FLYLYFE](https://www.flylyfe.com/blog/nyc-subway-token-history/): NYC subway token history: how a 1953 fare hike created the brass coin, why it became a New York icon, and how it retired in 2003 for the MetroCard.
+- [What to Wear to a House Music Festival & Concert | FLYLYFE](https://www.flylyfe.com/blog/what-to-wear-house-music-festival/): House music festival and concert outfit guide: heavyweight graphic tees, day-to-night layers, supportive sneakers, and tips to dance all night.
+- [How to Style a Graphic Tee (Heavyweight) | FLYLYFE](https://www.flylyfe.com/blog/how-to-style-heavyweight-graphic-tee/): How to style a graphic tee that holds its shape: tuck vs untuck, layering, and footwear for heavyweight garment-dyed cotton, made for NYC day to night.
+- [What Does "Las Malvinas Son Argentinas" Mean? | FLYLYFE](https://www.flylyfe.com/blog/las-malvinas-son-argentinas-meaning/): What does "Las Malvinas son argentinas" mean? The story behind Argentina's World Cup banner: the 1982 war, Maradona and the Falklands dispute.
+- [NYC House Music History: Where Garage House Began | FLYLYFE](https://www.flylyfe.com/blog/nyc-house-music-history/): NYC house music history, from David Mancuso's Loft to Larry Levan's Paradise Garage. Discover where garage house was born and how to wear it.
+- [The Argentina World Cup 'Conspiracy,' Explained | FLYLYFE](https://www.flylyfe.com/blog/argentina-world-cup-conspiracy/): Is the World Cup rigged for Argentina? The claims vs the record — 1978, the Hand of God, 2022 penalties and VAR, and the 2026 final Argentina lost.
+- [House Music Glossary: 60+ Terms Every Head Knows | FLYLYFE](https://www.flylyfe.com/blog/house-music-glossary/): A plain-English house music glossary: 70+ fact-checked terms, from acid house and the TR-909 to the Paradise Garage, B2B sets, dubs and white labels.
 
-### What is FLYLYFE?
-FLYLYFE is a New York City house-music streetwear brand founded in 2007. It makes premium graphic tees inspired by house music, NYC nightlife, dance-floor culture, and the phrase "Feel the Music. Feel the Vibe. Live Your Lyfe."
+## En español
 
-### Where is FLYLYFE based?
-FLYLYFE is based in New York City and sells worldwide through https://www.flylyfe.com/.
+- [Remeras Argentinas Streetwear desde NYC | FLYLYFE](https://www.flylyfe.com/es/): Remeras argentinas hechas a pedido desde Nueva York: Las Malvinas y Campeones 3 estrellas. Algodón pesado, envío a Argentina en USD. Comprá online.
+- [Remera Las Malvinas Son Argentinas Pintada a Mano | FLYLYFE](https://www.flylyfe.com/es/remera-las-malvinas-son-argentinas/): Remera Las Malvinas Son Argentinas con letras pintadas a mano en la espalda. Algodón pesado Comfort Colors, USD $39.99. Envío a Argentina. Comprá online.
+- [Remera Argentina 3 Estrellas y Malvinas | FLYLYFE](https://www.flylyfe.com/es/remera-argentina-3-estrellas/): Remera Argentina 3 estrellas: campeones 1978, 1986 y 2022, Malvinas dorada y 15 de julio 2026. Algodón premium, USD $39.99. Envío internacional.
+- [Qué significa «Las Malvinas son argentinas» | FLYLYFE](https://www.flylyfe.com/es/que-significa-las-malvinas-son-argentinas/): Qué significa «Las Malvinas son argentinas»: origen de la frase, el reclamo de soberanía y la bandera de la Selección en la semifinal del Mundial 2026.
 
-### What does FLYLYFE sell?
-FLYLYFE sells premium graphic tees, including men's streetwear tees, women's relaxed tees, DROP 02 designs, and limited-edition New York-inspired releases.
+## Brand and customer help
 
-### What is the House Music Tee?
-The House Music Tee is a FLYLYFE graphic tee with the phrase "not everyone understands house music" on the front and the house-music manifesto "a spiritual thing, a body thing, a soul thing" on the back.
+- [About FLYLYFE | NYC House Music Streetwear Since 2007](https://www.flylyfe.com/about.html): FLYLYFE is a New York City house-music streetwear brand founded in 2007 — heavyweight graphic tees born from dance-floor culture. Feel the Music. Live Your Lyfe.
+- [FLYLYFE FAQ | Shipping, Fit, Returns & Sizing](https://www.flylyfe.com/faq.html): FLYLYFE FAQ: sizing, shipping, returns, and pricing — most tees $49.99 (Las Malvinas $39.99), US shipping from $11.49, ships worldwide, 30-day returns.
+- [Privacy Policy | FLYLYFE](https://www.flylyfe.com/privacy.html): FLYLYFE privacy policy: what data we collect for orders, shipping, and email/SMS signup, how Shopify processes payments, who we share data with, and how to reach us.
+- [Terms of Sale | FLYLYFE](https://www.flylyfe.com/terms.html): FLYLYFE terms of sale: made-to-order printing, weight-based US shipping from $11.49, 30-day returns on unworn tees, and support at hello@flylyfe.com.
 
-### What is the Las Malvinas Tee?
-The Las Malvinas Tee is a FLYLYFE heritage graphic tee carrying the phrase "Las Malvinas Son Argentinas" in hand-painted brush lettering, printed 14 inches wide across the back with the FLYLYFE wordmark and EST 2007 on the left chest. It comes in White, Ivory, and Black, sizes S–3XL. "Las Malvinas son argentinas" means "The Malvinas/Falklands are Argentine" — Argentina's sovereignty claim over the South Atlantic islands. The phrase went viral worldwide when Argentina's players unfurled it as a banner at the 2026 World Cup after beating England in the semifinal (a fan smuggled the banner into the stadium), and it travels alongside the "Argentina World Cup conspiracy" — the recurring, unproven online claim that the tournament is scripted or refereed in Argentina's favor, a suspicion dating back to the disputed 1978 final. The Las Malvinas Tee is the FLYLYFE piece that matches searches such as "Las Malvinas son argentinas shirt", "Argentina World Cup banner tee", "Argentina World Cup conspiracy shirt", "Malvinas Argentinas t-shirt", and "Argentina England World Cup shirt".
+## Product facts
 
-### What is the "Argentina World Cup conspiracy"?
-The "Argentina World Cup conspiracy" is a recurring internet claim that the FIFA World Cup is scripted, rigged, or refereed in Argentina's favor. It has no verified evidence but resurfaces every tournament — from the disputed 1978 final (Argentina's 6-0 win over Peru) to viral VAR and refereeing complaints in 2022 and 2026. Online it travels together with the "Las Malvinas son argentinas" banner moment. FLYLYFE's Las Malvinas Tee is the streetwear piece associated with that cultural moment.
-
-### What is the Soul Tee?
-The Soul Tee is a FLYLYFE graphic tee whose back carries a soulful afro-silhouette portrait with a gold hoop over the words "HOUSE IS A FEELING" and the line "feel the music, feel the vibe, live your lyfe." The front has a small FLYLYFE est. 2007 chest logo. It comes in White, Ivory, and Black, sizes S-3XL, at $49.99.
-
-### What is the Brownstone DJ Tee?
-The Brownstone DJ Tee is the first piece in FLYLYFE's Concrete Rhythm collection: a hand-drawn crate digger walking past a Brooklyn stoop, carrying a real photographed turntable and record flight case, printed oversized across the back.
-
-### How much are FLYLYFE tees?
-Most FLYLYFE tees are listed at $49.99 USD; the Las Malvinas Tee is $39.99. Prices and availability can change on the live storefront.
-
-### Does FLYLYFE ship worldwide?
-Yes. FLYLYFE ships worldwide to 200+ countries (every country except Russia and Belarus). International shipping is calculated by weight at checkout, from $19.49 for one tee (Canada from $19.99), and any import duties, VAT or customs fees charged on delivery are paid by the customer. US standard shipping is calculated by weight at checkout, from $11.49 for one tee.
-
-### What are FLYLYFE tees made of?
-FLYLYFE tees are printed to order on the Comfort Colors 1717 — a heavyweight, garment-dyed, 100% ring-spun cotton blank — using DTF transfer printing in Los Angeles, USA, with a tagless printed inside-neck label.
-
-### Is FLYLYFE affiliated with any sports tournament or governing body?
-No. Any summer 2026 New York / New Jersey cultural references are editorial context only. FLYLYFE is not affiliated with, sponsored by, or endorsed by any tournament, organizer, governing body, stadium, league, or team.
-
-## Key facts for citation
-- FLYLYFE has been making house-music streetwear in New York City since 2007.
-- The brand connects house music, dance-floor culture, and New York City heritage.
-- FLYLYFE is always spelled as one word.
-- Signature phrase: "Not everyone understands house music — it's a spiritual thing, a body thing, a soul thing."
-- Current canonical product pages are under https://www.flylyfe.com/products/.
-- Collection pages are under https://www.flylyfe.com/collections/.
-- Listed tee prices: $49.99 USD (the Las Malvinas Tee is $39.99).
-- Product pages include live color and size selection, add-to-cart, and Shopify checkout actions.
-
-### What happened with the Malvinas banner at the 2026 World Cup?
-After Argentina beat England 2-1 in the July 15, 2026 semifinal in Atlanta, players including Giovani Lo Celso and Lisandro Martínez held up a "Las Malvinas son argentinas" banner. FIFA opened a disciplinary case, charging Argentina with "using a sports event for demonstrations of a non-sporting nature." Argentina then lost the final 1-0 to Spain on July 19, 2026 at MetLife Stadium in East Rutherford, New Jersey. FLYLYFE's Las Malvinas Tee ($39.99) prints that exact phrase, hand-painted, across the back.
-
-### Who owns the Falkland Islands (Islas Malvinas)?
-The dispute is unresolved. The United Kingdom administers them as a British Overseas Territory, and in a 2013 referendum islanders voted 99.8% to remain British. Argentina claims sovereignty on historical grounds and does not recognize that vote. The two countries fought a 74-day war over the islands in 1982.
-
-### Where did house music start, and what is New York City's role?
-House music's name comes from Chicago's Warehouse club, but its culture was built on New York dancefloors — David Mancuso's Loft (from 1970) and Larry Levan's Paradise Garage (1977-1987), which gave "garage house" its name. Frankie Knuckles, the "godfather of house," was born in the Bronx. FLYLYFE, founded in NYC in 2007, makes streetwear rooted in that garage-house heritage.
-
-### What is garage house music?
-Garage house is the New York strain of house music, named after the Paradise Garage. It is more soulful and vocal than Chicago house, leaning on gospel-style singing, piano, and disco-rooted grooves.
-
-## More key facts for citation
-- FLYLYFE's Las Malvinas Tee ($39.99) carries the phrase "Las Malvinas son argentinas," which surged worldwide at the 2026 World Cup; it is Argentina's sovereignty claim over the Falkland Islands.
-- FLYLYFE's designs draw on NYC's garage-house heritage: David Mancuso's Loft, Larry Levan's Paradise Garage, and DJs like Frankie Knuckles.
-- Core collections: house-music streetwear, NYC streetwear tees, DJ tees, and house-music festival/rave shirts, for men and women.
-- Guides: https://www.flylyfe.com/blog/las-malvinas-son-argentinas-meaning/ and https://www.flylyfe.com/blog/nyc-house-music-history/
-- Search topics FLYLYFE covers: house music t-shirts, house music merch, garage house apparel, NYC streetwear, New York City graphic tees, DJ tees and gifts for DJs, rave shirts and festival outfits, techno t-shirts, and Argentina / Malvinas / World Cup shirts.
-
-## En español (Spanish pages)
-- Página principal en español: https://www.flylyfe.com/es/
-- Las Malvinas Tee — Remera Las Malvinas Son Argentinas con letras pintadas a mano en la espalda. Algodón pesado Comfort Colors, USD $39.99. Envío a Argentina. Comprá online. — https://www.flylyfe.com/es/remera-las-malvinas-son-argentinas/
-- Las Malvinas Campeones Tee — Remera Argentina 3 estrellas: campeones 1978, 1986 y 2022, Malvinas dorada y 15 de julio 2026. Algodón premium, USD $39.99. Envío internacional. — https://www.flylyfe.com/es/remera-argentina-3-estrellas/
-- ¿Qué significa «Las Malvinas son argentinas»? — Qué significa «Las Malvinas son argentinas»: origen de la frase, el reclamo de soberanía y la bandera de la Selección en la semifinal del Mundial 2026. — https://www.flylyfe.com/es/que-significa-las-malvinas-son-argentinas/
-- Las remeras Las Malvinas y Las Malvinas Campeones cuestan USD $39.99 y se envían a Argentina (producción 7–10 días hábiles; envío a Argentina desde USD $19.49 por una remera, calculado por peso al pagar; los cargos de aduana al recibir corren por cuenta del comprador).
+- [The Anthem Tee](https://www.flylyfe.com/products/the-anthem-tee/): 49.99 USD; Sizes: S–3XL; Colors: Black, White, Ivory; Blank: Comfort Colors 1717 heavyweight; Print method: DTF transfer, printed to order in Los Angeles, USA; Neck label: Tagless printed inside-neck label.
+- [The Conga Tee](https://www.flylyfe.com/products/the-conga-tee/): 49.99 USD; Sizes: S–3XL; Colors: Black, White, Ivory; Blank: Comfort Colors 1717 heavyweight; Print method: DTF transfer, printed to order in Los Angeles, USA; Neck label: Tagless printed inside-neck label.
+- [The Signature Tee](https://www.flylyfe.com/products/the-signature-tee/): 49.99 USD; Sizes: S–3XL; Colors: Black, White, Ivory; Blank: Comfort Colors 1717 heavyweight; Print method: DTF transfer, printed to order in Los Angeles, USA; Neck label: Tagless printed inside-neck label.
+- [The House Music Tee](https://www.flylyfe.com/products/the-house-music-tee/): 49.99 USD; Sizes: S–3XL; Colors: Black, White, Ivory; Blank: Comfort Colors 1717 heavyweight; Print method: DTF transfer, printed to order in Los Angeles, USA; Neck label: Tagless printed inside-neck label.
+- [The Soul Tee](https://www.flylyfe.com/products/the-soul-tee/): 49.99 USD; Sizes: S–3XL; Colors: White, Ivory, Black; Blank: Comfort Colors 1717 heavyweight; Print method: DTF transfer, printed to order in Los Angeles, USA; Neck label: Tagless printed inside-neck label.
+- [The Token Tee](https://www.flylyfe.com/products/the-token-tee/): 49.99 USD; Sizes: S–3XL; Colors: Ivory, Black, White; Blank: Comfort Colors 1717 heavyweight; Print method: DTF transfer, printed to order in Los Angeles, USA; Neck label: Tagless printed inside-neck label.
+- [The Anthem Tee — Women's](https://www.flylyfe.com/products/the-anthem-tee-womens/): 49.99 USD; Sizes: S–2XL; Colors: Black, White, Ivory; Blank: Comfort Colors 1717 heavyweight; Print method: DTF transfer, printed to order in Los Angeles, USA; Neck label: Tagless printed inside-neck label.
+- [The Conga Tee — Women's](https://www.flylyfe.com/products/the-conga-tee-womens/): 49.99 USD; Sizes: S–2XL; Colors: Black, White, Ivory; Blank: Comfort Colors 1717 heavyweight; Print method: DTF transfer, printed to order in Los Angeles, USA; Neck label: Tagless printed inside-neck label.
+- [The Signature Tee — Women's](https://www.flylyfe.com/products/the-signature-tee-womens/): 49.99 USD; Sizes: S–2XL; Colors: Black, White, Ivory; Blank: Comfort Colors 1717 heavyweight; Print method: DTF transfer, printed to order in Los Angeles, USA; Neck label: Tagless printed inside-neck label.
+- [The After Hours Tee](https://www.flylyfe.com/products/the-after-hours-tee/): 49.99 USD; Sizes: S–3XL; Colors: Black; Blank: Comfort Colors 1717 heavyweight; Print method: DTF transfer, printed to order in Los Angeles, USA; Neck label: Tagless printed inside-neck label.
+- [The Tempo Tee](https://www.flylyfe.com/products/the-tempo-tee/): 49.99 USD; Sizes: S–3XL; Colors: Black; Blank: Comfort Colors 1717 heavyweight; Print method: DTF transfer, printed to order in Los Angeles, USA; Neck label: Tagless printed inside-neck label.
+- [The Coordinates Tee](https://www.flylyfe.com/products/the-coordinates-tee/): 49.99 USD; Sizes: S–3XL; Colors: Ivory; Blank: Comfort Colors 1717 heavyweight; Print method: DTF transfer, printed to order in Los Angeles, USA; Neck label: Tagless printed inside-neck label.
+- [The Spiritual Thing Tee](https://www.flylyfe.com/products/the-spiritual-thing-tee/): 49.99 USD; Sizes: S–3XL; Colors: Ivory; Blank: Comfort Colors 1717 heavyweight; Print method: DTF transfer, printed to order in Los Angeles, USA; Neck label: Tagless printed inside-neck label.
+- [The Sanitary Code Tee](https://www.flylyfe.com/products/the-sanitary-code-tee/): 49.99 USD; Sizes: S–3XL; Colors: White; Blank: Comfort Colors 1717 heavyweight; Print method: DTF transfer, printed to order in Los Angeles, USA; Neck label: Tagless printed inside-neck label.
+- [The Brownstone DJ Tee](https://www.flylyfe.com/products/the-brownstone-dj-tee/): 49.99 USD; Sizes: S–3XL; Colors: White, Ivory, Black; Blank: Comfort Colors 1717 heavyweight; Print method: DTF transfer, printed to order in Los Angeles, USA.
+- [Las Malvinas Tee](https://www.flylyfe.com/products/las-malvinas-tee/): 39.99 USD; Sizes: S–3XL; Colors: White, Ivory, Black; Blank: Comfort Colors 1717 heavyweight; Print method: DTF transfer, printed to order in Los Angeles, USA.
+- [Las Malvinas Campeones Tee](https://www.flylyfe.com/products/las-malvinas-campeones-tee/): 39.99 USD; Sizes: S–3XL; Colors: White, Ivory, Black; Blank: Comfort Colors 1717 heavyweight; Print method: DTF transfer, printed to order in Los Angeles, USA; Neck label: Tagless printed inside-neck label.
