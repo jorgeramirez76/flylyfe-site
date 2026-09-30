@@ -451,3 +451,10 @@ body.has-js .reveal.in{opacity:1;transform:none}
 .all-tees__links a{color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(200,164,90,.35)}
 .all-tees__links a:hover{border-bottom-color:var(--gold)}
 .all-tees__links{line-height:2.1}
+
+/* Keep navigation usable at laptop and phone widths. */
+.nav{gap:1.5rem}.nav__logo,.nav__right{flex-shrink:0}.nav__links a{white-space:nowrap}
+@media(max-width:1350px){#nav .nav__links{display:none}#nav .nav__burger{display:flex}.nav:not(#nav){flex-wrap:wrap}.nav:not(#nav) .nav__links{display:flex;flex:1 1 100%;overflow-x:auto;gap:1.25rem;padding:.6rem 0;max-width:100%}}
+.hero__nums{flex-wrap:wrap}.hero__pause{font-size:.65rem;align-self:center}
+#shipping,#returns,#size-guide{scroll-margin-top:9rem}
+@media(max-width:640px){#nav{gap:1rem}#nav .nav__logo-img,#nav.shrink .nav__logo-img{width:min(160px,calc(100vw - 190px));height:auto}#nav .nav__right{gap:.5rem}}

@@ -630,14 +630,18 @@ function initHeroCarousel(){
   const numsWrap = document.getElementById('heroNums');
   if (!wrap) return;
   HERO_SLIDES.forEach((s,i)=>{
-    const slide = document.createElement('div');
+    const slide = i===0 && wrap.firstElementChild ? wrap.firstElementChild : document.createElement('div');
     slide.className = 'hero__slide'+(i===0?' on':'');
-    slide.innerHTML = `<img src="${s.img}" alt="${s.alt}" ${i===0?'fetchpriority="high"':'loading="lazy"'}>`;
-    wrap.appendChild(slide);
+    if (!slide.firstElementChild) {
+      const base = s.img.split('/').pop().replace('.webp','');
+      slide.innerHTML = `<img src="assets/responsive/${base}-768.webp" srcset="/assets/responsive/${base}-480.webp 480w, /assets/responsive/${base}-768.webp 768w" sizes="(max-width:1000px) 90vw, 45vw" alt="${s.alt}" decoding="async" loading="lazy">`;
+      wrap.appendChild(slide);
+    }
     const num = document.createElement('button');
     num.className = 'hero__num'+(i===0?' on':'');
     num.textContent = '0'+(i+1);
     num.setAttribute('aria-label','Slide '+(i+1));
+    num.setAttribute('aria-pressed',String(i===0));
     num.onclick = ()=>goToSlide(i);
     numsWrap.appendChild(num);
   });
@@ -645,18 +649,27 @@ function initHeroCarousel(){
   const slides = wrap.querySelectorAll('.hero__slide');
   const nums   = numsWrap.querySelectorAll('.hero__num');
   window.goToSlide = n=>{
-    slides[idx].classList.remove('on'); nums[idx].classList.remove('on');
+    slides[idx].classList.remove('on'); nums[idx].classList.remove('on'); nums[idx].setAttribute('aria-pressed','false');
     idx = (n+slides.length)%slides.length;
-    slides[idx].classList.add('on'); nums[idx].classList.add('on');
+    slides[idx].classList.add('on'); nums[idx].classList.add('on'); nums[idx].setAttribute('aria-pressed','true');
   };
   const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  let timer = reduceMotion ? null : setInterval(()=>goToSlide(idx+1),4500);
+  let paused = reduceMotion;
+  let timer = paused ? null : setInterval(()=>goToSlide(idx+1),4500);
   const stop  = ()=>clearInterval(timer);
-  const start = ()=>{ if(!reduceMotion){ clearInterval(timer); timer=setInterval(()=>goToSlide(idx+1),4500); } };
+  const start = ()=>{ if(!paused){ clearInterval(timer); timer=setInterval(()=>goToSlide(idx+1),4500); } };
   wrap.addEventListener('mouseenter',stop);
   wrap.addEventListener('mouseleave',start);
   wrap.addEventListener('focusin',stop);   /* pause when a control is focused */
   wrap.addEventListener('focusout',start);
+  numsWrap.addEventListener('focusin',stop);
+  numsWrap.addEventListener('focusout',start);
+  const pause = document.createElement('button');
+  pause.className='hero__num hero__pause';
+  const label=()=>{pause.textContent=paused?'PLAY':'PAUSE';pause.setAttribute('aria-label',paused?'Play lookbook slideshow':'Pause lookbook slideshow');};
+  label();
+  pause.onclick=()=>{paused=!paused;label();paused?stop():start();};
+  numsWrap.appendChild(pause);
 }
 
 function initScrollUX(){
@@ -732,7 +745,7 @@ function openInfo(key){ const d=INFO[key]; if(!d) return; infoReturnFocus=docume
 function closeInfo(){ info.hidden=true;
   document.body.style.overflow = ((pdp&&!pdp.hidden)||(drawer&&!drawer.hidden)) ? 'hidden' : '';
   if(infoReturnFocus){ try{infoReturnFocus.focus();}catch(_){} } }
-document.querySelectorAll('[data-info]').forEach(el=>el.addEventListener('click', e=>{ e.preventDefault(); openInfo(el.dataset.info); }));
+document.querySelectorAll('[data-info]').forEach(el=>el.addEventListener('click', e=>{ if(e.metaKey||e.ctrlKey||e.shiftKey||e.altKey) return; e.preventDefault(); openInfo(el.dataset.info); }));
 if (info) info.querySelectorAll('[data-closeinfo]').forEach(el=>el.onclick=closeInfo);
 
 /* drawer is a modal dialog */
