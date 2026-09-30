@@ -725,7 +725,7 @@ const INFO = {
     <h4>Delivery</h4><p>FLYLYFE ships worldwide — to 200+ countries, every country except Russia and Belarus. US standard shipping is calculated by weight at checkout, from $11.49 for one tee; international shipping is calculated the same way, from $19.49 for one tee, and any import duties, VAT or customs fees charged on delivery are paid by the customer. Production takes 7–10 business days, followed by delivery.</p>
     <p>Tracking is emailed the moment your order ships.</p>` },
   returns:{ title:'Returns', html:`<p>We want you in the right fit.</p>
-    <h4>30-Day Window</h4><p>Unworn, unwashed items in original condition can be returned within 30 days of delivery.</p>
+    <h4>30-Day Window</h4><p>Unworn, unwashed items in original condition can be returned within 30 days of delivery. Customers pay return shipping for US and international returns.</p>
     <h4>How</h4><p>Email <a href="mailto:hello@flylyfe.com" style="color:var(--gold)">hello@flylyfe.com</a> with your order number and we’ll send return instructions. Unworn, unwashed tees in original condition are eligible for an exchange or refund within 30 days of delivery.</p>` },
   sizeguide:{ title:'Size Guide', html:`<p>Our heavyweight tees run true to size with a relaxed, slightly oversized drop. Between sizes? Size down for a classic fit.</p>
     <table><thead><tr><th>Size</th><th>Chest width, laid flat (in)</th><th>Length (in)</th></tr></thead><tbody>
