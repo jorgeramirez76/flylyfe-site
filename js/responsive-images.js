@@ -10,7 +10,7 @@ function apply(img){
   const [small,large,width]=MAP[u.pathname];img.srcset=`${small} 480w, ${large} ${width}w`;
   const thumbs={"/assets/products/limited-sanitary-front-brick.webp":"/assets/responsive/limited-sanitary-front-brick-240.webp","/assets/products/limited-sanitary-front-moody.webp":"/assets/responsive/limited-sanitary-front-moody-240.webp"};if(img.closest('.limited__thumbs') && thumbs[u.pathname])img.srcset=`${thumbs[u.pathname]} 240w, `+img.srcset;
  }else {img.removeAttribute('srcset');return;}
- img.sizes=img.closest('.limited__thumbs')?'84px':img.closest('.card,.fcell,.citem')?'(max-width:980px) 44vw, 24vw':img.closest('.related-card,.collection-card')?'(max-width:620px) 90vw, (max-width:980px) 44vw, 24vw':img.closest('.hero__slide')?'(max-width:980px) 90vw, 45vw':img.id==='heroBg'?'100vw':'(max-width:980px) 90vw, 520px';
+ img.sizes=img.closest('.limited__thumbs')?'84px':img.closest('.card,.fcell,.citem')?'(max-width:980px) 44vw, 24vw':img.closest('.related-card,.collection-card')?'(max-width:620px) 90vw, (max-width:980px) 44vw, 24vw':img.closest('.hero__slide')?'(max-width:1000px) 90vw, 45vw':img.id==='heroBg'?'100vw':'(max-width:980px) 90vw, 520px';
  img.decoding='async';
 }
 function scan(node){if(node.nodeType!==1)return;if(node.matches('img'))apply(node);node.querySelectorAll('img').forEach(apply);}

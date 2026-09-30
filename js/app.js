@@ -634,7 +634,7 @@ function initHeroCarousel(){
     slide.className = 'hero__slide'+(i===0?' on':'');
     if (!slide.firstElementChild) {
       const base = s.img.split('/').pop().replace('.webp','');
-      slide.innerHTML = `<img src="assets/responsive/${base}-768.webp" srcset="/assets/responsive/${base}-480.webp 480w, /assets/responsive/${base}-768.webp 768w" sizes="(max-width:1000px) 90vw, 45vw" alt="${s.alt}" decoding="async" loading="lazy">`;
+      slide.innerHTML = `<img src="${s.img}" srcset="/assets/responsive/${base}-480.webp 480w, /assets/responsive/${base}-768.webp 768w" sizes="(max-width:1000px) 90vw, 45vw" alt="${s.alt}" decoding="async" loading="lazy">`;
       wrap.appendChild(slide);
     }
     const num = document.createElement('button');
