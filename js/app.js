@@ -86,17 +86,18 @@ const DEFAULT_COLOR = { 'las-malvinas-campeones-tee':'White', 'las-malvinas-tee'
 /* Consistent on-model shots (assets/products-model/) are now the primary visual for EVERY product
    and color — same curly-haired man on all men's colors, same long-haired woman on all women's
    colors, front + back. Flat Printful mockups are no longer used as the primary card image. */
-const MOCKUP_PRIMARY_HANDLES = new Set(['the-anthem-tee-womens','the-anthem-tee-womens-fitted','the-conga-tee-womens','the-conga-tee-womens-fitted','the-signature-tee-womens','the-signature-tee-womens-fitted']);
-const WOMEN_FIT_FAMILIES = ['anthem','conga','signature'].map(design=>[{handle:`the-${design}-tee-womens`,label:'Relaxed',es:'Holgada'},{handle:`the-${design}-tee-womens-fitted`,label:'Fitted',es:'Entallada'}]);
+const MOCKUP_PRIMARY_HANDLES = new Set(["the-anthem-tee-womens", "the-anthem-tee-womens-fitted", "the-conga-tee-womens", "the-conga-tee-womens-fitted", "the-signature-tee-womens", "the-signature-tee-womens-fitted", "the-house-music-tee-womens", "the-house-music-tee-womens-fitted"]);
+const WOMEN_FIT_FAMILIES = [[{"handle":"the-anthem-tee-womens","label":"Relaxed","es":"Holgada"},{"handle":"the-anthem-tee-womens-fitted","label":"Fitted","es":"Entallada"}],[{"handle":"the-conga-tee-womens","label":"Relaxed","es":"Holgada"},{"handle":"the-conga-tee-womens-fitted","label":"Fitted","es":"Entallada"}],[{"handle":"the-signature-tee-womens","label":"Relaxed","es":"Holgada"},{"handle":"the-signature-tee-womens-fitted","label":"Fitted","es":"Entallada"}],[{"handle":"the-house-music-tee-womens","label":"Relaxed","es":"Holgada"},{"handle":"the-house-music-tee-womens-fitted","label":"Fitted","es":"Entallada"}]];
 const WOMEN_FITS = WOMEN_FIT_FAMILIES.flat();
 const fitFamily = handle => WOMEN_FIT_FAMILIES.find(fits=>fits.some(f=>f.handle===handle)) || [];
 /* Front-logo products lead with the FRONT view; back-graphic tees lead with the BACK (the hero print). */
 const FRONT_PRIMARY_HANDLES = new Set(['the-signature-tee','the-signature-tee-womens','the-signature-tee-womens-fitted','the-sanitary-code-tee']);
 const MEN_HANDLES = ['las-malvinas-campeones-tee','las-malvinas-tee','the-brownstone-dj-tee','the-anthem-tee','the-conga-tee','the-signature-tee','the-house-music-tee','the-soul-tee','the-token-tee'];
-const WOMEN_HANDLES = ['the-anthem-tee-womens','the-conga-tee-womens','the-signature-tee-womens'];
+const WOMEN_HANDLES = ["the-anthem-tee-womens", "the-conga-tee-womens", "the-signature-tee-womens", "the-house-music-tee-womens"];
 const DROP_HANDLES = ['the-after-hours-tee','the-tempo-tee','the-coordinates-tee','the-spiritual-thing-tee'];
 const LIMITED_HANDLE = 'the-sanitary-code-tee';
 const TAGLINES = {
+  "the-house-music-tee-womens":"HOUSE MUSIC",
   'the-anthem-tee':'FEEL THE MUSIC','the-conga-tee':'MOVE THE BODY','the-signature-tee':'THE CLASSIC','the-house-music-tee':'HOUSE MUSIC',
   'the-anthem-tee-womens':'FEEL THE MUSIC','the-conga-tee-womens':'MOVE THE BODY','the-signature-tee-womens':'THE CLASSIC',
   'the-after-hours-tee':'AFTER HOURS','the-tempo-tee':'124 BPM','the-coordinates-tee':'NEW YORK CITY','the-spiritual-thing-tee':'SPIRITUAL THING','the-sanitary-code-tee':'LIMITED',
@@ -196,7 +197,7 @@ function shopVarImg(p, color) {
 
 async function init() {
   const [modelMan, data] = await Promise.all([
-    fetch('assets/products-model/manifest.json?v=20261001-signature').then(r=>r.json()).catch(()=>({})),
+    fetch('assets/products-model/manifest.json?v=20261001-women-4').then(r=>r.json()).catch(()=>({})),
     gql(PRODUCT_Q)
   ]);
   /* cache-bust product images so updated placements replace cached copies */

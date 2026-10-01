@@ -5,7 +5,7 @@ const SHOP_DOMAIN='31zn52-zd.myshopify.com';
 const STOREFRONT_TOKEN='5a0bb1dcf0c57b7764bbebf0cc40c898';
 const API_URL=`https://${SHOP_DOMAIN}/api/2025-10/graphql.json`;
 const handle = document.body.dataset.productHandle;
-const WOMEN_FIT_FAMILIES = ['anthem','conga','signature'].map(design=>[{handle:`the-${design}-tee-womens`,label:'Relaxed',es:'Holgada'},{handle:`the-${design}-tee-womens-fitted`,label:'Fitted',es:'Entallada'}]);
+const WOMEN_FIT_FAMILIES = [[{"handle":"the-anthem-tee-womens","label":"Relaxed","es":"Holgada"},{"handle":"the-anthem-tee-womens-fitted","label":"Fitted","es":"Entallada"}],[{"handle":"the-conga-tee-womens","label":"Relaxed","es":"Holgada"},{"handle":"the-conga-tee-womens-fitted","label":"Fitted","es":"Entallada"}],[{"handle":"the-signature-tee-womens","label":"Relaxed","es":"Holgada"},{"handle":"the-signature-tee-womens-fitted","label":"Fitted","es":"Entallada"}],[{"handle":"the-house-music-tee-womens","label":"Relaxed","es":"Holgada"},{"handle":"the-house-music-tee-womens-fitted","label":"Fitted","es":"Entallada"}]];
 const WOMEN_FITS = WOMEN_FIT_FAMILIES.flat();
 const fitFamily = handle => WOMEN_FIT_FAMILIES.find(fits=>fits.some(f=>f.handle===handle)) || [];
 const fitProducts={};
@@ -163,7 +163,7 @@ function render() {
 }
 async function initProductPage() {
   try {
-    const [data,manifest]=await Promise.all([gql(PRODUCT_Q,{handle}),fetch('/assets/products-model/manifest.json?v=20261001-signature').then(r=>r.ok?r.json():{}).catch(()=>({}))]);
+    const [data,manifest]=await Promise.all([gql(PRODUCT_Q,{handle}),fetch('/assets/products-model/manifest.json?v=20261001-women-4').then(r=>r.ok?r.json():{}).catch(()=>({}))]);
     product=data.product;imageManifest=manifest;
     if(!product || product.vendor!=='FLYLYFE') throw new Error('FLYLYFE product not found');
     if(WOMEN_FITS.some(f=>f.handle===handle)){
