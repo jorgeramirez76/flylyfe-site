@@ -99,20 +99,16 @@
   },
   "the-signature-tee-womens": {
     "White": {
-      "front": "assets/products-model/the-signature-tee-womens-White-front.webp",
-      "back": "assets/products-model/the-signature-tee-womens-White-back.webp"
-    },
-    "Black": {
-      "front": "assets/products-model/the-signature-tee-womens-Black-front.webp",
-      "back": "assets/products-model/the-signature-tee-womens-Black-back.webp"
+      "front": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150792_6868_590_900.jpg?v=1790822173",
+      "back": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150792_6864_590_900.jpg?v=1790822173"
     },
     "Ivory": {
-      "front": "assets/products-model/the-signature-tee-womens-Natural-front.webp",
-      "back": "assets/products-model/the-signature-tee-womens-Natural-back.webp"
+      "front": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150793_6868_590_900.jpg?v=1790822173",
+      "back": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150793_6864_590_900.jpg?v=1790822173"
     },
-    "Natural": {
-      "front": "assets/products-model/the-signature-tee-womens-Natural-front.webp",
-      "back": "assets/products-model/the-signature-tee-womens-Natural-back.webp"
+    "Black": {
+      "front": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150802_6868_590_900.jpg?v=1790822508",
+      "back": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150802_6864_590_900.jpg?v=1790822508"
     }
   },
   "the-after-hours-tee": {
@@ -227,6 +223,20 @@
     "Black": {
       "front": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150759_5186_590_900.jpg?v=1790821486",
       "back": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150759_5189_590_900.jpg?v=1790821486"
+    }
+  },
+  "the-signature-tee-womens-fitted": {
+    "Black": {
+      "front": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150771_5186_590_900.jpg?v=1790821795",
+      "back": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150771_5189_590_900.jpg?v=1790821795"
+    },
+    "Soft Cream": {
+      "front": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150778_5186_590_900.jpg?v=1790822458",
+      "back": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150778_5189_590_900.jpg?v=1790822458"
+    },
+    "White": {
+      "front": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150777_5186_590_900.jpg?v=1790822459",
+      "back": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150777_5189_590_900.jpg?v=1790822458"
     }
   }
 }
