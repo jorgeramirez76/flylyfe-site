@@ -101,12 +101,6 @@ const TAGLINES = {
   "the-tempo-tee-womens":"124 BPM",
   "the-after-hours-tee-womens":"AFTER HOURS",
   "the-house-music-tee-womens":"HOUSE MUSIC",
-  "the-tempo-tee-womens":"124 BPM",
-  "the-after-hours-tee-womens":"AFTER HOURS",
-  "the-house-music-tee-womens":"HOUSE MUSIC",
-  "the-after-hours-tee-womens":"AFTER HOURS",
-  "the-house-music-tee-womens":"HOUSE MUSIC",
-  "the-house-music-tee-womens":"HOUSE MUSIC",
   'the-anthem-tee':'FEEL THE MUSIC','the-conga-tee':'MOVE THE BODY','the-signature-tee':'THE CLASSIC','the-house-music-tee':'HOUSE MUSIC',
   'the-anthem-tee-womens':'FEEL THE MUSIC','the-conga-tee-womens':'MOVE THE BODY','the-signature-tee-womens':'THE CLASSIC',
   'the-after-hours-tee':'AFTER HOURS','the-tempo-tee':'124 BPM','the-coordinates-tee':'NEW YORK CITY','the-spiritual-thing-tee':'SPIRITUAL THING','the-sanitary-code-tee':'LIMITED',
@@ -206,7 +200,7 @@ function shopVarImg(p, color) {
 
 async function init() {
   const [modelMan, data] = await Promise.all([
-    fetch('assets/products-model/manifest.json?v=20261001-women-7').then(r=>r.json()).catch(()=>({})),
+    fetch('assets/products-model/manifest.json?v=20261001-women-7-f4b61a9c').then(r=>r.json()).catch(()=>({})),
     gql(PRODUCT_Q)
   ]);
   /* cache-bust product images so updated placements replace cached copies */

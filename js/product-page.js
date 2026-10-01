@@ -163,7 +163,7 @@ function render() {
 }
 async function initProductPage() {
   try {
-    const [data,manifest]=await Promise.all([gql(PRODUCT_Q,{handle}),fetch('/assets/products-model/manifest.json?v=20261001-women-7').then(r=>r.ok?r.json():{}).catch(()=>({}))]);
+    const [data,manifest]=await Promise.all([gql(PRODUCT_Q,{handle}),fetch('/assets/products-model/manifest.json?v=20261001-women-7-f4b61a9c').then(r=>r.ok?r.json():{}).catch(()=>({}))]);
     product=data.product;imageManifest=manifest;
     if(!product || product.vendor!=='FLYLYFE') throw new Error('FLYLYFE product not found');
     if(WOMEN_FITS.some(f=>f.handle===handle)){
