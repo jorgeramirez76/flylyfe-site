@@ -462,5 +462,33 @@
       "front": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150996_5186_590_900.jpg?v=1790827115",
       "back": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150996_5189_590_900.jpg?v=1790827115"
     }
+  },
+  "las-malvinas-campeones-tee-womens": {
+    "Black": {
+      "front": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6151043_6868_590_900.jpg?v=1790827416",
+      "back": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6151043_6864_590_900.jpg?v=1790827417"
+    },
+    "Ivory": {
+      "front": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6151045_6868_590_900.jpg?v=1790827482",
+      "back": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6151045_6864_590_900.jpg?v=1790827481"
+    },
+    "White": {
+      "front": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6151046_6868_590_900.jpg?v=1790827482",
+      "back": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6151046_6864_590_900.jpg?v=1790827482"
+    }
+  },
+  "las-malvinas-campeones-tee-womens-fitted": {
+    "White": {
+      "front": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6151026_5186_590_900.jpg?v=1790827275",
+      "back": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6151026_5189_590_900.jpg?v=1790827275"
+    },
+    "Soft Cream": {
+      "front": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6151027_5186_590_900.jpg?v=1790827275",
+      "back": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6151027_5189_590_900.jpg?v=1790827275"
+    },
+    "Black": {
+      "front": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6151035_5186_590_900.jpg?v=1790827318",
+      "back": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6151035_5189_590_900.jpg?v=1790827318"
+    }
   }
 }
