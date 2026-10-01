@@ -266,5 +266,33 @@
       "front": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150823_5186_590_900.jpg?v=1790823055",
       "back": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150823_5189_590_900.jpg?v=1790823054"
     }
+  },
+  "the-after-hours-tee-womens": {
+    "White": {
+      "front": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150843_6868_590_900.jpg?v=1790823729",
+      "back": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150843_6864_590_900.jpg?v=1790823728"
+    },
+    "Ivory": {
+      "front": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150844_6868_590_900.jpg?v=1790823728",
+      "back": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150844_6864_590_900.jpg?v=1790823728"
+    },
+    "Black": {
+      "front": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150845_6868_590_900.jpg?v=1790823764",
+      "back": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150845_6864_590_900.jpg?v=1790823764"
+    }
+  },
+  "the-after-hours-tee-womens-fitted": {
+    "Black": {
+      "front": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150839_5186_590_900.jpg?v=1790823585",
+      "back": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150839_5189_590_900.jpg?v=1790823665"
+    },
+    "White": {
+      "front": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150841_5186_590_900.jpg?v=1790823694",
+      "back": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150841_5189_590_900.jpg?v=1790823694"
+    },
+    "Soft Cream": {
+      "front": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150842_5186_590_900.jpg?v=1790823694",
+      "back": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150842_5189_590_900.jpg?v=1790823694"
+    }
   }
 }
