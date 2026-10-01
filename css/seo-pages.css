@@ -11,3 +11,5 @@
 
 /* Color-matched gallery and shared-cart controls. */
 .seo-product__media{aspect-ratio:auto;overflow:visible}.seo-product__media>img{height:auto;aspect-ratio:3/4;object-fit:contain;display:block}.seo-product__media [data-gallery-controls]{padding:.75rem}.seo-placement-note{font-size:.8rem;line-height:1.6;color:var(--ink-dim);margin-top:.8rem}.seo-cart-link{display:inline-block;color:var(--gold);font-size:.8rem;margin-top:.6rem}.seo-atc:disabled,.seo-checkout:disabled{opacity:.55;cursor:wait}
+.seo-product h1{font-size:clamp(2.2rem,3.5vw,3.6rem);line-height:1.02;overflow-wrap:break-word}
+.seo-product__hero{align-items:start}
