@@ -112,6 +112,22 @@ function gallery() {
   }
   let controls=media.querySelector('[data-gallery-controls]');
   if(!controls) { controls=document.createElement('div'); controls.dataset.galleryControls=''; controls.className='seo-commerce__options'; media.appendChild(controls); }
+  let swatches=media.querySelector('[data-gallery-colors]');
+  if(!swatches) {
+    swatches=document.createElement('div');swatches.dataset.galleryColors='';swatches.className='seo-gallery-colors';
+    swatches.setAttribute('role','group');swatches.setAttribute('aria-label',ES?'Color de la camiseta':'Shirt color');
+    media.insertBefore(swatches,controls);
+  }
+  swatches.replaceChildren();
+  const colorHex={Black:'#202020',White:'#ffffff',Ivory:'#eee6cf','Soft Cream':'#f3ead6'};
+  for(const color of optionValues('Color')) {
+    const button=document.createElement('button');button.type='button';button.className='seo-gallery-swatch';
+    button.title=color;button.setAttribute('aria-label',color);button.setAttribute('aria-pressed',String(color===state.color));
+    button.style.setProperty('--swatch-color',colorHex[color]||color.toLowerCase());
+    button.onclick=()=>{if(busy)return;state.color=color;state.size=null;render();
+      [...swatches.children].find(b=>b.getAttribute('aria-label')===color)?.focus({preventScroll:true});};
+    swatches.appendChild(button);
+  }
   controls.replaceChildren();
   for(const view of ['front','back']) {
     if(!images[view]) continue;

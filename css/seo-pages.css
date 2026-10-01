@@ -34,3 +34,10 @@ img[src*="womens-fitted-models/"][src*="view=back"]{object-fit:cover!important;o
 img[src*="womens-relaxed-models/"][src*="view=front"]{object-fit:cover!important;object-position:left center!important}
 img[src*="womens-relaxed-models/"][src*="view=back"]{object-fit:cover!important;object-position:right center!important}
 .card__media:has(img[src*="womens-relaxed-models/"]),.modal__gallery>img[src*="womens-relaxed-models/"],.collection-card>img[src*="womens-relaxed-models/"]{aspect-ratio:3/4}
+
+/* Color previews directly below the product photo. */
+.seo-gallery-colors{display:flex;justify-content:center;gap:.4rem;padding:.5rem .75rem 0}
+.seo-gallery-swatch{display:grid;place-items:center;width:44px;height:44px;border:0;background:transparent;padding:0;cursor:pointer;border-radius:50%}
+.seo-gallery-swatch::before{content:'';width:26px;height:26px;border-radius:50%;background:var(--swatch-color);border:1px solid #777;box-sizing:border-box}
+.seo-gallery-swatch[aria-pressed="true"]::before{outline:2px solid var(--gold);outline-offset:4px}
+.seo-gallery-swatch:focus-visible{outline:2px solid var(--ink);outline-offset:1px}
