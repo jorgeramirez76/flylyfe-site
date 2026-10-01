@@ -434,5 +434,33 @@
       "front": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150936_5186_590_900.jpg?v=1790826331",
       "back": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150936_5189_590_900.jpg?v=1790826332"
     }
+  },
+  "the-soul-tee-womens": {
+    "White": {
+      "front": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150962_6868_590_900.jpg?v=1790826735",
+      "back": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150962_6864_590_900.jpg?v=1790826735"
+    },
+    "Ivory": {
+      "front": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150963_6868_590_900.jpg?v=1790826735",
+      "back": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150963_6864_590_900.jpg?v=1790826735"
+    },
+    "Black": {
+      "front": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150969_6868_590_900.jpg?v=1790826965",
+      "back": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150969_6864_590_900.jpg?v=1790826964"
+    }
+  },
+  "the-soul-tee-womens-fitted": {
+    "Black": {
+      "front": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150989_5186_590_900.jpg?v=1790827015",
+      "back": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150989_5189_590_900.jpg?v=1790827015"
+    },
+    "Soft Cream": {
+      "front": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150995_5186_590_900.jpg?v=1790827115",
+      "back": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150995_5189_590_900.jpg?v=1790827115"
+    },
+    "White": {
+      "front": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150996_5186_590_900.jpg?v=1790827115",
+      "back": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150996_5189_590_900.jpg?v=1790827115"
+    }
   }
 }
