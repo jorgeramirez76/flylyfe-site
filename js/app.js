@@ -93,7 +93,7 @@ const fitFamily = handle => WOMEN_FIT_FAMILIES.find(fits=>fits.some(f=>f.handle=
 /* Front-logo products lead with the FRONT view; back-graphic tees lead with the BACK (the hero print). */
 const FRONT_PRIMARY_HANDLES = new Set(['the-signature-tee','the-signature-tee-womens','the-signature-tee-womens-fitted','the-sanitary-code-tee','the-sanitary-code-tee-womens','the-sanitary-code-tee-womens-fitted']);
 const MEN_HANDLES = ['las-malvinas-campeones-tee','las-malvinas-tee','the-brownstone-dj-tee','the-anthem-tee','the-conga-tee','the-signature-tee','the-house-music-tee','the-soul-tee','the-token-tee'];
-const WOMEN_HANDLES = ["the-anthem-tee-womens-fitted", "the-conga-tee-womens-fitted", "the-signature-tee-womens-fitted", "the-house-music-tee-womens-fitted", "the-after-hours-tee-womens-fitted", "the-tempo-tee-womens-fitted", "the-spiritual-thing-tee-womens-fitted", "the-coordinates-tee-womens-fitted", "the-sanitary-code-tee-womens-fitted", "the-token-tee-womens-fitted", "the-soul-tee-womens-fitted", "las-malvinas-campeones-tee-womens-fitted", "las-malvinas-tee-womens-fitted", "the-brownstone-dj-tee-womens-fitted"];
+const WOMEN_HANDLES = ["the-anthem-tee-womens-fitted", "the-anthem-tee-womens", "the-conga-tee-womens-fitted", "the-conga-tee-womens", "the-signature-tee-womens-fitted", "the-signature-tee-womens", "the-house-music-tee-womens-fitted", "the-house-music-tee-womens", "the-after-hours-tee-womens-fitted", "the-after-hours-tee-womens", "the-tempo-tee-womens-fitted", "the-tempo-tee-womens", "the-spiritual-thing-tee-womens-fitted", "the-spiritual-thing-tee-womens", "the-coordinates-tee-womens-fitted", "the-coordinates-tee-womens", "the-sanitary-code-tee-womens-fitted", "the-sanitary-code-tee-womens", "the-token-tee-womens-fitted", "the-token-tee-womens", "the-soul-tee-womens-fitted", "the-soul-tee-womens", "las-malvinas-campeones-tee-womens-fitted", "las-malvinas-campeones-tee-womens", "las-malvinas-tee-womens-fitted", "las-malvinas-tee-womens", "the-brownstone-dj-tee-womens-fitted", "the-brownstone-dj-tee-womens"];
 const DROP_HANDLES = ['the-after-hours-tee','the-tempo-tee','the-coordinates-tee','the-spiritual-thing-tee'];
 const LIMITED_HANDLE = 'the-sanitary-code-tee';
 const TAGLINES = {
@@ -141,9 +141,9 @@ const SUBTITLE = {
   'the-conga-tee':'Dancer & conga — the rhythm on your back',
   'the-signature-tee':'Clean FLYLYFE wordmark',
   'the-house-music-tee':'Not everyone understands · front & back',
-  'the-anthem-tee-womens':'The mantra · fitted cotton',
-  'the-conga-tee-womens':'Dancer & conga · fitted cotton',
-  'the-signature-tee-womens':'Clean wordmark, fitted cotton',
+  'the-anthem-tee-womens':'The mantra · relaxed cotton',
+  'the-conga-tee-womens':'Dancer & conga · relaxed cotton',
+  'the-signature-tee-womens':'Clean wordmark, relaxed cotton',
   'the-after-hours-tee':'The set that never stops',
   'the-tempo-tee':'124 BPM · the tempo of the city',
   'the-coordinates-tee':'40.7128° N · New York City',
@@ -224,7 +224,7 @@ function shopVarImg(p, color) {
 
 async function init() {
   const [modelMan, data] = await Promise.all([
-    fetch('assets/products-model/manifest.json?v=20261001-fitted-models-v2').then(r=>r.json()).catch(()=>({})),
+    fetch('assets/products-model/manifest.json?v=20261001-both-womens-fits-v3').then(r=>r.json()).catch(()=>({})),
     gql(PRODUCT_Q)
   ]);
   /* cache-bust product images so updated placements replace cached copies */
@@ -363,7 +363,7 @@ function openPDP(handle, startColor, switchingFit=false) {
     if(hasFits){
       const label=document.createElement('p'); label.className='pdp__opt-label mono'; label.textContent='FIT'; fits.appendChild(label);
       const buttons=document.createElement('div'); buttons.className='pdp__sizes'; fits.appendChild(buttons);
-      fitFamily(handle).filter(f=>f.handle.endsWith('-fitted') && PRODUCTS[f.handle]).forEach(f=>{
+      fitFamily(handle).filter(f=>PRODUCTS[f.handle]).forEach(f=>{
         const b=document.createElement('button'); b.type='button'; b.textContent=f.label; b.className='pdp__size'+(handle===f.handle?' on':''); b.setAttribute('aria-pressed',String(handle===f.handle));
         b.onclick=()=>{if(handle!==f.handle)openPDP(f.handle,pdpState.color,true);}; buttons.appendChild(b);
       });
@@ -387,7 +387,7 @@ function openPDP(handle, startColor, switchingFit=false) {
     function pdpImagePosition(url, isModel){
       /* On phones the PDP gallery is short; center model BACK photos around the shirt print
          instead of the model's head so the artwork is immediately visible. */
-      if ((url || '').includes('womens-fitted-models/')) return url.includes('view=back') ? 'right center' : 'left center';
+      if (/womens-(?:fitted|relaxed)-models\//.test(url || '')) return url.includes('view=back') ? 'right center' : 'left center';
       if (!isModel) return 'center';
       const u = url || '';
       if (u.includes('-back.jpg') || u.includes('/black-back.jpg') || u.includes('/white-back.jpg') || u.includes('/cream-back.jpg') || u.includes('/cream-alt-back.jpg')) return 'center 42%';
@@ -780,7 +780,7 @@ const INFO = {
     <table><thead><tr><th>Size</th><th>Chest width, laid flat (in)</th><th>Length (in)</th></tr></thead><tbody>
     <tr><td>S</td><td>18.25</td><td>26.625</td></tr><tr><td>M</td><td>20.25</td><td>28</td></tr><tr><td>L</td><td>22</td><td>29.375</td></tr>
     <tr><td>XL</td><td>24</td><td>30.75</td></tr><tr><td>2XL</td><td>26</td><td>31.625</td></tr><tr><td>3XL</td><td>27.75</td><td>32.5</td></tr></tbody></table>
-    <p>Measurements are approximate Comfort Colors 1717 garment dimensions, not body measurements. Width is measured flat, one inch below the armhole; length is measured from the high shoulder point to the back hem. Compare a tee you already own. Relaxed options use this unisex fit. Anthem, Conga, and Signature also come in a women’s fitted cut with its own size guide.</p>` },
+    <p>Measurements are approximate Comfort Colors 1717 garment dimensions, not body measurements. Width is measured flat, one inch below the armhole; length is measured from the high shoulder point to the back hem. Compare a tee you already own. Relaxed options use this unisex fit. All 14 designs also come in a women’s fitted cut with its own size guide.</p>` },
   privacy:{ title:'Privacy', html:`<p>We collect only what's needed to process your order and send the updates you opt into. We never sell your data.</p>
     <p>Payments are handled securely by Shopify. Questions? <a href="mailto:hello@flylyfe.com" style="color:var(--gold)">hello@flylyfe.com</a>.</p>` },
   terms:{ title:'Terms', html:`<p>By using flylyfe.com you agree to our standard terms of sale. All artwork and the FLYLYFE name are property of FLYLYFE. Prices and availability may change without notice.</p>` }

@@ -71,44 +71,44 @@
   },
   "the-anthem-tee-womens": {
     "White": {
-      "front": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150709_6868_590_900.jpg?v=1790820269",
-      "back": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150709_6864_590_900.jpg?v=1790820269"
+      "front": "assets/womens-relaxed-models/anthem-white.jpg?view=front",
+      "back": "assets/womens-relaxed-models/anthem-white.jpg?view=back"
     },
     "Ivory": {
-      "front": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150710_6868_590_900.jpg?v=1790820269",
-      "back": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150710_6864_590_900.jpg?v=1790820269"
+      "front": "assets/womens-relaxed-models/anthem-ivory.jpg?view=front",
+      "back": "assets/womens-relaxed-models/anthem-ivory.jpg?view=back"
     },
     "Black": {
-      "front": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150714_6868_590_900.jpg?v=1790820492",
-      "back": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150714_6864_590_900.jpg?v=1790820492"
+      "front": "assets/womens-relaxed-models/anthem-black.jpg?view=front",
+      "back": "assets/womens-relaxed-models/anthem-black.jpg?view=back"
     }
   },
   "the-conga-tee-womens": {
     "Black": {
-      "front": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150734_6868_590_900.jpg?v=1790821054",
-      "back": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150734_6864_590_900.jpg?v=1790821054"
+      "front": "assets/womens-relaxed-models/conga-black.jpg?view=front",
+      "back": "assets/womens-relaxed-models/conga-black.jpg?view=back"
     },
     "White": {
-      "front": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150738_6868_590_900.jpg?v=1790821331",
-      "back": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150738_6864_590_900.jpg?v=1790821331"
+      "front": "assets/womens-relaxed-models/conga-white.jpg?view=front",
+      "back": "assets/womens-relaxed-models/conga-white.jpg?view=back"
     },
     "Ivory": {
-      "front": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150739_6868_590_900.jpg?v=1790821331",
-      "back": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150739_6864_590_900.jpg?v=1790821331"
+      "front": "assets/womens-relaxed-models/conga-ivory.jpg?view=front",
+      "back": "assets/womens-relaxed-models/conga-ivory.jpg?view=back"
     }
   },
   "the-signature-tee-womens": {
     "White": {
-      "front": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150792_6868_590_900.jpg?v=1790822173",
-      "back": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150792_6864_590_900.jpg?v=1790822173"
+      "front": "assets/womens-relaxed-models/signature-white.jpg?view=front",
+      "back": "assets/womens-relaxed-models/signature-white.jpg?view=back"
     },
     "Ivory": {
-      "front": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150793_6868_590_900.jpg?v=1790822173",
-      "back": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150793_6864_590_900.jpg?v=1790822173"
+      "front": "assets/womens-relaxed-models/signature-ivory.jpg?view=front",
+      "back": "assets/womens-relaxed-models/signature-ivory.jpg?view=back"
     },
     "Black": {
-      "front": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150802_6868_590_900.jpg?v=1790822508",
-      "back": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150802_6864_590_900.jpg?v=1790822508"
+      "front": "assets/womens-relaxed-models/signature-black.jpg?view=front",
+      "back": "assets/womens-relaxed-models/signature-black.jpg?view=back"
     }
   },
   "the-after-hours-tee": {
@@ -241,16 +241,16 @@
   },
   "the-house-music-tee-womens": {
     "Black": {
-      "front": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150812_6868_590_900.jpg?v=1790822788",
-      "back": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150812_6864_590_900.jpg?v=1790822788"
+      "front": "assets/womens-relaxed-models/house-music-black.jpg?view=front",
+      "back": "assets/womens-relaxed-models/house-music-black.jpg?view=back"
     },
     "White": {
-      "front": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150817_6868_590_900.jpg?v=1790822909",
-      "back": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150817_6864_590_900.jpg?v=1790822910"
+      "front": "assets/womens-relaxed-models/house-music-white.jpg?view=front",
+      "back": "assets/womens-relaxed-models/house-music-white.jpg?view=back"
     },
     "Ivory": {
-      "front": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150818_6868_590_900.jpg?v=1790822910",
-      "back": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150818_6864_590_900.jpg?v=1790822910"
+      "front": "assets/womens-relaxed-models/house-music-ivory.jpg?view=front",
+      "back": "assets/womens-relaxed-models/house-music-ivory.jpg?view=back"
     }
   },
   "the-house-music-tee-womens-fitted": {
@@ -269,16 +269,16 @@
   },
   "the-after-hours-tee-womens": {
     "White": {
-      "front": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150843_6868_590_900.jpg?v=1790823729",
-      "back": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150843_6864_590_900.jpg?v=1790823728"
+      "front": "assets/womens-relaxed-models/after-hours-white.jpg?view=front",
+      "back": "assets/womens-relaxed-models/after-hours-white.jpg?view=back"
     },
     "Ivory": {
-      "front": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150844_6868_590_900.jpg?v=1790823728",
-      "back": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150844_6864_590_900.jpg?v=1790823728"
+      "front": "assets/womens-relaxed-models/after-hours-ivory.jpg?view=front",
+      "back": "assets/womens-relaxed-models/after-hours-ivory.jpg?view=back"
     },
     "Black": {
-      "front": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150845_6868_590_900.jpg?v=1790823764",
-      "back": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150845_6864_590_900.jpg?v=1790823764"
+      "front": "assets/womens-relaxed-models/after-hours-black.jpg?view=front",
+      "back": "assets/womens-relaxed-models/after-hours-black.jpg?view=back"
     }
   },
   "the-after-hours-tee-womens-fitted": {
@@ -297,16 +297,16 @@
   },
   "the-tempo-tee-womens": {
     "Black": {
-      "front": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150846_6868_590_900.jpg?v=1790823951",
-      "back": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150846_6864_590_900.jpg?v=1790823951"
+      "front": "assets/womens-relaxed-models/tempo-black.jpg?view=front",
+      "back": "assets/womens-relaxed-models/tempo-black.jpg?view=back"
     },
     "White": {
-      "front": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150848_6868_590_900.jpg?v=1790824161",
-      "back": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150848_6864_590_900.jpg?v=1790824158"
+      "front": "assets/womens-relaxed-models/tempo-white.jpg?view=front",
+      "back": "assets/womens-relaxed-models/tempo-white.jpg?view=back"
     },
     "Ivory": {
-      "front": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150849_6868_590_900.jpg?v=1790824158",
-      "back": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150849_6864_590_900.jpg?v=1790824158"
+      "front": "assets/womens-relaxed-models/tempo-ivory.jpg?view=front",
+      "back": "assets/womens-relaxed-models/tempo-ivory.jpg?view=back"
     }
   },
   "the-tempo-tee-womens-fitted": {
@@ -325,16 +325,16 @@
   },
   "the-spiritual-thing-tee-womens": {
     "White": {
-      "front": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150889_6868_590_900.jpg?v=1790825121",
-      "back": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150889_6864_590_900.jpg?v=1790825121"
+      "front": "assets/womens-relaxed-models/spiritual-thing-white.jpg?view=front",
+      "back": "assets/womens-relaxed-models/spiritual-thing-white.jpg?view=back"
     },
     "Ivory": {
-      "front": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150890_6868_590_900.jpg?v=1790825122",
-      "back": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150890_6864_590_900.jpg?v=1790825121"
+      "front": "assets/womens-relaxed-models/spiritual-thing-ivory.jpg?view=front",
+      "back": "assets/womens-relaxed-models/spiritual-thing-ivory.jpg?view=back"
     },
     "Black": {
-      "front": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150877_6868_590_900_d81be128-a023-47ab-8a9f-8e6e421b47f3.jpg?v=1790825224",
-      "back": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150877_6864_590_900_57d966cd-ad11-49da-8672-8aea05873cae.jpg?v=1790825224"
+      "front": "assets/womens-relaxed-models/spiritual-thing-black.jpg?view=front",
+      "back": "assets/womens-relaxed-models/spiritual-thing-black.jpg?view=back"
     }
   },
   "the-spiritual-thing-tee-womens-fitted": {
@@ -353,16 +353,16 @@
   },
   "the-coordinates-tee-womens": {
     "Ivory": {
-      "front": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150911_6868_590_900.jpg?v=1790825682",
-      "back": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150911_6864_590_900.jpg?v=1790825682"
+      "front": "assets/womens-relaxed-models/coordinates-ivory.jpg?view=front",
+      "back": "assets/womens-relaxed-models/coordinates-ivory.jpg?view=back"
     },
     "White": {
-      "front": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150912_6868_590_900.jpg?v=1790825682",
-      "back": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150912_6864_590_900.jpg?v=1790825681"
+      "front": "assets/womens-relaxed-models/coordinates-white.jpg?view=front",
+      "back": "assets/womens-relaxed-models/coordinates-white.jpg?view=back"
     },
     "Black": {
-      "front": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150910_6868_590_900.jpg?v=1790825728",
-      "back": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150910_6864_590_900.jpg?v=1790825727"
+      "front": "assets/womens-relaxed-models/coordinates-black.jpg?view=front",
+      "back": "assets/womens-relaxed-models/coordinates-black.jpg?view=back"
     }
   },
   "the-coordinates-tee-womens-fitted": {
@@ -381,16 +381,16 @@
   },
   "the-sanitary-code-tee-womens": {
     "White": {
-      "front": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150916_6868_590_900.jpg?v=1790825957",
-      "back": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150916_6864_590_900.jpg?v=1790825957"
+      "front": "assets/womens-relaxed-models/sanitary-code-white.jpg?view=front",
+      "back": "assets/womens-relaxed-models/sanitary-code-white.jpg?view=back"
     },
     "Black": {
-      "front": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150917_6868_590_900.jpg?v=1790825957",
-      "back": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150917_6864_590_900.jpg?v=1790825957"
+      "front": "assets/womens-relaxed-models/sanitary-code-black.jpg?view=front",
+      "back": "assets/womens-relaxed-models/sanitary-code-black.jpg?view=back"
     },
     "Ivory": {
-      "front": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150918_6868_590_900.jpg?v=1790825957",
-      "back": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150918_6864_590_900.jpg?v=1790825957"
+      "front": "assets/womens-relaxed-models/sanitary-code-ivory.jpg?view=front",
+      "back": "assets/womens-relaxed-models/sanitary-code-ivory.jpg?view=back"
     }
   },
   "the-sanitary-code-tee-womens-fitted": {
@@ -409,16 +409,16 @@
   },
   "the-token-tee-womens": {
     "White": {
-      "front": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150949_6868_590_900.jpg?v=1790826368",
-      "back": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150949_6864_590_900.jpg?v=1790826368"
+      "front": "assets/womens-relaxed-models/token-white.jpg?view=front",
+      "back": "assets/womens-relaxed-models/token-white.jpg?view=back"
     },
     "Ivory": {
-      "front": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150950_6868_590_900.jpg?v=1790826368",
-      "back": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150950_6864_590_900.jpg?v=1790826368"
+      "front": "assets/womens-relaxed-models/token-ivory.jpg?view=front",
+      "back": "assets/womens-relaxed-models/token-ivory.jpg?view=back"
     },
     "Black": {
-      "front": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150944_6868_590_900.jpg?v=1790826418",
-      "back": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150944_6864_590_900.jpg?v=1790826418"
+      "front": "assets/womens-relaxed-models/token-black.jpg?view=front",
+      "back": "assets/womens-relaxed-models/token-black.jpg?view=back"
     }
   },
   "the-token-tee-womens-fitted": {
@@ -437,16 +437,16 @@
   },
   "the-soul-tee-womens": {
     "White": {
-      "front": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150962_6868_590_900.jpg?v=1790826735",
-      "back": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150962_6864_590_900.jpg?v=1790826735"
+      "front": "assets/womens-relaxed-models/soul-white.jpg?view=front",
+      "back": "assets/womens-relaxed-models/soul-white.jpg?view=back"
     },
     "Ivory": {
-      "front": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150963_6868_590_900.jpg?v=1790826735",
-      "back": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150963_6864_590_900.jpg?v=1790826735"
+      "front": "assets/womens-relaxed-models/soul-ivory.jpg?view=front",
+      "back": "assets/womens-relaxed-models/soul-ivory.jpg?view=back"
     },
     "Black": {
-      "front": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150969_6868_590_900.jpg?v=1790826965",
-      "back": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150969_6864_590_900.jpg?v=1790826964"
+      "front": "assets/womens-relaxed-models/soul-black.jpg?view=front",
+      "back": "assets/womens-relaxed-models/soul-black.jpg?view=back"
     }
   },
   "the-soul-tee-womens-fitted": {
@@ -465,16 +465,16 @@
   },
   "las-malvinas-campeones-tee-womens": {
     "Black": {
-      "front": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6151043_6868_590_900.jpg?v=1790827416",
-      "back": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6151043_6864_590_900.jpg?v=1790827417"
+      "front": "assets/womens-relaxed-models/campeones-black.jpg?view=front",
+      "back": "assets/womens-relaxed-models/campeones-black.jpg?view=back"
     },
     "Ivory": {
-      "front": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6151045_6868_590_900.jpg?v=1790827482",
-      "back": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6151045_6864_590_900.jpg?v=1790827481"
+      "front": "assets/womens-relaxed-models/campeones-ivory.jpg?view=front",
+      "back": "assets/womens-relaxed-models/campeones-ivory.jpg?view=back"
     },
     "White": {
-      "front": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6151046_6868_590_900.jpg?v=1790827482",
-      "back": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6151046_6864_590_900.jpg?v=1790827482"
+      "front": "assets/womens-relaxed-models/campeones-white.jpg?view=front",
+      "back": "assets/womens-relaxed-models/campeones-white.jpg?view=back"
     }
   },
   "las-malvinas-campeones-tee-womens-fitted": {
@@ -493,16 +493,16 @@
   },
   "las-malvinas-tee-womens": {
     "White": {
-      "front": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6151068_6868_590_900.jpg?v=1790827691",
-      "back": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6151068_6864_590_900.jpg?v=1790827690"
+      "front": "assets/womens-relaxed-models/malvinas-white.jpg?view=front",
+      "back": "assets/womens-relaxed-models/malvinas-white.jpg?view=back"
     },
     "Ivory": {
-      "front": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6151069_6868_590_900.jpg?v=1790827690",
-      "back": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6151069_6864_590_900.jpg?v=1790827690"
+      "front": "assets/womens-relaxed-models/malvinas-ivory.jpg?view=front",
+      "back": "assets/womens-relaxed-models/malvinas-ivory.jpg?view=back"
     },
     "Black": {
-      "front": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6151088_6868_590_900.jpg?v=1790827788",
-      "back": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6151088_6864_590_900.jpg?v=1790827788"
+      "front": "assets/womens-relaxed-models/malvinas-black.jpg?view=front",
+      "back": "assets/womens-relaxed-models/malvinas-black.jpg?view=back"
     }
   },
   "las-malvinas-tee-womens-fitted": {
@@ -521,16 +521,16 @@
   },
   "the-brownstone-dj-tee-womens": {
     "Black": {
-      "front": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6151170_6868_590_900.jpg?v=1790828416",
-      "back": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6151170_6864_590_900.jpg?v=1790828416"
+      "front": "assets/womens-relaxed-models/brownstone-black.jpg?view=front",
+      "back": "assets/womens-relaxed-models/brownstone-black.jpg?view=back"
     },
     "White": {
-      "front": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6151198_6868_590_900.jpg?v=1790828649",
-      "back": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6151198_6864_590_900.jpg?v=1790828649"
+      "front": "assets/womens-relaxed-models/brownstone-white.jpg?view=front",
+      "back": "assets/womens-relaxed-models/brownstone-white.jpg?view=back"
     },
     "Ivory": {
-      "front": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6151199_6868_590_900.jpg?v=1790828650",
-      "back": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6151199_6864_590_900.jpg?v=1790828649"
+      "front": "assets/womens-relaxed-models/brownstone-ivory.jpg?view=front",
+      "back": "assets/womens-relaxed-models/brownstone-ivory.jpg?view=back"
     }
   },
   "the-brownstone-dj-tee-womens-fitted": {

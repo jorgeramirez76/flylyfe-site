@@ -471,3 +471,12 @@ img[src*="womens-fitted-models/"][src*="view=back"]{object-fit:cover!important;o
 .pdp__thumbs img[src*="womens-fitted-models/"]{width:54px;height:72px}
 .pdp__gallery:has(img[src*="womens-fitted-models/"]){height:auto;min-height:0;aspect-ratio:3/4;align-self:start}
 .pdp__main-img[src*="womens-fitted-models/"]{aspect-ratio:3/4;height:auto}
+
+/* Relaxed women: paired model source, individual front/back shopping views. */
+img[src*="womens-relaxed-models/"][src*="view=front"]{object-fit:cover!important;object-position:left center!important}
+img[src*="womens-relaxed-models/"][src*="view=back"]{object-fit:cover!important;object-position:right center!important}
+.card__media:has(img[src*="womens-relaxed-models/"]),.modal__gallery>img[src*="womens-relaxed-models/"],.collection-card>img[src*="womens-relaxed-models/"]{aspect-ratio:3/4}
+
+.pdp__thumbs img[src*="womens-relaxed-models/"]{width:54px;height:72px}
+.pdp__gallery:has(img[src*="womens-relaxed-models/"]){height:auto;min-height:0;aspect-ratio:3/4;align-self:start}
+.pdp__main-img[src*="womens-relaxed-models/"]{aspect-ratio:3/4;height:auto}

@@ -29,3 +29,8 @@
 img[src*="womens-fitted-models/"][src*="view=front"]{object-fit:cover!important;object-position:left center!important}
 img[src*="womens-fitted-models/"][src*="view=back"]{object-fit:cover!important;object-position:right center!important}
 .card__media:has(img[src*="womens-fitted-models/"]),.modal__gallery>img[src*="womens-fitted-models/"],.collection-card>img[src*="womens-fitted-models/"]{aspect-ratio:3/4}
+
+/* Relaxed women: paired model source, individual front/back shopping views. */
+img[src*="womens-relaxed-models/"][src*="view=front"]{object-fit:cover!important;object-position:left center!important}
+img[src*="womens-relaxed-models/"][src*="view=back"]{object-fit:cover!important;object-position:right center!important}
+.card__media:has(img[src*="womens-relaxed-models/"]),.modal__gallery>img[src*="womens-relaxed-models/"],.collection-card>img[src*="womens-relaxed-models/"]{aspect-ratio:3/4}
