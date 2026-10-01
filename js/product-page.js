@@ -50,6 +50,7 @@ function variant() { return variants().find(v=>option(v,'Color')===state.color &
 function status(message) { const el=root.querySelector('[data-commerce-status]'); if(el) el.textContent=message; }
 function showCart(cart) {
   currentCart=cart;
+  window.dispatchEvent(new CustomEvent('flylyfe:cart',{detail:{quantity:cart?.totalQuantity||0}}));
   const el=root.querySelector('[data-cart-summary]');
   if(el) el.textContent=cart?.totalQuantity ? `${cart.totalQuantity} ${T.items} · ${money(cart.cost.subtotalAmount.amount,cart.cost.subtotalAmount.currencyCode)}` : '';
 }
@@ -97,6 +98,25 @@ async function checkout() {
   } catch(error) { console.error(error); status(T.error); }
   finally { setBusy(false); }
 }
+function chooseColor(color) {
+  const previousSize=state.size;
+  state.color=color;
+  if(previousSize && !variant()?.availableForSale) state.size=null;
+  render();
+  if(previousSize && !state.size) status(ES ? `El talle ${previousSize} no está disponible en ${color}. Elegí otro talle.` : `Size ${previousSize} is unavailable in ${color}. Please choose another size.`);
+}
+function focusOption(selector,value) {
+  [...root.querySelectorAll(selector)].find(b=>b.textContent===value)?.focus({preventScroll:true});
+}
+function sizeGuide() {
+  const fitted=product.handle.endsWith('-fitted');
+  const guide=document.createElement('details');guide.className='commerce-size-guide';
+  const label=ES ? `Guía de talles — ${fitted?'entallada':'holgada'}` : `Size guide — ${fitted?'fitted':'relaxed'}`;
+  const chart=fitted ? '<img src="https://blob.apliiq.com/sitestorage/BaseSizeChart/Chart_927.jpg?v=20240723" alt="Bella Canvas 6004 size chart" loading="lazy" style="width:100%;height:auto;background:white">' : `<table><thead><tr><th>${ES?'Talle':'Size'}</th><th>${ES?'Ancho (pulgadas)':'Width (in)'}</th><th>${ES?'Largo (pulgadas)':'Length (in)'}</th></tr></thead><tbody>${[['S','18.25','26.625'],['M','20.25','28'],['L','22','29.375'],['XL','24','30.75'],['2XL','26','31.625'],['3XL','27.75','32.5']].map(row=>'<tr>'+row.map(v=>'<td>'+v+'</td>').join('')+'</tr>').join('')}</tbody></table>`;
+  const note=fitted ? (ES?'El corte es pequeño. Compará las medidas de la prenda con una remera que ya tengas.':'Runs small. Compare garment measurements with a tee you own.') : (ES?'Comfort Colors 1717: medidas de la prenda, no del cuerpo. Ancho en plano, una pulgada debajo de la sisa; largo desde el hombro alto hasta el dobladillo trasero. Compará con una remera que ya tengas.':'Comfort Colors 1717 garment measurements, not body measurements. Width is laid flat, one inch below the armhole; length is high shoulder to back hem. Compare a tee you own.');
+  guide.innerHTML=`<summary>${label}</summary><p>${note}</p>${chart}`;
+  return guide;
+}
 function gallery() {
   const media=document.querySelector('.seo-product__media'); if(!media) return;
   const images=imageManifest[product.handle]?.[state.color] || {};
@@ -124,7 +144,7 @@ function gallery() {
     const button=document.createElement('button');button.type='button';button.className='seo-gallery-swatch';
     button.title=color;button.setAttribute('aria-label',color);button.setAttribute('aria-pressed',String(color===state.color));
     button.style.setProperty('--swatch-color',colorHex[color]||color.toLowerCase());
-    button.onclick=()=>{if(busy)return;state.color=color;state.size=null;render();
+    button.onclick=()=>{if(busy)return;chooseColor(color);
       [...swatches.children].find(b=>b.getAttribute('aria-label')===color)?.focus({preventScroll:true});};
     swatches.appendChild(button);
   }
@@ -133,7 +153,9 @@ function gallery() {
     if(!images[view]) continue;
     const button=document.createElement('button'); button.className='seo-option'; button.textContent=view==='front'?T.front:T.back;
     button.setAttribute('aria-pressed',String(state.view===view));
-    button.onclick=()=>{state.view=view;gallery();}; controls.appendChild(button);
+    button.dataset.view=view;
+    button.onclick=()=>{if(busy)return;state.view=view;gallery();
+      [...controls.children].find(b=>b.dataset.view===view)?.focus({preventScroll:true});}; controls.appendChild(button);
   }
 }
 function render() {
@@ -157,22 +179,24 @@ function render() {
     const heading=document.querySelector('.seo-product__hero h1');if(heading)heading.textContent=product.title;
     const lede=document.querySelector('.seo-lede');if(lede){const description=document.createElement('div');description.className='seo-lede';description.innerHTML=product.descriptionHtml;lede.replaceWith(description);}
     const specline=document.querySelector('.seo-specline');if(specline)specline.textContent='';
-    if(product.handle.endsWith('-fitted')){
-      const guide=document.createElement('details');guide.innerHTML=`<summary>${ES?'Guía de talles — corte entallado':'Size guide — fitted'}</summary><p>${ES?'El corte es pequeño. Compará las medidas con una remera que ya tengas.':'Runs small. Compare these garment measurements with a tee you own.'}</p><img src="https://blob.apliiq.com/sitestorage/BaseSizeChart/Chart_927.jpg?v=20240723" alt="Bella Canvas 6004 size chart" style="width:100%;height:auto;background:white">`;root.appendChild(guide);
-    }
+
   }
+  root.querySelector('[data-sizes]').after(sizeGuide());
+  const policy=document.createElement('p');policy.className='commerce-policy';
+  policy.innerHTML=ES ? 'Producción: 7–10 días hábiles, más envío. Envío calculado al finalizar la compra. Devoluciones dentro de 30 días de la entrega, sin uso ni lavado; el cliente paga el envío de devolución. <a href="/faq.html#shipping">Envíos</a> · <a href="/faq.html#returns">Devoluciones</a>' : 'Printed to order: 7–10 business days, plus delivery. Shipping calculated at checkout. 30-day returns on unworn, unwashed tees; customer pays return shipping. <a href="/faq.html#shipping">Shipping</a> · <a href="/faq.html#returns">Returns</a>';
+  root.querySelector('[data-checkout]').after(policy);
   root.querySelector('[data-atc]').textContent=state.size?`${T.atc} · ${money(selected.price.amount,selected.price.currencyCode)}`:T.select;
   const price=document.querySelector('.seo-price'); if(price && selected) price.textContent=money(selected.price.amount,selected.price.currencyCode)+' USD';
   for(const color of colors) {
     const button=document.createElement('button');button.className='seo-option';button.textContent=color;
     button.setAttribute('aria-pressed',String(color===state.color));
-    button.onclick=()=>{if(busy)return;state.color=color;state.size=null;render();};root.querySelector('[data-colors]').appendChild(button);
+    button.onclick=()=>{if(busy)return;chooseColor(color);focusOption('[data-colors] button',color);};root.querySelector('[data-colors]').appendChild(button);
   }
   for(const size of sizes) {
     const available=variants().some(v=>v.availableForSale && option(v,'Color')===state.color && option(v,'Size')===size);
     const button=document.createElement('button');button.className='seo-option';button.textContent=size;
     button.disabled=!available;button.dataset.unavailable=String(!available);button.setAttribute('aria-pressed',String(size===state.size));
-    button.onclick=()=>{if(busy)return;state.size=size;render();};root.querySelector('[data-sizes]').appendChild(button);
+    button.onclick=()=>{if(busy)return;state.size=size;render();focusOption('[data-sizes] button',size);};root.querySelector('[data-sizes]').appendChild(button);
   }
   root.querySelector('[data-atc]').onclick=addToCart;
   root.querySelector('[data-checkout]').onclick=checkout;

@@ -314,7 +314,7 @@ function renderGrid(elId, handles) {
       media.addEventListener('click', ()=>openPDP(h, activeColor));
       media.addEventListener('keydown', e=>{ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); openPDP(h, activeColor); } });
       card.querySelectorAll('.card__colors .dot').forEach(dot=>{
-        dot.addEventListener('click', e=>{ e.stopPropagation(); activeColor = dot.dataset.color; build(); });
+        dot.addEventListener('click', e=>{ e.stopPropagation(); activeColor = dot.dataset.color; build(); [...card.querySelectorAll('.card__colors .dot')].find(b=>b.dataset.color===activeColor)?.focus({preventScroll:true}); });
       });
       card.querySelector('.card__body').addEventListener('click', e=>{ if(!e.target.closest('.dot')) openPDP(h, activeColor); });
     }
@@ -369,7 +369,18 @@ function openPDP(handle, startColor, switchingFit=false) {
       });
     }
     const sizeLink=document.querySelector('#pdp [data-info="sizeguide"], #pdp [data-info="fittedsizeguide"]');
-    if(sizeLink) sizeLink.dataset.info=handle.endsWith('-fitted')?'fittedsizeguide':'sizeguide';
+    if(sizeLink) {
+      sizeLink.dataset.info=handle.endsWith('-fitted')?'fittedsizeguide':'sizeguide';
+      sizeLink.textContent=handle.endsWith('-fitted')?'SIZE GUIDE — FITTED':'SIZE GUIDE — RELAXED';
+      document.getElementById('pdpSizes').after(sizeLink);
+      document.querySelector('.pdp__links [aria-hidden="true"]')?.remove();
+    }
+    let policy=document.getElementById('pdpPolicy');
+    if(!policy){policy=document.createElement('p');policy.id='pdpPolicy';policy.className='commerce-policy';document.getElementById('pdpATC').after(policy);}
+    policy.innerHTML='Printed to order: 7–10 business days, plus delivery. Shipping calculated at checkout. 30-day returns on unworn, unwashed tees; customer pays return shipping. <a href="/faq.html#shipping">Shipping</a> · <a href="/faq.html#returns">Returns</a>';
+    let optionStatus=document.getElementById('pdpOptionStatus');
+    if(!optionStatus){optionStatus=document.createElement('p');optionStatus.id='pdpOptionStatus';optionStatus.className='seo-status';optionStatus.setAttribute('role','status');optionStatus.setAttribute('aria-live','polite');document.getElementById('pdpSizes').after(optionStatus);}
+    optionStatus.textContent='';
 
     /* Gallery order: front-logo products show the accurate product front first; other tees keep model back first. */
     const _seen = new Set();
@@ -411,13 +422,15 @@ function openPDP(handle, startColor, switchingFit=false) {
       const t = document.createElement('img');
       t.src = im.url; t.alt = im.label;
       t.className = 'pdp__thumb' + (i===0?' on':'');
+      t.tabIndex=0;t.setAttribute('role','button');t.setAttribute('aria-label','Show '+im.label.toLowerCase());t.setAttribute('aria-pressed',String(i===0));
       t.style.objectFit = im.isModel ? 'cover' : 'contain';
       t.style.objectPosition = pdpImagePosition(im.url, im.isModel);
       t.onclick = ()=>{
         setMain(im.url, im.isModel, `${p.title} — ${pdpState.color}, ${im.label}`);
-        thumbs.querySelectorAll('.pdp__thumb').forEach(x=>x.classList.remove('on'));
-        t.classList.add('on');
+        thumbs.querySelectorAll('.pdp__thumb').forEach(x=>{x.classList.remove('on');x.setAttribute('aria-pressed','false');});
+        t.classList.add('on');t.setAttribute('aria-pressed','true');
       };
+      t.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();t.click();}};
       thumbs.appendChild(t);
     });
 
@@ -430,7 +443,15 @@ function openPDP(handle, startColor, switchingFit=false) {
       b.style.background = COLOR_HEX[c]||'#888';
       b.title = c;
       b.setAttribute('aria-label', c);
-      b.onclick = ()=>{ pdpState.color = c; pdpState.size = null; render(); };
+      b.setAttribute('aria-pressed',String(c===pdpState.color));
+      b.onclick = ()=>{
+        const previousSize=pdpState.size;
+        pdpState.color=c;
+        if(previousSize && !findVariant(p,c,previousSize)?.availableForSale) pdpState.size=null;
+        render();
+        [...sw.children].find(button=>button.getAttribute('aria-label')===c)?.focus({preventScroll:true});
+        if(previousSize && !pdpState.size) document.getElementById('pdpOptionStatus').textContent=`Size ${previousSize} is unavailable in ${c}. Please choose another size.`;
+      };
       sw.appendChild(b);
     });
 
@@ -443,12 +464,14 @@ function openPDP(handle, startColor, switchingFit=false) {
       const avail = v && v.availableForSale;
       b.className = 'pdp__size' + (pdpState.size===s?' on':'') + (avail?'':' off');
       b.textContent = s;
+      b.setAttribute('aria-pressed',String(pdpState.size===s));
       if (!avail){ b.disabled = true; b.setAttribute('aria-disabled','true'); b.setAttribute('aria-label', s+', sold out'); }
       if (avail) b.onclick = ()=>{
         pdpState.size = s;
         document.getElementById('pdpPrice').textContent = money(v.price.amount);
-        sz.querySelectorAll('.pdp__size').forEach(x=>x.classList.remove('on'));
-        b.classList.add('on');
+        sz.querySelectorAll('.pdp__size').forEach(x=>{x.classList.remove('on');x.setAttribute('aria-pressed','false');});
+        b.classList.add('on');b.setAttribute('aria-pressed','true');
+        document.getElementById('pdpOptionStatus').textContent='';
         updateATC();
       };
       sz.appendChild(b);
@@ -471,7 +494,7 @@ function openPDP(handle, startColor, switchingFit=false) {
   if(!switchingFit) pdpReturnFocus = document.activeElement;
   pdp.hidden = false;
   document.body.style.overflow = 'hidden';
-  setTimeout(()=>{ const b=document.getElementById('pdpBack'); if(b) b.focus(); }, 50);
+  setTimeout(()=>{ const b=switchingFit ? document.querySelector('#pdpFits [aria-pressed="true"]') : document.getElementById('pdpBack'); if(b) b.focus(); }, 50);
 }
 
 function closePDP(){ pdp.hidden = true; document.body.style.overflow = ''; if(pdpReturnFocus){ try{pdpReturnFocus.focus();}catch(_){} pdpReturnFocus=null; } }
@@ -539,6 +562,7 @@ async function updateLine(id, qty){
 let CURRENT_CART = null;
 function renderCart(cart){
   CURRENT_CART = cart;
+  window.dispatchEvent(new CustomEvent('flylyfe:cart',{detail:{quantity:cart.totalQuantity}}));
   document.getElementById('cartCount').textContent = cart.totalQuantity;
   document.getElementById('cartTotal').textContent = money(cart.cost.subtotalAmount.amount);
   document.getElementById('checkoutBtn').textContent = cart.totalQuantity>0 ? `CHECKOUT · ${money(cart.cost.subtotalAmount.amount)} →` : 'CHECKOUT →';
@@ -666,12 +690,12 @@ function showToast(msg){ const t=document.getElementById('toast'); t.hidden=fals
 
 /* ---- Hero carousel: model back shots ---- */
 const HERO_SLIDES=[
-  {img:'assets/hero/carousel-2-freedom.webp', alt:'FLYLYFE — House Music Is Freedom tee on a New York City street'},
-  {img:'assets/hero/carousel-1-black.webp',   alt:'FLYLYFE — Feel the Music. Feel the Vibe. Live Your Lyfe. tee in NYC'},
-  {img:'assets/hero/carousel-3-house.webp',   alt:'FLYLYFE house music culture tee in New York City'},
-  {img:'assets/hero/carousel-4-malvinas.webp',alt:'FLYLYFE Las Malvinas Son Argentinas heritage tee on a New York City street'},
-  {img:'assets/hero/carousel-5-brownstone.webp',alt:'FLYLYFE Brownstone DJ tee — stick-figure DJ line art — on a New York City street'},
-  {img:'assets/hero/carousel-6-soul.webp',alt:'FLYLYFE Soul Tee — House Is a Feeling afro silhouette — on a New York City street'},
+  {img:'assets/models/black-back.webp',alt:'The Anthem Tee in Black — back design',handle:'the-anthem-tee'},
+  {img:'assets/womens-relaxed-models/conga-black.jpg?view=back',alt:'The Conga Tee — women’s relaxed in Black, back design',handle:'the-conga-tee-womens'},
+  {img:'assets/womens-fitted-models/house-music-black.jpg?view=back',alt:'The House Music Tee — women’s fitted in Black, back design',handle:'the-house-music-tee-womens-fitted'},
+  {img:'assets/womens-relaxed-models/malvinas-white.jpg?view=back',alt:'Las Malvinas Tee — women’s relaxed in White, back design',handle:'las-malvinas-tee-womens'},
+  {img:'assets/womens-relaxed-models/brownstone-black.jpg?view=back',alt:'The Brownstone DJ Tee — women’s relaxed in Black, back design',handle:'the-brownstone-dj-tee-womens'},
+  {img:'assets/womens-fitted-models/soul-soft-cream.jpg?view=back',alt:'The Soul Tee — women’s fitted in Soft Cream, back design',handle:'the-soul-tee-womens-fitted'}
 ];
 function initHeroCarousel(){
   const wrap = document.getElementById('heroCarousel');
@@ -680,11 +704,9 @@ function initHeroCarousel(){
   HERO_SLIDES.forEach((s,i)=>{
     const slide = i===0 && wrap.firstElementChild ? wrap.firstElementChild : document.createElement('div');
     slide.className = 'hero__slide'+(i===0?' on':'');
-    if (!slide.firstElementChild) {
-      const base = s.img.split('/').pop().replace('.webp','');
-      slide.innerHTML = `<img src="${s.img}" srcset="/assets/responsive/${base}-480.webp 480w, /assets/responsive/${base}-768.webp 768w" sizes="(max-width:1000px) 90vw, 45vw" alt="${s.alt}" decoding="async" loading="lazy">`;
-      wrap.appendChild(slide);
-    }
+    slide.innerHTML=`<a href="/products/${s.handle}/" aria-label="Shop ${s.alt}" style="display:block;width:100%;height:100%"><img src="${s.img}" alt="${s.alt}" decoding="async" ${i===0?'fetchpriority="high"':'loading="lazy"'} style="${s.img.includes('womens-')?'object-position:right center;':''}"></a>`;
+    if(window.FlylyfeImages) window.FlylyfeImages.apply(slide.querySelector('img'));
+    if(!slide.parentElement) wrap.appendChild(slide);
     const num = document.createElement('button');
     num.className = 'hero__num'+(i===0?' on':'');
     num.textContent = '0'+(i+1);
@@ -696,10 +718,11 @@ function initHeroCarousel(){
   let idx=0;
   const slides = wrap.querySelectorAll('.hero__slide');
   const nums   = numsWrap.querySelectorAll('.hero__num');
+  slides.forEach((slide,i)=>{slide.inert=i!==0;});
   window.goToSlide = n=>{
-    slides[idx].classList.remove('on'); nums[idx].classList.remove('on'); nums[idx].setAttribute('aria-pressed','false');
+    slides[idx].classList.remove('on');slides[idx].inert=true; nums[idx].classList.remove('on'); nums[idx].setAttribute('aria-pressed','false');
     idx = (n+slides.length)%slides.length;
-    slides[idx].classList.add('on'); nums[idx].classList.add('on'); nums[idx].setAttribute('aria-pressed','true');
+    slides[idx].classList.add('on');slides[idx].inert=false; nums[idx].classList.add('on'); nums[idx].setAttribute('aria-pressed','true');
   };
   const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   let paused = reduceMotion;
