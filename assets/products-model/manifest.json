@@ -294,5 +294,33 @@
       "front": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150842_5186_590_900.jpg?v=1790823694",
       "back": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150842_5189_590_900.jpg?v=1790823694"
     }
+  },
+  "the-tempo-tee-womens": {
+    "Black": {
+      "front": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150846_6868_590_900.jpg?v=1790823951",
+      "back": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150846_6864_590_900.jpg?v=1790823951"
+    },
+    "White": {
+      "front": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150848_6868_590_900.jpg?v=1790824161",
+      "back": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150848_6864_590_900.jpg?v=1790824158"
+    },
+    "Ivory": {
+      "front": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150849_6868_590_900.jpg?v=1790824158",
+      "back": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150849_6864_590_900.jpg?v=1790824158"
+    }
+  },
+  "the-tempo-tee-womens-fitted": {
+    "Soft Cream": {
+      "front": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150852_5186_590_900.jpg?v=1790824217",
+      "back": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150852_5189_590_900.jpg?v=1790824217"
+    },
+    "White": {
+      "front": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150853_5186_590_900.jpg?v=1790824217",
+      "back": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150853_5189_590_900.jpg?v=1790824217"
+    },
+    "Black": {
+      "front": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150854_5186_590_900.jpg?v=1790824246",
+      "back": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150854_5189_590_900.jpg?v=1790824246"
+    }
   }
 }
