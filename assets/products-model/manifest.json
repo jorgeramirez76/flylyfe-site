@@ -199,44 +199,44 @@
   },
   "the-anthem-tee-womens-fitted": {
     "Black": {
-      "front": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150676_5186_590_900.jpg?v=1790819279",
-      "back": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150676_5189_590_900.jpg?v=1790819279"
+      "front": "assets/womens-fitted-models/anthem-black.jpg?view=front",
+      "back": "assets/womens-fitted-models/anthem-black.jpg?view=back"
     },
     "White": {
-      "front": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150693_5186_590_900.jpg?v=1790819525",
-      "back": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150693_5189_590_900.jpg?v=1790819525"
+      "front": "assets/womens-fitted-models/anthem-white.jpg?view=front",
+      "back": "assets/womens-fitted-models/anthem-white.jpg?view=back"
     },
     "Soft Cream": {
-      "front": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150694_5186_590_900.jpg?v=1790819525",
-      "back": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150694_5189_590_900.jpg?v=1790819525"
+      "front": "assets/womens-fitted-models/anthem-soft-cream.jpg?view=front",
+      "back": "assets/womens-fitted-models/anthem-soft-cream.jpg?view=back"
     }
   },
   "the-conga-tee-womens-fitted": {
     "White": {
-      "front": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150756_5186_590_900.jpg?v=1790821389",
-      "back": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150756_5189_590_900.jpg?v=1790821389"
+      "front": "assets/womens-fitted-models/conga-white.jpg?view=front",
+      "back": "assets/womens-fitted-models/conga-white.jpg?view=back"
     },
     "Soft Cream": {
-      "front": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150757_5186_590_900.jpg?v=1790821389",
-      "back": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150757_5189_590_900.jpg?v=1790821389"
+      "front": "assets/womens-fitted-models/conga-soft-cream.jpg?view=front",
+      "back": "assets/womens-fitted-models/conga-soft-cream.jpg?view=back"
     },
     "Black": {
-      "front": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150759_5186_590_900.jpg?v=1790821486",
-      "back": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150759_5189_590_900.jpg?v=1790821486"
+      "front": "assets/womens-fitted-models/conga-black.jpg?view=front",
+      "back": "assets/womens-fitted-models/conga-black.jpg?view=back"
     }
   },
   "the-signature-tee-womens-fitted": {
     "Black": {
-      "front": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150771_5186_590_900.jpg?v=1790821795",
-      "back": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150771_5189_590_900.jpg?v=1790821795"
+      "front": "assets/womens-fitted-models/signature-black.jpg?view=front",
+      "back": "assets/womens-fitted-models/signature-black.jpg?view=back"
     },
     "Soft Cream": {
-      "front": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150778_5186_590_900.jpg?v=1790822458",
-      "back": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150778_5189_590_900.jpg?v=1790822458"
+      "front": "assets/womens-fitted-models/signature-soft-cream.jpg?view=front",
+      "back": "assets/womens-fitted-models/signature-soft-cream.jpg?view=back"
     },
     "White": {
-      "front": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150777_5186_590_900.jpg?v=1790822459",
-      "back": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150777_5189_590_900.jpg?v=1790822458"
+      "front": "assets/womens-fitted-models/signature-white.jpg?view=front",
+      "back": "assets/womens-fitted-models/signature-white.jpg?view=back"
     }
   },
   "the-house-music-tee-womens": {
@@ -255,16 +255,16 @@
   },
   "the-house-music-tee-womens-fitted": {
     "White": {
-      "front": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150820_5186_590_900.jpg?v=1790822989",
-      "back": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150820_5189_590_900.jpg?v=1790822989"
+      "front": "assets/womens-fitted-models/house-music-white.jpg?view=front",
+      "back": "assets/womens-fitted-models/house-music-white.jpg?view=back"
     },
     "Soft Cream": {
-      "front": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150821_5186_590_900.jpg?v=1790822989",
-      "back": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150821_5189_590_900.jpg?v=1790822989"
+      "front": "assets/womens-fitted-models/house-music-soft-cream.jpg?view=front",
+      "back": "assets/womens-fitted-models/house-music-soft-cream.jpg?view=back"
     },
     "Black": {
-      "front": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150823_5186_590_900.jpg?v=1790823055",
-      "back": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150823_5189_590_900.jpg?v=1790823054"
+      "front": "assets/womens-fitted-models/house-music-black.jpg?view=front",
+      "back": "assets/womens-fitted-models/house-music-black.jpg?view=back"
     }
   },
   "the-after-hours-tee-womens": {
@@ -283,16 +283,16 @@
   },
   "the-after-hours-tee-womens-fitted": {
     "Black": {
-      "front": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150839_5186_590_900.jpg?v=1790823585",
-      "back": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150839_5189_590_900.jpg?v=1790823665"
+      "front": "assets/womens-fitted-models/after-hours-black.jpg?view=front",
+      "back": "assets/womens-fitted-models/after-hours-black.jpg?view=back"
     },
     "White": {
-      "front": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150841_5186_590_900.jpg?v=1790823694",
-      "back": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150841_5189_590_900.jpg?v=1790823694"
+      "front": "assets/womens-fitted-models/after-hours-white.jpg?view=front",
+      "back": "assets/womens-fitted-models/after-hours-white.jpg?view=back"
     },
     "Soft Cream": {
-      "front": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150842_5186_590_900.jpg?v=1790823694",
-      "back": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150842_5189_590_900.jpg?v=1790823694"
+      "front": "assets/womens-fitted-models/after-hours-soft-cream.jpg?view=front",
+      "back": "assets/womens-fitted-models/after-hours-soft-cream.jpg?view=back"
     }
   },
   "the-tempo-tee-womens": {
@@ -311,16 +311,16 @@
   },
   "the-tempo-tee-womens-fitted": {
     "Soft Cream": {
-      "front": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150852_5186_590_900.jpg?v=1790824217",
-      "back": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150852_5189_590_900.jpg?v=1790824217"
+      "front": "assets/womens-fitted-models/tempo-soft-cream.jpg?view=front",
+      "back": "assets/womens-fitted-models/tempo-soft-cream.jpg?view=back"
     },
     "White": {
-      "front": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150853_5186_590_900.jpg?v=1790824217",
-      "back": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150853_5189_590_900.jpg?v=1790824217"
+      "front": "assets/womens-fitted-models/tempo-white.jpg?view=front",
+      "back": "assets/womens-fitted-models/tempo-white.jpg?view=back"
     },
     "Black": {
-      "front": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150854_5186_590_900.jpg?v=1790824246",
-      "back": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150854_5189_590_900.jpg?v=1790824246"
+      "front": "assets/womens-fitted-models/tempo-black.jpg?view=front",
+      "back": "assets/womens-fitted-models/tempo-black.jpg?view=back"
     }
   },
   "the-spiritual-thing-tee-womens": {
@@ -339,16 +339,16 @@
   },
   "the-spiritual-thing-tee-womens-fitted": {
     "White": {
-      "front": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150901_5186_590_900.jpg?v=1790825235",
-      "back": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150901_5189_590_900.jpg?v=1790825235"
+      "front": "assets/womens-fitted-models/spiritual-thing-white.jpg?view=front",
+      "back": "assets/womens-fitted-models/spiritual-thing-white.jpg?view=back"
     },
     "Soft Cream": {
-      "front": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150902_5186_590_900.jpg?v=1790825235",
-      "back": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150902_5189_590_900.jpg?v=1790825241"
+      "front": "assets/womens-fitted-models/spiritual-thing-soft-cream.jpg?view=front",
+      "back": "assets/womens-fitted-models/spiritual-thing-soft-cream.jpg?view=back"
     },
     "Black": {
-      "front": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150857_5186_590_900_04253fe8-2c9a-4078-a4ba-4bf4b35e990b.jpg?v=1790825271",
-      "back": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150857_5189_590_900_6205cddb-cc15-4b83-b955-a524b7399578.jpg?v=1790825271"
+      "front": "assets/womens-fitted-models/spiritual-thing-black.jpg?view=front",
+      "back": "assets/womens-fitted-models/spiritual-thing-black.jpg?view=back"
     }
   },
   "the-coordinates-tee-womens": {
@@ -367,16 +367,16 @@
   },
   "the-coordinates-tee-womens-fitted": {
     "Soft Cream": {
-      "front": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150907_5186_590_900.jpg?v=1790825540",
-      "back": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150907_5189_590_900.jpg?v=1790825541"
+      "front": "assets/womens-fitted-models/coordinates-soft-cream.jpg?view=front",
+      "back": "assets/womens-fitted-models/coordinates-soft-cream.jpg?view=back"
     },
     "White": {
-      "front": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150908_5186_590_900.jpg?v=1790825540",
-      "back": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150908_5189_590_900.jpg?v=1790825540"
+      "front": "assets/womens-fitted-models/coordinates-white.jpg?view=front",
+      "back": "assets/womens-fitted-models/coordinates-white.jpg?view=back"
     },
     "Black": {
-      "front": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150909_5186_590_900.jpg?v=1790825638",
-      "back": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150909_5189_590_900.jpg?v=1790825638"
+      "front": "assets/womens-fitted-models/coordinates-black.jpg?view=front",
+      "back": "assets/womens-fitted-models/coordinates-black.jpg?view=back"
     }
   },
   "the-sanitary-code-tee-womens": {
@@ -395,16 +395,16 @@
   },
   "the-sanitary-code-tee-womens-fitted": {
     "Black": {
-      "front": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150923_5186_590_900.jpg?v=1790825992",
-      "back": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150923_5189_590_900.jpg?v=1790825992"
+      "front": "assets/womens-fitted-models/sanitary-code-black.jpg?view=front",
+      "back": "assets/womens-fitted-models/sanitary-code-black.jpg?view=back"
     },
     "Soft Cream": {
-      "front": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150924_5186_590_900.jpg?v=1790825992",
-      "back": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150924_5189_590_900.jpg?v=1790825992"
+      "front": "assets/womens-fitted-models/sanitary-code-soft-cream.jpg?view=front",
+      "back": "assets/womens-fitted-models/sanitary-code-soft-cream.jpg?view=back"
     },
     "White": {
-      "front": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150925_5186_590_900.jpg?v=1790825992",
-      "back": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150925_5189_590_900.jpg?v=1790825992"
+      "front": "assets/womens-fitted-models/sanitary-code-white.jpg?view=front",
+      "back": "assets/womens-fitted-models/sanitary-code-white.jpg?view=back"
     }
   },
   "the-token-tee-womens": {
@@ -423,16 +423,16 @@
   },
   "the-token-tee-womens-fitted": {
     "White": {
-      "front": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150931_5186_590_900.jpg?v=1790826265",
-      "back": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150931_5189_590_900.jpg?v=1790826265"
+      "front": "assets/womens-fitted-models/token-white.jpg?view=front",
+      "back": "assets/womens-fitted-models/token-white.jpg?view=back"
     },
     "Soft Cream": {
-      "front": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150932_5186_590_900.jpg?v=1790826264",
-      "back": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150932_5189_590_900.jpg?v=1790826264"
+      "front": "assets/womens-fitted-models/token-soft-cream.jpg?view=front",
+      "back": "assets/womens-fitted-models/token-soft-cream.jpg?view=back"
     },
     "Black": {
-      "front": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150936_5186_590_900.jpg?v=1790826331",
-      "back": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150936_5189_590_900.jpg?v=1790826332"
+      "front": "assets/womens-fitted-models/token-black.jpg?view=front",
+      "back": "assets/womens-fitted-models/token-black.jpg?view=back"
     }
   },
   "the-soul-tee-womens": {
@@ -451,16 +451,16 @@
   },
   "the-soul-tee-womens-fitted": {
     "Black": {
-      "front": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150989_5186_590_900.jpg?v=1790827015",
-      "back": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150989_5189_590_900.jpg?v=1790827015"
+      "front": "assets/womens-fitted-models/soul-black.jpg?view=front",
+      "back": "assets/womens-fitted-models/soul-black.jpg?view=back"
     },
     "Soft Cream": {
-      "front": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150995_5186_590_900.jpg?v=1790827115",
-      "back": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150995_5189_590_900.jpg?v=1790827115"
+      "front": "assets/womens-fitted-models/soul-soft-cream.jpg?view=front",
+      "back": "assets/womens-fitted-models/soul-soft-cream.jpg?view=back"
     },
     "White": {
-      "front": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150996_5186_590_900.jpg?v=1790827115",
-      "back": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150996_5189_590_900.jpg?v=1790827115"
+      "front": "assets/womens-fitted-models/soul-white.jpg?view=front",
+      "back": "assets/womens-fitted-models/soul-white.jpg?view=back"
     }
   },
   "las-malvinas-campeones-tee-womens": {
@@ -479,16 +479,16 @@
   },
   "las-malvinas-campeones-tee-womens-fitted": {
     "White": {
-      "front": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6151026_5186_590_900.jpg?v=1790827275",
-      "back": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6151026_5189_590_900.jpg?v=1790827275"
+      "front": "assets/womens-fitted-models/campeones-white.jpg?view=front",
+      "back": "assets/womens-fitted-models/campeones-white.jpg?view=back"
     },
     "Soft Cream": {
-      "front": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6151027_5186_590_900.jpg?v=1790827275",
-      "back": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6151027_5189_590_900.jpg?v=1790827275"
+      "front": "assets/womens-fitted-models/campeones-soft-cream.jpg?view=front",
+      "back": "assets/womens-fitted-models/campeones-soft-cream.jpg?view=back"
     },
     "Black": {
-      "front": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6151035_5186_590_900.jpg?v=1790827318",
-      "back": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6151035_5189_590_900.jpg?v=1790827318"
+      "front": "assets/womens-fitted-models/campeones-black.jpg?view=front",
+      "back": "assets/womens-fitted-models/campeones-black.jpg?view=back"
     }
   },
   "las-malvinas-tee-womens": {
@@ -507,16 +507,16 @@
   },
   "las-malvinas-tee-womens-fitted": {
     "Black": {
-      "front": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6151093_5186_590_900.jpg?v=1790827888",
-      "back": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6151093_5189_590_900.jpg?v=1790827888"
+      "front": "assets/womens-fitted-models/malvinas-black.jpg?view=front",
+      "back": "assets/womens-fitted-models/malvinas-black.jpg?view=back"
     },
     "Soft Cream": {
-      "front": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6151101_5186_590_900.jpg?v=1790828001",
-      "back": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6151101_5189_590_900.jpg?v=1790828001"
+      "front": "assets/womens-fitted-models/malvinas-soft-cream.jpg?view=front",
+      "back": "assets/womens-fitted-models/malvinas-soft-cream.jpg?view=back"
     },
     "White": {
-      "front": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6151102_5186_590_900.jpg?v=1790828001",
-      "back": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6151102_5189_590_900.jpg?v=1790828001"
+      "front": "assets/womens-fitted-models/malvinas-white.jpg?view=front",
+      "back": "assets/womens-fitted-models/malvinas-white.jpg?view=back"
     }
   },
   "the-brownstone-dj-tee-womens": {
@@ -535,16 +535,16 @@
   },
   "the-brownstone-dj-tee-womens-fitted": {
     "White": {
-      "front": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6151121_5186_590_900.jpg?v=1790828181",
-      "back": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6151121_5189_590_900.jpg?v=1790828181"
+      "front": "assets/womens-fitted-models/brownstone-white.jpg?view=front",
+      "back": "assets/womens-fitted-models/brownstone-white.jpg?view=back"
     },
     "Soft Cream": {
-      "front": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6151122_5186_590_900.jpg?v=1790828181",
-      "back": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6151122_5189_590_900.jpg?v=1790828181"
+      "front": "assets/womens-fitted-models/brownstone-soft-cream.jpg?view=front",
+      "back": "assets/womens-fitted-models/brownstone-soft-cream.jpg?view=back"
     },
     "Black": {
-      "front": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6151135_5186_590_900.jpg?v=1790828279",
-      "back": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6151135_5189_590_900.jpg?v=1790828279"
+      "front": "assets/womens-fitted-models/brownstone-black.jpg?view=front",
+      "back": "assets/womens-fitted-models/brownstone-black.jpg?view=back"
     }
   }
 }

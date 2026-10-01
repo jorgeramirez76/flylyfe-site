@@ -462,3 +462,12 @@ body.has-js .reveal.in{opacity:1;transform:none}
 /* Keyboard users can bypass repeated navigation. */
 .skip-link{position:fixed;top:8px;left:8px;z-index:100000;padding:12px 18px;background:#f5f0e6;color:#111;transform:translateY(-160%);font-weight:700}
 .skip-link:focus{transform:translateY(0);outline:3px solid var(--gold);outline-offset:2px}
+
+/* Fitted women: paired model source, individual front/back shopping views. */
+img[src*="womens-fitted-models/"][src*="view=front"]{object-fit:cover!important;object-position:left center!important}
+img[src*="womens-fitted-models/"][src*="view=back"]{object-fit:cover!important;object-position:right center!important}
+.card__media:has(img[src*="womens-fitted-models/"]),.modal__gallery>img[src*="womens-fitted-models/"],.collection-card>img[src*="womens-fitted-models/"]{aspect-ratio:3/4}
+
+.pdp__thumbs img[src*="womens-fitted-models/"]{width:54px;height:72px}
+.pdp__gallery:has(img[src*="womens-fitted-models/"]){height:auto;min-height:0;aspect-ratio:3/4;align-self:start}
+.pdp__main-img[src*="womens-fitted-models/"]{aspect-ratio:3/4;height:auto}

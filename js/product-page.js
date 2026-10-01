@@ -26,7 +26,7 @@ const T = ES ? {
 const FRONT_FIRST = new Set(['the-signature-tee','the-signature-tee-womens','the-signature-tee-womens-fitted','the-sanitary-code-tee','the-sanitary-code-tee-womens','the-sanitary-code-tee-womens-fitted']);
 let cartId = localStorage.getItem('flylyfe_cart');
 let product = null, imageManifest = {}, currentCart = null, busy = false;
-const state = {color:null, size:null, view:FRONT_FIRST.has(handle) ? 'front' : 'back'};
+const state = {color:null, size:null, view:handle.includes('-womens') || FRONT_FIRST.has(handle) ? 'front' : 'back'};
 const root = document.querySelector('[data-commerce-root]');
 const money = (a, currency='USD') => new Intl.NumberFormat(ES?'es-AR':'en-US', {style:'currency',currency}).format(Number(a));
 const PRODUCT_Q = `query($handle:String!){product(handle:$handle){id handle title vendor descriptionHtml options{name values} featuredImage{url altText} variants(first:100){edges{node{id title availableForSale price{amount currencyCode} image{url altText} selectedOptions{name value}}}}}}`;
@@ -105,7 +105,7 @@ function gallery() {
   if(url && img) {
     img.src=url.startsWith('assets/') ? '/'+url : url;
     img.removeAttribute('srcset');
-    if(WOMEN_FITS.some(f=>f.handle===product.handle)) {img.style.objectFit='contain';img.style.objectPosition='center';}
+    if(url.includes('womens-fitted-models/')) {img.style.objectFit='cover';img.style.objectPosition=state.view==='back'?'right center':'left center';} else if(WOMEN_FITS.some(f=>f.handle===product.handle)) {img.style.objectFit='contain';img.style.objectPosition='center';}
     img.alt=`${product.title} — ${state.color}, ${state.view==='front'?T.front:T.back}`;
     if(window.FlylyfeImages) window.FlylyfeImages.apply(img);
   }
@@ -132,7 +132,7 @@ function render() {
     const group=document.createElement('div');group.className='seo-commerce__group';
     const label=document.createElement('p');label.className='seo-commerce__label mono';label.textContent=ES?'CORTE':'FIT';group.appendChild(label);
     const buttons=document.createElement('div');buttons.className='seo-commerce__options';group.appendChild(buttons);
-    fitFamily(product.handle).filter(f=>fitProducts[f.handle]).forEach(f=>{
+    fitFamily(product.handle).filter(f=>f.handle.endsWith('-fitted') && fitProducts[f.handle]).forEach(f=>{
       const b=document.createElement('button');b.type='button';b.className='seo-option';b.textContent=ES?f.es:f.label;b.setAttribute('aria-pressed',String(f.handle===product.handle));
       b.onclick=()=>{if(busy||f.handle===product.handle)return;product=fitProducts[f.handle];state.color=state.color==='Ivory'?'Soft Cream':state.color==='Soft Cream'?'Ivory':state.color;state.size=null;render();};buttons.appendChild(b);
     });
@@ -163,7 +163,7 @@ function render() {
 }
 async function initProductPage() {
   try {
-    const [data,manifest]=await Promise.all([gql(PRODUCT_Q,{handle}),fetch('/assets/products-model/manifest.json?v=20261001-women-14-f30dd41a').then(r=>r.ok?r.json():{}).catch(()=>({}))]);
+    const [data,manifest]=await Promise.all([gql(PRODUCT_Q,{handle}),fetch('/assets/products-model/manifest.json?v=20261001-fitted-models-v2').then(r=>r.ok?r.json():{}).catch(()=>({}))]);
     product=data.product;imageManifest=manifest;
     if(!product || product.vendor!=='FLYLYFE') throw new Error('FLYLYFE product not found');
     if(WOMEN_FITS.some(f=>f.handle===handle)){

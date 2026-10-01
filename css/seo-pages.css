@@ -24,3 +24,8 @@
 .women-models--compact .women-models__grid{grid-template-columns:repeat(4,minmax(0,1fr))}
 .women-models--product>img{display:block;width:min(100%,640px);height:auto;margin:24px auto;border-radius:8px}
 @media(max-width:760px){.women-models{padding:0 16px;margin:3rem auto}.women-models--compact .women-models__grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.women-models__grid{grid-template-columns:1fr}.women-model-card h3{font-size:1rem}}
+
+/* Fitted women: paired model source, individual front/back shopping views. */
+img[src*="womens-fitted-models/"][src*="view=front"]{object-fit:cover!important;object-position:left center!important}
+img[src*="womens-fitted-models/"][src*="view=back"]{object-fit:cover!important;object-position:right center!important}
+.card__media:has(img[src*="womens-fitted-models/"]),.modal__gallery>img[src*="womens-fitted-models/"],.collection-card>img[src*="womens-fitted-models/"]{aspect-ratio:3/4}

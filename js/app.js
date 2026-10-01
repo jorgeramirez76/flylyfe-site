@@ -86,17 +86,31 @@ const DEFAULT_COLOR = { 'las-malvinas-campeones-tee':'White', 'las-malvinas-tee'
 /* Consistent on-model shots (assets/products-model/) are now the primary visual for EVERY product
    and color — same curly-haired man on all men's colors, same long-haired woman on all women's
    colors, front + back. Flat Printful mockups are no longer used as the primary card image. */
-const MOCKUP_PRIMARY_HANDLES = new Set(["the-anthem-tee-womens", "the-anthem-tee-womens-fitted", "the-conga-tee-womens", "the-conga-tee-womens-fitted", "the-signature-tee-womens", "the-signature-tee-womens-fitted", "the-house-music-tee-womens", "the-house-music-tee-womens-fitted", "the-after-hours-tee-womens", "the-after-hours-tee-womens-fitted", "the-tempo-tee-womens", "the-tempo-tee-womens-fitted", "the-spiritual-thing-tee-womens", "the-spiritual-thing-tee-womens-fitted", "the-coordinates-tee-womens", "the-coordinates-tee-womens-fitted", "the-sanitary-code-tee-womens", "the-sanitary-code-tee-womens-fitted", "the-token-tee-womens", "the-token-tee-womens-fitted", "the-soul-tee-womens", "the-soul-tee-womens-fitted", "las-malvinas-campeones-tee-womens", "las-malvinas-campeones-tee-womens-fitted", "las-malvinas-tee-womens", "las-malvinas-tee-womens-fitted", "the-brownstone-dj-tee-womens", "the-brownstone-dj-tee-womens-fitted"]);
+const MOCKUP_PRIMARY_HANDLES = new Set();
 const WOMEN_FIT_FAMILIES = [[{"handle":"the-anthem-tee-womens","label":"Relaxed","es":"Holgada"},{"handle":"the-anthem-tee-womens-fitted","label":"Fitted","es":"Entallada"}],[{"handle":"the-conga-tee-womens","label":"Relaxed","es":"Holgada"},{"handle":"the-conga-tee-womens-fitted","label":"Fitted","es":"Entallada"}],[{"handle":"the-signature-tee-womens","label":"Relaxed","es":"Holgada"},{"handle":"the-signature-tee-womens-fitted","label":"Fitted","es":"Entallada"}],[{"handle":"the-house-music-tee-womens","label":"Relaxed","es":"Holgada"},{"handle":"the-house-music-tee-womens-fitted","label":"Fitted","es":"Entallada"}],[{"handle":"the-after-hours-tee-womens","label":"Relaxed","es":"Holgada"},{"handle":"the-after-hours-tee-womens-fitted","label":"Fitted","es":"Entallada"}],[{"handle":"the-tempo-tee-womens","label":"Relaxed","es":"Holgada"},{"handle":"the-tempo-tee-womens-fitted","label":"Fitted","es":"Entallada"}],[{"handle":"the-spiritual-thing-tee-womens","label":"Relaxed","es":"Holgada"},{"handle":"the-spiritual-thing-tee-womens-fitted","label":"Fitted","es":"Entallada"}],[{"handle":"the-coordinates-tee-womens","label":"Relaxed","es":"Holgada"},{"handle":"the-coordinates-tee-womens-fitted","label":"Fitted","es":"Entallada"}],[{"handle":"the-sanitary-code-tee-womens","label":"Relaxed","es":"Holgada"},{"handle":"the-sanitary-code-tee-womens-fitted","label":"Fitted","es":"Entallada"}],[{"handle":"the-token-tee-womens","label":"Relaxed","es":"Holgada"},{"handle":"the-token-tee-womens-fitted","label":"Fitted","es":"Entallada"}],[{"handle":"the-soul-tee-womens","label":"Relaxed","es":"Holgada"},{"handle":"the-soul-tee-womens-fitted","label":"Fitted","es":"Entallada"}],[{"handle":"las-malvinas-campeones-tee-womens","label":"Relaxed","es":"Holgada"},{"handle":"las-malvinas-campeones-tee-womens-fitted","label":"Fitted","es":"Entallada"}],[{"handle":"las-malvinas-tee-womens","label":"Relaxed","es":"Holgada"},{"handle":"las-malvinas-tee-womens-fitted","label":"Fitted","es":"Entallada"}],[{"handle":"the-brownstone-dj-tee-womens","label":"Relaxed","es":"Holgada"},{"handle":"the-brownstone-dj-tee-womens-fitted","label":"Fitted","es":"Entallada"}]];
 const WOMEN_FITS = WOMEN_FIT_FAMILIES.flat();
 const fitFamily = handle => WOMEN_FIT_FAMILIES.find(fits=>fits.some(f=>f.handle===handle)) || [];
 /* Front-logo products lead with the FRONT view; back-graphic tees lead with the BACK (the hero print). */
 const FRONT_PRIMARY_HANDLES = new Set(['the-signature-tee','the-signature-tee-womens','the-signature-tee-womens-fitted','the-sanitary-code-tee','the-sanitary-code-tee-womens','the-sanitary-code-tee-womens-fitted']);
 const MEN_HANDLES = ['las-malvinas-campeones-tee','las-malvinas-tee','the-brownstone-dj-tee','the-anthem-tee','the-conga-tee','the-signature-tee','the-house-music-tee','the-soul-tee','the-token-tee'];
-const WOMEN_HANDLES = ["the-anthem-tee-womens", "the-conga-tee-womens", "the-signature-tee-womens", "the-house-music-tee-womens", "the-after-hours-tee-womens", "the-tempo-tee-womens", "the-spiritual-thing-tee-womens", "the-coordinates-tee-womens", "the-sanitary-code-tee-womens", "the-token-tee-womens", "the-soul-tee-womens", "las-malvinas-campeones-tee-womens", "las-malvinas-tee-womens", "the-brownstone-dj-tee-womens"];
+const WOMEN_HANDLES = ["the-anthem-tee-womens-fitted", "the-conga-tee-womens-fitted", "the-signature-tee-womens-fitted", "the-house-music-tee-womens-fitted", "the-after-hours-tee-womens-fitted", "the-tempo-tee-womens-fitted", "the-spiritual-thing-tee-womens-fitted", "the-coordinates-tee-womens-fitted", "the-sanitary-code-tee-womens-fitted", "the-token-tee-womens-fitted", "the-soul-tee-womens-fitted", "las-malvinas-campeones-tee-womens-fitted", "las-malvinas-tee-womens-fitted", "the-brownstone-dj-tee-womens-fitted"];
 const DROP_HANDLES = ['the-after-hours-tee','the-tempo-tee','the-coordinates-tee','the-spiritual-thing-tee'];
 const LIMITED_HANDLE = 'the-sanitary-code-tee';
 const TAGLINES = {
+  "the-brownstone-dj-tee-womens-fitted":"CONCRETE RHYTHM",
+  "las-malvinas-tee-womens-fitted":"HERITAGE",
+  "las-malvinas-campeones-tee-womens-fitted":"CAMPEONES",
+  "the-soul-tee-womens-fitted":"HOUSE IS A FEELING",
+  "the-token-tee-womens-fitted":"NYC TOKEN",
+  "the-sanitary-code-tee-womens-fitted":"VINTAGE NEW YORK CITY",
+  "the-coordinates-tee-womens-fitted":"NEW YORK CITY",
+  "the-spiritual-thing-tee-womens-fitted":"A BODY THING \u00b7 A SOUL THING",
+  "the-tempo-tee-womens-fitted":"124 BPM",
+  "the-after-hours-tee-womens-fitted":"AFTER HOURS",
+  "the-house-music-tee-womens-fitted":"HOUSE MUSIC",
+  "the-signature-tee-womens-fitted":"THE CLASSIC",
+  "the-conga-tee-womens-fitted":"MOVE THE BODY",
+  "the-anthem-tee-womens-fitted":"FEEL THE MUSIC",
   "the-brownstone-dj-tee-womens":"CONCRETE RHYTHM",
   "las-malvinas-tee-womens":"HERITAGE",
   "las-malvinas-campeones-tee-womens":"CAMPEONES",
@@ -127,9 +141,9 @@ const SUBTITLE = {
   'the-conga-tee':'Dancer & conga — the rhythm on your back',
   'the-signature-tee':'Clean FLYLYFE wordmark',
   'the-house-music-tee':'Not everyone understands · front & back',
-  'the-anthem-tee-womens':'The mantra · relaxed or fitted',
-  'the-conga-tee-womens':'Dancer & conga · relaxed or fitted',
-  'the-signature-tee-womens':'Clean wordmark, relaxed or fitted',
+  'the-anthem-tee-womens':'The mantra · fitted cotton',
+  'the-conga-tee-womens':'Dancer & conga · fitted cotton',
+  'the-signature-tee-womens':'Clean wordmark, fitted cotton',
   'the-after-hours-tee':'The set that never stops',
   'the-tempo-tee':'124 BPM · the tempo of the city',
   'the-coordinates-tee':'40.7128° N · New York City',
@@ -210,7 +224,7 @@ function shopVarImg(p, color) {
 
 async function init() {
   const [modelMan, data] = await Promise.all([
-    fetch('assets/products-model/manifest.json?v=20261001-women-14-f30dd41a').then(r=>r.json()).catch(()=>({})),
+    fetch('assets/products-model/manifest.json?v=20261001-fitted-models-v2').then(r=>r.json()).catch(()=>({})),
     gql(PRODUCT_Q)
   ]);
   /* cache-bust product images so updated placements replace cached copies */
@@ -266,7 +280,7 @@ function renderGrid(elId, handles) {
       /* Keep the approved curly-haired NYC model as the primary product visual for every color.
          Printful/mockup images remain secondary proof in PDP, not the main customer-facing card. */
       const mockupPrimary = MOCKUP_PRIMARY_HANDLES.has(h);
-      const frontPrimary = FRONT_PRIMARY_HANDLES.has(h);
+      const frontPrimary = h.includes('-womens') || FRONT_PRIMARY_HANDLES.has(h);
       const primaryView = frontPrimary ? 'front' : 'back';
       const secondaryView = frontPrimary ? 'back' : 'front';
       const heroBack  = mockupPrimary
@@ -328,7 +342,7 @@ function openPDP(handle, startColor, switchingFit=false) {
 
   function render() {
     const mockupPrimary = MOCKUP_PRIMARY_HANDLES.has(handle);
-    const frontPrimary = FRONT_PRIMARY_HANDLES.has(handle);
+    const frontPrimary = handle.includes('-womens') || FRONT_PRIMARY_HANDLES.has(handle);
     const modelShotForColor = mockupPrimary ? null : productModelShot(handle, pdpState.color, 'back');
     const sImg    = shopVarImg(p, pdpState.color);
     const mBack   = mockup(handle, pdpState.color, 'back');
@@ -349,7 +363,7 @@ function openPDP(handle, startColor, switchingFit=false) {
     if(hasFits){
       const label=document.createElement('p'); label.className='pdp__opt-label mono'; label.textContent='FIT'; fits.appendChild(label);
       const buttons=document.createElement('div'); buttons.className='pdp__sizes'; fits.appendChild(buttons);
-      fitFamily(handle).filter(f=>PRODUCTS[f.handle]).forEach(f=>{
+      fitFamily(handle).filter(f=>f.handle.endsWith('-fitted') && PRODUCTS[f.handle]).forEach(f=>{
         const b=document.createElement('button'); b.type='button'; b.textContent=f.label; b.className='pdp__size'+(handle===f.handle?' on':''); b.setAttribute('aria-pressed',String(handle===f.handle));
         b.onclick=()=>{if(handle!==f.handle)openPDP(f.handle,pdpState.color,true);}; buttons.appendChild(b);
       });
@@ -373,6 +387,7 @@ function openPDP(handle, startColor, switchingFit=false) {
     function pdpImagePosition(url, isModel){
       /* On phones the PDP gallery is short; center model BACK photos around the shirt print
          instead of the model's head so the artwork is immediately visible. */
+      if ((url || '').includes('womens-fitted-models/')) return url.includes('view=back') ? 'right center' : 'left center';
       if (!isModel) return 'center';
       const u = url || '';
       if (u.includes('-back.jpg') || u.includes('/black-back.jpg') || u.includes('/white-back.jpg') || u.includes('/cream-back.jpg') || u.includes('/cream-alt-back.jpg')) return 'center 42%';
@@ -397,7 +412,7 @@ function openPDP(handle, startColor, switchingFit=false) {
       t.src = im.url; t.alt = im.label;
       t.className = 'pdp__thumb' + (i===0?' on':'');
       t.style.objectFit = im.isModel ? 'cover' : 'contain';
-      t.style.objectPosition = im.isModel ? 'top center' : 'center';
+      t.style.objectPosition = pdpImagePosition(im.url, im.isModel);
       t.onclick = ()=>{
         setMain(im.url, im.isModel, `${p.title} — ${pdpState.color}, ${im.label}`);
         thumbs.querySelectorAll('.pdp__thumb').forEach(x=>x.classList.remove('on'));
