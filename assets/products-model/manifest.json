@@ -378,5 +378,33 @@
       "front": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150909_5186_590_900.jpg?v=1790825638",
       "back": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150909_5189_590_900.jpg?v=1790825638"
     }
+  },
+  "the-sanitary-code-tee-womens": {
+    "White": {
+      "front": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150916_6868_590_900.jpg?v=1790825957",
+      "back": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150916_6864_590_900.jpg?v=1790825957"
+    },
+    "Black": {
+      "front": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150917_6868_590_900.jpg?v=1790825957",
+      "back": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150917_6864_590_900.jpg?v=1790825957"
+    },
+    "Ivory": {
+      "front": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150918_6868_590_900.jpg?v=1790825957",
+      "back": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150918_6864_590_900.jpg?v=1790825957"
+    }
+  },
+  "the-sanitary-code-tee-womens-fitted": {
+    "Black": {
+      "front": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150923_5186_590_900.jpg?v=1790825992",
+      "back": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150923_5189_590_900.jpg?v=1790825992"
+    },
+    "Soft Cream": {
+      "front": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150924_5186_590_900.jpg?v=1790825992",
+      "back": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150924_5189_590_900.jpg?v=1790825992"
+    },
+    "White": {
+      "front": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150925_5186_590_900.jpg?v=1790825992",
+      "back": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150925_5189_590_900.jpg?v=1790825992"
+    }
   }
 }
