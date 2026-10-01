@@ -5,6 +5,8 @@ const SHOP_DOMAIN='31zn52-zd.myshopify.com';
 const STOREFRONT_TOKEN='5a0bb1dcf0c57b7764bbebf0cc40c898';
 const API_URL=`https://${SHOP_DOMAIN}/api/2025-10/graphql.json`;
 const handle = document.body.dataset.productHandle;
+const WOMEN_FITS=[{handle:'the-anthem-tee-womens',label:'Relaxed',es:'Holgada'},{handle:'the-anthem-tee-womens-fitted',label:'Fitted',es:'Entallada'}];
+const fitProducts={};
 const ES = document.documentElement.lang === 'es';
 const T = ES ? {
   color:'COLOR', size:'TALLE', atc:'AGREGAR AL CARRITO', select:'ELEGÍ TU TALLE', checkout:'FINALIZAR COMPRA',
@@ -94,13 +96,14 @@ async function checkout() {
 }
 function gallery() {
   const media=document.querySelector('.seo-product__media'); if(!media) return;
-  const images=imageManifest[handle]?.[state.color] || {};
+  const images=imageManifest[product.handle]?.[state.color] || {};
   const chosen=variants().find(v=>option(v,'Color')===state.color && v.image?.url);
   const url=images[state.view] || images.back || images.front || chosen?.image?.url;
   const img=media.querySelector('img');
   if(url && img) {
     img.src=url.startsWith('assets/') ? '/'+url : url;
     img.removeAttribute('srcset');
+    if(WOMEN_FITS.some(f=>f.handle===product.handle)) {img.style.objectFit='contain';img.style.objectPosition='center';}
     img.alt=`${product.title} — ${state.color}, ${state.view==='front'?T.front:T.back}`;
     if(window.FlylyfeImages) window.FlylyfeImages.apply(img);
   }
@@ -123,6 +126,22 @@ function render() {
   root.innerHTML=`<div class="seo-commerce__group"><p class="seo-commerce__label mono" data-color-label></p><div class="seo-commerce__options" data-colors></div></div><div class="seo-commerce__group"><p class="seo-commerce__label mono" data-size-label></p><div class="seo-commerce__options" data-sizes></div></div><button type="button" class="seo-atc" data-atc></button><button type="button" class="seo-checkout" data-checkout>${T.checkout}</button><p class="seo-status mono" data-commerce-status role="status" aria-live="polite"></p><p class="mono" data-cart-summary></p><a class="seo-cart-link" href="/#cart">${T.viewCart}</a><p class="seo-placement-note">${T.placement}</p>`;
   root.querySelector('[data-color-label]').textContent=`${T.color} — ${state.color}`;
   root.querySelector('[data-size-label]').textContent=T.size+(state.size?' — '+state.size:'');
+  if(WOMEN_FITS.some(f=>f.handle===product.handle)){
+    const group=document.createElement('div');group.className='seo-commerce__group';
+    const label=document.createElement('p');label.className='seo-commerce__label mono';label.textContent=ES?'CORTE':'FIT';group.appendChild(label);
+    const buttons=document.createElement('div');buttons.className='seo-commerce__options';group.appendChild(buttons);
+    WOMEN_FITS.filter(f=>fitProducts[f.handle]).forEach(f=>{
+      const b=document.createElement('button');b.type='button';b.className='seo-option';b.textContent=ES?f.es:f.label;b.setAttribute('aria-pressed',String(f.handle===product.handle));
+      b.onclick=()=>{if(busy||f.handle===product.handle)return;product=fitProducts[f.handle];state.color=state.color==='Ivory'?'Soft Cream':state.color==='Soft Cream'?'Ivory':state.color;state.size=null;render();};buttons.appendChild(b);
+    });
+    root.prepend(group);
+    const heading=document.querySelector('.seo-product__hero h1');if(heading)heading.textContent=product.title;
+    const lede=document.querySelector('.seo-lede');if(lede){const description=document.createElement('div');description.className='seo-lede';description.innerHTML=product.descriptionHtml;lede.replaceWith(description);}
+    const specline=document.querySelector('.seo-specline');if(specline)specline.textContent='';
+    if(product.handle.endsWith('-fitted')){
+      const guide=document.createElement('details');guide.innerHTML=`<summary>${ES?'Guía de talles — corte entallado':'Size guide — fitted'}</summary><p>${ES?'El corte es pequeño. Compará las medidas con una remera que ya tengas.':'Runs small. Compare these garment measurements with a tee you own.'}</p><img src="https://blob.apliiq.com/sitestorage/BaseSizeChart/Chart_927.jpg?v=20240723" alt="Bella Canvas 6004 size chart" style="width:100%;height:auto;background:white">`;root.appendChild(guide);
+    }
+  }
   root.querySelector('[data-atc]').textContent=state.size?`${T.atc} · ${money(selected.price.amount,selected.price.currencyCode)}`:T.select;
   const price=document.querySelector('.seo-price'); if(price && selected) price.textContent=money(selected.price.amount,selected.price.currencyCode)+' USD';
   for(const color of colors) {
@@ -142,9 +161,13 @@ function render() {
 }
 async function initProductPage() {
   try {
-    const [data,manifest]=await Promise.all([gql(PRODUCT_Q,{handle}),fetch('/assets/products-model/manifest.json?v=20260923b').then(r=>r.ok?r.json():{}).catch(()=>({}))]);
+    const [data,manifest]=await Promise.all([gql(PRODUCT_Q,{handle}),fetch('/assets/products-model/manifest.json?v=20261001').then(r=>r.ok?r.json():{}).catch(()=>({}))]);
     product=data.product;imageManifest=manifest;
     if(!product || product.vendor!=='FLYLYFE') throw new Error('FLYLYFE product not found');
+    if(WOMEN_FITS.some(f=>f.handle===handle)){
+      fitProducts[handle]=product;
+      await Promise.all(WOMEN_FITS.filter(f=>f.handle!==handle).map(async f=>{try{const d=await gql(PRODUCT_Q,{handle:f.handle});if(d.product?.vendor==='FLYLYFE')fitProducts[f.handle]=d.product;}catch(error){console.error(error);}}));
+    }
     render();
     try { await readCart(); } catch(error) { console.error(error); }
   } catch(error) {
