@@ -86,8 +86,10 @@ const DEFAULT_COLOR = { 'las-malvinas-campeones-tee':'White', 'las-malvinas-tee'
 /* Consistent on-model shots (assets/products-model/) are now the primary visual for EVERY product
    and color — same curly-haired man on all men's colors, same long-haired woman on all women's
    colors, front + back. Flat Printful mockups are no longer used as the primary card image. */
-const MOCKUP_PRIMARY_HANDLES = new Set(['the-anthem-tee-womens','the-anthem-tee-womens-fitted']);
-const WOMEN_FITS = [{handle:'the-anthem-tee-womens',label:'Relaxed'}, {handle:'the-anthem-tee-womens-fitted',label:'Fitted'}];
+const MOCKUP_PRIMARY_HANDLES = new Set(['the-anthem-tee-womens','the-anthem-tee-womens-fitted','the-conga-tee-womens','the-conga-tee-womens-fitted']);
+const WOMEN_FIT_FAMILIES = ['anthem','conga'].map(design=>[{handle:`the-${design}-tee-womens`,label:'Relaxed',es:'Holgada'},{handle:`the-${design}-tee-womens-fitted`,label:'Fitted',es:'Entallada'}]);
+const WOMEN_FITS = WOMEN_FIT_FAMILIES.flat();
+const fitFamily = handle => WOMEN_FIT_FAMILIES.find(fits=>fits.some(f=>f.handle===handle)) || [];
 /* Front-logo products lead with the FRONT view; back-graphic tees lead with the BACK (the hero print). */
 const FRONT_PRIMARY_HANDLES = new Set(['the-signature-tee','the-signature-tee-womens','the-sanitary-code-tee']);
 const MEN_HANDLES = ['las-malvinas-campeones-tee','las-malvinas-tee','the-brownstone-dj-tee','the-anthem-tee','the-conga-tee','the-signature-tee','the-house-music-tee','the-soul-tee','the-token-tee'];
@@ -112,7 +114,7 @@ const SUBTITLE = {
   'the-signature-tee':'Clean FLYLYFE wordmark',
   'the-house-music-tee':'Not everyone understands · front & back',
   'the-anthem-tee-womens':'The mantra · relaxed or fitted',
-  'the-conga-tee-womens':'Dancer & conga, relaxed cut',
+  'the-conga-tee-womens':'Dancer & conga · relaxed or fitted',
   'the-signature-tee-womens':'Clean wordmark, relaxed cut',
   'the-after-hours-tee':'The set that never stops',
   'the-tempo-tee':'124 BPM · the tempo of the city',
@@ -194,7 +196,7 @@ function shopVarImg(p, color) {
 
 async function init() {
   const [modelMan, data] = await Promise.all([
-    fetch('assets/products-model/manifest.json?v=20261001').then(r=>r.json()).catch(()=>({})),
+    fetch('assets/products-model/manifest.json?v=20261001-conga').then(r=>r.json()).catch(()=>({})),
     gql(PRODUCT_Q)
   ]);
   /* cache-bust product images so updated placements replace cached copies */
@@ -333,7 +335,7 @@ function openPDP(handle, startColor, switchingFit=false) {
     if(hasFits){
       const label=document.createElement('p'); label.className='pdp__opt-label mono'; label.textContent='FIT'; fits.appendChild(label);
       const buttons=document.createElement('div'); buttons.className='pdp__sizes'; fits.appendChild(buttons);
-      WOMEN_FITS.filter(f=>PRODUCTS[f.handle]).forEach(f=>{
+      fitFamily(handle).filter(f=>PRODUCTS[f.handle]).forEach(f=>{
         const b=document.createElement('button'); b.type='button'; b.textContent=f.label; b.className='pdp__size'+(handle===f.handle?' on':''); b.setAttribute('aria-pressed',String(handle===f.handle));
         b.onclick=()=>{if(handle!==f.handle)openPDP(f.handle,pdpState.color,true);}; buttons.appendChild(b);
       });

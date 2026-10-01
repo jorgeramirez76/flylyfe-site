@@ -84,21 +84,17 @@
     }
   },
   "the-conga-tee-womens": {
-    "White": {
-      "front": "assets/products-model/the-conga-tee-womens-White-front.webp",
-      "back": "assets/products-model/the-conga-tee-womens-White-back.webp"
-    },
     "Black": {
-      "front": "assets/products-model/the-conga-tee-womens-Black-front.webp",
-      "back": "assets/products-model/the-conga-tee-womens-Black-back.webp"
+      "front": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150734_6868_590_900.jpg?v=1790821054",
+      "back": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150734_6864_590_900.jpg?v=1790821054"
+    },
+    "White": {
+      "front": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150738_6868_590_900.jpg?v=1790821331",
+      "back": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150738_6864_590_900.jpg?v=1790821331"
     },
     "Ivory": {
-      "front": "assets/products-model/the-conga-tee-womens-Natural-front.webp",
-      "back": "assets/products-model/the-conga-tee-womens-Natural-back.webp"
-    },
-    "Natural": {
-      "front": "assets/products-model/the-conga-tee-womens-Natural-front.webp",
-      "back": "assets/products-model/the-conga-tee-womens-Natural-back.webp"
+      "front": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150739_6868_590_900.jpg?v=1790821331",
+      "back": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150739_6864_590_900.jpg?v=1790821331"
     }
   },
   "the-signature-tee-womens": {
@@ -217,6 +213,20 @@
     "Soft Cream": {
       "front": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150694_5186_590_900.jpg?v=1790819525",
       "back": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150694_5189_590_900.jpg?v=1790819525"
+    }
+  },
+  "the-conga-tee-womens-fitted": {
+    "White": {
+      "front": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150756_5186_590_900.jpg?v=1790821389",
+      "back": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150756_5189_590_900.jpg?v=1790821389"
+    },
+    "Soft Cream": {
+      "front": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150757_5186_590_900.jpg?v=1790821389",
+      "back": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150757_5189_590_900.jpg?v=1790821389"
+    },
+    "Black": {
+      "front": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150759_5186_590_900.jpg?v=1790821486",
+      "back": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6150759_5189_590_900.jpg?v=1790821486"
     }
   }
 }

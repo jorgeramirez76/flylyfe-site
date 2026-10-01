@@ -5,7 +5,9 @@ const SHOP_DOMAIN='31zn52-zd.myshopify.com';
 const STOREFRONT_TOKEN='5a0bb1dcf0c57b7764bbebf0cc40c898';
 const API_URL=`https://${SHOP_DOMAIN}/api/2025-10/graphql.json`;
 const handle = document.body.dataset.productHandle;
-const WOMEN_FITS=[{handle:'the-anthem-tee-womens',label:'Relaxed',es:'Holgada'},{handle:'the-anthem-tee-womens-fitted',label:'Fitted',es:'Entallada'}];
+const WOMEN_FIT_FAMILIES = ['anthem','conga'].map(design=>[{handle:`the-${design}-tee-womens`,label:'Relaxed',es:'Holgada'},{handle:`the-${design}-tee-womens-fitted`,label:'Fitted',es:'Entallada'}]);
+const WOMEN_FITS = WOMEN_FIT_FAMILIES.flat();
+const fitFamily = handle => WOMEN_FIT_FAMILIES.find(fits=>fits.some(f=>f.handle===handle)) || [];
 const fitProducts={};
 const ES = document.documentElement.lang === 'es';
 const T = ES ? {
@@ -130,7 +132,7 @@ function render() {
     const group=document.createElement('div');group.className='seo-commerce__group';
     const label=document.createElement('p');label.className='seo-commerce__label mono';label.textContent=ES?'CORTE':'FIT';group.appendChild(label);
     const buttons=document.createElement('div');buttons.className='seo-commerce__options';group.appendChild(buttons);
-    WOMEN_FITS.filter(f=>fitProducts[f.handle]).forEach(f=>{
+    fitFamily(product.handle).filter(f=>fitProducts[f.handle]).forEach(f=>{
       const b=document.createElement('button');b.type='button';b.className='seo-option';b.textContent=ES?f.es:f.label;b.setAttribute('aria-pressed',String(f.handle===product.handle));
       b.onclick=()=>{if(busy||f.handle===product.handle)return;product=fitProducts[f.handle];state.color=state.color==='Ivory'?'Soft Cream':state.color==='Soft Cream'?'Ivory':state.color;state.size=null;render();};buttons.appendChild(b);
     });
@@ -161,12 +163,12 @@ function render() {
 }
 async function initProductPage() {
   try {
-    const [data,manifest]=await Promise.all([gql(PRODUCT_Q,{handle}),fetch('/assets/products-model/manifest.json?v=20261001').then(r=>r.ok?r.json():{}).catch(()=>({}))]);
+    const [data,manifest]=await Promise.all([gql(PRODUCT_Q,{handle}),fetch('/assets/products-model/manifest.json?v=20261001-conga').then(r=>r.ok?r.json():{}).catch(()=>({}))]);
     product=data.product;imageManifest=manifest;
     if(!product || product.vendor!=='FLYLYFE') throw new Error('FLYLYFE product not found');
     if(WOMEN_FITS.some(f=>f.handle===handle)){
       fitProducts[handle]=product;
-      await Promise.all(WOMEN_FITS.filter(f=>f.handle!==handle).map(async f=>{try{const d=await gql(PRODUCT_Q,{handle:f.handle});if(d.product?.vendor==='FLYLYFE')fitProducts[f.handle]=d.product;}catch(error){console.error(error);}}));
+      await Promise.all(fitFamily(handle).filter(f=>f.handle!==handle).map(async f=>{try{const d=await gql(PRODUCT_Q,{handle:f.handle});if(d.product?.vendor==='FLYLYFE')fitProducts[f.handle]=d.product;}catch(error){console.error(error);}}));
     }
     render();
     try { await readCart(); } catch(error) { console.error(error); }
