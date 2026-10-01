@@ -26,7 +26,8 @@ const T = ES ? {
 const FRONT_FIRST = new Set(['the-signature-tee','the-signature-tee-womens','the-signature-tee-womens-fitted','the-sanitary-code-tee','the-sanitary-code-tee-womens','the-sanitary-code-tee-womens-fitted']);
 let cartId = localStorage.getItem('flylyfe_cart');
 let product = null, imageManifest = {}, currentCart = null, busy = false;
-const state = {color:null, size:null, view:handle.includes('-womens') || FRONT_FIRST.has(handle) ? 'front' : 'back'};
+const WOMEN_FEATURED_COLORS = {"the-anthem-tee-womens-fitted": "Black", "the-anthem-tee-womens": "White", "the-conga-tee-womens-fitted": "Soft Cream", "the-conga-tee-womens": "Black", "the-signature-tee-womens-fitted": "White", "the-signature-tee-womens": "Ivory", "the-house-music-tee-womens-fitted": "Black", "the-house-music-tee-womens": "White", "the-after-hours-tee-womens-fitted": "Soft Cream", "the-after-hours-tee-womens": "Black", "the-tempo-tee-womens-fitted": "White", "the-tempo-tee-womens": "Ivory", "the-spiritual-thing-tee-womens-fitted": "Black", "the-spiritual-thing-tee-womens": "White", "the-coordinates-tee-womens-fitted": "Soft Cream", "the-coordinates-tee-womens": "Black", "the-sanitary-code-tee-womens-fitted": "White", "the-sanitary-code-tee-womens": "Ivory", "the-token-tee-womens-fitted": "Black", "the-token-tee-womens": "White", "the-soul-tee-womens-fitted": "Soft Cream", "the-soul-tee-womens": "Black", "las-malvinas-campeones-tee-womens-fitted": "White", "las-malvinas-campeones-tee-womens": "Ivory", "las-malvinas-tee-womens-fitted": "Black", "las-malvinas-tee-womens": "White", "the-brownstone-dj-tee-womens-fitted": "Soft Cream", "the-brownstone-dj-tee-womens": "Black"};
+const state = {color:null, size:null, view:!handle.includes('-womens') && FRONT_FIRST.has(handle) ? 'front' : 'back'};
 const root = document.querySelector('[data-commerce-root]');
 const money = (a, currency='USD') => new Intl.NumberFormat(ES?'es-AR':'en-US', {style:'currency',currency}).format(Number(a));
 const PRODUCT_Q = `query($handle:String!){product(handle:$handle){id handle title vendor descriptionHtml options{name values} featuredImage{url altText} variants(first:100){edges{node{id title availableForSale price{amount currencyCode} image{url altText} selectedOptions{name value}}}}}}`;
@@ -123,7 +124,7 @@ function render() {
   const colors=optionValues('Color');
   const sizeOrder=['XS','S','M','L','XL','2XL','3XL','4XL'];
   const sizes=optionValues('Size').slice().sort((a,b)=>sizeOrder.indexOf(a)-sizeOrder.indexOf(b));
-  if(!colors.includes(state.color)) state.color=colors.includes('Black')?'Black':colors[0];
+  if(!colors.includes(state.color)) state.color=colors.includes(WOMEN_FEATURED_COLORS[product.handle])?WOMEN_FEATURED_COLORS[product.handle]:colors.includes('Black')?'Black':colors[0];
   const selected=variant() || variants().find(v=>option(v,'Color')===state.color);
   root.innerHTML=`<div class="seo-commerce__group"><p class="seo-commerce__label mono" data-color-label></p><div class="seo-commerce__options" data-colors></div></div><div class="seo-commerce__group"><p class="seo-commerce__label mono" data-size-label></p><div class="seo-commerce__options" data-sizes></div></div><button type="button" class="seo-atc" data-atc></button><button type="button" class="seo-checkout" data-checkout>${T.checkout}</button><p class="seo-status mono" data-commerce-status role="status" aria-live="polite"></p><p class="mono" data-cart-summary></p><a class="seo-cart-link" href="/#cart">${T.viewCart}</a><p class="seo-placement-note">${T.placement}</p>`;
   root.querySelector('[data-color-label]').textContent=`${T.color} — ${state.color}`;

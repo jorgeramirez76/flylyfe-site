@@ -82,7 +82,7 @@ const MODEL_MAP = Object.fromEntries(Object.entries(PRODUCT_MODEL_SHOTS).map(([h
 let MOCKUPS = {};
 
 /* Per-product default colorway shown on the card hero (overrides the Black default) */
-const DEFAULT_COLOR = { 'las-malvinas-campeones-tee':'White', 'las-malvinas-tee':'White', 'the-brownstone-dj-tee':'White', 'the-house-music-tee':'Ivory', 'the-token-tee':'Ivory' };
+const DEFAULT_COLOR = {"the-anthem-tee-womens-fitted": "Black", "the-anthem-tee-womens": "White", "the-conga-tee-womens-fitted": "Soft Cream", "the-conga-tee-womens": "Black", "the-signature-tee-womens-fitted": "White", "the-signature-tee-womens": "Ivory", "the-house-music-tee-womens-fitted": "Black", "the-house-music-tee-womens": "White", "the-after-hours-tee-womens-fitted": "Soft Cream", "the-after-hours-tee-womens": "Black", "the-tempo-tee-womens-fitted": "White", "the-tempo-tee-womens": "Ivory", "the-spiritual-thing-tee-womens-fitted": "Black", "the-spiritual-thing-tee-womens": "White", "the-coordinates-tee-womens-fitted": "Soft Cream", "the-coordinates-tee-womens": "Black", "the-sanitary-code-tee-womens-fitted": "White", "the-sanitary-code-tee-womens": "Ivory", "the-token-tee-womens-fitted": "Black", "the-token-tee-womens": "White", "the-soul-tee-womens-fitted": "Soft Cream", "the-soul-tee-womens": "Black", "las-malvinas-campeones-tee-womens-fitted": "White", "las-malvinas-campeones-tee-womens": "Ivory", "las-malvinas-tee-womens-fitted": "Black", "las-malvinas-tee-womens": "White", "the-brownstone-dj-tee-womens-fitted": "Soft Cream", "the-brownstone-dj-tee-womens": "Black", 'las-malvinas-campeones-tee':'White', 'las-malvinas-tee':'White', 'the-brownstone-dj-tee':'White', 'the-house-music-tee':'Ivory', 'the-token-tee':'Ivory' };
 /* Consistent on-model shots (assets/products-model/) are now the primary visual for EVERY product
    and color — same curly-haired man on all men's colors, same long-haired woman on all women's
    colors, front + back. Flat Printful mockups are no longer used as the primary card image. */
@@ -280,7 +280,7 @@ function renderGrid(elId, handles) {
       /* Keep the approved curly-haired NYC model as the primary product visual for every color.
          Printful/mockup images remain secondary proof in PDP, not the main customer-facing card. */
       const mockupPrimary = MOCKUP_PRIMARY_HANDLES.has(h);
-      const frontPrimary = h.includes('-womens') || FRONT_PRIMARY_HANDLES.has(h);
+      const frontPrimary = !h.includes('-womens') && FRONT_PRIMARY_HANDLES.has(h);
       const primaryView = frontPrimary ? 'front' : 'back';
       const secondaryView = frontPrimary ? 'back' : 'front';
       const heroBack  = mockupPrimary
@@ -342,7 +342,7 @@ function openPDP(handle, startColor, switchingFit=false) {
 
   function render() {
     const mockupPrimary = MOCKUP_PRIMARY_HANDLES.has(handle);
-    const frontPrimary = handle.includes('-womens') || FRONT_PRIMARY_HANDLES.has(handle);
+    const frontPrimary = !handle.includes('-womens') && FRONT_PRIMARY_HANDLES.has(handle);
     const modelShotForColor = mockupPrimary ? null : productModelShot(handle, pdpState.color, 'back');
     const sImg    = shopVarImg(p, pdpState.color);
     const mBack   = mockup(handle, pdpState.color, 'back');
