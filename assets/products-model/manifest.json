@@ -490,5 +490,33 @@
       "front": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6151035_5186_590_900.jpg?v=1790827318",
       "back": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6151035_5189_590_900.jpg?v=1790827318"
     }
+  },
+  "las-malvinas-tee-womens": {
+    "White": {
+      "front": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6151068_6868_590_900.jpg?v=1790827691",
+      "back": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6151068_6864_590_900.jpg?v=1790827690"
+    },
+    "Ivory": {
+      "front": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6151069_6868_590_900.jpg?v=1790827690",
+      "back": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6151069_6864_590_900.jpg?v=1790827690"
+    },
+    "Black": {
+      "front": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6151088_6868_590_900.jpg?v=1790827788",
+      "back": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6151088_6864_590_900.jpg?v=1790827788"
+    }
+  },
+  "las-malvinas-tee-womens-fitted": {
+    "Black": {
+      "front": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6151093_5186_590_900.jpg?v=1790827888",
+      "back": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6151093_5189_590_900.jpg?v=1790827888"
+    },
+    "Soft Cream": {
+      "front": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6151101_5186_590_900.jpg?v=1790828001",
+      "back": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6151101_5189_590_900.jpg?v=1790828001"
+    },
+    "White": {
+      "front": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6151102_5186_590_900.jpg?v=1790828001",
+      "back": "https://cdn.shopify.com/s/files/1/0727/1153/6793/files/6151102_5189_590_900.jpg?v=1790828001"
+    }
   }
 }
