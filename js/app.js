@@ -265,6 +265,7 @@ async function init() {
    Color dot click → swaps to the model photo in that color */
 function renderGrid(elId, handles) {
   const grid = document.getElementById(elId);
+  if (!grid) return; /* homepage now links to the collections instead of rendering grids */
   grid.innerHTML = '';
   handles.forEach((h, idx) => {
     const p = PRODUCTS[h];
