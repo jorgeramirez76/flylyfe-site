@@ -1,0 +1,27 @@
+name: Product links and content consistency
+on:
+  pull_request:
+  push:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  seo:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install -r tools/requirements-seo.txt
+      - run: python tools/link_product_fits.py --check
+      - name: Verify generated references match public pages
+        run: |
+          python - <<'PY'
+          import re, subprocess, sys
+          from pathlib import Path
+          match = re.search(r'^Last updated: (\d{4}-\d{2}-\d{2})$', Path('llms.txt').read_text(), re.M)
+          if not match:
+              raise SystemExit('Missing export date in llms.txt')
+          subprocess.run([sys.executable, 'tools/build_ai_exports.py', '--updated', match[1], '--check'], check=True)
+          PY
