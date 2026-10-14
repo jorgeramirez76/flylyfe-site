@@ -35,6 +35,8 @@ def repair(source, catalog, images):
             return ''
         assert len(variants) == 1, (handle, color, size)
         variant = variants[0]
+        grams = variant['grams']
+        assert isinstance(grams, (int, float)) and grams > 0, (handle, color, size, grams)
         urls = curated[(handle, color)]
         assert 1 <= len(urls) <= 11 and len(urls) == len(set(urls))
         assert all(u.startswith('https://') for u in urls)
@@ -45,6 +47,9 @@ def repair(source, catalog, images):
             'availability': 'in_stock' if variant['available'] else 'out_of_stock',
         }
         block = re.sub(r'\s*<g:additional_image_link>.*?</g:additional_image_link>', '', block)
+        block = re.sub(r'\s*<g:shipping_weight>.*?</g:shipping_weight>', '', block)
+        block = block.replace('</g:availability>', '</g:availability>'
+                              + f'\n    <g:shipping_weight>{grams:g} g</g:shipping_weight>')
         for name, value in updates.items():
             block = re.sub(fr'<g:{name}>.*?</g:{name}>',
                            lambda _: f'<g:{name}>{escape(value)}</g:{name}>', block)
