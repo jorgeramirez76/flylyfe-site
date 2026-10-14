@@ -207,6 +207,13 @@ async function initProductPage() {
     const [data,manifest]=await Promise.all([gql(PRODUCT_Q,{handle}),fetch('/assets/products-model/manifest.json?v=20261001-both-womens-fits-v3').then(r=>r.ok?r.json():{}).catch(()=>({}))]);
     product=data.product;imageManifest=manifest;
     if(!product || product.vendor!=='FLYLYFE') throw new Error('FLYLYFE product not found');
+    // Merchant listings link to an exact live variant, including its size and color.
+    const requestedId = new URLSearchParams(window.location.search).get('variant');
+    const requested = variants().find(v => v.id.split('/').pop() === requestedId);
+    if(requested) {
+      state.color = option(requested, 'Color');
+      state.size = option(requested, 'Size');
+    }
     if(WOMEN_FITS.some(f=>f.handle===handle)){
       fitProducts[handle]=product;
       await Promise.all(fitFamily(handle).filter(f=>f.handle!==handle).map(async f=>{try{const d=await gql(PRODUCT_Q,{handle:f.handle});if(d.product?.vendor==='FLYLYFE')fitProducts[f.handle]=d.product;}catch(error){console.error(error);}}));
