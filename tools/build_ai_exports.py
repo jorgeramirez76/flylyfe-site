@@ -82,7 +82,7 @@ def build(updated):
     pages = load_pages()
     intro = f'''# FLYLYFE
 
-> New York City house-music streetwear, established in 2007. Feel the Music. Feel the Vibe. Live Your Lyfe.
+> New York City house-music streetwear, established in 2007. Feel The Music Feel the Vibe Live Your Lyfe
 
 Last updated: {updated}
 Canonical site: {BASE}
