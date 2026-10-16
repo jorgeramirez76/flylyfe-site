@@ -11,6 +11,17 @@
 .site-menu-close{position:absolute;right:1.5rem;top:1rem;min-height:44px;padding:.5rem 1rem;color:var(--ink);background:var(--bg);border:1px solid var(--line)}
 @media(max-width:1500px){#nav .nav__links{display:none}#nav .nav__burger{display:flex}}
 @media(min-width:1501px){#nav .nav__links{display:flex}#nav .nav__burger{display:none}}
+/* Enhanced navigation keeps the shopping routes visible on ordinary laptops. */
+#nav.nav--enhanced .nav__burger{display:flex}
+@media(min-width:1024px){#nav.nav--enhanced .nav__links{display:flex;gap:clamp(.75rem,1.5vw,1.5rem)}#nav.nav--enhanced .nav__links a{font-size:12px}}
+@media(min-width:1024px) and (max-width:1199px){#nav.nav--enhanced{padding-left:1.5rem;padding-right:1.5rem}#nav.nav--enhanced .nav__logo-img{max-width:190px;height:auto}#nav.nav--enhanced .nav__right{gap:.5rem}}
+@media(max-width:1023px){#nav.nav--enhanced .nav__links{display:none}}
+@media(max-width:360px){#nav .nav__logo-img,#nav.shrink .nav__logo-img{width:calc(100vw - 212px);height:auto}}
+/* Static links remain usable before enhancement and when scripts are unavailable. */
+#nav:not(.nav--enhanced),header.nav:not(.nav--enhanced){flex-wrap:wrap}
+#nav:not(.nav--enhanced) .nav__links,header.nav:not(.nav--enhanced) .nav__links{display:flex;flex:1 1 100%;order:3;max-width:100%;overflow-x:auto;gap:1rem;padding:.4rem 0}
+#nav:not(.nav--enhanced) .nav__links a,header.nav:not(.nav--enhanced) .nav__links a{display:flex;align-items:center;min-height:44px;white-space:nowrap}
+#nav:not(.nav--enhanced) .nav__burger,header.nav:not(.nav--enhanced) .nav__burger{display:none}
 .collection-fit-filters{display:flex;flex-wrap:wrap;gap:.6rem;margin:1.5rem 0 .7rem}
 .collection-fit-filter{min-height:46px;padding:.7rem 1rem;border:1px solid var(--line);background:transparent;color:var(--ink);font:inherit;cursor:pointer}
 .collection-fit-filter[aria-pressed=true]{background:var(--gold);border-color:var(--gold);color:#050505;font-weight:600}
@@ -57,6 +68,11 @@
 .commerce-size-guide table{width:100%;border-collapse:collapse;font-size:14px}
 .commerce-size-guide th,.commerce-size-guide td{padding:.45rem;border-bottom:1px solid var(--line);text-align:left}
 .commerce-size-guide img{max-width:100%;height:auto}
+.commerce-unit-controls{display:flex;align-items:center;flex-wrap:wrap;gap:.5rem;margin:.8rem 0}
+.commerce-unit-controls button{min-width:60px;min-height:44px;padding:.5rem .8rem;border:1px solid #555;background:transparent;color:var(--ink);font:inherit}
+.commerce-unit-controls button[aria-pressed=true]{background:var(--gold);border-color:var(--gold);color:var(--bg)}
+.commerce-measure-note{font-size:13px;color:var(--ink-dim);margin:.6rem 0}
+.commerce-fit-link{display:inline-flex;align-items:center;min-height:44px;margin:.25rem 0 .5rem;color:var(--gold);text-decoration:underline;text-underline-offset:3px;font-size:14px}
 .commerce-policy{font-size:14px;line-height:1.65;color:var(--ink-dim);margin:.8rem 0}
 .commerce-policy a{text-decoration:underline;color:var(--gold)}
 .hero-video{position:relative;max-width:100%;height:min(76vh,760px);aspect-ratio:9/16;margin:auto;background:#0a0a0a;overflow:hidden;border:1px solid var(--line)}
@@ -70,7 +86,7 @@
 .wlb figcaption,.lb figcaption{position:relative;opacity:1;transform:none;letter-spacing:.05em;font-size:12px;min-height:44px}
 .seo-option{min-width:44px;min-height:44px;font-size:12px}
 @media(max-width:620px){.collection-hero{padding-top:3rem}.seo-product__hero{padding-top:3rem}}
-#siteMobileMenu{z-index:110}
+#siteMobileMenu,#mobileMenu{z-index:110}
 @media(max-width:1000px){.hero__right{height:auto;min-height:0}}
 @media(max-width:640px){
  .hero__mobile-kicker,.hero__mobile-cta{position:static;width:100%;margin:.75rem 0;min-height:44px}

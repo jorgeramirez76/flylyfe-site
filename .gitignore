@@ -5,3 +5,7 @@ secrets/
 
 # large local mockup blanks (not for repo)
 tools/product-pipeline/blanks/
+
+node_modules/
+test-results/
+playwright-report/

@@ -93,15 +93,27 @@ These reference files are generated from the public site. Each entry links to it
 Use the product page and checkout for current pricing, variants, availability, and shipping.
 
 '''
-    sections = [('', 'Homepage'), ('products/', 'Products'), ('collections/', 'Collections'),
+    sections = [('', 'Homepage'), ('guides', 'Shopping and fit guides'),
+                ('products/', 'Products'), ('collections/', 'Collections'),
                 ('blog/', 'Journal'), ('es/', 'En español'), ('info', 'Brand and customer help')]
     brief = intro
+    indexed = set()
     for prefix, title in sections:
         selected = [p for p in pages if (p['path'] == '' if prefix == '' else
+                    p['path'] in {'find-your-vibe/', 'fit-guide/'} if prefix == 'guides' else
                     '/' not in p['path'] and p['path'] != '' if prefix == 'info' else
                     p['path'].startswith(prefix))]
         brief += f'## {title}\n\n'
         for page in selected:
+            brief += f"- [{page['title']}]({page['url']}): {page['summary']}\n"
+            indexed.add(page['url'])
+        brief += '\n'
+    # A new route must never disappear from the index merely because it does not
+    # belong to one of the established editorial/catalog directories.
+    remaining = [page for page in pages if page['url'] not in indexed]
+    if remaining:
+        brief += '## More public pages\n\n'
+        for page in remaining:
             brief += f"- [{page['title']}]({page['url']}): {page['summary']}\n"
         brief += '\n'
     brief += '## Product facts\n\n'

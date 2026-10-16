@@ -1,0 +1,2 @@
+-r requirements-seo.txt
+Pillow>=10,<13

@@ -3,11 +3,20 @@
   const header = document.querySelector('header.nav');
   if (!header) return;
   const isHome = Boolean(document.getElementById('cartBtn'));
-  const links = [ ['/#shop','Shop'], ['/collections/mens/',"Men’s"], ['/collections/womens/',"Women’s"], ['/collections/concrete-rhythm/','Concrete Rhythm'], ['/collections/heritage/','Heritage'], ['/collections/drop-02/','Drop 02'], ['/blog/','Blog'], ['/about.html','About'], ['/faq.html','FAQ'], ['mailto:hello@flylyfe.com','Contact'] ];
-  const linkMarkup = links.map(([href,label]) => `<a href="${href}"${location.pathname===href ? ' aria-current="page"' : ''}>${label}</a>`).join('');
+  const links = [ ['/#top','Home'], ['/#shop','Shop'], ['/collections/mens/',"Men’s"], ['/collections/womens/',"Women’s"], ['/find-your-vibe/','Find your vibe'], ['/fit-guide/','Fit guide'], ['/collections/concrete-rhythm/','Concrete Rhythm'], ['/collections/heritage/','Heritage'], ['/collections/drop-02/','Drop 02'], ['/collections/limited/','Limited'], ['/blog/','Journal'], ['/about.html','About'], ['/faq.html','Shipping & help'], ['mailto:hello@flylyfe.com','Contact'] ];
+  const markup = items => items.map(([href,label]) => `<a href="${href}"${location.pathname===href ? ' aria-current="page"' : ''}>${label}</a>`).join('');
+  const linkMarkup = markup(links);
+  const primaryPaths = ['/#shop','/collections/mens/','/collections/womens/','/find-your-vibe/','/blog/'];
+  const primaryNav=header.querySelector('.nav__links');
+  if(primaryNav) primaryNav.innerHTML = markup(links.filter(([href])=>primaryPaths.includes(href)));
+  header.classList.add('nav--enhanced');
+  if (isHome) {
+    // app.js owns this menu's interactions; keep its existing elements and handlers.
+    const menuLinks = document.querySelector('#mobileMenu .mobilemenu__links');
+    if(menuLinks) menuLinks.innerHTML = linkMarkup;
+  }
   if (!isHome) {
     header.id = 'nav';
-    header.querySelector('.nav__links').innerHTML = linkMarkup;
     const right = document.createElement('div');
     right.className = 'nav__right';
     right.innerHTML = '<a class="nav__cart" href="/#cart" aria-label="View cart"><span class="nav__cart-label mono">CART</span><span class="nav__cart-paren mono">(<span data-site-cart-count>0</span>)</span></a><button class="nav__burger" aria-label="Open menu" aria-expanded="false" aria-controls="siteMobileMenu"><span></span><span></span><span></span></button>';
@@ -32,7 +41,6 @@
         else if(!e.shiftKey && document.activeElement===last){e.preventDefault();first.focus();}
       }
     });
-    matchMedia('(min-width: 1501px)').addEventListener('change', e=>{ if(e.matches&&!menu.hidden)close(); });
   }
   const updateCount = quantity => {
     document.querySelectorAll('[data-site-cart-count]').forEach(el=>{
@@ -43,10 +51,10 @@
   window.addEventListener('flylyfe:cart',e => updateCount(e.detail.quantity));
   async function refreshCount(){
     if(isHome)return;
-    const id=localStorage.getItem('flylyfe_cart');
-    if(!id){updateCount(0);return;}
     try{
-      const response=await fetch('https://31zn52-zd.myshopify.com/api/2025-10/graphql.json',{
+      const id=localStorage.getItem('flylyfe_cart');
+      if(!id){updateCount(0);return;}
+      const response=await fetch('https://31zn52-zd.myshopify.com/api/2026-10/graphql.json',{
         method:'POST',headers:{'Content-Type':'application/json','X-Shopify-Storefront-Access-Token':'5a0bb1dcf0c57b7764bbebf0cc40c898'},
         body:JSON.stringify({query:'query($id:ID!){cart(id:$id){totalQuantity}}',variables:{id}})
       });

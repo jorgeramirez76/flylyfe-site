@@ -24,9 +24,9 @@
   function showBar() {
     var bar = document.createElement('div'); bar.id = 'flyConsent'; bar.setAttribute('role', 'dialog'); bar.setAttribute('aria-label', 'Cookie consent');
     bar.style.cssText = 'position:fixed;left:0;right:0;bottom:0;z-index:9999;background:#111;color:#eee;font:13px/1.5 Archivo,Arial,sans-serif;padding:14px 18px;display:flex;gap:12px;align-items:center;justify-content:center;flex-wrap:wrap;border-top:1px solid #333';
-    bar.innerHTML = '<span>We use cookies for analytics and to measure ads. <a href="/privacy.html" style="color:#d9b54b">Privacy</a></span>' +
-      '<button id="flyConsentYes" type="button" style="background:#d9b54b;color:#111;border:0;padding:8px 14px;font-weight:700;cursor:pointer">Accept</button>' +
-      '<button id="flyConsentNo" type="button" style="background:transparent;color:#eee;border:1px solid #555;padding:8px 14px;cursor:pointer">Decline</button>';
+    bar.innerHTML = '<span>We use cookies for analytics and to measure ads. <a href="/privacy.html" style="color:#d9b54b;text-decoration:underline;text-underline-offset:3px">Privacy</a></span>' +
+      '<button id="flyConsentYes" type="button" style="background:#d9b54b;color:#111;border:0;padding:8px 14px;min-height:44px;font-weight:700;cursor:pointer">Accept</button>' +
+      '<button id="flyConsentNo" type="button" style="background:transparent;color:#eee;border:1px solid #555;padding:8px 14px;min-height:44px;cursor:pointer">Decline</button>';
     document.body.appendChild(bar);
     document.getElementById('flyConsentYes').onclick = function () { try { localStorage.setItem(KEY, 'yes'); } catch (e) {} bar.remove(); activate(); };
     document.getElementById('flyConsentNo').onclick = function () { try { localStorage.setItem(KEY, 'no'); } catch (e) {} bar.remove(); };
