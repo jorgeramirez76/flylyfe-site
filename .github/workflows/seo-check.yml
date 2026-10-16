@@ -13,8 +13,11 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - run: python -m pip install -r tools/requirements-seo.txt
+      - run: python -m pip install -r tools/requirements-shopping.txt
       - run: python tools/link_product_fits.py --check
+      - run: python tools/build_shopping_guides.py --check
+      - run: python tools/normalize_product_metadata.py --check
+      - run: python tools/audit_discovery.py
       - name: Verify generated references match public pages
         run: |
           python - <<'PY'

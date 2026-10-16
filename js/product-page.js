@@ -3,7 +3,7 @@
 // This is not an Admin API secret; it is scoped for public storefront cart/product operations only.
 const SHOP_DOMAIN='31zn52-zd.myshopify.com';
 const STOREFRONT_TOKEN='5a0bb1dcf0c57b7764bbebf0cc40c898';
-const API_URL=`https://${SHOP_DOMAIN}/api/2025-10/graphql.json`;
+const API_URL=`https://${SHOP_DOMAIN}/api/2026-10/graphql.json`;
 const handle = document.body.dataset.productHandle;
 const WOMEN_FIT_FAMILIES = [[{"handle":"the-anthem-tee-womens","label":"Relaxed","es":"Holgada"},{"handle":"the-anthem-tee-womens-fitted","label":"Fitted","es":"Entallada"}],[{"handle":"the-conga-tee-womens","label":"Relaxed","es":"Holgada"},{"handle":"the-conga-tee-womens-fitted","label":"Fitted","es":"Entallada"}],[{"handle":"the-signature-tee-womens","label":"Relaxed","es":"Holgada"},{"handle":"the-signature-tee-womens-fitted","label":"Fitted","es":"Entallada"}],[{"handle":"the-house-music-tee-womens","label":"Relaxed","es":"Holgada"},{"handle":"the-house-music-tee-womens-fitted","label":"Fitted","es":"Entallada"}],[{"handle":"the-after-hours-tee-womens","label":"Relaxed","es":"Holgada"},{"handle":"the-after-hours-tee-womens-fitted","label":"Fitted","es":"Entallada"}],[{"handle":"the-tempo-tee-womens","label":"Relaxed","es":"Holgada"},{"handle":"the-tempo-tee-womens-fitted","label":"Fitted","es":"Entallada"}],[{"handle":"the-spiritual-thing-tee-womens","label":"Relaxed","es":"Holgada"},{"handle":"the-spiritual-thing-tee-womens-fitted","label":"Fitted","es":"Entallada"}],[{"handle":"the-coordinates-tee-womens","label":"Relaxed","es":"Holgada"},{"handle":"the-coordinates-tee-womens-fitted","label":"Fitted","es":"Entallada"}],[{"handle":"the-sanitary-code-tee-womens","label":"Relaxed","es":"Holgada"},{"handle":"the-sanitary-code-tee-womens-fitted","label":"Fitted","es":"Entallada"}],[{"handle":"the-token-tee-womens","label":"Relaxed","es":"Holgada"},{"handle":"the-token-tee-womens-fitted","label":"Fitted","es":"Entallada"}],[{"handle":"the-soul-tee-womens","label":"Relaxed","es":"Holgada"},{"handle":"the-soul-tee-womens-fitted","label":"Fitted","es":"Entallada"}],[{"handle":"las-malvinas-campeones-tee-womens","label":"Relaxed","es":"Holgada"},{"handle":"las-malvinas-campeones-tee-womens-fitted","label":"Fitted","es":"Entallada"}],[{"handle":"las-malvinas-tee-womens","label":"Relaxed","es":"Holgada"},{"handle":"las-malvinas-tee-womens-fitted","label":"Fitted","es":"Entallada"}],[{"handle":"the-brownstone-dj-tee-womens","label":"Relaxed","es":"Holgada"},{"handle":"the-brownstone-dj-tee-womens-fitted","label":"Fitted","es":"Entallada"}]];
 const WOMEN_FITS = WOMEN_FIT_FAMILIES.flat();
@@ -24,10 +24,24 @@ const T = ES ? {
   viewCart:'VIEW OR EDIT CART', items:'items in your cart', placement:'Product mockups show the artwork and color; print placement may vary slightly.'
 };
 const FRONT_FIRST = new Set(['the-signature-tee','the-signature-tee-womens','the-signature-tee-womens-fitted','the-sanitary-code-tee','the-sanitary-code-tee-womens','the-sanitary-code-tee-womens-fitted']);
-let cartId = localStorage.getItem('flylyfe_cart');
+let cartId = null;
+let cartStorageAvailable = true;
+function storedCartId() {
+  if(!cartStorageAvailable) return cartId;
+  try { return localStorage.getItem('flylyfe_cart'); }
+  catch (_) { cartStorageAvailable=false; return cartId; }
+}
+function rememberCart(id) {
+  cartId=id;
+  try {
+    if(id) localStorage.setItem('flylyfe_cart',id);
+    else localStorage.removeItem('flylyfe_cart');
+  } catch (_) { cartStorageAvailable=false; /* Keep the cart usable on this page. */ }
+}
+cartId=storedCartId();
 let product = null, imageManifest = {}, currentCart = null, busy = false;
 const WOMEN_FEATURED_COLORS = {"the-anthem-tee-womens-fitted": "Black", "the-anthem-tee-womens": "White", "the-conga-tee-womens-fitted": "Soft Cream", "the-conga-tee-womens": "Black", "the-signature-tee-womens-fitted": "White", "the-signature-tee-womens": "Ivory", "the-house-music-tee-womens-fitted": "Black", "the-house-music-tee-womens": "White", "the-after-hours-tee-womens-fitted": "Soft Cream", "the-after-hours-tee-womens": "Black", "the-tempo-tee-womens-fitted": "White", "the-tempo-tee-womens": "Ivory", "the-spiritual-thing-tee-womens-fitted": "Black", "the-spiritual-thing-tee-womens": "White", "the-coordinates-tee-womens-fitted": "Soft Cream", "the-coordinates-tee-womens": "Black", "the-sanitary-code-tee-womens-fitted": "White", "the-sanitary-code-tee-womens": "Ivory", "the-token-tee-womens-fitted": "Black", "the-token-tee-womens": "White", "the-soul-tee-womens-fitted": "Soft Cream", "the-soul-tee-womens": "Black", "las-malvinas-campeones-tee-womens-fitted": "White", "las-malvinas-campeones-tee-womens": "Ivory", "las-malvinas-tee-womens-fitted": "Black", "las-malvinas-tee-womens": "White", "the-brownstone-dj-tee-womens-fitted": "Soft Cream", "the-brownstone-dj-tee-womens": "Black"};
-const state = {color:null, size:null, view:!handle.includes('-womens') && FRONT_FIRST.has(handle) ? 'front' : 'back'};
+const state = {color:null, size:null, guideOpen:false, guideUnit:'in', view:!handle.includes('-womens') && FRONT_FIRST.has(handle) ? 'front' : 'back'};
 const root = document.querySelector('[data-commerce-root]');
 const money = (a, currency='USD') => new Intl.NumberFormat(ES?'es-AR':'en-US', {style:'currency',currency}).format(Number(a));
 const PRODUCT_Q = `query($handle:String!){product(handle:$handle){id handle title vendor descriptionHtml options{name values} featuredImage{url altText} variants(first:100){edges{node{id title availableForSale price{amount currencyCode} image{url altText} selectedOptions{name value}}}}}}`;
@@ -55,17 +69,17 @@ function showCart(cart) {
   if(el) el.textContent=cart?.totalQuantity ? `${cart.totalQuantity} ${T.items} · ${money(cart.cost.subtotalAmount.amount,cart.cost.subtotalAmount.currencyCode)}` : '';
 }
 async function readCart() {
-  cartId=localStorage.getItem('flylyfe_cart');
-  if(!cartId) return null;
+  cartId=storedCartId();
+  if(!cartId) { showCart(null); return null; }
   const {cart}=await gql(`query($id:ID!){cart(id:$id){${CART_FIELDS}}}`,{id:cartId});
-  if(!cart) { cartId=null; localStorage.removeItem('flylyfe_cart'); }
+  if(!cart) rememberCart(null);
   showCart(cart); return cart;
 }
 async function ensureCart() {
   const existing=await readCart(); if(existing) return existing;
   const {cartCreate}=await gql(`mutation{cartCreate{cart{${CART_FIELDS}} userErrors{field message}}}`);
   if(!cartCreate.cart) throw new Error('Cart creation failed');
-  cartId=cartCreate.cart.id; localStorage.setItem('flylyfe_cart',cartId);
+  rememberCart(cartCreate.cart.id);
   showCart(cartCreate.cart); return cartCreate.cart;
 }
 function setBusy(value) {
@@ -114,9 +128,20 @@ function sizeGuide() {
   const label=ES ? `Guía de talles — ${fitted?'entallada':'holgada'}` : `Size guide — ${fitted?'fitted':'relaxed'}`;
   // BELLA+CANVAS 6004 specs and Apliiq Chart_927, verified 2026-10-15.
   const rows=fitted ? [["S", "16", "26.25"], ["M", "16.75", "26.75"], ["L", "17.75", "27.375"], ["XL", "18.75", "28"], ["2XL", "19.75", "28.625"]] : [["S", "18.25", "26.625"], ["M", "20.25", "28"], ["L", "22", "29.375"], ["XL", "24", "30.75"], ["2XL", "26", "31.625"], ["3XL", "27.75", "32.5"]];
-  const chart=`<table><caption>${fitted?'Bella + Canvas 6004':'Comfort Colors 1717'}</caption><thead><tr><th scope="col">${ES?'Talle':'Size'}</th><th scope="col">${ES?'Ancho (pulgadas)':'Chest width (in)'}</th><th scope="col">${ES?'Largo (pulgadas)':'Body length (in)'}</th></tr></thead><tbody>${rows.map(row=>'<tr><th scope="row">'+row[0]+'</th>'+row.slice(1).map(v=>'<td>'+v+'</td>').join('')+'</tr>').join('')}</tbody></table>`;
-  const note=fitted ? (ES?'El corte es pequeño. Medidas de la prenda en pulgadas: ancho en plano y largo desde el punto alto del hombro. Compará con una remera que ya tengas.':'Runs small. Garment measurements in inches: chest width laid flat; body length from the high point of the shoulder. Compare with a tee you own.') : (ES?'Comfort Colors 1717: medidas de la prenda, no del cuerpo. Ancho en plano, una pulgada debajo de la sisa; largo desde el hombro alto hasta el dobladillo trasero. Compará con una remera que ya tengas.':'Comfort Colors 1717 garment measurements, not body measurements. Width is laid flat, one inch below the armhole; length is high shoulder to back hem. Compare a tee you own.');
-  guide.innerHTML=`<summary>${label}</summary><p>${note}</p>${chart}`;
+  const note=fitted ? (ES?'El corte es pequeño. Medidas de la prenda: ancho en plano y largo desde el punto alto del hombro. Compará con una remera que ya tengas.':'Runs small. Garment measurements: chest width laid flat; body length from the high point of the shoulder. Compare with a tee you own.') : (ES?'Comfort Colors 1717: medidas de la prenda, no del cuerpo. Ancho en plano, una pulgada debajo de la sisa; largo desde el hombro alto hasta el dobladillo trasero. Compará con una remera que ya tengas.':'Comfort Colors 1717 garment measurements, not body measurements. Width is laid flat, one inch below the armhole; length is high shoulder to back hem. Compare a tee you own.');
+  guide.innerHTML=`<summary>${label}</summary><p>${note}</p><div class="commerce-unit-controls" role="group" aria-label="${ES?'Unidades de medida':'Measurement units'}"><button type="button" data-unit="in">${ES?'Pulgadas':'Inches'}</button><button type="button" data-unit="cm">cm</button></div><div data-size-chart></div><p class="commerce-measure-note" data-measure-note></p>`;
+  const updateChart=()=>{
+    const unit=state.guideUnit;
+    const value=v=>unit==='cm'?(Number(v)*2.54).toFixed(1):v;
+    const chart=`<table><caption>${fitted?'Bella + Canvas 6004':'Comfort Colors 1717'} · ${unit}</caption><thead><tr><th scope="col">${ES?'Talle':'Size'}</th><th scope="col">${ES?'Ancho':'Chest width'} (${unit})</th><th scope="col">${ES?'Largo':'Body length'} (${unit})</th></tr></thead><tbody>${rows.map(row=>'<tr><th scope="row">'+row[0]+'</th>'+row.slice(1).map(v=>'<td>'+value(v)+'</td>').join('')+'</tr>').join('')}</tbody></table>`;
+    guide.querySelector('[data-size-chart]').innerHTML=chart;
+    guide.querySelectorAll('[data-unit]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.unit===unit)));
+    guide.querySelector('[data-measure-note]').textContent=unit==='cm'?(ES?'Conversión de pulgadas a centímetros, redondeada a 0,1 cm. Las medidas de la prenda pueden variar.':'Converted from inches and rounded to 0.1 cm. Garment measurements may vary.'):(ES?'Medidas de la prenda en pulgadas; pueden variar.':'Garment measurements in inches; measurements may vary.');
+  };
+  guide.querySelectorAll('[data-unit]').forEach(button=>button.addEventListener('click',()=>{state.guideUnit=button.dataset.unit;updateChart();}));
+  guide.open=state.guideOpen;
+  guide.addEventListener('toggle',()=>{if(guide.isConnected)state.guideOpen=guide.open;});
+  updateChart();
   return guide;
 }
 function gallery() {
@@ -161,6 +186,8 @@ function gallery() {
   }
 }
 function render() {
+  const previousGuide=root.querySelector('.commerce-size-guide');
+  if(previousGuide)state.guideOpen=previousGuide.open;
   const colors=optionValues('Color');
   const sizeOrder=['XS','S','M','L','XL','2XL','3XL','4XL'];
   const sizes=optionValues('Size').slice().sort((a,b)=>sizeOrder.indexOf(a)-sizeOrder.indexOf(b));
@@ -183,7 +210,11 @@ function render() {
     const specline=document.querySelector('.seo-specline');if(specline)specline.textContent='';
 
   }
-  root.querySelector('[data-sizes]').after(sizeGuide());
+  const chart=sizeGuide();
+  root.querySelector('[data-sizes]').after(chart);
+  const fitGuide=document.createElement('a');fitGuide.className='commerce-fit-link';fitGuide.href='/fit-guide/';
+  fitGuide.textContent=ES?'Comparar cortes y cómo medir (en inglés) →':'Compare fits & how to measure →';
+  chart.after(fitGuide);
   const policy=document.createElement('p');policy.className='commerce-policy';
   policy.innerHTML=ES ? 'Producción: 7–10 días hábiles, más envío. Envío calculado al finalizar la compra. Devoluciones dentro de 30 días de la entrega, sin uso ni lavado; el cliente paga el envío de devolución. <a href="/faq.html#shipping">Envíos</a> · <a href="/faq.html#returns">Devoluciones</a>' : 'Printed to order: 7–10 business days, plus delivery. Shipping calculated at checkout. 30-day returns on unworn, unwashed tees; customer pays return shipping. <a href="/faq.html#shipping">Shipping</a> · <a href="/faq.html#returns">Returns</a>';
   root.querySelector('[data-checkout]').after(policy);
